@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<session-config>
+		<session-timeout>720</session-timeout><!-- 세션 시간(분) 설정 -->
+	</session-config>
+
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>enablePooling</param-name>
+			<param-value>false</param-value> <!-- 톰캣 메모리 풀링방지 -->
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<error-page>
+		<error-code>400</error-code>
+		<location>/WEB-INF/view/errors/error400.jsp</location>
+	</error-page>
+
+	<error-page>
+		<error-code>403</error-code>
+		<location>/WEB-INF/view/errors/error403.jsp</location>
+	</error-page>
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/view/errors/error404.jsp</location>
+	</error-page>
+
+	<error-page>
+		<error-code>500</error-code>
+		<location>/WEB-INF/view/errors/error500.jsp</location>
+	</error-page>
+
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/WEB-INF/view/errors/errorTh.jsp</location>
+	</error-page>
+
+
+	<!-- 여기부터 재설정 --><!-- 통합설정 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:applicationContext.xml
+		</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<servlet><!-- 이걸로 기능 통합 -->
+		<servlet-name>pub</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>
+			classpath:/controller/pub-controll.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>enablePooling</param-name>
+			<param-value>false</param-value><!-- 톰캣 메모리 풀링방지 -->
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>pub</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 뷰 전용 -->
+	<servlet>
+		<servlet-name>user</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>
+			classpath:/controller/user-controll.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>enablePooling</param-name>
+			<param-value>false</param-value><!-- 톰캣 메모리 풀링방지 -->
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>user</servlet-name>
+		<url-pattern>*.udo</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>manager</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:/controller/manager-controller.xml</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>manager</servlet-name>
+		<url-pattern>*.mdo</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>admin</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:/controller/admin-controller.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>enablePooling</param-name>
+			<param-value>false</param-value><!-- 톰캣 메모리 풀링방지 -->
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>admin</servlet-name>
+		<url-pattern>*.ado</url-pattern>
+	</servlet-mapping>
+
+</web-app>
