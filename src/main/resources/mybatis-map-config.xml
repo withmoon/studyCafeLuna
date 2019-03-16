@@ -28,7 +28,9 @@
 		<!-- 룸 리뷰 관련 -->
 		<typeAlias alias="roomReview"
 			type="study.cafe.luna.room.dto.RoomReviewDTO" />
-
+		<!-- 이용가이드 -->
+		<typeAlias alias="htuse"
+			type="study.cafe.luna.howtouse.dto.HowToUseDTO" />
 
 	</typeAliases>
 
@@ -43,7 +45,8 @@
 		<mapper resource="mapping/review-mapper.xml" />
 		<!-- 랭크 관련 -->
 		<mapper resource="mapping/rank-mapper.xml" />
-	
+		<!-- 이용가이드 관련 -->
+		<mapper resource="mapping/howtouse-mapper.xml" />
 
 	</mappers>
 

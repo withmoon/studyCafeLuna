@@ -30,7 +30,7 @@ import study.cafe.luna.roomrank.service.RoomRankServicie;
 import study.cafe.luna.util.SHA256;
 
 @Controller
-public class UserHomeController {
+public class HomeController {
 	
 	@Autowired
 	MemberService memser;

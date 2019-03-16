@@ -1,10 +1,5 @@
 package study.cafe.luna.payment.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 public class RoomPaymentDTO {
 	int seq; //로그번호
 	String imp_uid; //고유번호

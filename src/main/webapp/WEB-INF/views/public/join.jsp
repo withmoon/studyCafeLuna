@@ -14,8 +14,8 @@
 	<a href="../Home/Home.jsp" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 	<div class="top">회원가입</div>
 <ul class="topUl">
-<li><a href="<c:url value="/home.udo"/>">홈으로</a></li>
-<li><a href="<c:url value="/inform.udo"/>">고객센터</a></li>
+<li><a href="<c:url value="/home.do"/>">홈으로</a></li>
+<li><a href="<c:url value="/inform.do"/>">고객센터</a></li>
 </ul>
 	<!-- 회원가입 버튼 -->
 	<section>
@@ -57,7 +57,7 @@
 		</c:if>
 		
 		<!-- 회원가입 폼 -->
-		<form class="join" name="join" action="join/home.udo" enctype="multipart/form-data" onsubmit="return inputCheck()" method="post">
+		<form class="join" name="join" action="join/home.do" enctype="multipart/form-data" onsubmit="return inputCheck()" method="post">
 		
 			<img class="line" src="<c:url value="/resources/public/images/line.png"/>"/>
 			<input type="hidden" name="kid" value="${kid}"/>
@@ -144,7 +144,7 @@
 			</table>
 			
 			<div id="imgSumnail"><img id="imgsum"></div>
-			<div align="center"><input type="button" onclick="javascript:window.location.href='home.udo'" value="취소">&emsp;<input type="submit" value="회원가입"></div>
+			<div align="center"><input type="button" onclick="javascript:window.location.href='home.do'" value="취소">&emsp;<input type="submit" value="회원가입"></div>
 			<img class="line" src="<c:url value="/resources/public/images/line.png"/>"/>
 		</form>
 	</section>

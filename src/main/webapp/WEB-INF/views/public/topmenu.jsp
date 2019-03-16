@@ -23,26 +23,20 @@
 			<c:if test="${member.id ne null}">
 			<c:if test="${member.position ne null}"	>
 				<c:if test="${member.position eq '총관리자' || member.position eq '관리자' }">
-					<li><button onclick="javascript:window.location.href='admin.ado'">관리자 모드</button> </li>
+					<li><button onclick="javascript:window.location.href='admin.do'">관리자 모드</button> </li>
 					</c:if>
 			</c:if>
 				<li><a class="lgoutli" href="<c:url value='/logout.do'/>"><img src="<c:url value="/resources/public/images/LogOut.gif"/>"/></a></li>
-				<li><a href="<c:url value="/mypage.udo"/>"><img src="<c:url value="/resources/public/images/mypage.gif"/>"/></a></li>
+				<li><a href="<c:url value="/mypage.do"/>"><img src="<c:url value="/resources/public/images/mypage.gif"/>"/></a></li>
 			</c:if>
 		</ul>
 		
-		<!-- <div class="button">
-			<form action="moveAdminMode.ado" method="post">
-				
-			</form> 
-		</div>-->
-		
 		<ul class="topUl">
-			<li class="topfound" onclick="location.href='<c:url value="/useGuide.udo"/>'">이용가이드</li>
-			<li class="topfound" onclick="location.href='<c:url value="/foundbranch.udo"/>'">근처 장소 찾기</li>
-			<li class="toplookover" onclick="location.href='<c:url value="/lookover.udo"/>'">공간 둘러보기</li>
-			<li class="topevent" onclick="location.href='<c:url value="/event.udo"/>'">이벤트</li>
-			<li class="topfound" onclick="location.href='<c:url value="/inform.udo"/>'">고객 센터</li>
+			<li class="topfound" onclick="location.href='<c:url value="/useGuide.do"/>'">이용가이드</li>
+			<li class="topfound" onclick="location.href='<c:url value="/foundbranch.do"/>'">근처 장소 찾기</li>
+			<li class="toplookover" onclick="location.href='<c:url value="/lookover.do"/>'">공간 둘러보기</li>
+			<li class="topevent" onclick="location.href='<c:url value="/event.do"/>'">이벤트</li>
+			<li class="topfound" onclick="location.href='<c:url value="/inform.do"/>'">고객 센터</li>
 
 		</ul>
 </body>

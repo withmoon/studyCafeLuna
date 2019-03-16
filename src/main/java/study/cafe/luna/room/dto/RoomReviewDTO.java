@@ -1,10 +1,5 @@
 package study.cafe.luna.room.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 public class RoomReviewDTO {
 	 int roomNum;
      String reviewContent;
