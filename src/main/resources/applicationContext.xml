@@ -17,7 +17,7 @@
 
 
 	<context:component-scan
-		base-package="com.study.luna">
+		base-package="study.cafe.luna">
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
@@ -30,23 +30,13 @@
 
 	<context:property-placeholder location="classpath:database.properties" />
 
- 	<bean id="dataSourceSpied" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+ 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="${jdbc.driver}" />
 		<property name="url" value="${jdbc.url}" />
 		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
     </bean>
-
-	<bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
-	 	<constructor-arg ref="dataSourceSpied" />
-	 	<property name="logFormatter">
-            <bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
-                <property name="loggingType" value="MULTI_LINE" />
-                <property name="sqlPrefix" value="SQL         :  "/>
-            </bean>
-        </property>
-	</bean>
-
+    
 	<!-- 메일보내기 -->
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com" />
@@ -82,7 +72,7 @@
 	</tx:advice>
 
 	<aop:config>
-		<aop:pointcut id="txPointcut" expression="execution(* com.study.luna..*(..))" />
+		<aop:pointcut id="txPointcut" expression="execution(* study.cafe.luna..*(..))" />
 		<aop:advisor pointcut-ref="txPointcut"
 			advice-ref="txAdvice" />
 	</aop:config>

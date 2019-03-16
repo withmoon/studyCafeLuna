@@ -25,22 +25,22 @@
 <!-- 이동 경로 -->
 <section id="sec">
 	<ul>
-		<li><a href="home.udo">&nbsp;홈으로&nbsp;</a></li><!--../Home/home.jsp  -->
-		<li><a href="lookover.udo">&nbsp;바로 예약&nbsp;</a></li><!-- ../LookOver/LookOver.jsp -->
-		<li><a href="foundbranch.udo">&nbsp;주변 지점 찾기&nbsp;</a></li><!-- ../Found/FoundBranch.jsp -->
+		<li><a href="home.do">&nbsp;홈으로&nbsp;</a></li><!--../Home/home.jsp  -->
+		<li><a href="lookover.do">&nbsp;바로 예약&nbsp;</a></li><!-- ../LookOver/LookOver.jsp -->
+		<li><a href="foundbranch.do">&nbsp;주변 지점 찾기&nbsp;</a></li><!-- ../Found/FoundBranch.jsp -->
 	</ul>
 	</section>
 <!-- 이벤트  로그인/회원가입 -->
 <nav> 
 <ul class="topUl">
-<li><a href="<c:url value="/event.udo"/>">이벤트</a></li>
+<li><a href="<c:url value="/event.do"/>">이벤트</a></li>
 <c:if test="${member.id eq null }">
 <li>&emsp;&nbsp;&nbsp;</li>
 <li><a href="login.do">로그인&nbsp;/&nbsp;회원가입</a></li><!-- login.do -->
 </c:if>
 <c:if test="${member.id ne null }">
 <li>&emsp;&nbsp;&nbsp;</li>
-<li><a href="<c:url value="mypage.udo"/>">마이페이지</a></li>
+<li><a href="<c:url value="mypage.do"/>">마이페이지</a></li>
 <li>&emsp;&nbsp;&nbsp;</li>
 <li><a href="<c:url value='/logout.do'/>">로그아웃</a></li>
 </c:if>

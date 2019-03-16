@@ -6,78 +6,29 @@
 	<typeAliases>
 		<!-- 마이페이지 전용 -->
 		<typeAlias alias="myPageInfo"
-			type="com.study.luna.user.dto.MyPageInfoDTO" />
+			type="study.cafe.luna.room.dto.MyPageInfoDTO" />
 		<!-- 멤버 -->
 		<typeAlias alias="member"
-			type="com.study.luna.pub.command.MemberCommand" />
+			type="study.cafe.luna.member.dto.MemberDTO" />
 		<!-- 룸 정보관련 -->
 		<typeAlias alias="roomInfo"
-			type="com.study.luna.user.dto.RoomInfoDTO" />
+			type="study.cafe.luna.room.dto.RoomInfoDTO" />
 		<!-- 룸 이미지 관련 -->
 		<typeAlias alias="roomFile"
-			type="com.study.luna.user.dto.RoomFileDTO" />
+			type="study.cafe.luna.room.dto.RoomFileDTO" />
 		<!-- 룸 예약관련 -->
 		<typeAlias alias="roomReserve"
-			type="com.study.luna.user.dto.RoomReserveDTO" />
+			type="study.cafe.luna.payment.dto.RoomReserveDTO" />
 		<!-- 룸 결제 관련 -->
 		<typeAlias alias="roomPay"
-			type="com.study.luna.user.dto.RoomPaymentDTO" />
+			type="study.cafe.luna.payment.dto.RoomPaymentDTO" />
 		<!-- 룸 랭크 관련 -->
 		<typeAlias alias="roomRank"
-			type="com.study.luna.user.dto.RoomRankDTO" />
+			type="study.cafe.luna.roomrank.dto.RoomRankDTO" />
 		<!-- 룸 리뷰 관련 -->
 		<typeAlias alias="roomReview"
-			type="com.study.luna.user.dto.RoomReviewDTO" />
-			
-			<!--  -----------------------------------------------작업주 ----- -->
-					<!-- User,Admin -->
-		<typeAlias alias="htuse"
-			type="com.study.luna.pub.command.HowToUseDTO" />
-		<!-- 룸 찜 꽌련 -->
-		<typeAlias alias="kroom"
-			type="com.study.luna.user.dto.KeepRoomDTO" />
-		<!-- 회원 알림 관련 -->
-		<typeAlias alias="alam"
-			type="com.study.luna.user.dto.AlamDTO" />
-		<typeAlias alias="eReply"
-			type="com.study.luna.user.comment.vo.EventReplyVO" />
-		<typeAlias alias="nReply"
-			type="com.study.luna.user.comment.vo.NoticeReplyVO" />
+			type="study.cafe.luna.room.dto.RoomReviewDTO" />
 
-
-
-		<!-- Manager,Admin -->
-		<typeAlias alias="report"
-			type="com.study.luna.pub.command.ReportDTO" />
-		<typeAlias alias="reportReply"
-			type="com.study.luna.pub.command.ReportReplyDTO" />
-
-		<!-- Manager -->
-		<typeAlias alias="QBoard"
-			type="com.study.luna.mg.model.QBoardVO" />
-		<typeAlias alias="Room"
-			type="com.study.luna.mg.model.RoomVO" />
-		<typeAlias alias="Sales"
-			type="com.study.luna.mg.model.SalesVO" />
-		<typeAlias alias="File"
-			type="com.study.luna.mg.model.uploadfileVO" />
-		<typeAlias alias="manager"
-			type="com.study.luna.mg.model.managerVO" />
-		<typeAlias alias="Statistics"
-			type="com.study.luna.mg.model.StatisticsVO" />
-		<typeAlias alias="ReserveTime"
-			type="com.study.luna.mg.model.ReserveTimeVO" />
-
-
-		<!-- Admin -->
-		<typeAlias alias="adminQnABoardVO"
-			type="com.study.luna.admin.model.vo.AdminQnABoardVO" />
-		<typeAlias alias="adminEventBoardVO"
-			type="com.study.luna.admin.model.vo.AdminEventBoardVO" />
-		<typeAlias alias="adminManagerApproveVO"
-			type="com.study.luna.admin.model.vo.AdminManagerApproveVO" />
-		<typeAlias alias="adminNoticeBoardVO"
-			type="com.study.luna.admin.model.vo.AdminNoticeBoardVO" />
 
 	</typeAliases>
 
@@ -92,34 +43,7 @@
 		<mapper resource="mapping/review-mapper.xml" />
 		<!-- 랭크 관련 -->
 		<mapper resource="mapping/rank-mapper.xml" />
-		<!-- ---------------------------------작업중------------------------ -->
-		<!-- 이용가이드 관련 -->
-		<mapper resource="mapping/howtouse-mapper.xml" />
-		<!-- 알림질문 -->
-		<mapper resource="mapping/alam-mapper.xml" />
-		<!-- 찜관련 -->
-		<mapper resource="mapping/keeproom-mapper.xml" />
-		<!-- 관리자 -->
-		<mapper resource="mapping/admin-mapper.xml" />
-		<!-- 이벤트 -->
-		<mapper resource="mapping/eventBoard-mapper.xml" />
-		<!-- 이벤트 답변 -->
-		<mapper resource="mapping/eventReply-mapper.xml" />
-		<!-- 공지사항 -->
-		<mapper resource="mapping/noticeBoard-mapper.xml" />
-		<!-- 공지사항 답변 -->
-		<mapper resource="mapping/noticeReply-mapper.xml" />
-		<!-- 자주묻는질문 -->
-		<mapper resource="mapping/qnaBoard-mapper.xml" />
-		<!-- 리포트 관련 --><!-- 지점장, 관리자 -->
-		<mapper resource="mapping/report-mapper.xml" />
-		<!-- 지점장 -->
-		<mapper resource="mapping/manager-mapper.xml" />
-		<mapper resource="mapping/mgQBoard-mapper.xml" />
-		<mapper resource="mapping/mgRoom-mapper.xml" />
-		<mapper resource="mapping/mgSales-mapper.xml" />
-		<mapper resource="mapping/mgSalesReserve-mapper.xml" />
-		<mapper resource="mapping/mgReserveTime-mapper.xml" />
+	
 
 	</mappers>
 

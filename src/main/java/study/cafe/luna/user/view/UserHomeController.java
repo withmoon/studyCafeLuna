@@ -20,12 +20,13 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
-import com.study.luna.user.dto.RoomRankDTO;
-
 import study.cafe.luna.member.dto.MemberDTO;
 import study.cafe.luna.member.service.GetMemberPositionService;
 import study.cafe.luna.member.service.MemberService;
+import study.cafe.luna.payandreserve.service.PayAndReserveService;
 import study.cafe.luna.room.service.RoomService;
+import study.cafe.luna.roomrank.dto.RoomRankDTO;
+import study.cafe.luna.roomrank.service.RoomRankServicie;
 import study.cafe.luna.util.SHA256;
 
 @Controller
@@ -35,17 +36,17 @@ public class UserHomeController {
 	MemberService memser;
 	@Autowired
 	RoomService roomser;
-	/*	@Autowired
+	@Autowired
 	PayAndReserveService parser;
 	@Autowired
-	RoomRankServicie rrkser;*/
+	RoomRankServicie rrkser;
 	@Autowired
 	GetMemberPositionService getMemberPositionService;
 	
 	String filePath = "C:\\myProject\\myMainProject\\NewLuna\\Luna\\src\\main\\webapp\\resources\\branchImg\\";
 
 	//카카오로그인
-	@RequestMapping(value="kakao/home.udo", method=RequestMethod.GET)
+	@RequestMapping(value="kakao/home.do", method=RequestMethod.GET)
 	public ModelAndView homeViewtget(RedirectAttributes rdab,MemberDTO memcom,HttpServletRequest request) {
 		ModelAndView mav=new ModelAndView();
 		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
@@ -53,12 +54,12 @@ public class UserHomeController {
 		
 		rdab.addFlashAttribute("id", memcom.getId());
 		
-		mav.setViewName("redirect:/home.udo");
+		mav.setViewName("redirect:/home.do");
 		return mav;
 	}
 	
 	//회원가입 로그인
-	@RequestMapping(value="/join/home.udo", method=RequestMethod.POST)
+	@RequestMapping(value="/join/home.do", method=RequestMethod.POST)
 	public ModelAndView homeloginView(MultipartHttpServletRequest mpreq,HttpServletResponse response,RedirectAttributes rdab,MemberDTO memcom,@RequestParam(value="kid",required=false,defaultValue="") String kid, @RequestParam(value="knic",required=false,defaultValue="") String knic) throws Exception {
 		ModelAndView mav=new ModelAndView();
 		int result =0;
@@ -107,7 +108,7 @@ public class UserHomeController {
 		}
 		//회원은 회원으로 
 		if(branchName==null) {
-			mav.setViewName("redirect:/home.udo");
+			mav.setViewName("redirect:/home.do");
 			return mav;
 		}else{ //지점장 회원가입시 alert띄우고 메인으로 돌아옴
 			response.setContentType("text/html; charset=UTF-8");
@@ -120,7 +121,7 @@ public class UserHomeController {
 	}
 	
 	//홈
-	@RequestMapping(value="/home.udo", method=RequestMethod.GET)
+	@RequestMapping(value="/home.do", method=RequestMethod.GET)
 	public ModelAndView homeView(MemberDTO memcom,HttpServletRequest request,HttpSession session) throws Exception {
 		ModelAndView mav=new ModelAndView();
 		memcom=(MemberDTO)session.getAttribute("member");
@@ -133,7 +134,6 @@ public class UserHomeController {
 		if(memcom!=null){
 			memcom=getMemberPositionService.getMemberPosition(memcom.getId());
 		}
-			
 		session.setAttribute("member", memcom);
 		
 		List<String> sido=roomser.getSido();
@@ -166,7 +166,7 @@ public class UserHomeController {
 		
 		mav.addObject("member",memcom);
 
-		mav.setViewName("home");
+		mav.setViewName("/user/home");
 		return mav;
 	}
 }
