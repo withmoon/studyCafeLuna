@@ -1,4 +1,4 @@
-package study.cafe.luna.view;
+package study.cafe.luna.user.view;
 
 import java.util.Map;
 
@@ -15,17 +15,17 @@ import study.cafe.luna.member.dto.MemberCommand;
 /**
  * 
  * @author saeah
- * ¿©±ä ¸ÞÀÎ ºäÀÔ´Ï´Ù.
+ * ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô´Ï´ï¿½.
  *
  */
 @Controller
 public class MainViewController {
 	
-	//¸ÞÀÎ ÆÇ¶§±â ºä ÀÔ´Ï´Ù.
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¶ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ô´Ï´ï¿½.
 	@RequestMapping(value="/main.do", method=RequestMethod.GET)
 	public ModelAndView mainView(HttpSession session,MemberCommand memcom,HttpServletRequest request) {
 		ModelAndView mav=new ModelAndView();
-		//?—¬?„œë¶??„°
+		//?ï¿½ï¿½?ï¿½ï¿½ï¿½??ï¿½ï¿½
 		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
 		if(flashMap!=null) {
 			memcom.setId(flashMap.get("id").toString());
@@ -34,7 +34,7 @@ public class MainViewController {
 			memcom=(MemberCommand)session.getAttribute("member");
 		}
 		session.setAttribute("member", memcom);
-		//?—¬ê¹Œì? ê³ ì¹¨
+		//?ï¿½ï¿½ê¹Œï¿½? ê³ ì¹¨
 		mav.setViewName("/public/mainpage");
 		return mav;
 	}
