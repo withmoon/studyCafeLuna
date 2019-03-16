@@ -21,13 +21,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.study.luna.user.dto.RoomRankDTO;
-import com.study.luna.user.payandreserv.service.PayAndReserveService;
-import com.study.luna.user.room.service.RoomService;
-import com.study.luna.user.roomrank.service.RoomRankServicie;
 
-import study.cafe.luna.member.dto.MemberCommand;
+import study.cafe.luna.member.dto.MemberDTO;
 import study.cafe.luna.member.service.GetMemberPositionService;
 import study.cafe.luna.member.service.MemberService;
+import study.cafe.luna.room.service.RoomService;
 import study.cafe.luna.util.SHA256;
 
 @Controller
@@ -35,9 +33,9 @@ public class UserHomeController {
 	
 	@Autowired
 	MemberService memser;
-/*	@Autowired
-	RoomService roomser;
 	@Autowired
+	RoomService roomser;
+	/*	@Autowired
 	PayAndReserveService parser;
 	@Autowired
 	RoomRankServicie rrkser;*/
@@ -48,7 +46,7 @@ public class UserHomeController {
 
 	//카카오로그인
 	@RequestMapping(value="kakao/home.udo", method=RequestMethod.GET)
-	public ModelAndView homeViewtget(RedirectAttributes rdab,MemberCommand memcom,HttpServletRequest request) {
+	public ModelAndView homeViewtget(RedirectAttributes rdab,MemberDTO memcom,HttpServletRequest request) {
 		ModelAndView mav=new ModelAndView();
 		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
 		memcom.setId(flashMap.get("id").toString());
@@ -61,7 +59,7 @@ public class UserHomeController {
 	
 	//회원가입 로그인
 	@RequestMapping(value="/join/home.udo", method=RequestMethod.POST)
-	public ModelAndView homeloginView(MultipartHttpServletRequest mpreq,HttpServletResponse response,RedirectAttributes rdab,MemberCommand memcom,@RequestParam(value="kid",required=false,defaultValue="") String kid, @RequestParam(value="knic",required=false,defaultValue="") String knic) throws Exception {
+	public ModelAndView homeloginView(MultipartHttpServletRequest mpreq,HttpServletResponse response,RedirectAttributes rdab,MemberDTO memcom,@RequestParam(value="kid",required=false,defaultValue="") String kid, @RequestParam(value="knic",required=false,defaultValue="") String knic) throws Exception {
 		ModelAndView mav=new ModelAndView();
 		int result =0;
 		if(kid.equals("")) {
@@ -123,9 +121,9 @@ public class UserHomeController {
 	
 	//홈
 	@RequestMapping(value="/home.udo", method=RequestMethod.GET)
-	public ModelAndView homeView(MemberCommand memcom,HttpServletRequest request,HttpSession session) throws Exception {
+	public ModelAndView homeView(MemberDTO memcom,HttpServletRequest request,HttpSession session) throws Exception {
 		ModelAndView mav=new ModelAndView();
-		memcom=(MemberCommand)session.getAttribute("member");
+		memcom=(MemberDTO)session.getAttribute("member");
 		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);	
 		
 		if(flashMap!=null) {
@@ -148,7 +146,7 @@ public class UserHomeController {
 		
 		List<RoomRankDTO> reviewranklist=rrkser.getRoomReviewRank();
 		List<RoomRankDTO> reserveranklist=rrkser.getRoomReserveRank();
-		List<MemberCommand> newBranchList=rrkser.getNewBranch();
+		List<MemberDTO> newBranchList=rrkser.getNewBranch();
 		List<RoomRankDTO> newReviewList=rrkser.getNewReview(); 
 		
 		mav.addObject("sido",sido);

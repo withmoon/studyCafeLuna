@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
-import study.cafe.luna.member.dto.MemberCommand;
+import study.cafe.luna.member.dto.MemberDTO;
 /**
  * 
  * @author saeah
@@ -23,7 +23,7 @@ public class MainViewController {
 	
 	//���� �Ƕ��� �� �Դϴ�.
 	@RequestMapping(value="/main.do", method=RequestMethod.GET)
-	public ModelAndView mainView(HttpSession session,MemberCommand memcom,HttpServletRequest request) {
+	public ModelAndView mainView(HttpSession session,MemberDTO memcom,HttpServletRequest request) {
 		ModelAndView mav=new ModelAndView();
 		//?��?���??��
 		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
@@ -31,7 +31,7 @@ public class MainViewController {
 			memcom.setId(flashMap.get("id").toString());
 			session.setAttribute("member", memcom);
 		}else {
-			memcom=(MemberCommand)session.getAttribute("member");
+			memcom=(MemberDTO)session.getAttribute("member");
 		}
 		session.setAttribute("member", memcom);
 		//?��까�? 고침

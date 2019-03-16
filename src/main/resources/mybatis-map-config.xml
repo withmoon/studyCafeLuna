@@ -10,11 +10,39 @@
 		<!-- 멤버 -->
 		<typeAlias alias="member"
 			type="com.study.luna.pub.command.MemberCommand" />
+		<!-- 룸 정보관련 -->
+		<typeAlias alias="roomInfo"
+			type="com.study.luna.user.dto.RoomInfoDTO" />
+		<!-- 룸 이미지 관련 -->
+		<typeAlias alias="roomFile"
+			type="com.study.luna.user.dto.RoomFileDTO" />
+		<!-- 룸 예약관련 -->
+		<typeAlias alias="roomReserve"
+			type="com.study.luna.user.dto.RoomReserveDTO" />
+		<!-- 룸 결제 관련 -->
+		<typeAlias alias="roomPay"
+			type="com.study.luna.user.dto.RoomPaymentDTO" />
+		<!-- 룸 랭크 관련 -->
+		<typeAlias alias="roomRank"
+			type="com.study.luna.user.dto.RoomRankDTO" />
+		<!-- 룸 리뷰 관련 -->
+		<typeAlias alias="roomReview"
+			type="com.study.luna.user.dto.RoomReviewDTO" />
+
 	</typeAliases>
 
 	<mappers>
 		<!-- 회원 관련 -->
 		<mapper resource="mapping/member-mapper.xml" />
+		<!-- 룸 관련 -->
+		<mapper resource="mapping/room-mapper.xml" />
+		<!-- 예약/결제 관련 -->
+		<mapper resource="mapping/payment-mapper.xml" />
+		<!-- 예약관련 -->
+		<mapper resource="mapping/review-mapper.xml" />
+		<!-- 랭크 관련 -->
+		<mapper resource="mapping/rank-mapper.xml" />
+
 	</mappers>
 
 

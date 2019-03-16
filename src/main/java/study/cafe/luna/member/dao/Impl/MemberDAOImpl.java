@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import study.cafe.luna.member.dao.MemberDAO;
-import study.cafe.luna.member.dto.MemberCommand;
+import study.cafe.luna.member.dto.MemberDTO;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO{
@@ -33,7 +33,7 @@ public class MemberDAOImpl implements MemberDAO{
 		sqlSession.delete("memberDAO.deleteAdmin",id);
 	}
 	@Override
-	public List<MemberCommand> getAdminList() {
+	public List<MemberDTO> getAdminList() {
 		return sqlSession.selectList("memberDAO.getAdminList");
 	}
 
@@ -46,30 +46,30 @@ public class MemberDAOImpl implements MemberDAO{
 		return sqlSession.selectOne("memberDAO.getBrName",id);
 	}
 	@Override
-	public MemberCommand getMyPageInfo(MemberCommand memcom) {
-		return (MemberCommand) sqlSession.selectOne("memberDAO.getMyPageInfo",memcom);
+	public MemberDTO getMyPageInfo(MemberDTO memcom) {
+		return (MemberDTO) sqlSession.selectOne("memberDAO.getMyPageInfo",memcom);
 	}
 	@Override
-	public int getStatus(MemberCommand memcom) {
+	public int getStatus(MemberDTO memcom) {
 		return sqlSession.selectOne("memberDAO.getStatus",memcom);
 	}
 	@Override
-	public Integer idCheck(MemberCommand memcom) {	
+	public Integer idCheck(MemberDTO memcom) {	
 		return sqlSession.selectOne("memberDAO.idCheck", memcom);
 	}
 
 	@Override
-	public void insertAdmin(MemberCommand memcom) {
+	public void insertAdmin(MemberDTO memcom) {
 		sqlSession.insert("memberDAO.insertAdmin",memcom);
 	}
 	@Override
-	public void insertMember(MemberCommand memcom) {
+	public void insertMember(MemberDTO memcom) {
 		sqlSession.insert("memberDAO.insertMember",memcom);
 	}
 
 	// 회원갯수
 	@Override
-	public List<MemberCommand> memberList(int start, int end) {
+	public List<MemberDTO> memberList(int start, int end) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("start", start);
 		map.put("end", end);
@@ -85,7 +85,7 @@ public class MemberDAOImpl implements MemberDAO{
 
 	// 지점장 목록
 	@Override
-	public List<MemberCommand> infoList(int start, int end) {
+	public List<MemberDTO> infoList(int start, int end) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("start", start);
 		map.put("end", end);
@@ -101,7 +101,7 @@ public class MemberDAOImpl implements MemberDAO{
 
 	// 지점장승인
 	@Override
-	public List<MemberCommand> approveList(int start, int end) {
+	public List<MemberDTO> approveList(int start, int end) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("start", start);
 		map.put("end", end);
@@ -116,7 +116,7 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 	//회원전체 검색용
 	@Override
-	public List<MemberCommand> getAllMember(int start,int end,String searchOption, String keyword) {
+	public List<MemberDTO> getAllMember(int start,int end,String searchOption, String keyword) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
@@ -134,7 +134,7 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 	//아이디에대한 포지션 가져오기
 	@Override
-	public MemberCommand getMemberPosition(String id) {
+	public MemberDTO getMemberPosition(String id) {
 		return sqlSession.selectOne("memberDAO.getMemberPosition",id);
 	}
 
@@ -144,17 +144,17 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 
 	@Override
-	public String findId(MemberCommand memcom) {
+	public String findId(MemberDTO memcom) {
 		return sqlSession.selectOne("memberDAO.findId",memcom);
 	}
 
 	@Override
-	public String findpw(MemberCommand memcom) {
+	public String findpw(MemberDTO memcom) {
 		return sqlSession.selectOne("memberDAO.findpw",memcom);
 	}
 
 	@Override
-	public void changePW(MemberCommand memcom) {
+	public void changePW(MemberDTO memcom) {
 		sqlSession.update("memberDAO.changePW",memcom);
 	}
 	@Override
@@ -166,11 +166,11 @@ public class MemberDAOImpl implements MemberDAO{
 		return sqlSession.selectOne("memberDAO.getPass",id);
 	}
 	@Override
-	public void updateAdmin(MemberCommand memcom) {
+	public void updateAdmin(MemberDTO memcom) {
 		sqlSession.update("memberDAO.updateAdmin",memcom);
 	}
 	@Override
-	public void upUserInfo(MemberCommand memcom) {
+	public void upUserInfo(MemberDTO memcom) {
 		sqlSession.update("memberDAO.upMyPageInfo",memcom);
 	}
 	@Override

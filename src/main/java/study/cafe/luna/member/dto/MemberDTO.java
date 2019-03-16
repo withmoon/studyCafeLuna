@@ -2,7 +2,7 @@ package study.cafe.luna.member.dto;
 
 import org.springframework.web.multipart.MultipartFile;
 
-public class MemberCommand {
+public class MemberDTO {
 	//memberDAO
 	String kid;
 	String id;

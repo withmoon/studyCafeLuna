@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import study.cafe.luna.member.dao.MemberDAO;
-import study.cafe.luna.member.dto.MemberCommand;
+import study.cafe.luna.member.dto.MemberDTO;
 import study.cafe.luna.member.service.MemberService;
 import study.cafe.luna.util.SHA256;
 
@@ -18,12 +18,12 @@ public class MemberServiceImpl implements MemberService{
 	MemberDAO memd;
 	
 	@Override
-	public Integer idCheck(MemberCommand memcom) {		
+	public Integer idCheck(MemberDTO memcom) {		
 		return memd.idCheck(memcom);
 	}
 
 	@Override
-	public void insertMember(MemberCommand memcom) {
+	public void insertMember(MemberDTO memcom) {
 		memd.insertMember(memcom);
 	}
 
@@ -45,16 +45,16 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public int getStatus(MemberCommand memcom) {
+	public int getStatus(MemberDTO memcom) {
 		return memd.getStatus(memcom);
 	}
 	@Override
-	public MemberCommand getMyPageInfo(MemberCommand memcom) {
+	public MemberDTO getMyPageInfo(MemberDTO memcom) {
 		return memd.getMyPageInfo(memcom);
 	}
 
 	@Override
-	public void upUserInfo(MemberCommand memcom) {
+	public void upUserInfo(MemberDTO memcom) {
 		memd.upUserInfo(memcom);
 	}
 
@@ -75,7 +75,7 @@ public class MemberServiceImpl implements MemberService{
 
 	//회원정보
 	@Override
-	public List<MemberCommand> memberList(int start, int end, HttpSession session) {
+	public List<MemberDTO> memberList(int start, int end, HttpSession session) {
 		return memd.memberList(start, end);
 	}
 
@@ -87,7 +87,7 @@ public class MemberServiceImpl implements MemberService{
 
 	//지점장 목록
 	@Override
-	public List<MemberCommand> infoList(int start, int end, HttpSession session) {
+	public List<MemberDTO> infoList(int start, int end, HttpSession session) {
 		return memd.infoList(start, end);
 	}
 
@@ -99,7 +99,7 @@ public class MemberServiceImpl implements MemberService{
 
 	//지점장 승인
 	@Override
-	public List<MemberCommand> approveList(int start, int end, HttpSession session) {
+	public List<MemberDTO> approveList(int start, int end, HttpSession session) {
 		return memd.approveList(start, end);
 	}
 
@@ -118,17 +118,17 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public List<MemberCommand> getAdminList() {
+	public List<MemberDTO> getAdminList() {
 		return memd.getAdminList();
 	}
 
 	@Override
-	public void insertAdmin(MemberCommand memcom) {
+	public void insertAdmin(MemberDTO memcom) {
 		memd.insertAdmin(memcom);
 	}
 
 	@Override
-	public void updateAdmin(MemberCommand memcom) {
+	public void updateAdmin(MemberDTO memcom) {
 		memd.updateAdmin(memcom);
 	}
 

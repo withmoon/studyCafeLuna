@@ -1,7 +1,7 @@
 package study.cafe.luna.member.service;
 
-import study.cafe.luna.member.dto.MemberCommand;
+import study.cafe.luna.member.dto.MemberDTO;
 
 public interface GetMemberPositionService {
-	MemberCommand getMemberPosition(String id);
+	MemberDTO getMemberPosition(String id);
 }
