@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+/*공지사항 게시판*/
+table th {
+    background-color: #eeeeee;
+    text-align: center;
+}
+
+.row {
+    width:95%;
+    position: relative;
+    left: 4%;
+}
+
+.btn-primary {
+    position: relative;
+    left:-1%;
+    top:-10px;
+}
+
+/*페이지*/
+#approvePaging {
+    list-style: none;
+	width: 100%;
+	font-size: 1.5vw;
+	position:relative;
+	left:40%;
+}
+
+#approvePaging li {float:left; 
+    list-style:none; 
+    margin:1px;
+}
+
+.explur{
+	position:absolute;
+	border:1px solid black;
+	border-radius:10px;
+	top:200px;
+	left:230px;
+}

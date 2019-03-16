@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mgSalesReserveDAO">
+
+	<!-- 월 매출 게시판 카운트 -->
+	<select id="countArticle" resultType="int">
+		<!-- <![CDATA[ select count(num) from ??? where num>0 ]]> -->
+	</select>
+
+	<!-- 일별 카운트 -->
+	<select id="count" resultType="int">
+	<![CDATA[
+		select count(seq) from roompayment where branchName=#{branchName} and seq>0 and reservdate >= to_date(#{date1},'yy/MM/dd') and reservdate <= to_date(#{date2},'yy/MM/dd') 
+		]]>
+	</select>
+
+	<!-- 하루별 전체목록 조회 및 검색조회 -->
+	<select id="SalesReserveList" resultType="Statistics">
+		<include refid="pagingHeader"></include>	
+	<![CDATA[
+			select reservdate ,count(*)as gunsu,sum(payamount)as total,count(DECODE(status,'-2',1)) as status,
+			count(DECODE(status,'-1',1)) as status2 from roompayment 
+			where (reservdate >= to_date(#{date1},'yy/MM/dd') and reservdate <= to_date(#{date2},'yy/MM/dd') )
+		   group by reservdate order by reservdate asc
+	]]>
+		<include refid="pagingFooter"></include>
+	</select>
+	<sql id="pagingHeader">
+		select * from ( select rownum as rn,A.* from(
+	</sql>
+	<sql id="pagingFooter">
+		)A
+		)where rn between #{start} and #{end}
+	</sql>
+
+
+
+	<!-- 월별 -->
+	<select id="SalesReservemonth" resultType="Statistics">
+	<![CDATA[
+		SELECT reservdate, count(*)as gunsu,sum(payamount)as total,
+		count(DECODE(status,'-2',1)) as status,count(DECODE(status,'-1',1)) as status2 
+		FROM roompayment GROUP BY reservdate order by reservdate desc
+	]]>
+	</select>
+	
+	<select id="excelList" resultType="Sales">
+	<![CDATA[
+		 select reservdate ,count(*)as gunsu,sum(payamount)as total,count(DECODE(status,'-2',1)) as status,
+			count(DECODE(status,'-1',1)) as status2 from roompayment 
+			where (reservdate >= to_date(sysdate,'yy/MM/dd') and reservdate <= to_date(sysdate+5,'yy/MM/dd') )
+		   group by reservdate order by reservdate asc
+	]]>
+	</select>
+
+
+
+
+</mapper> 
+

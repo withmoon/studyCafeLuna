@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="htuDAO">
+
+	<!-- 최대 num 가져오기 -->
+	<select id="getHowToUseMaxNum" resultType="Integer">
+		select nvl(max(num)+1,1) from howtouse
+	</select>
+
+	<!-- 글쓰기 -->
+	<insert id="insertHowToUse">
+		insert into howtouse values(#{num},(select nvl(max(cnum)+1,1) from howtouse where num=#{num}),#{title},#{content},#{fname},#{fpath})
+	</insert>
+	
+	<!-- 전체리스트 받아오기 -->
+	<select id="getHowToUseList" resultType="htuse">
+		select DISTINCT num,title from howtouse
+	</select>
+	
+	<!-- 해당 넘에대한 글 받아오기 -->
+	<select id="getHowToUseContent" resultType="htuse">
+		select * from howtouse where num=#{num} order by cnum
+	</select>
+	
+	<!-- 이미지 가져옥 -->
+	<select id="getDefaultImg" resultType="String">
+		select fname from howtouse where num=#{num} and cnum=#{cnum}
+	</select>
+	
+	<!-- 글삭제 -->
+	<delete id="deleteHowToUse">
+		delete howtouse where num=#{num}
+	</delete>
+	
+	<!-- 중간 글 삭제 -->
+	<delete id="deleteHowToUseContent">
+		delete howtouse where num=#{num} and cnum=#{cnum}
+	</delete>
+	<!-- 부가넘버 -->
+	<select id="getHowToUseMaxCnum" resultType="Integer">
+		<![CDATA[select nvl(max(cnum)+1,1) from howtouse where num=#{num}]]>
+	</select>
+	
+	<!-- 업뎃 -->
+	<update id="updateHowToUseContent">
+		<![CDATA[update howtouse set title=#{title},content=#{content}
+		]]>
+		<if test="fname!=null and fname!=''">
+			,fname=#{fname} 
+		</if>
+		where cnum=#{cnum} and num=#{num}
+	</update>
+	
+
+</mapper>

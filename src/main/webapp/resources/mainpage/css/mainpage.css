@@ -1,0 +1,74 @@
+@charset "UTF-8";
+*{
+	margin:0px;
+	font-size: 1.5vw;
+	font-family: 휴먼아미체;
+}
+ul li{
+	margin:0px;
+	font-family: 휴먼아미체;
+	text-decoration:none;
+	display:table-cell;
+	font-size: 1.5vw;
+}
+li a{
+	text-decoration:none;
+	color: black;
+}
+li a:hover{
+	color: orange;
+}
+/* 이벤트/로그인 topMenu css */
+nav{
+	position:fixed;
+	top:1%;
+	right:1%;
+}
+section{
+	position:absolute;
+	width:100%;
+	height:100%;
+}
+/* 변경되는 메인 이미지 */
+#PartOfMain_left{
+	position:absolute;
+	width:73%;
+	height:100%;
+}
+/* 오른쪽 이미지 */
+#PartOfMain_right{
+	position:absolute;
+	left:73%;
+	width:27%;
+	height:100%;
+}
+/* 메인이미지 변경시 같이 이동하는 밑에 있는 애 */
+#slidebar{
+	clear:both;
+	position:absolute;
+	bottom:-95%;
+	float:left;
+	left:30%;
+	margin:0px;
+}
+#slidebar img:hover{
+	width:10%;
+	height:10%;
+}
+
+/* 소개, 둘러보기, 지점찾기, 바로 예약하기 */
+#sec ul li{
+	margin:0 0 2% 0;
+	clear: both;
+	float:right;
+	border-bottom:1px solid black;
+}
+#sec{
+	position:absolute;
+	bottom:-75%;
+	float:right;
+	margin:0px;
+}
+#sec ul li a:hover{
+	border-bottom:1px solid orange;
+}

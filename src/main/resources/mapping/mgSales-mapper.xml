@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mgSalesDAO">
+	<!-- 회원현황 테이블컬럼 --> 
+	<resultMap id="sales" type="Sales">
+		<result property="date" column="dates" />
+		<result property="inone" column="Roominone" />
+	</resultMap>
+	
+	<!-- 회원현황 카운트 -->
+	<select id="countArticle" resultType="int">
+		<![CDATA[
+			select count(rownum) from member where (branchName is null) and rownum>0
+		]]>
+	</select> 
+	<!-- 회원 전체목록 조회 및 검색조회 -->
+	<select id="listAll" resultType="Sales" resultMap="sales"> 
+		<include refid="pagingHeader1"></include>	
+		select rownum,id,name,phone,email,brstatus from member
+		<include refid="search1"></include>	 
+		order by rownum desc
+		<include refid="pagingFooter1"></include>
+	</select>
+	<!-- 검색조건 sql -->
+	  <sql id="search1">
+	 	<choose>
+	 		<!-- 검색옵션이 전체 검색일 경우 -->
+	 		<when test="searchOption='all'">
+	 			where (branchName is null) and (id  like '%'||#{keyword}||'%' or name like '%'||#{keyword}||'%')
+	 		</when>
+	 		<otherwise>
+	 			where ${searchOption} like '%'||#{keyword}||'%'
+	 			<!-- where dates like '%'||TO_char(to_date(#{keyword},'YYYY/mm/DD'),'YY/mm/dd')||'%' -->
+	 			
+	 			<!-- where dates like '%'||TO_char(to_date('#{keyword}','YYYY/mm/DD'),'YY/mm/dd')||'%'; -->
+	 			
+	 		</otherwise>
+	 	</choose>
+	 </sql>
+	 <sql id="pagingHeader1">
+	 	select * from ( select rownum as rn,A.* from(
+	 </sql>
+	 <sql id="pagingFooter1">
+	 		)A
+	 	)where rn  between #{start} and #{end}
+	 </sql>
+	 
+	 <update id="Reserve">
+	 	update roompayment set status=-1  where seq=#{seq}
+	 </update>
+	 
+	<!-- 예약현황 카운트 -->
+	<select id="ReserveCount" resultType="int">
+		<![CDATA[
+			select count(rownum) from ROOMPAYMENT  where branchName=#{branchName} and rownum>0
+		]]>
+	</select>
+	<!-- 예약현황 전체목록 조회 및 검색조회 -->
+	<select id="ReserveList" resultType="Sales" resultMap="sales">
+		<include refid="pagingHeader2"></include>	
+		SELECT rownum,SEQ,id,BRANCHNAME,ROOMNUM,PAID_AT,STATUS FROM ROOMPAYMENT 
+		<include refid="search2"></include>	 
+		ORDER BY rownum desc
+		<include refid="pagingFooter2"></include>
+	</select>
+	<!-- 검색조건 sql -->
+	  <sql id="search2">
+	 	<choose>
+	 		<!-- 검색옵션이 전체 검색일 경우 --> 
+	 		<when test="searchOption='all'">
+	 			where branchName = #{branchName} and (roomnum  like '%'||#{keyword}||'%' or IMP_UID like '%'||#{keyword}||'%')
+	 		</when> 
+	 		<otherwise>
+	 			where ${searchOption} like '%'||#{keyword}||'%'
+	 		</otherwise>
+	 	</choose>
+	 </sql>
+	 <sql id="pagingHeader2">
+	 	select * from ( select rownum as rn,A.* from(
+	 </sql>
+	 <sql id="pagingFooter2">
+	 		)A
+	 	)where rn  between #{start} and #{end}
+	 </sql>
+	 
+	 <!-- 환불현황 카운트 -->	
+	<select id="RefundCount" resultType="int">
+		select count(*) from roompayment where status=-1 or status=-2
+	</select> 
+	 <!-- 환불현황 전체목록 조회 및 검색조회 -->
+	<select id="mgRefund" resultType="Sales" resultMap="sales">
+		<include refid="pagingHeader2"></include>	
+		select rownum,SEQ,id,BRANCHNAME,ROOMNUM,reservdate,STATUS from 
+		(SELECT SEQ,id,BRANCHNAME,ROOMNUM,reservdate,STATUS FROM ROOMPAYMENT
+		<include refid="search3"></include>	 
+		ORDER BY reservdate desc)
+		<include refid="pagingFooter3"></include>
+	</select>
+	<!-- 검색조건 sql -->
+	  <sql id="search3">
+	 	<choose>
+	 		<!-- 검색옵션이 전체 검색일 경우 --> 
+	 		<when test="searchOption='all'">
+	 			where (status=-1 or status=-2) and branchName = #{branchName} and (roomnum  like '%'||#{keyword}||'%' or id like '%'||#{keyword}||'%')
+	 		</when> 
+	 		<otherwise>
+	 			where ${searchOption} like '%'||#{keyword}||'%'
+	 		</otherwise>
+	 	</choose>
+	 </sql>
+	 <sql id="pagingHeader3">
+	 	select * from ( select rownum as rn,A.* from(
+	 </sql>
+	 <sql id="pagingFooter3">
+	 		)A
+	 	)where rn  between #{start} and #{end}
+	 </sql>
+	 
+	 
+	 <select id="Refund" resultType="Sales">
+	 <![CDATA[
+	 	select SUBSTR(reservstate,0,INSTR(reservstate,(select SUBSTR(reservetime,0,5) from roompayment where seq=#{seq}))-1)||SUBSTR(reservstate,INSTR(reservstate,(select SUBSTR(reservetime,LENGTH(reservetime)-4,LENGTH(reservetime)) from roompayment where seq=#{seq}))+5,LENGTH(reservstate)) from roomreserv where  
+	 	to_char(startdate,'yy/MM/dd') like TO_CHAR(TO_DATE(REPLACE(#{reservdate}, 'KST ', ''), 'Dy Mon DD HH24:MI:SS YYYY','NLS_DATE_LANGUAGE=AMERICAN'), 'yy/MM/dd') and roomnum=#{roomnum}
+	 	]]>
+	 </select>
+	 <!-- <select id="Refund2" resultType="String">
+	 <![CDATA[ 
+	 select seq,reservdate,roomnum,status id from roompayment where id =#{id} and reservdate>sysdate
+	 ]]>
+	 </select> --> 
+	
+</mapper> 
+

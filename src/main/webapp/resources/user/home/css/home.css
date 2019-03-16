@@ -1,0 +1,235 @@
+@charset "UTF-8";
+* { font-family: 'Gamja Flower', cursive; }
+section{
+	position:relative;
+	left:60px;
+	top:-100px;
+	margin:0;
+	border:1px solid tan;
+	width:858px;
+}
+/* Ã­Æ’â‚¬Ã¬ÂÂ´Ã­â€¹â‚¬ */
+.top{
+	position:relative;
+	top:-76px;
+	left:-31%;
+	width:auto;
+	text-align:center;
+	font-size: 4vw;
+	color: tan; 
+	text-shadow: 1px 2px gray;
+}
+/*배너*/
+.banner {
+	position:relative;
+}
+
+#banner {
+	width:100%;
+}
+
+/*배너 버튼*/
+.whole {
+	clear:both; 
+	position:absolute; 
+	top:-1px;
+	width:175px;
+	right:-1px;
+}
+
+#whole2 {
+	display:none;
+	position:absolute;
+	width: 300px;
+	left: 250px;
+	top: 75px;
+	font-size: 10px;
+	text-align:center;
+	padding: 8px 8px;
+	background: rgba(225,225,225,0.5); /*내용 바탕색 투명도*/
+	background-clip:padding-box;
+	border: 5px solid rgba(0,0,0,0.3); /*내용 경게선 투명도*/
+
+}
+
+.previous {
+	clear:both; 
+	position:absolute; 
+	top:73px;
+	width:175px;
+	right:-1px;
+}
+
+#previous2 {
+	display:none;
+	position:absolute;
+	width: auto;
+	left: 230px;
+	top: 70px;
+	z-index: 1;
+	font-size: 20px;
+	text-align:center;
+	padding: 8px 20px;
+	background: rgba(225,225,225,0.5); /*내용 바탕색 투명도*/
+	background-clip:padding-box;
+	border: 5px solid rgba(0,0,0,0.3); /*내용 경게선 투명도*/
+}
+
+.accumulate {
+	clear:both; 
+	position:absolute; 
+	top:147px;
+	width:175px;
+	right:-1px;
+}
+
+#accumulate2 {
+	display:none;
+	position:absolute;
+	width: auto;
+	left: 250px;
+	top: 70px;
+	z-index: 1;
+	font-size: 20px;
+	text-align:center;
+	padding: 8px 20px;
+	background: rgba(225,225,225,0.5); /*내용 바탕색 투명도*/
+	background-clip:padding-box;
+	border: 5px solid rgba(0,0,0,0.3); /*내용 경게선 투명도*/
+}
+
+b { font-size : 20px; color : #003366; }
+
+/*select*/
+.slctDiv{
+	position:relative;
+	top:1%;
+	background-color:tan;
+	border-top:1px solid #80776c;
+	border-bottom:1px solid #80776c;
+	width:100%;
+	padding:10px 0 0 0;
+}
+select {
+ margin:1%;
+ padding: 0.5%;
+ border-color : #836e5b;
+ font-size:1.7vw;
+}
+
+/*button*/
+button{
+    background-color: #80776c;
+    border: none;
+    position:relative;
+    top:-1px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 2.1vw;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #bb9540;
+}
+
+
+/*인기순 / 조회순*/
+p{ font-size : 30px; color : #836e5b; }
+
+.line { position:relative; width: 31%; }
+
+.roomImage {width:278px; height:170px;}
+
+.roomTable {
+	position: relative;
+}
+.rline{
+	position:relative;
+	width: 30%; 
+}
+ /* 리뷰 */
+.review table{
+	margin:1%;
+	width:98%;
+   font-size:1.4vw;
+}
+.starImg{
+	border-top:1px solid tan;
+	border-bottom:1px solid tan;
+}
+.starImg img{
+	width:8%;
+}
+.rvroomImg{
+	width: 240px;  height:170px;
+}
+.review table td{
+	width:25%;
+}
+
+/* footer */
+footer{
+	margin:0 -5% 0 0;
+	font-size:14px;
+	position:relative;
+	top:-70px;
+	left:50px;
+}
+.sec{
+	position:relative;
+	left:10px;
+	top:4px;
+}
+table td:hover{
+	color:orange;
+	cursor:pointer;	
+}
+
+@keyframes slidy {
+0% { left: 0%; }
+20% { left: -100%; }
+25% { left: -100%; }
+45% { left: -200%; }
+50% { left: -200%; }
+70% { left: -300%; }
+75% { left: -300%; }
+95% { left: 0%; }
+100% { left: 0%; }
+}
+div.slider { overflow: hidden; width:281px; height:170px;}
+div.slider figure img {width:281px;  height:220px; float: left; }
+div.slider figure {
+position: relative;
+width: 500%;
+margin: 0;
+top:0;
+left: 0;
+text-align: left;
+font-size: 0;
+}
+div.slider figure:hover{
+cursor:pointer;
+-webkit-animation: 8s slidy infinite;
+animation: 8s slidy infinite;
+}
+.exptr img{
+	width:5%;
+}
+.exptr a{
+	color:black;
+	font-size:1.6vw;
+	text-decoration:none;
+}
+.exptr a:hover{
+	color:orange;
+}
+.imghover img:hover{
+	cursor:pointer;
+}
+.rvwroomImg{
+	width:200px; 
+	height:120px;
+}

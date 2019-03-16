@@ -1,0 +1,60 @@
+@charset "UTF-8";
+*{
+	margin:0;
+	font-family: 'Gamja Flower', cursive;
+}
+nav{
+	position:relative;
+	top:40px;
+}
+section{
+	position:relative;
+	left:60px;
+	top:-50px;
+	margin:0;
+	width:858px;
+}
+table td{
+	font-size: 2vw;
+	padding:1%;
+	width:800px;
+	position:relative;
+	left:20px;
+	text-align:center;
+	border-top:2px solid tan;
+	border-bottom:2px solid tan; 
+}
+
+/* 타이틀 */
+.top{
+	position:relative;
+	top:-70px;
+	left:-29%;
+	width:auto;
+	text-align:center;
+	font-size: 3.5vw;
+	color: tan; 
+	text-shadow: 1px 2px gray;
+}
+
+
+a {
+	color: gray;
+}
+
+a:hover {
+	color: tan;
+}
+
+/* footer */
+footer{
+	margin:0 -5% 0 0;
+	font-size:14px;
+	position:relative;
+	left:50px;
+}
+.sec{
+	position:relative;
+	left:10px;
+	top:4px;
+}

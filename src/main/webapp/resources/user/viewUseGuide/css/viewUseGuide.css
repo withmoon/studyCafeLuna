@@ -1,0 +1,102 @@
+@charset "UTF-8";
+*{
+	margin:0;
+	font-family: 'Gamja Flower', cursive;
+}
+nav{
+	position:relative;
+	top:150px;
+}
+
+.memberUl{
+	postion:absolute;
+	top:20px;	
+}
+.topUl{
+	top:-40px;
+}
+a .logo{
+	position:absolute;
+}
+
+/* 타이틀 */
+.top{
+	position:absolute;
+	top:2%;
+	left:15%;
+	width:auto;
+	text-align:center;
+	font-size: 2vw;
+	color: #686868; 
+}
+/*본문*/
+.border {
+   border-radius: 2em;
+   border-top-left-radius: 2em;
+   border-top-right-radius: 2em;
+   border-bottom-left-radius: 2em;
+   border-bottom-right-radius: 2em;
+   border: 2px solid tan;
+    padding:1%;
+    position:relative;
+    top : 150px;
+    width: 80%;
+    left: 9%;
+    font-size: 2vw;
+}
+/*제목*/
+.title {
+   padding: 5px 0px 5px 5px;
+    margin-bottom: 5px;
+    border-bottom: 0.2vw solid tan;
+}
+.title b { 
+    font-size : 3vw; color : #003366;
+    position:relative;
+    left: 5%;
+}
+
+.writer {
+    position:relative;
+    left: 60%;
+}
+
+.date {
+    position:relative;
+    left: 65%
+}
+/*내용*/
+.content {
+   padding: 5%;
+}
+
+/*button*/
+.button {
+   padding: 3%; 
+}
+.button button {
+   width:105%;
+   font-size: 2vw;
+   padding:1%;
+}
+
+button{
+    background-color: white;
+    border: 0.1vw solid gray;
+    color: gray;
+    text-align: center;
+    text-decoration: none;
+    outline:none;
+}
+
+button:hover{
+    background-color: #bbbb;
+    color: white
+}
+/*footer*/
+footer{
+   width: 105%;
+   padding:0;
+   position:relative;
+   bottom:-200px;
+}

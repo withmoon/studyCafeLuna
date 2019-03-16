@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="rankDAO">
+	<!-- 리뷰 3등까지 중   -->
+	<select id="getRoomReviewRank" resultType="roomRank">
+		<![CDATA[select c.roomnum,SUBSTR(c.starct,0,5) as starct,
+				(select fname from roomfile where roomnum =c.roomnum and filenum=1) as fname1,(select fname from roomfile where roomnum =c.roomnum and filenum=2) as fname2,
+				(select fname from roomfile where roomnum =c.roomnum and filenum=3) as fname3,(select fname from roomfile where roomnum =c.roomnum and filenum=4) as fname4
+				,rm.roomlocate,roomname from(
+					select rownum rn, b.* from (
+					
+						select a.*
+    					from (select roomnum
+              			 , Avg(starCt) as starct
+              			 , SUM(1) as reviewct
+              			 , DENSE_RANK() OVER (ORDER BY Avg(starCt) DESC ) as ranking
+           				 from (
+               				 select * from roomreview
+                		 )
+        			 group by roomnum ) a
+  					 where a.ranking <=3 order by starct desc, reviewct asc
+  					 
+ 				  ) b)c   join room rm on c.roomnum=rm.roomnum where rn<=3 order by rn
+  		 ]]>
+	</select>
+	
+	<!-- 예약 순으로 3등까지 끊어옴 -->
+	<select id="getRoomReserveRank" resultType="roomRank">
+		<![CDATA[
+			select c.roomnum,rom.roomlocate,rom.roomname,c.totaltime,
+			(select fname from roomfile where roomnum =c.roomnum and filenum=1) as fname1,(select fname from roomfile where roomnum =c.roomnum and filenum=2) as fname2,
+			(select fname from roomfile where roomnum =c.roomnum and filenum=3) as fname3,(select fname from roomfile where roomnum =c.roomnum and filenum=4) as fname4
+			from(
+				select rownum rn,b.* from(
+					select a.* from (
+						select roomnum,FLOOR(SUM(LENGTH(reservstate))/10) as totaltime from roomreserv group by roomnum 
+					)a order by totaltime desc
+				)b
+			)c join room rom on c.roomnum=rom.roomnum  where rn<=3
+		 ]]>
+	</select>
+	<!-- 최신 지점 가져오기 -->
+	<select id="getNewBranch" resultType="member">
+		<![CDATA[
+			select * from(
+				select branchAddr1,branchName,branchtel, branchimg,
+				SUBSTR(branchaddr1,0,2) as sido,SUBSTR(branchaddr1,INSTR(branchaddr1, ' ', 1,1)+1,INSTR(branchaddr1, ' ',1,1)+1) as gugun
+				from member where position='지점장' and brstatus=0 order by regdate desc
+			) where rownum<=3
+		]]>
+	</select>
+	
+	<!-- 최근 리뷰 6개까지 가져옴 -->
+	<select id="getNewReview" resultType="roomRank">
+		<![CDATA[
+			select starct,SUBSTR(m.name,0,1)||'**' as name,rm.roomname,rm.roomlocate,a.roomNum,a.reviewcontent,to_char(a.writedate,'mm-dd HH24:mi')writedate,(select fname from roomfile where roomnum =a.roomnum and filenum=1) as fname1 from(
+    			select * from roomreview order by writedate desc
+			)a join member m on a.id=m.id join room rm on a.roomnum=rm.roomnum where rownum<=6 order by a.writedate desc
+		]]>
+	</select>
+</mapper>

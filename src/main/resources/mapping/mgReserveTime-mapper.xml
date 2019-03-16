@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mgReserveTime">
+	<select id="mgAgeList" resultType="ReserveTime">
+		 <![CDATA[
+		select reservetime from roompayment where reservdate>=#{date1} and reservdate<=#{date2}
+		]]> 
+	</select>
+	
+	<select id="getreservcount" resultType="ReserveTime">
+	   select startdate as reservdate,count(*)as su from roomreserv where startdate BETWEEN #{date1} and #{date2}
+	   group by startdate order by startdate asc 
+	</select>
+	 
+</mapper> 
+ 

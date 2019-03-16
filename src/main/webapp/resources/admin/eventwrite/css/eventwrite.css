@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+input, textarea {
+    width: 100%;
+    border: none;
+    outline:none;
+    resize:none;
+}
+.button input{
+    background-color: #337ab7;
+    border: none;
+    color: white;
+    width: 10%;
+    position:relative;
+    left: 40%;
+}
+
+.button input:hover{
+    background-color: #286090;
+}

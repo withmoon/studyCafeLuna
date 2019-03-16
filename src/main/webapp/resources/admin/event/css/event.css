@@ -1,0 +1,191 @@
+@charset "UTF-8";
+
+/*진행(종료) 이벤트 버튼*/
+.event-container {
+   position: relative;
+   width: 1072px;
+   min-width: 1072px;
+   margin: 0px auto;
+}
+
+.eventTap {
+   display: flex;
+   width: 80%;
+   height: 45px;
+   box-sizing: border-box;
+   list-style: none;
+   position: relative;
+   left:6%;
+}
+
+.eventTap li {
+   display: flex-block;
+   width: 100%;
+   border: 1px solid #e9e9eb;
+   box-sizing: border-box;
+   text-align: center;
+   padding:1.5%;
+}
+
+.eventTap li {
+   background-color: #fff;
+}
+
+.eventTap li:hover, .eventTap li.active
+   {
+   background-color: #c0c0c0;
+}
+
+.eventTap li:hover a, .eventTap li.active a
+   {
+   color: #fff;
+}
+
+/*진행(종료) 이벤트 버튼 여기까지*/
+
+.event-container .eventTap a {
+   font-size: 13px;
+   line-height: 40px;
+   color: #333;
+   text-decoration: none;
+}
+
+/*이벤트 게시판*/
+table th {
+    background-color: #eeeeee;
+    text-align: center;
+}
+
+.row {
+    width:80%;
+    position: relative;
+    left: 10%;
+}
+
+.btn-primary {
+    position: relative;
+    left:-12%;
+    top:35px;
+}
+
+/*페이지*/
+/*진행이벤트 페이지*/
+#pageT {
+    list-style: none;
+	width: 100%;
+	font-size: 1.5vw;
+	position:relative;
+	left:45%;
+}
+
+#pageT li {float:left; 
+    list-style:none; 
+    margin:1px;
+}
+/*종료이벤트 페이지*/
+#pageT2 {
+    list-style: none;
+	width: 100%;
+	font-size: 1.5vw;
+	position:relative;
+	left:45%;
+}
+
+#pageT2 li {float:left; 
+    list-style:none; 
+    margin:1px;
+}
+
+.title {
+   list-style: none; display : inline-block;
+   width: 80%;
+   font-size: 2vw;
+   font-weight: 500;
+   line-height: 45px;
+   line-width : 50px;
+   margin: 35px 0px 0px 0px;
+   color: #333;
+   border-bottom: 1px solid #333;
+   display: inline-block;
+   position: relative;
+   left: 8.5%;
+}
+
+.emptyEvent {
+   position: relative;
+   width: 100%;
+   margin: 20px 0px;
+   border: 2px dashed #e9e9eb;
+   font-size: 14px;
+   color: #999;
+   line-height: 100px;
+   text-align: center;
+}
+
+
+
+.event-ul {
+   list-style: none; display : flex;
+   flex-wrap: wrap;
+   -webkit-flex-wrap: wrap;
+   width: 100%;
+   margin: 0px;
+   padding: 0px;
+   box-sizing: border-box;
+   display: flex;
+}
+
+.event-ul li.eventbox {
+   display: flex-inline;
+   position: relative;
+   width: 253px;
+   margin: 15px 20px 0px 0px;
+   box-sizing: border-box;
+}
+
+.event-ul li.eventbox:nth-child(4n) {
+   margin-right: 0px;
+}
+
+.event-ul li.eventbox.eventimg {
+   display: inline-block;
+   position: relative;
+   width: 253px;
+   height: 253px;
+   background-repeat: no-repeat !important;
+   background-position: center center !important;
+   background-size: contain !important;
+   box-sizing: border-box;
+   border: 1px solid #e9e9eb;
+   font-size: 0px;
+   line-height: 0px;
+}
+
+.event-ul li.eventbox ul {
+   margin: 17px 0px 5px 0px;
+}
+
+.event-ul li.eventbox ul li {
+   text-align: center;
+   padding: 5px 0px;
+}
+
+.event-ul li.eventbox ul:hover a {
+   border-bottom: 1px solid #737373;
+}
+
+.event-ul li.eventbox ul li:nth-child(1), .event-ul li.eventbox ul li:nth-child(1) a
+   {
+   font-size: 13px;
+   line-height: 13px;
+   color: #333;
+   text-decoration: none;
+}
+
+.event-ul li.eventbox ul li:nth-child(2), .event-ul li.eventbox ul li:nth-child(2) a
+   {
+   font-size: 13px;
+   line-height: 13px;
+   color: #737373;
+   text-decoration: none;
+}

@@ -1,0 +1,88 @@
+/*#msec{
+	align: center;
+	
+}*/
+
+
+
+header {
+	border-bottom: 1px solid black;
+	width: auto;
+	text-align: left;
+	padding-left: 10px;
+	padding-top: 30px;
+	font-size: 20pt;
+}
+#searchtable {
+	width: 100%;
+	min-width: 450px;
+}
+
+#boardtable {
+	width: 100%;
+	min-width: 450px;
+}
+
+#searchtd {
+	text-align: right;
+}
+
+#write {
+	float: left;
+	padding: 2px 1px;
+}
+
+#board {
+	margin-left: 5%;
+	margin-top: 5%;
+	width: 90%;
+}
+
+#boardtable, th, td {
+	border: 1px solid black;
+	border-spacing: 0px;
+	border-collapse: collapse;
+}
+
+#boardtable tr td {
+	text-align: center;
+	padding: 5px 10px;
+}
+
+#boardtable tr th {
+	padding: 10px 5px;
+	text-align: center;
+	background-color: #EBEBEB;
+	color: black;
+}
+
+#showListBtn {
+	margin:15%; padding:10px; float:right;
+}
+
+.board{
+	margin-left: 15%;
+	margin-top: 5%;
+	width: 90%;
+}
+
+
+#showlistBtn {
+	position:relative;
+	top: 20px;
+	left: 78%;
+}
+
+.board{
+	margin-left: 15%;
+	margin-top: 5%;
+	width: 90%;
+}
+
+.reply{
+	margin-left: 15%;
+	margin-top: 5%;
+	width: 90%;
+	position:relative;
+	top: -20px;
+}

@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+header {
+	border-bottom: 1px solid blue;
+	width: auto;
+	text-align: left;
+	padding-left: 10px;
+	padding-top: 30px;
+	font-size: 20pt;
+}
+
+#rcenter {
+	margin-top: 10%;
+	margin-left: 15%;
+}
+
+table {
+	border: 1px solid black;
+	margin-top: 5px;
+	float: left;
+	margin-left: 0%;
+}
+
+table tr {
+	border-top: 1px solid black;
+}
+
+#namesearch {
+	border: 1px solid black;
+	height: 70px;
+	width: auto;
+	padding: 0px;
+	float: right;
+	margin-top: 30%;
+}
+
+#namesearch label {
+	margin-top: 3px;
+}
+
+#namesearch input {
+	margin-top: 3px;
+	width: 100px;
+}
+
+#calendar{
+	margin-left: 30%;
+	margin-top: 10%;
+}
+
+#cday{
+	float: left;
+	margin-top: 55%;  
+	margin-left: -55%;
+}
+hr{
+	margin-top: 55%;  
+	color: black;
+}
+th{
+	padding-left: 10px;
+}
+.th{
+	border-left: 1px solid black;
+}
+td{
+	padding-left: 30px;
+}

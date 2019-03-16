@@ -1,0 +1,184 @@
+@charset "UTF-8";
+
+*{
+	margin:0;
+	font-family: 'Gamja Flower', cursive;
+}
+nav{
+	position:relative;
+	top:150px;
+}
+
+.memberUl{
+	postion:absolute;
+	top:20px;	
+}
+.topUl{
+	top:-40px;
+}
+a .logo{
+	position:absolute;
+}
+
+/* 타이틀 */
+.top{
+	position:absolute;
+	top:2%;
+	left:15%;
+	width:auto;
+	text-align:center;
+	font-size: 2vw;
+	color: #686868; 
+}
+/* 상단 이미지 메뉴 */
+.menu{
+	position:relative;
+	top:130px;
+	left:25%;
+	
+}
+.menu img{
+	width:15%;
+	margin:1%;
+}
+.list_tab{
+	position:relative;
+	top:30px;
+	left:20%;
+}
+
+/*공지사항_자주묻는질문*/
+table{
+	text-align: center;
+	/*border-top:2px solid #686868;*/ 
+	border-bottom:2px solid tan; 
+	border-collapse: collapse;
+	position:relative;
+	left:-43px;
+	top:130px;
+}
+table th{
+	border-top:2px solid tan; 
+	border-bottom:2px solid tan; 
+	width:230px;
+	font-size: 2vw;
+	background:tan;
+}
+table td{
+	font-size: 2vw;
+	padding:1%;
+}
+
+a {
+	color: gray;
+}
+
+a:hover {
+	color: tan;
+}
+
+/*페이지*/
+#informPaging {
+	width: 100%;
+	font-size: 2vw;
+	position:relative;
+	left:-8%;
+	top:150px;
+}
+
+/* 고객의 소리 */
+.inform_user {
+	border:2px solid tan;
+	width: 70%;
+	position:relative;
+	top: 130px;
+	left:15%;
+
+}
+
+.list_tab2 div {
+	padding: 2%;
+}
+label {
+	font-size: 2vw;
+	padding: 1%;
+}
+
+select {
+	font-size:1.5vw;
+	position:relative;
+	left: 10%;
+}
+
+textarea {
+	resize: none;
+	font-size: 1.5vw;
+	width: 100%;
+}
+
+input:focus, textarea:focus{
+    outline: none;
+}
+
+.list_tab2 img{
+	width:6%;
+}
+
+.informbox2 {
+	position:relative;
+	left: 42%;
+	padding:2% 0 2% 0;
+}
+
+input {
+	width:60%;
+	font-size: 1.5vw;
+	position:relative;
+	left: 10%;
+}
+
+/*button*/
+button{
+    background-color: tan;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.7vw;
+    cursor: pointer;
+    position:relative;
+    
+}
+
+button:hover{
+    background-color: #bb9540;
+}
+
+/*로그인이 필요할 때*/
+b {
+	color:tan;
+	font-size:5vw;
+}
+
+p{
+	position:relative;
+	top: 95px;
+	left: 10%;
+	font-size:2vw;
+	color:#1e215c;
+}
+
+.login img {
+	position:relative;
+	left: 75%;
+	top: -75px;
+	width: 20%;
+}
+
+/*footer*/
+footer{
+	padding: 15% 0 0 0;
+	position:relative;
+	bottom: -200px;
+}

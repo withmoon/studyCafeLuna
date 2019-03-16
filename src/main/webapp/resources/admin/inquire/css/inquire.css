@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+/*문의 게시판*/
+table th {
+    background-color: #eeeeee;
+    text-align: center;
+}
+
+.row {
+    width:80%;
+    position: relative;
+    left: 13%;
+}
+
+/*페이지*/
+#inquirePaging {
+    list-style: none;
+	width: 100%;
+	font-size: 1.5vw;
+	position:relative;
+	left:40%;
+}
+
+#inquirePaging li {float:left; 
+    list-style:none; 
+    margin:1px;
+}
+.writeDiv{
+	position:fixed;
+	top:30%;
+	left:19%;
+	width:100%;
+
+}
+.writeDiv table td{
+	background-color:azure;
+	border:1px solid gray;
+}

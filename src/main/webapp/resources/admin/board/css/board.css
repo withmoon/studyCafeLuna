@@ -1,0 +1,33 @@
+@charset "UTF-8";
+/*질문 게시판*/
+table th {
+    background-color: #eeeeee;
+    text-align: center;
+}
+
+.row {
+    width:80%;
+    position: relative;
+    left: 13%;
+}
+
+.btn-primary {
+    position: relative;
+    left:-1%;
+    top:-12px;
+}
+
+/*페이지*/
+#informPaging {
+    list-style: none;
+	width: 100%;
+	font-size: 1.5vw;
+	position:relative;
+	left:40%;
+}
+
+#informPaging li {float:left; 
+    list-style:none; 
+    margin:1px;
+}
+

@@ -1,0 +1,274 @@
+@charset "EUC-KR";
+
+
+
+
+#bold {
+   height: 30px;
+   margin: 0px;
+   text-align: center;
+   font-style: Italic;
+   text-decoration: none;
+   text-shadow: 2px 2px 2px #6495ed;
+}
+
+#bod {
+   text-align: center;
+   padding: 0px;
+   pddding-top: 30px;
+   color: #888888;
+}
+nav ul li a:hover {
+   text-decoration: none;
+}
+
+footer {
+   width: 100%;
+}
+
+#bottom {
+   position: fixed;
+   bottom: 0px;
+   right: 0px;
+   background-color: white;
+   width: 100%;
+   float: 100%;
+   height: 40px;
+   clear: both;
+   text-align: center;
+   padding: 10px;
+   text-color: white;
+}
+
+article table#board {
+   width: 670px;
+   border-collapse: collapse;
+}
+
+article table#board th {
+   text-align: center;
+   height: 20px; /* 전체 높이를 지정 */
+   text-transform: capitalize; /* 영문 첫글자를 대문자로 */
+   font-size: 14px; /* 글꼴 사이즈 지정 */
+   font-family: sans-serif, "맑은 고딕", "돋움"; /* 글꼴 모양 지정 */
+   font-weight: bold; /* 글꼴 두께 지정 */
+   padding: 5px; /* 글꼴과 전체 셀과의 간격 미세 조정 */
+   background-repeat: repeat-x;
+   background-position: center center;
+   background-image: url(4.jpg); /* 배경 지정 */
+   color: white; /* 글꼴 색 지정 */
+}
+
+article table#board td {
+   text-align: center;
+   padding: 6px 0;
+   border-bottom-width: 1px;
+   border-bottom-style: dotted;
+   border-bottom-color: white;
+}
+
+article table#board td.center {
+   text-align: center;
+}
+
+article th.tno {
+   border-top-left-radius: 5px;
+   border-bottom-left-radius: 5px;
+   width: 50px;
+}
+
+article th.twriter {
+   width: 100px;
+}
+
+article th.ttitle {
+   width: 380px;
+   letter-spacing: 0.7em;
+}
+
+article th.tread {
+   width: 30px;
+}
+
+article th.tdate {
+   border-top-right-radius: 5px;
+   border-bottom-right-radius: 5px;
+   width: 100px;
+}
+
+article #table_search {
+   margin: 15px 0 10px 0;
+   float: right;
+}
+
+#table_search .select_box {
+   
+}
+
+height
+
+
+:
+
+
+25
+px
+;
+
+ 
+
+width
+
+
+:
+
+
+60
+px
+;
+
+ 
+
+background-color
+
+
+:
+
+
+#FEFDED
+
+
+;
+}
+#table_search .input_box {
+   height: 20px;
+   width: 200px;
+   border: 1px solid #333;
+   margin: 0 0 0 5px;
+   border-radius: 10px;
+   background-color: #FEFDED;
+}
+
+#table_search .btn {
+   padding: 2px;
+   margin: 0 30px 0 5px; /* 검색 입력창과의 간격을 벌어지게 한다 */
+   width: 70px;
+   height: 23px;
+   border-radius: 10px;
+   border: 1px solid #999;
+   color: #000000;
+   background-image: url(../images/t_back.jpg);
+   background-repeat: repeat-x;
+   background-position: center center;
+}
+
+#page_control {
+   text-align: center;
+   margin: 20px 0 0 0px;
+   margin-right: auto;
+   margin-left: auto;
+}
+
+#page_control a {
+   padding: 2px 5px;
+   text-decoration: none;
+   color: #333;
+   margin: 0 5px;
+}
+
+#page_control a:hover {
+   font-weight: bold;
+   color: #F90;
+   text-decoration: underline;
+}
+
+article table#board th{
+   background-color: #8080ff;
+   
+}
+
+ #left{
+   width: 175px;
+   
+   margin-top: 20px;
+   margin-right: 200px;
+   
+   
+}
+#u_left{
+   margin-left: -40px;
+}
+
+#left h4{
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 20px;
+}
+
+
+#left ul{
+   font-family: Arial, Helvetica, sans-serif;
+   font-size:15px;
+   color: #FFF;
+   list-style: none;
+   text-indent: 15px;
+}
+
+#left ul li{
+   background: #c7c1db;
+   line-height: 28px;
+   border-bottom: 1px solid #ffffff;
+}
+
+#left ul li a {
+   text-decoration: none;
+   color: #000000;
+   display: block;
+}
+
+#left ul li a:hover{
+   background: #da9bf2;
+}
+
+#left ul li#active{
+   background: #13b0ec;
+}
+
+
+
+#chart{
+   width: 1300px;
+   height: 750px;
+
+}
+
+#img-button {
+   margin-bottom:0%;
+   width: 30px;
+   height: 30px;
+   background: url("search.png");
+   background-repeat: no-repeat;
+   cursor: pointer;
+   border: none;
+}
+#search {
+   width: 140px;
+   height: 30px;
+   border: 1px solid purple;
+}
+h3{
+    position:relative;
+    left:45%;
+}
+.searchArea{
+    position:relative;
+    left:34%;
+    padding:1%;
+}
+#chartdiv{
+    top:10px;
+    background-color:seashell;
+     width:1010px;
+    height:480px;
+    left:10px;
+    border:1px solid gray;
+}

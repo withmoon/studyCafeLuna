@@ -1,0 +1,697 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Gamja Flower', cursive;
+}
+
+body {
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+
+/* 최상단 로고 / 메뉴들이 들어갈 틀 */
+#TopNav{
+	width: 1024px;
+	height: 70px;
+}
+/* 상단 메인로고 */
+#letflogo { 
+	float: left;
+}
+.logo {
+	position:absolute;
+	width: 10%;
+	hight: 10%;
+}
+
+/* 탑 메뉴 */
+#TopMenu1 { /* 로그인 내정보 메인홈페이지  TopMenu1.jsp*/
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	position: absolute;
+	right: 0;
+	top: 1px;
+	background-color: tan;
+}
+ul.top { /* TopMenu1.jsp 에 적용될 ul */
+	float: right;
+	list-style: none;
+	padding-top: 15px;
+}
+
+ul.top li { /* TopMenu1.jsp 에 적용될 ul li */
+	display: inline;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+/* TopMenu1.jsp a에 있는 class */
+.topli {
+	border-right: 1px solid black;
+}
+ul.top li a {
+	color: white;
+}
+ul.top li a:hover {
+	color: #836e5b;
+}
+table tr th,td{
+	font-size: 13px;
+}
+
+/*전체 border*/
+#border {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1900px;
+	height: 100%;
+	max-height: 2500px;
+	min-height: 845px;
+	border: 1px solid tan; 
+	border-bottom: none;
+	position:relative;
+	top: 40px;
+}
+
+ /* 왼쪽 */
+#left1 {
+	width: 200px;
+	min-height: 800px;
+	height: 100%;
+	float: left;
+}
+#left1 ul {
+	list-style: none;
+}
+#left1div {
+	height :100%;
+	width: auto;
+	float: left;
+}
+
+
+/* 맨왼측 메뉴 */
+.menu {
+	cursor: pointer;
+	width: 200px;
+	text-decoration: none;
+	color: black;
+	position:relative;
+	top: 20px;
+	padding-top: 5px;
+	left: 10px;
+}
+.menu a:hover{
+	color: tan; 
+}
+
+#letf1m ul ul li{
+	padding-left: 20px;
+}
+.menu .hide {
+	display: none;
+	border: none;
+}
+
+#a {
+	color: #e4e17f;
+	background-color: #717171;
+}
+
+#b {
+	color: #e8a8a8;
+	background-color: #717171;
+}
+
+
+/* 중앙 바디 주요화면이 들어올 영역 */
+header{
+	border-bottom: 1px solid darkgray;
+	width: auto;
+	text-align: left;
+	padding-left: 10px;
+	padding-top: 30px;
+	font-size: 20pt;
+}
+#msec {
+	width: 60%;
+	height: auto;
+	min-height: 800px;
+	opacity: 0.6;
+	float: left;
+	border-right: 1px solid tan;
+	border-left: 1px solid tan;
+}
+#today {
+	margin-left:4%;
+	margin-top:4%;
+	width: 90%;
+	max-width:100%;
+	height: 200px;
+	background-color: #000000;
+	border: 0;
+}
+#tmember {
+	margin-left:3%;
+	margin-top:1%;
+	width:auto;
+	height:150px;
+	text-align:center;
+	
+}
+#day { 
+	width:97%;
+	color: #fd73ff;
+}
+#date {
+	display: inline;
+	padding-left: 3%;
+	width: 100px;
+}
+/*회원로그인*/
+#su1{
+	width: 22%;
+	height: 110%;	
+	float: left;
+	color: #fffa59;
+	position:relative;
+	top: 9px;
+}
+#su11{
+	padding-top: 17%;
+	height: 100%;
+	font-size: 50pt;
+}
+
+/*예약수*/
+#su2{
+	width: 22%;
+	height: 110%;
+	float: left;
+	color: #595eff;
+	position:relative;
+	top: 9px;
+}
+#su22{
+	padding-top: 17%;
+	height: 100%;
+	font-size: 50pt;
+}
+/*방문수*/
+#su3{
+	width: 22%;
+	height: 110%;
+	float: left;
+	color: #fffa59;
+	position:relative;
+	top: 9px;
+}
+#su33{
+	padding-top: 17%;
+	height: 100%;
+	font-size: 50pt;
+}
+#tsu{
+	float: left;
+	margin-left: 4%;
+	margin-top: 2%;
+	
+}
+
+/*회원 예약 환불*/
+#tsu li{
+	list-style:none;
+	width: 150px;
+	padding-bottom: 7px;
+	padding-top: 7px;
+	color: white;
+	position:relative;
+	top: 9px;
+}
+#tsu li label{
+	float: right; 
+	padding-right: 5%;
+}
+
+#h3{
+	margin-top: 5%;
+	margin-left: 3%;
+}
+#statistics{
+	margin-left:4%;
+	margin-top:2%;
+	width: 90%;
+	max-width:100%;
+	height: 200px;
+	border: 1px solid black;
+}
+#chartdiv {
+	width: 100%;
+	height: 100%;
+	margin-left: -1%;
+}
+#chartdiv2 {
+	margin-left:6%;
+	margin-top:2%;
+	width: 90%;
+	height: 100%;
+	margin-left: -1%;
+	max-width:100%;
+	height: 200px;
+	position:relative;
+	left: 30px;
+}
+
+#right{
+	float: right;
+	width: 150px;
+	height: 700px;
+}
+#rtd{
+	margin-top:70%;
+	width: 100%;
+}
+.rdiv{
+	color:white;
+	width: 100%;
+	background-color: tan;
+	position:relative;
+	right: 20px;
+}
+#rul li{
+	list-style:none;
+	border-bottom: 1px solid tan;
+	padding-top: 3%;
+	position:relative;
+	right: 20px;
+}
+
+#re{
+	margin-top: 87%;
+	position:relative;
+	right: 20px;	
+}
+
+
+/* 하단 푸터 영역 */
+footer {
+	margin-bottom: 0%;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	color: white;
+	font-size: 20pt;
+	opacity: 0.7;
+	float: left;
+}
+
+#fp {
+	text-align: center;
+	width: 100%;
+	height: 50px; 
+	padding-top: 30px;	
+	background-color: #836e5b;
+	font-size: 14pt;
+}
+.upInfo{
+	display:none;
+	position:fixed;
+	top:10%;
+	left:55%;
+	font-size:1.8vw;
+	width:270px;
+	height:460px;
+	background-color: lightgray;
+	padding:2%;
+	z-index: 100
+}
+.upInfo td{
+	border:0;
+}
+.upInfo input{
+	font-size:1.8vw;
+}
+.upInfo button{
+	font-size:1.8vw;
+}@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Gamja Flower', cursive;
+}
+
+/* 최상단 로고 / 메뉴들이 들어갈 틀 */
+#TopNav{
+	width: 1024px;
+	height: 70px;
+}
+/* 상단 메인로고 */
+#letflogo { 
+	float: left;
+}
+.logo {
+	position:absolute;
+	width: 10%;
+	hight: 10%;
+}
+
+/* 탑 메뉴 */
+#TopMenu1 { /* 로그인 내정보 메인홈페이지  TopMenu1.jsp*/
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	position: absolute;
+	right: 0;
+	top: 1px;
+	background-color: tan;
+}
+ul.top { /* TopMenu1.jsp 에 적용될 ul */
+	float: right;
+	list-style: none;
+	padding-top: 15px;
+}
+
+ul.top li { /* TopMenu1.jsp 에 적용될 ul li */
+	display: inline;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+/* TopMenu1.jsp a에 있는 class */
+.topli {
+	border-right: 1px solid black;
+}
+ul.top li a {
+	color: white;
+}
+ul.top li a:hover {
+	color: #836e5b;
+}
+table tr th,td{
+	font-size: 13px;
+}
+
+/*전체 border*/
+#border {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1900px;
+	height: 100%;
+	max-height: 2500px;
+	min-height: 845px;
+	border: 1px solid tan; 
+	border-bottom: none;
+	position:relative;
+	top: 40px;
+}
+
+ /* 왼쪽 */
+#left1 {
+	width: 200px;
+	min-height: 800px;
+	height: 100%;
+	float: left;
+}
+#left1 ul {
+	list-style: none;
+}
+#left1div {
+	height :100%;
+	width: auto;
+	float: left;
+}
+
+/* 왼측 검색창 */
+#search {
+	width: 198px;
+	border-bottom: 1px solid tan;
+}
+#img-button {
+	margin-bottom:0%;
+	width: 30px;
+	height: 30px;
+	background: url("../images/search.png");
+	background-repeat: no-repeat;
+	cursor: pointer;
+	border: none;
+	position:relative;
+	top: 5px;
+}
+#sch {
+	margin-top:3px;
+	margin-left:3px;
+	width: 75%;
+	height:25px;
+	outline: none;
+	border: 0px;
+	float: left;
+}
+
+/* 맨왼측 메뉴 */
+.menu a {
+	cursor: pointer;
+	width: 200px;
+	text-decoration: none;
+	color: black;
+}
+.menu a:hover{
+	color: tan; 
+}
+
+#letf1m ul ul li{
+	padding-left: 20px;
+}
+.menu .hide {
+	display: none;
+	border: none;
+}
+
+.menu a img{
+ 	width: 20px; 
+	height: 20px;
+}
+
+
+/* 중앙 바디 주요화면이 들어올 영역 */
+header{
+	border-bottom: 1px solid darkgray;
+	width: auto;
+	text-align: left;
+	padding-left: 10px;
+	padding-top: 30px;
+	font-size: 20pt;
+}
+#msec {
+	width: 60%;
+	height: auto;
+	min-height: 800px;
+	opacity: 0.6;
+	float: left;
+	border-right: 1px solid tan;
+	border-left: 1px solid tan;
+}
+#today {
+	margin-left:4%;
+	margin-top:4%;
+	width: 90%;
+	max-width:100%;
+	height: 200px;
+	background-color: #000000;
+	border: 0;
+}
+#tmember {
+	margin-left:3%;
+	margin-top:1%;
+	width:auto;
+	height:150px;
+	text-align:center;
+	
+}
+#day { 
+	width:97%;
+	color: #fd73ff;
+}
+#date {
+	display: inline;
+	padding-left: 3%;
+	width: 100px;
+}
+/*회원로그인*/
+#su1{
+	width: 22%;
+	height: 110%;	
+	float: left;
+	color: #fffa59;
+	position:relative;
+	top: 9px;
+}
+#su11{
+	padding-top: 17%;
+	height: 100%;
+	font-size: 50pt;
+}
+
+/*예약수*/
+#su2{
+	width: 22%;
+	height: 110%;
+	float: left;
+	color: #595eff;
+	position:relative;
+	top: 9px;
+}
+#su22{
+	padding-top: 17%;
+	height: 100%;
+	font-size: 50pt;
+}
+/*방문수*/
+#su3{
+	width: 22%;
+	height: 110%;
+	float: left;
+	color: #fffa59;
+	position:relative;
+	top: 9px;
+}
+#su33{
+	padding-top: 17%;
+	height: 100%;
+	font-size: 50pt;
+}
+#tsu{
+	float: left;
+	margin-left: 4%;
+	margin-top: 2%;
+	
+}
+
+/*회원 예약 환불*/
+#tsu li{
+	list-style:none;
+	width: 150px;
+	padding-bottom: 7px;
+	padding-top: 7px;
+	color: white;
+	position:relative;
+	top: 9px;
+}
+#tsu li label{
+	float: right; 
+	padding-right: 5%;
+}
+
+#h3{
+	margin-top: 5%;
+	margin-left: 3%;
+}
+#statistics{
+	margin-left:4%;
+	margin-top:2%;
+	width: 90%;
+	max-width:100%;
+	height: 200px;
+	border: 1px solid black;
+}
+#chartdiv {
+	width: 100%;
+	height: 100%;
+	margin-left: -1%;
+}
+#chartdiv2 {
+	margin-left:6%;
+	margin-top:2%;
+	width: 90%;
+	height: 100%;
+	margin-left: -1%;
+	max-width:100%;
+	height: 200px;
+	position:relative;
+	left: 30px;
+}
+
+#right{
+	float: right;
+	width: 150px;
+	height: 700px;
+}
+#rtd{
+	width: 15%;
+	position:fixed;
+	top:-70%;
+	right: 10px;
+}
+.rdiv{
+	color:white;
+	width: 100%;
+	background-color: tan;
+}
+#rul li{
+	list-style:none;
+	border-bottom: 1px solid tan;
+	padding-top: 3%;
+	width: 100%;
+}
+
+#re{
+	margin-top: 87%;
+	position:relative;
+	right: 20px;	
+}
+
+
+/* 하단 푸터 영역 */
+footer {
+	margin-bottom: 0%;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	color: white;
+	font-size: 20pt;
+	opacity: 0.7;
+	float: left;
+}
+
+#fp {
+	text-align: center;
+	width: 100%;
+	height: 50px; 
+	padding-top: 30px;	
+	background-color: #836e5b;
+	font-size: 14pt;
+}
+.upInfo{
+	display:none;
+	position:fixed;
+	top:10%;
+	left:55%;
+	font-size:1.8vw;
+	width:270px;
+	height:460px;
+	background-color: lightgray;
+	padding:2%;
+	z-index: 100
+}
+.upInfo td{
+	border:0;
+}
+.upInfo input{
+	font-size:1.8vw;
+}
+.upInfo button{
+	font-size:1.8vw;
+}
+
+#submit {
+	background-color: white;
+    border: 0.1vw solid gray;
+    color: gray;
+    text-align: center;
+    text-decoration: none;
+    outline:none
+}
+#submit:hover{
+    background-color: #bbbb;
+    color: white

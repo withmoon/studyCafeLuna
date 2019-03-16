@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="roomDAO">
+	<!-- 방찾기용 home&LookOver 공용 -->
+	<!-- 시/도 가져오기 -->
+	<select id="getSido" resultType="String">
+		select DISTINCT	SUBSTR(branchaddr1,0,2) from member where position='지점장' and brstatus!=-1
+	</select>
+	<!-- 선택된 시/도에 따른 구군 가져오기 -->
+	<select id="getGugun" resultType="String">
+		<![CDATA[select DISTINCT SUBSTR(branchaddr1,INSTR(branchaddr1, ' ', 1,1)+1,INSTR(branchaddr1, ' ',1,1)+1)  
+		from member where branchaddr1 like #{sido}|| '%']]>
+	</select>
+	
+	<!-- for LookOver -->
+	<!-- 선택 안돼있을시 방정보 가져오기 -->
+	<select id="getAllRoomInfo" resultType="roomInfo">
+		<![CDATA[select rom.branchName,rom.roomNum,roomName,roomEx1,roomEx2,roomEx3,romf.Fname from room rom 
+				 join roomfile romf on rom.roomNum=romf.roomNum join member mem on rom.branchName=mem.branchName 
+				 where romf.filenum=1 ]]>
+		<if test="sidogugun!='시/도 선택 '">
+			<![CDATA[ and mem.branchAddr1 like #{sidogugun}||'%']]>
+		</if>
+		<if test="startdate!=null">
+			<![CDATA[ and rom.roomNum not in (WITH CTE AS 
+				(
+				select rom.roomNum,reservstate from room rom 
+				join roomfile romf on rom.roomNum=romf.roomNum join member mem on rom.branchName=mem.branchName join roomreserv romrs on rom.roomNum=romrs.roomNum
+				where romf.filenum=1 and mem.branchAddr1 like #{sidogugun}||'%' and to_char(startdate,'yyyy-mm-dd') like #{startdate}
+				)
+  			   SELECT roomNum
+   			  FROM   cte
+   			  CROSS JOIN 
+    		 (
+        	  SELECT ROWNUM rn
+         	 FROM  (SELECT MAX (LENGTH (regexp_replace (reservstate, '[^,]+'))) + 1 max_l from cte
+    		  )
+        	 connect by level <= max_l
+    		 )
+   			  WHERE regexp_substr (reservstate, '[^,]+', 1, rn) IS NOT NULL
+   			  group by roomNum having count(regexp_substr (reservstate, '[^,]+', 1, rn))>44)]]>
+		</if>
+	</select>
+	
+	<!-- 해당날짜중 제외하고 들고올 방 설정 -->
+	<select id="getExcRoomNum" resultType="roomInfo">
+	<![CDATA[
+	
+     ]]>
+	</select>
+	
+	<!-- 스케줄 가져오기 -->
+	<select id="getRoomSchedule" resultType="roomInfo">
+		<![CDATA[select to_char(startdate,'yyyy-mm-dd') as startdate,reservstate from roomreserv where to_char(startdate,'yyyy-mm-dd') like #{startdate} and roomnum=#{roomNum}]]>
+	</select>
+	
+	<!--  for roomDetail  -->
+	<!-- 방상세 정보 가져오기-->
+	<select id="getDetailRoomInfo" resultType="roomInfo">
+		select mem.branchAddr1,mem.branchtel,rom.* from room rom join member mem on rom.branchName=mem.branchName where roomnum=#{roomNum}
+	</select>
+	
+	<!-- 방 사진 가져오기  -->
+	<select id="getRoomAllimg" resultType="roomFile">
+		select roomnum,filenum,fname from roomfile where roomnum=#{roomNum}
+	</select>
+	
+</mapper>

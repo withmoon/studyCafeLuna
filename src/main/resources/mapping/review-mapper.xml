@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reviewDAO">
+	<!-- review 가져오기 -->
+	<select id="getRoomAllReview" resultType="roomReview">
+		<include refid="payAndReservDAO.pagingHeader"/>
+		<![CDATA[select rownum num, b.* from(select romr.id,SUBSTR(mem.name,0,1)||'**' as name, roomNum,reviewContent,to_char(writedate,'yyyy-mm-dd HH24:MI') as writedate,starCt from roomReview romr 
+				 join member mem on romr.id=mem.id where roomNum=#{roomNum} order by writedate desc)b]]>
+		<include refid="payAndReservDAO.pagingFooter"/>
+	</select>
+	
+	<!-- 총 review갯수 가져옴 -->
+	<select id="getReviewCount" resultType="Integer">
+		select count(*) from roomReview where roomNum=#{roomNum}
+	</select>
+	
+	<!-- room 총점 가져옴 -->
+	<select id="getReviewStarAvg" resultType="String">
+		<![CDATA[select SUBSTR(Avg(starCt),1,4) from roomreview where roomNum=#{roomNum}]]>
+	</select>
+	
+	<!-- review 넣기 -->
+	<insert id="insertReview">
+		<![CDATA[insert into roomReview values(#{roomNum},#{reviewContent},#{id},default,#{starCt})]]>
+	</insert>
+	
+	<!-- 사용자의 리뷰 가져옴 -->
+	<select id="getUserReview" resultType="String">
+		<![CDATA[select roomnum from roomreview where id=#{id}]]>
+	</select>
+	
+	<!-- 리뷰 평점순으로 평점이 같으면 리뷰 순으로 해서 3등까지 가져오기 -->
+	<select id="getReviewRank" resultType="Integer">
+		<![CDATA[
+			select c.roomNum from(
+				select rownum rn, b.* from (
+					select a.*
+    				from (select roomnum
+               					, Avg(starCt) as starct
+               					, SUM(1) as reviewct
+               					, DENSE_RANK() OVER (ORDER BY Avg(starCt) DESC ) as ranking
+            					from (
+                					select * from roomreview
+                 					)
+         			group by roomnum ) a
+   					where a.ranking <=3 order by starct desc, reviewct asc
+   			) b)c where rn<=3
+		]]>
+	</select>
+	
+	<!-- 사용자 리뷰 업데이트 -->
+	<update id="upReviewContent">
+		update roomreview set reviewcontent=#{reviewContent} where id=#{id} and roomnum=#{roomNum}
+	</update>
+	
+	<!-- 사용자 리뷰 삭제 -->
+	<delete id="delReviewContent">
+		delete roomreview where roomnum=#{roomNum} and id=#{id}
+	</delete>
+	
+</mapper>

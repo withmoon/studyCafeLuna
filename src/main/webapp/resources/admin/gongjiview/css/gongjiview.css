@@ -1,0 +1,92 @@
+@charset "UTF-8";
+input, textarea {
+    width: 100%;
+    border: none;
+    outline:none;
+    resize:none;
+}
+
+.button input{
+    background-color: #337ab7;
+    border: none;
+    color: white;
+    width: 10%;
+    position:relative;
+    left: 40%;
+}
+
+.button input:hover{
+    background-color: #286090;
+}
+
+@charset "UTF-8";
+input, textarea {
+    width: 100%;
+    border: none;
+    outline:none;
+    resize:none;
+}
+
+.button input{
+    background-color: #337ab7;
+    border: none;
+    color: white;
+    width: 10%;
+    position:relative;
+    left: 40%;
+}
+
+.button input:hover{
+    background-color: #286090;
+}
+
+/*댓글보기/닫기*/
+.reply{
+   margin-bottom: 5px;
+   padding: 3%;
+}
+.reply b {
+ font-size : 2.5vw; color : #777;
+}
+.reply img {
+   width:3%;
+}
+.rbox{
+   border-top: 0.1vw solid #bbbb;
+   border-bottom: 0.1vw solid #bbbb;
+   padding:1%;
+}
+.rbox span {
+   position:absolute;
+   right:6%;
+}
+
+.rbox input {
+    width: 75%;
+}
+
+/*댓글 올리기*/
+.replytextForm {
+    border-top: 0.2vw solid #777;
+    padding:1%;
+}
+textarea {
+   border:0;
+   outline:none;
+   resize:none;
+   font-size: 2vw;
+}
+
+.replytextForm button {
+   width:15%;
+   font-size: 2vw;
+   padding:1%;
+   position:relative;
+   left: 2%; 
+   bottom: 23px;
+}
+
+.replytextForm b {
+   position:relative;
+   left: 35%; 
+}

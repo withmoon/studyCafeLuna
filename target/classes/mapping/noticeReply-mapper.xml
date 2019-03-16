@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="noticeReplyDAO">
+	<!-- 댓글 목록 -->
+	<select id="nReplyList" resultType="nReply">
+		<include refid="pagingHeader"></include>
+		select r.rno, num, r.replyer, r.replytext, r.regdate from NoticeReply r, member m where r.replyer = m.id and num=#{num} order by rno desc
+		<include refid="pagingFooter"></include>
+	</select>
+
+	<!-- 댓글 입력 -->
+	<insert id="nReplyInsert" parameterType="nReply">
+		<![CDATA[insert into NoticeReply (rno, num, replyer, replytext, regdate) values (NoticeReply_seq.NEXTVAL, #{num}, #{replyer}, #{replytext}, sysdate)
+		]]>
+	</insert>
+	
+	<!-- 댓글 수정 -->
+	<update id="nReplyUpdate">
+		update NoticeReply set replytext = #{replytext} where rno = #{rno}
+	</update>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="nReplyDelete">
+		delete NoticeReply where rno = #{rno}
+	</delete>
+	
+	<!-- 게시글갯수 -->
+	<select id="countnReply" resultType="int">
+		select count(*) from NoticeReply where num=#{num}
+	</select>
+	
+	<!-- 페이징 sql -->
+	  <sql id="pagingHeader">
+	 	select * from ( select rownum as rn, A.* from(
+	 </sql>
+	 <sql id="pagingFooter">
+	 		)A
+	 	)where rn  between #{start} and #{end}
+	 </sql>
+</mapper>

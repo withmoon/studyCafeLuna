@@ -1,0 +1,136 @@
+@charset "utf-8";
+* {
+	font-family: 'Gamja Flower', cursive; 
+}
+body{
+	background-image: url("../../../resources/public/images/back.png");
+	background-size: 1024px 670px;
+	background-repeat: no-repeat;
+}
+nav {
+	position: absolute;
+	top: 1%;
+	right:10%;
+}
+.topUl li{
+	margin:0px;
+	font-family: 휴먼아미체;
+	text-decoration:none;
+	display:table-cell;
+	font-size: 1.5vw;
+}
+.topUl li a{
+	text-decoration:none;
+	color: black;
+	font-size: 1.2vw;
+}
+.topUl li a:hover{
+	color: orange;
+}
+.regis{
+	position: absolute;
+	width: 10%;
+	top:4.5%;
+	left:43.2%;
+}
+.registt{
+	position: absolute;
+	top:10%;
+	left:53.2%;
+	color:black;
+	font-size:1.5vw;
+}
+.logo {
+	position: absolute;
+	width: 10%;
+	top:17.5%;
+	left:43.2%;
+}
+
+/* 타이틀 */
+.top {
+	position: absolute;
+	top:38%;
+	left:45.5%;
+	width: auto;
+	text-align: center;
+	font-size: 2.3vw;
+	color:black;
+}
+
+/* 아이디, 비번 라벨 */
+label{
+	color:black;
+	position:absolute;
+	left:39%;
+	font-size:1.7vw; 
+}
+.ilabel{
+	top:48%;
+}
+.plabel{
+	top:58%;
+}
+
+/* text 필드 스타일,크기,폰트 사이즈 */
+input[type=text],[type=password]{
+	position:absolute;
+	top:47%;
+	left:42.5%;
+	border: none;
+	background-color:#e8e8e8;
+	height:4%;
+	font-size: 1.5vw;
+}
+input[type=password]{
+	top:58%;
+}
+/* 로그인 버튼  / 카카오 버튼 */
+.loginBtn{
+	position:absolute;
+	top:50%;
+	left:58%;
+	padding:2%;
+	font-size:1.7vw;
+	background-color:tan;
+	color:black;
+}
+#kakao-login-btn{
+	position:absolute;
+	top:67%;
+	left:29.5%;
+	width:40%;
+}
+.findBtns{
+position:absolute;
+left:41%;
+bottom:20%;
+}
+.findDiv{
+	background-color:gray;
+position:absolute;
+left:30%;
+top:40%;
+width:30%;
+height:20%;
+}
+.findDiv table tr td{
+	font-size:2vw;
+}
+.findDiv input[type=text]{
+	height:20px;
+}
+.findDiv #nmt{
+	top:10px;
+}
+.findDiv #emt{
+	top:35px;
+}
+.findDiv #idt{
+	top:60px;
+}
+.findDiv input[type=button]{
+	position:absolute;
+	top:70%;
+	left:60%;
+}

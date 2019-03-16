@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="payAndReservDAO">
+
+	<!-- 예약 테이블에 현재날짜을 가지고 있는 room이 있는지 -->
+	<select id="checkReservStartdate" resultType="Integer">
+		<![CDATA[select reservNumber from roomreserv where roomnum=#{roomNum} and to_char(startdate,'yyyy-mm-dd') like #{startdate}]]>
+	</select>
+
+	<!-- 예약 집어넣기 -->
+	<insert id="inReserveRoom">
+		<![CDATA[insert into roomReserv values((select nvl(max(reservNumber)+1,1) from roomreserv),#{startdate},#{roomNum},#{reservstate})]]>
+	</insert>
+	<!-- startDate로 오늘 날짜가 있는 방은 update로 뒤에 어펜드 처리 -->
+	<update id="upReserveRoom">
+		<![CDATA[
+		update roomReserv set reservstate=concat(reservstate,#{reservstate}) 
+		where reservNumber=#{reservNumber}
+		]]>
+	</update>
+
+	<!-- 결제 집어넣기 -->
+	<insert id="inRoomPayment">
+		<![CDATA[insert into roompayment
+		]]>
+		<if test="reservenddate==null or reservenddate==''">
+		<![CDATA[(imp_uid,merchant_uid,branchname,roomnum,id,reservetime,payamount,status,paid_at,receipt_url,pg_provider,pg_tid,seq,reservdate)
+		 values
+		(#{imp_uid},#{merchant_uid},#{branchName},#{roomNum},#{id},#{reserveTime},#{payAmount},#{status},#{paid_at},#{receipt_url},#{pg_provider},#{pg_tid}
+		,(select nvl(max(seq)+1,1) from roompayment),#{reservdate})]]>
+		</if>
+		<if test="reservenddate!=''">
+		<![CDATA[
+		  values (#{imp_uid},#{merchant_uid},#{branchName},#{roomNum},#{id},#{reserveTime},#{payAmount},#{status},#{paid_at},#{receipt_url},#{pg_provider},#{pg_tid}
+		,(select nvl(max(seq)+1,1) from roompayment),#{reservdate},#{reservenddate},#{reserveEndTime})]]>
+		</if>
+	</insert>
+
+	<!-- for MyPage -->
+	<!-- user Payed ist -->
+	<select id="getUserPayInfo" resultType="myPageInfo">
+		<include refid="pagingHeader"/>
+	<![CDATA[
+		select rownum num, b.* from(select mem.branchAddr1,rom.roomName,rom.roomNum,romp.branchName,romp.status,romp.imp_uid,
+		to_char(reservdate,'yyyy-mm-dd') as reservdate,SUBSTR(reserveTime,0,2)||':'||SUBSTR(reserveTime,3,2) as starttime,
+		SUBSTR(reserveTime,LENGTH(reserveTime)-4,2)||':'||SUBSTR(reserveTime,LENGTH(reserveTime)-2,2) as endtime,receipt_url,
+    	to_char(romp.reservenddate,'yyyy-mm-dd') as reservenddate,SUBSTR( reservenddatetime,LENGTH( reservenddatetime)-4,2)||':'||SUBSTR(  romp.reservenddatetime,LENGTH( reservenddatetime)-2,2) as reservenddatetime,mem.branchtel  
+		from roomPayment romp join room rom on rom.roomNum=romp.roomNum join member mem on romp.branchName=mem.branchName
+		where romp.id=#{id}
+	]]>
+		<!-- 최근 내역 -->
+		<if test="status=='pay'">
+		<![CDATA[
+		and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))>=to_char(sysdate+0.375,'yyyymmddHHMi')  order by reservdate asc )b
+		]]>
+		</if>
+		<!-- 지난 내역 -->
+		<if test="status=='reserved'">	
+		<![CDATA[
+			and to_char(sysdate-30*6,'yyyymmddHHMi')<to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4)) 
+			and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))<=to_char(sysdate+0.375,'yyyymmddHHMi')  order by reservdate desc )b
+		]]>
+		</if>
+		<!-- 검색내역 -->
+		<if test="status=='search'">
+		<![CDATA[
+			and #{startdate}<=to_char(reservdate,'yyyy-mm-dd') and to_char(reservdate,'yyyy-mm-dd')<=#{enddate} order by reservdate desc )b
+		]]>
+		</if>
+		<include refid="pagingFooter"/>
+	</select>
+
+	<!-- user Payed Count -->
+	<select id="getUserPayCount" resultType="Integer">
+		<![CDATA[
+			select count(*) from roompayment 
+			where id=#{id} ]]>
+		<!-- 최근 내역 -->
+		<if test="status=='pay'">
+		<![CDATA[
+			and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))>=to_char(sysdate+0.375,'yyyymmddHHMi')  order by reservdate asc
+		]]>
+		</if>
+		<!-- 지난 내역 -->
+		<if test="status=='reserved'">	
+		<![CDATA[
+			and to_char(sysdate-30*6,'yyyymmddHHMi')<to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4)) 
+			and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))<=to_char(sysdate+0.375,'yyyymmddHHMi')  order by reservdate desc
+		]]>
+		</if>
+		<!-- 검색내역 -->
+		<if test="status=='search'">
+		<![CDATA[
+			and #{startdate}<=to_char(reservdate,'yyyy-mm-dd') and to_char(reservdate,'yyyy-mm-dd')<=#{enddate} order by reservdate desc
+		]]>
+		</if>
+
+	</select>
+	<!-- 예약 취소 -->
+	<update id="cancleReserve">
+		<![CDATA[update roompayment set status=-2 where imp_uid=#{imp_uid}]]>
+	</update>
+
+	<!-- 작년 예약수 -->
+	<select resultType="Integer" id="getPreYearReserveCount">
+
+		<![CDATA[
+			select count(*) from roompayment where 
+			to_date(to_char(TRUNC(ADD_MONTHS(sysdate,-12)+1),'yyyy')||'-01-01')<=reservdate
+			and reservdate<to_date(to_char(TRUNC(sysdate+1),'yyyy')||'-01-01') and status=1
+		]]>
+	</select>
+
+	<!-- 올해 예약수 -->
+	<select resultType="Integer" id="getThisYearReserveCount">
+
+		<![CDATA[
+			select count(*) from roompayment where 
+			to_date(to_char(TRUNC(sysdate+1),'yyyy')||'-01-01')<=reservdate
+			and reservdate<to_date(to_char(TRUNC(ADD_MONTHS(sysdate,+12)+1),'yyyy')||'-01-01') and status=1
+		]]>
+	</select>
+
+	<!-- 전일 예약수 -->
+	<select resultType="Integer" id="getPreDayReserveCount">
+
+		<![CDATA[
+		select count(*) from roompayment where reservdate=to_char(sysdate-1,'yyyy-mm-dd')
+		]]>
+	</select>
+
+	<!-- 전월 예약수 -->
+	<select resultType="Integer" id="getPreMonthReserveCount">
+		<![CDATA[
+		select count(*) from roompayment where to_char(reservdate,'yyyy-mm') like to_char(TRUNC(ADD_MONTHS(sysdate,-1)+1),'yyyy-mm')
+		]]>
+	</select>
+	
+	<!-- 매출 현황 끌고 오기 -->
+	<select resultType="roomPay" id="getTermSales">
+		<![CDATA[select (select zipcode from member where branchname='본점')as baseline,to_char(paid_at,'yyyy-mm-dd HH24:')||'00' as paid_at, SUM(payamount) payamount from roompayment where status=1 ]]>
+		<if test="paid_at_start=='' and paid_at_end==''">
+		<![CDATA[
+		and to_date(to_char(TRUNC(sysdate+1),'yyyy')||'-01-01')<=paid_at
+		and paid_at<to_date(to_char(TRUNC(ADD_MONTHS(sysdate,+12)+1),'yyyy')||'-01-01') 
+		]]>
+		</if>
+		<if test="paid_at_start!='' and paid_at_end!=''">
+		<![CDATA[and to_date(#{paid_at_start}) <= to_date(to_char(paid_at,'yyyy-mm-dd')) 
+		and to_date(to_char(paid_at,'yyyy-mm-dd')) <= to_date(#{paid_at_end})]]>
+		</if>
+		<![CDATA[ group by to_char(paid_at,'yyyy-mm-dd HH24:')||'00' order by paid_at]]>
+	</select>
+	
+	<!-- 종학쓰 베이스라인 설정 -->
+	<update id="setBaseLine">
+	<![CDATA[
+		UPDATE MEMBER SET ZIPCODE = #{baseline} WHERE POSITION ='총관리자'
+	]]>
+	</update>
+
+	<!-- 페이징 sql -->
+	<sql id="pagingHeader">
+		select * from ( select num as rn,A.* from(
+	</sql>
+
+	<sql id="pagingFooter">
+		)A)where rn between #{start} and #{end}
+	</sql>
+</mapper>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="eventBoardDAO">
+	<!-- 진행이벤트 목록 -->
+	<select id="eventAll" resultType="adminEventBoardVO">
+		<include refid="pagingHeader"></include>
+		select * from adminevent where enddate > sysdate order by seq desc
+		<include refid="pagingFooter"></include>
+	</select>
+	
+	<!-- 종료인벤트목록 -->
+	<select id="eventEndAll" resultType="adminEventBoardVO">
+		<include refid="pagingHeader"></include>
+		select * from adminevent where sysdate > enddate order by seq desc
+		<include refid="pagingFooter"></include>
+	</select>
+	
+	<!-- 게시글갯수 -->
+	<select id="countEvent" resultType="int">
+		select count(*) from adminevent where enddate > sysdate
+	</select>
+	
+	<select id="countEventEnd" resultType="int">
+		select count(*) from adminevent where sysdate > enddate
+	</select>
+	
+	<!-- 페이징 sql -->
+	  <sql id="pagingHeader">
+	 	select * from ( select rownum as rn, A.* from(
+	 </sql>
+	 <sql id="pagingFooter">
+	 		)A
+	 	)where rn  between #{start} and #{end}
+	 </sql>
+	
+	<!-- 이벤트 상세보기 -->
+	<select id="viewEvent" resultType="adminEventBoardVO">
+		select * from adminevent where seq=#{seq}
+	</select>
+	
+	<!-- 넣을 seq 가져오기 -->
+	<select id="eventSeq" resultType="Integer">
+		<![CDATA[select nvl(max(seq)+1,1) from adminevent]]>
+	</select>
+	
+	<!-- 이벤트 글 등록 -->
+	<insert id="eventwrite" parameterType="adminEventBoardVO">
+   <![CDATA[
+   insert into adminevent values ((select nvl(max(seq)+1,1) from adminevent), #{title}, '관리자', #{content}, #{startdate}, #{enddate}, #{image}, #{files})
+   ]]>
+   </insert>
+   
+   <!-- 이벤트 수정 -->
+   <update id="updateevent">
+     <![CDATA[update adminevent set content=#{content},title=#{title}]]>
+		<if test="files!=null and files!=''">
+			<![CDATA[,files=#{files} ]]>
+		</if>
+		where seq=#{seq}
+   </update>
+   <!-- 넣을 seq 가져오기 -->
+   <select id="event_Seq" resultType="Integer">
+		<![CDATA[select nvl(max(seq),1) from adminevent]]>
+	</select>
+	
+	<!-- 이벤트삭제 -->
+	<delete id="deleteevent" parameterType="adminEventBoardVO">
+		delete from adminevent where seq=#{seq}
+	</delete>
+</mapper>

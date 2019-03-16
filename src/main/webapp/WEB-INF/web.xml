@@ -67,7 +67,7 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-			classpath:/controller/pub-controll.xml
+			classpath:/spring/servlet-context.xml
 			</param-value>
 		</init-param>
 		<init-param>
@@ -79,55 +79,6 @@
 	<servlet-mapping>
 		<servlet-name>pub</servlet-name>
 		<url-pattern>*.do</url-pattern>
-	</servlet-mapping>
-	
-	<!-- 뷰 전용 -->
-	<servlet>
-		<servlet-name>user</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<init-param>
-			<param-name>contextConfigLocation</param-name>
-			<param-value>
-			classpath:/controller/user-controll.xml
-			</param-value>
-		</init-param>
-		<init-param>
-			<param-name>enablePooling</param-name>
-			<param-value>false</param-value><!-- 톰캣 메모리 풀링방지 -->
-		</init-param>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>user</servlet-name>
-		<url-pattern>*.udo</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>manager</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<init-param>
-			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:/controller/manager-controller.xml</param-value>
-		</init-param>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>manager</servlet-name>
-		<url-pattern>*.mdo</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
-		<servlet-name>admin</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<init-param>
-			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:/controller/admin-controller.xml</param-value>
-		</init-param>
-		<init-param>
-			<param-name>enablePooling</param-name>
-			<param-value>false</param-value><!-- 톰캣 메모리 풀링방지 -->
-		</init-param>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>admin</servlet-name>
-		<url-pattern>*.ado</url-pattern>
 	</servlet-mapping>
 
 </web-app>

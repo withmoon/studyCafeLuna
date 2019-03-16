@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="managerDAO">
+	<!-- 로그인 카운트 가져오기 -->
+	<select id="login" resultType="int">
+		SELECT LOGIN FROM LOGINCOUNT
+	</select>
+	
+	<!-- 로그인 카운트 올리기 --> <!-- 바꿀거 -->
+	<update id="logincount"> 
+		update logincount set login=login+1 where su=1
+	</update>
+	<!-- 로그인 카운트 수 올리기 --> <!-- db바꿔야함 -->
+	<select id="join" resultType="int"> 
+		select join from logincount where su=1
+	</select>
+	
+	<!-- id에 해당하는 지점명 가져오기 -->
+	<select id="branchname" resultType="String">
+		select branchname from member where id=#{id}
+	</select>	
+
+	<!-- 회원만 가지고 오기 -->	
+	<select id="member" resultType="int">
+		select count(*) from member where position is null
+	</select>
+	
+	<!-- 환불요청한 사람 가져오기  -->
+	<select id="reroom" resultType="int">
+		select count(*) from roompayment where status = -2
+	</select>
+	 
+	<!-- 예약한 결제수 가져오기  -->	<!-- 한달전 날짜로 변경 --> 
+	<select id="roomcount" resultType="int">
+	<![CDATA[
+		select count(*) from roompayment where reservdate >= '19/03/01' and reservdate <= sysdate and branchName =#{branchName}
+	]]>
+	</select>
+	<!-- #{days}/01 --> 
+
+    
+	<select id="board" resultType="QBoard">
+	<![CDATA[
+		select * from inquiryboard where  rownum<=5 order by seq desc
+	]]>
+	</select>
+	
+	<!-- 리뷰 가져오기 --><!-- 화면조정되면 값 불러서 조정할것 -->
+	<select id="review" resultType="roomReview">
+		SELECT * FROM ROOMREVIEW 
+	</select>
+	
+	<!-- 차트데이터가져오기 --> <!-- 기간 받아서하기로 변경 -->
+	<select id="chart" resultType="Statistics">
+	<![CDATA[
+		 select reservdate ,count(*)as gunsu from roompayment  where reservdate>='19/01/01' and 
+		reservdate<='19/03/28' group by reservdate order by reservdate asc
+	]]>	 
+	</select>
+
+</mapper> 
+

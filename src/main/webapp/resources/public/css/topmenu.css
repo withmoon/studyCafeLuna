@@ -1,0 +1,62 @@
+@charset "UTF-8";
+* { font-family: 'Gamja Flower', cursive; }
+
+ul li{
+	margin:0px;
+	font-family: ont-family: 'Gamja Flower', cursive;
+	text-decoration:none;
+	display:table-cell;
+	font-size: 1.7vw;
+}
+ul li a{
+	text-decoration:none;
+}
+
+.topUl{
+	position:relative;
+	top:-120px;
+}
+.topUl li{
+	text-align:center;
+	background-color:tan;
+	padding:6px 12px 6px 12px;
+	position:relative;
+	left:20px;
+	width:148px;
+}
+.topUl li:hover{
+	background-color:white;
+	cursor:pointer;
+}
+.topUl li a{
+	font-size: 1.7vw;
+}
+.memberUl{
+	position:relative;
+	top:-130px;
+	right:-708px;
+}
+.memberUl img{
+	width:170px;
+}
+.lgoutli img{
+	width:82%;
+}
+
+/*Ã«Â¡Å“ÃªÂ³Â Ã¬Â²ËœÃ«Â¦Â¬*/
+.logo{
+	position:relative;
+	width:90px;
+	top:1px;
+	left:50px;
+}
+
+div.button{
+   margin: auto;
+   width: 10%;
+}
+
+div.button input{
+   width: 100%;
+   font-size: 12px;
+}

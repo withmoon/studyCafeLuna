@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+*{
+   margin:0;
+   font-family: 'Gamja Flower', cursive;
+}
+
+
+/*본문*/
+.border {
+   border-radius: 2em;
+   border-top-left-radius: 2em;
+   border-top-right-radius: 2em;
+   border-bottom-left-radius: 2em;
+   border-bottom-right-radius: 2em;
+   border: 2px solid tan;
+   padding:1%;
+   margin: 5%;
+   position:relative;
+   width: 90%;
+   left: -1.6%;
+   font-size: 2.5vw;
+}
+/*제목*/
+.title {
+   padding: 5px 0px 5px 5px;
+    margin-bottom: 5px;
+    border-bottom: 0.2vw solid tan;
+}
+.title b { 
+    font-size : 2.5vw; color : #003366;
+    position:relative;
+    left: 5%;
+}
+
+.writer {
+    position:relative;
+    left: 10%;
+}
+
+.date {
+    position:relative;
+    left: 12%;
+}
+/*내용*/
+.content {
+   padding: 5%;
+}
+
+img {
+    width: 80%;
+}
+/*댓글보기/닫기*/
+.reply{
+   margin-bottom: 5px;
+   border-top: 0.2vw solid tan;
+   border-bottom: 0.2vw solid tan;
+   padding: 3%;
+}
+.reply b {
+ font-size : 2.5vw; color : #777;
+}
+.reply img {
+   width:3%;
+}
+.rbox{
+   border-top: 0.1vw solid #bbbb;
+   border-bottom: 0.1vw solid #bbbb;
+   padding:1%;
+}
+.rbox span {
+   position:absolute;
+   right:6%;
+}
+
+.rbox input {
+    width: 75%;
+}
+
+/*댓글 올리기*/
+.replytextForm {
+    border-top: 0.2vw solid #777;
+    padding:1%;
+}
+textarea {
+   border:0;
+   outline:none;
+   resize:none;
+   font-size: 2vw;
+}
+
+.replytextForm button {
+   width:15%;
+   font-size: 2vw;
+   padding:1%;
+   position:relative;
+   left: 2%; 
+   bottom: 23px;
+}
+
+.replytextForm b {
+   position:relative;
+   left: 35%; 
+}
+
+/*댓글수정*/
+#upre {
+   font-size: 1.5vw;
+}
+
+/*페이지*/
+#replyPaging {
+	position:relative;
+	left:40%;
+}
+
+#replyPaging li {
+    list-style:none; 
+    margin:1px;
+}
+
+/*button*/
+.button {
+   padding: 3%;
+   position:relative;
+   left: 38%; 
+}
+.button button {
+   width:20%;
+   font-size: 2vw;
+   padding:1%;
+}
+
+button{
+    background-color: white;
+    border: 0.1vw solid gray;
+    color: gray;
+    text-align: center;
+    text-decoration: none;
+    outline:none;
+}
+
+button:hover{
+    background-color: #bbbb;
+    color: white
+}
+/*footer*/
+footer{
+   padding: 3% 0%;
+   position:relative;
+   bottom:-200px;
+}

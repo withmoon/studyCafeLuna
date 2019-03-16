@@ -1,0 +1,444 @@
+@charset "UTF-8";
+
+* { font-family: 'Gamja Flower', cursive; margin:0;}
+nav{
+	position:relative;
+	top:150px;
+}
+nav{
+	top:40px;
+}
+.memberUl{
+	postion:absolute;
+	top:20px;	
+}
+.topUl{
+	top:-40px;
+}
+.logo{
+	position:absolute;
+	top:-1px;
+}
+/* 타이틀 */
+.top{
+	position:absolute;
+	top:2%;
+	left:15%;
+	width:auto;
+	text-align:center;
+	font-size: 2vw;
+	color: #686868; 
+}
+/*정보*/
+.myinformation{
+	position: relative;
+	top: 50px;
+	left: 5%;
+	font-size: x-large;
+	color: #686868; 
+}
+/*사슴*/
+.deer {
+	width:9%;
+	position:relative;
+	float:right;
+	left:-17%;
+	top:35px;
+	border:1px solid tan;
+	background-color:seashell;
+}
+.deer2{
+	width:8.7%;
+	padding:4px;
+	position:relative;
+	float:right;
+	left:-21%;
+	top:4px;
+	border:1px solid gray;
+	background-color: lightgray;
+}
+.infoline1{ 
+	width:90%;
+	positon:relative;
+	left:10px;
+}
+.infoline2{ 
+	width:90%;
+	positon:relative;
+	left:10px;
+}
+b{
+	position:relative;
+	left:30px;
+	color:black;
+}
+/*정보수정 div*/
+.upInfo{
+	display:none;
+	position:fixed;
+	top:10%;
+	left:55%;
+	font-size:1.8vw;
+	width:270px;
+	height:460px;
+	background-color: lightgray;
+	padding:2%;
+}
+/* 내용 보여줌 */
+.showElse{
+	display:none;
+	position:fixed;
+	top:18%;
+	left:35%;
+	font-size:1.8vw;
+	width:270px;
+	height:350px;
+	background-color: lightgray;
+	padding:2%;
+}
+.showElse table td{
+	border:1px solid white;
+}
+.upInfo td{
+	border:0;
+}
+.upInfo input{
+	font-size:1.8vw;
+}
+.upInfo button{
+	font-size:1.8vw;
+}
+
+/*즐겨찾기*/
+.favorites1{
+	position:relative;
+	font-size: 2.6vw;
+	color: teal;
+	top: 70px;
+	left: 6%;
+}
+.favorlist{
+	position:relative;
+	top:14px;
+	border:15px groove BurlyWood ;
+	background-color:DarkSlateGray ;
+	width:80%;
+	height:550px;;
+	left:3%;
+}
+.favorlist img{
+	width:250px;
+	height:140px;
+}
+.favorlist table{
+	border-spacing:80px 20px;
+  	border-collapse: separate;
+	
+}
+.favorlist table tr td{
+	text-align:center;
+	width:10%;
+	padding:2%;
+	border:1px solid white;
+	border-radius:40px;
+}
+.favorlist table tr td a{
+	color:white;
+	text-decoration:none;
+}
+.favorites1 a{
+	font-size:1.8vw;
+	color: teal;
+}
+.favorites1 a:hover{
+	color:coral;
+}
+.favorlist div a{
+	color:white;
+}
+
+/*예약현황타이틀*/
+.reservation{
+	position: relative;
+	top:120px;
+	left:5%;
+}
+.reservation img{
+	width:220px;
+	height:120px;
+}
+.reservlabel{
+	font-size: 2.6vw;
+}
+#display2{
+	position:relative;
+	left:10px;
+	font-size:1.8vw;
+	color:black;
+}
+#display2:hover{
+	color:coral;
+}
+.rslist{
+	position:relative;
+	top:10px;
+	text-align:center;
+	border:20px groove lightgray;
+	width:760px;
+	height:530px;
+	padding:5%;
+}
+.rslist table{
+	text-align:center;
+	border-top:2px solid black;
+	border-bottom:2px solid black;
+	border-collapse: collapse;
+}
+.rslist table tr th{
+	border-bottom:2px solid black;
+	width:1.5%;
+}
+.rslist table tr td{
+	border-bottom:2px dotted black;
+	width:1.5%;
+}
+/* 예약 달력 */
+.line2 {
+	text-align:center;
+	position:relative;
+	border-top:1.5px solid teal;
+	border-bottom:1.5px solid teal;
+	padding:2%;
+	width:96%;
+}
+
+.line2 button{
+	font-size:1.2vw;
+}
+
+input[type=date]{
+	font-size : 1.2vw;
+ 	border:1px solid #836e5b;
+	position:relative;
+}
+#lastReservList{
+	position:relative;
+	top:-1.5px;
+}
+#lastReservList table{
+	border-top:2px solid teal;
+	border-bottom:2px solid teal;
+}
+#lastReservList table th{
+	border-top:2px solid teal;
+	border-bottom:2px solid teal;
+}
+/*룸없을때 나타남*/
+.noroom {
+	text-align:center;
+	position:relative;
+	top: 80px;
+}
+.noroom label{
+	position:relative;
+	top: -30px;
+	left:2%;
+	font-size:x-large;
+	color:gray;
+}
+/*알림*/
+.allnon{
+	position:relative;
+	top:140px;
+	color:mediumpurple;
+}
+.allnon table{
+	text-align:center;
+	border-collapse:collapse;
+	border:2px solid mediumpurple;
+	position:relative;
+	left:6%;
+	font-size:1.7vw;
+	color:black;
+	width:87%;
+	
+}
+.allnon table td{
+	border-bottom:1px solid black;
+}
+.notification1 {
+	position:relative;
+	font-size: xx-large;
+	top: 139%;
+	left: 5%;
+}
+
+.notification2 {
+	position: relative;
+	width: 65%;
+	top: 150%;
+	left: 18%;
+}
+/* 리뷰쓰기 */
+.review{
+	display:none;
+	border:2px solid gray;
+	padding:3%;
+	background-color:white;
+	position:fixed;
+	top:45%;
+	left:6%;
+	width:82%;
+
+}
+.review button{
+	font-size:1.5vw;
+	border-radius:10px 0;
+	background-color:lightgray;
+}
+.review input{
+	font-size:1.7vw;
+	border:1px solid gray;
+}
+.review img{
+	position:relative;
+	top:-15px;
+	float:right;
+	width:3%;
+}
+.review .star{
+	float:left;
+	width:4%;
+}
+.lastSearch{
+	position:relative;
+	top:-10px;
+	left:-6px;
+}
+.lastSearch b{
+	color:teal;
+}
+/* 최근내역 페이징 css */
+.pagcls{
+	text-decoration:none;
+}
+.pagcls li{
+	position:relative;
+	left:350px;
+	top:-30px;
+	display:table-cell;
+}
+.pagcls a:hover{
+	color:orange;
+	cursor:pointer;
+}
+/*환불 div*/
+.ccReserDiv{
+	display:none;
+	padding:2%;
+	position:fixed;
+	background-color:skyblue;
+	border:2px solid gray;
+	top:30%;
+	left:42%;
+	text-align:center;
+}
+.ccReserDiv button{
+	margin:0 10px;;
+}
+/*최근내역 테이블*/
+#latelyReservList{
+	position:relative;
+	top:-20px;
+}
+#latelyReservList table{
+	position:relative;
+	top:-10px;
+}
+/*페이징 몰이*/
+
+/* footer */
+footer{
+	position:relative;
+	top:200px;
+	left:0%;
+	width:102%;
+	margin:0 -5% 0 0;
+}
+#fvPaging{
+	margin:1%;
+	position:relative;
+	top:-25px;
+	color:white;
+	text-decoration:none;
+	left:41%;
+}
+#fvPaging li{
+	display:table-cell;
+}
+#fvPaging a{
+	color:white;
+}
+#fvPaging a:hover{
+	cursor:pointer;
+	color:orange;
+}
+#alpaging{
+	position:relative;
+	top:30px;
+	left:40px;
+	color:black;
+	margin:1%;
+}
+a{
+	margin:1%;
+}
+a:hover{
+	cursor:pointer;
+}
+.ntlnon{
+	position:relative;
+	top:150px;
+	font-size:2.6vw;
+	color:gray;
+}
+.ntlnon table{
+	text-align:center;
+	border-collapse:collapse;
+	border:2px solid gray;
+	position:relative;
+	left:6%;
+	font-size:1.7vw;
+	color:black;
+	width:87%;
+	
+}
+.ntlnon table{
+	collapse:collapse;
+}
+.ntlnon table td{
+	padding:0px;
+	border-bottom:1px solid black;
+	width:190px;
+}
+.ntlnon table td textarea{
+	height:150px;
+	width:500px;
+	margin:0px;
+}
+.notification3 {
+	position:relative;
+	top: 139%;
+	left: 5%;
+}
+
+.notification4 {
+	position: relative;
+	width: 65%;
+	top: 150%;
+	left: 18%;
+}
+#ntpaging{
+	position:relative;
+	top:50px;
+}

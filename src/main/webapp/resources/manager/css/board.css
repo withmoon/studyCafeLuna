@@ -1,0 +1,88 @@
+@charset "UTF-8";
+*{
+   margin:0;
+   font-family: Gamja Flower', cursive;
+}
+
+header {
+	border-bottom: 1px solid darkgray;
+	width: auto;
+	text-align: left;
+	padding-left: 10px;
+	padding-top: 30px;
+	font-size: 20pt;
+}
+#searchtable {
+	width: 100%;
+	min-width: 450px;
+}
+
+#boardtable {
+	width: 100%;
+	min-width: 450px;
+}
+
+#searchtd {
+	text-align: right;
+}
+
+#write {
+	float: left;
+	padding: 2px 1px;
+}
+
+#board {
+	margin-left: 5%;
+	margin-top: 5%;
+	width: 90%;
+}
+
+
+table{
+   text-align: center;
+   border-bottom:2px solid tan; 
+   border-collapse: collapse;
+   position:relative;
+   width:100%;
+}
+table th{
+   border-top:2px solid tan; 
+   border-bottom:2px solid tan; 
+   width:10px;
+   font-size: 1vw;
+   background:tan;
+}
+table td{
+   font-size: 1.5vw;
+}
+
+#mail {
+   color: #e8a8a8;
+}
+
+a{
+   color: #000000;
+}
+
+a:hover {
+   color: tan;
+}
+
+button{
+    background-color: white;
+    border: 0.1vw solid gray;
+    color: gray;
+    text-align: center;
+    text-decoration: none;
+    outline:none;
+}
+
+button:hover{
+    background-color: #bbbb;
+    color: white
+}
+
+b{
+	color:#323b9f;
+	font-size: 2vw;
+}

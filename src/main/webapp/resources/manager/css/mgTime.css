@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+ul{
+   list-style:none;
+   padding: 5px;
+}
+
+#submit {
+    position:absolute;
+    top: 74px;
+    left: 520px;
+}

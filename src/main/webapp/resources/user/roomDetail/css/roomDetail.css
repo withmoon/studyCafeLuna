@@ -1,0 +1,246 @@
+@charset "UTF-8";
+*{
+   margin:0;
+   font-family: 'Gamja Flower', cursive;
+}
+nav{
+	top:40px;
+}
+.memberUl{
+	postion:absolute;
+	top:20px;	
+}
+.topUl{
+	top:-40px;
+}
+.logo{
+	position:absolute;
+	top:-1px;
+}
+/* 타이틀 */
+.top{
+	position:absolute;
+	top:2%;
+	left:15%;
+	width:auto;
+	text-align:center;
+	font-size: 2vw;
+	color: #686868; 
+}
+/* 방 간략 소개 구간 */
+.roomExp{
+   position:relative;
+   top:20px;
+   left:2%;
+   width:77%;
+   height:260px;
+   background-color:#b5a495;
+   font-size: 1.5vw;
+}
+/* 이미지 */
+#roomExpImg{
+   position:absolute;
+   top:7%;
+   left:2.2%;
+   width:43%;
+   height:85%;
+}
+/* 간략방소개  */
+.roomExp #roomExplain{
+   position:relative;
+   left:48%;
+   top:18%;
+}
+/* 구역 나눔 */
+.rsec{
+   position:relative;
+   left:74%;
+   top:-56%;
+   height:80%;
+   border-left:1px solid #efefef;
+}
+/* 간략지점 소개 */
+.roomExp #branchExplain{
+   position:relative;
+   left:78%;
+   top:-128%;
+   
+}
+/* 카카오 링크 이미지 */
+#kakao-link-btn{
+   position:absolute;
+   top:23%;
+   right:25%;
+   width:8%;
+   
+}
+/* 찜 안찜 */
+#keep{
+   position:absolute;
+   top:23%;
+   right:22%;
+   width:5%;
+}
+
+/* 스프링 효과 */
+.springEf{
+   position:fixed;
+   top:38.1%;
+   right:5%;
+   width:4%;
+}
+.springEf2{
+   position:fixed;
+   top:38.1%;
+   left:82.4%;
+   width:4%;
+}
+
+/* 스케줄 */
+#showSchedule{
+   position:relative;
+   top:45px;
+   left:2%;
+   width:74.5%;
+   height:15%;
+   border: 2px solid #b5a495;
+   padding:1%;
+   text-align: center;
+   font-size:1.3vw;
+}
+#showSchedule table{
+   font-size:1.15vw;
+   border:1px solid black;
+}
+#showSchedule table td{
+   border:1px solid black;
+}
+#showSchedule table td:hover{
+   cursor: pointer;
+}
+/* 스케줄 바 */
+.right1{
+   position:fixed;
+   top:30%;
+   right:5%;
+   width:12%;
+   height:10%;
+   background: #d5d5d5; 
+}
+
+/* 달력  */
+input[type=date]{
+   width :89%;
+   height:30%;
+    padding: 0.25%;
+    font-size : 1.3vw;
+   position:relative;
+   left:3.5%;
+   top:5%;
+}
+/* 버튼 */
+.look{
+   position:relative;
+   top:14%;
+   left:3.5%;
+   font-size : 1.3vw;
+   background: #898989; 
+   border-color:#898989; 
+   padding:1px 10px 1px 10px;
+   width :93%;
+   height:35%;
+}
+
+/* 스케줄 바 */
+.right2{
+   position:fixed;
+   top:42%;
+   right:5%;
+   width:12%;
+   height:auto;
+   background: #d5d5d5;
+   text-align:center;
+   padding:1% 0 0 0;
+}
+.rsbtn{
+   margin:10px 0 0 0;
+   width :80%;
+}
+.right2 a:hover{
+   cursor:pointer;
+}
+
+/* 내용 삽입 구간 */
+.content{
+   position:relative;
+   top:70px;
+   left:2%;
+   width:70.8%;
+   height:auto;
+   border: 2px solid #c0c0c0;
+   padding:3%;
+   font-size:1.5vw;
+}
+/* 방소개 구간 이미지 */
+.f_roomExplain img{
+   width:49.3%;
+   height:200px;
+}
+
+/* 모든 내용 */
+.content textarea{
+   background-color:white;
+   border:0;
+   resize: none;
+   font-size:1.3vw;
+}
+
+/* 리뷰 */
+.review{
+   position:relative;
+   top:100px;
+   left:2%;
+   width:70.8%;
+   height:auto;
+   border: 2px solid #fee181;
+   padding:3%;
+   font-size:1.4vw;
+}
+.review img{
+   width:3%;
+}
+.rbox{
+   border-top:   1px solid #fee181;
+   border-bottom: 1px solid #fee181;
+   padding:1%;
+}
+
+.pnum{
+   position:relative;
+   left:40%;
+}
+.review button{
+   background-color:#fee181;
+   border-color:#fdc606;
+}
+
+footer{
+   position:relative;
+   bottom:-200px;
+   left:2%;
+   font-size:1.23vw;
+}
+.sec{
+   position:relative;
+   top:-40;
+   left:0%;
+   width:78%;
+}
+#pnum{
+	position:relative;
+	left:42%;
+	margin:1%;
+}
+#pnum li:hover{
+	cursor:pointer;
+}

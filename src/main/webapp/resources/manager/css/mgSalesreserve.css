@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+#ex {
+	background-color: #e8c4a8;
+	height: 30px;
+}
+
+#ex ul {
+	padding-top: 3px;
+	list-style: circle;
+}
+
+#ex ul li {
+	display: inline;
+	padding-left: 20px;
+}
+
+#exb {
+	float: right;
+	margin-right: 5%;
+}
+
+#t {
+	height: 100%;
+	border-color: gray;
+}
+
+#t {
+	margin-top: 20px;
+	width: 100%;
+	border-bottom-color: black;
+}
+
+#t tr td {
+	text-align: center;
+}
+
+#ttr1 {
+	background-color: #e8c4a8;
+}
+
+a {
+	color:#836e5b;
+}
+
+a:hover {
+	color:tan;
+}
+
+#excel {
+	color:#595eff;
+}

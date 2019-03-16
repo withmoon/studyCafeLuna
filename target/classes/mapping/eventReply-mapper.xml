@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="eventReplyDAO">
+	<!-- 댓글 목록 -->
+	<select id="eReplyList" resultType="eReply">
+		<include refid="pagingHeader"></include>
+		select r.rno, seq, r.replyer, r.replytext, r.regdate from EventReply r, member m where r.replyer = m.id and seq=#{seq} order by rno desc
+		<include refid="pagingFooter"></include>
+	</select>
+
+	<!-- 댓글 입력 -->
+	<insert id="eReplyInsert" parameterType="eReply">
+		<![CDATA[insert into EventReply (rno, seq, replyer, replytext, regdate) values ((select nvl(max(rno)+1, 1) from EventReply), #{seq}, #{replyer}, #{replytext}, sysdate)
+		]]>
+	</insert>
+	
+	<!-- 댓글 수정 -->
+	<update id="eReplyUpdate">
+		update EventReply set replytext = #{replytext} where rno = #{rno}
+	</update>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="eReplyDelete">
+		delete EventReply where rno = #{rno}
+	</delete>
+	
+	<!-- 게시글갯수 -->
+	<select id="counteReply" resultType="int">
+		select count(*) from EventReply where seq=#{seq}
+	</select>
+	
+	<!-- 페이징 sql -->
+	  <sql id="pagingHeader">
+	 	select * from ( select rownum as rn, A.* from(
+	 </sql>
+	 <sql id="pagingFooter">
+	 		)A
+	 	)where rn  between #{start} and #{end}
+	 </sql>
+</mapper>

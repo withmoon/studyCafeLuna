@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="alamDAO">
+	<!-- 알람 모두 가져옴--> 
+	<select id="getAlamlist" resultType="alam">
+		<include refid="payAndReservDAO.pagingHeader"/>
+		<![CDATA[select rownum num, b.* from( select alam.* from alam where id=#{id} order by almdate desc )b]]>
+		<include refid="payAndReservDAO.pagingFooter"/>
+	</select>
+	
+	<select id="getAlamCount" resultType="Integer">
+		<![CDATA[select count(*) from alam where id=#{id}]]>
+	</select>
+	
+	<!-- 읽음 표시 --> 
+	<update id="readAlam">
+		update alam set readst=1 where id=#{id} and seq=#{seq}
+	</update>
+	
+	
+	
+</mapper>

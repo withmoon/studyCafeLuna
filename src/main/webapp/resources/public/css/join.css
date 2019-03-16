@@ -1,0 +1,270 @@
+@charset "UTF-8";
+* { font-family: 'Gamja Flower', cursive; }
+
+ul li{
+	float:right;
+	margin:1%;
+	font-family: 휴먼아미체;
+	text-decoration:none;
+	display:table-cell;
+	font-size: 1.5vw;
+}
+li a{
+	text-decoration:none;
+	color: black;
+}
+li a:hover{
+	color: orange;
+}
+/* 상단로고 */
+.logo{
+	position:absolute;
+	width:10%;
+}
+/* 타이틀 */
+.top{
+	position:absolute;
+	top:6%;
+	left:13%;
+	width:auto;
+	text-align:center;
+	font-size: 3vw;
+	color: #686868; 
+}
+.kawai{
+ 	position:absolute;
+  	top: 28%;
+  	left:44%;
+}
+.kawai2{
+	position:absolute;
+  	top: 20%;
+  	left:33%;
+  	color:pink;
+  	font-size: 1.7vw;
+}
+/* 회원가입버튼용 */
+.button {
+  -webkit-transition:transform .28s ease-in;  
+  -moz-transition:transform .28s ease-in; 
+  -o-transition:transform .28s ease-in;  
+  transition:transform .28s ease-in;
+}
+
+.user {
+  margin:1em auto;
+  width: 5em;
+  height: 2em;
+  font-size:2em;
+  position: absolute;
+  -webkit-perspective: 800px;
+  perspective: 800px;
+  background:#f2f2f2;
+  border-radius:5px;
+  box-shadow:inset 0 0 0.2em 0 rgba(0,0,0,0.25);
+  right:55%;
+  top:15%;
+}
+
+.manager {
+  margin:1em auto;
+  width: 5em;
+  height: 2em;
+  font-size:2em;
+  position: absolute;
+  -webkit-perspective: 800px;
+  perspective: 800px;
+  background:#f2f2f2;
+  border-radius:5px;
+  box-shadow:inset 0 0 0.2em 0 rgba(0,0,0,0.25);
+  right:33%;
+  top:15%;
+}
+
+.button {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  cursor:pointer;
+  -webkit-transform-origin: center bottom;
+  transform-origin: center bottom;
+  z-index:2;
+}
+
+.user:hover .button {
+  -webkit-transform: rotateX(-150deg);
+  transform: rotateX(-150deg);
+}
+
+.manager:hover .button {
+  -webkit-transform: rotateX(-150deg);
+  transform: rotateX(-150deg);
+}
+
+.button div {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius:5px;
+}
+
+.front {
+  background:#836e5b;
+  z-index:2;
+}
+
+.back {
+  background:#333 ;
+  transform: rotateX( 180deg );
+  z-index:2;
+  box-shadow: 0 0.2em 0.2em 0 rgba(0,0,0,0.15);
+}
+
+.front span {
+  font-size:0.7em;
+  float:left;
+  width:100%;
+  padding:0.65em 0;
+  text-align:center;
+  color:#fff;
+}
+
+.tie-wrap {
+  position:relative;
+  margin:0.1em auto;
+  border-radius:5px;
+  overflow:hidden;
+  height:19px;
+  width:35px;
+  -webkit-transform:scale(1.4);
+  transform:scale(1.4);
+}
+
+.tie {
+   position:absolute;
+   background-color:#999;
+   width: 10px; 
+   height: 10px;
+  border-radius:3px;
+  top:5px;
+  left:13px;
+}
+
+.tie:before {
+   content:'';
+  position:absolute;
+  right:-14px;
+  top:-5px;
+   width: 0;
+   height: 0;
+   border-right: 25px solid #999;
+   border-top: 10px solid transparent;
+   border-bottom: 10px solid transparent;
+}
+
+.tie:after {
+  position:absolute;
+   content:'';
+  left:-14px;
+  top:-5px;
+   width: 0;
+   height: 0;
+   border-left: 25px solid #999;
+   border-top: 10px solid transparent;
+   border-bottom: 10px solid transparent;
+}
+
+.inside {
+  width:100%;
+  padding:0.3em 0;
+  position:absolute;
+  text-align:center;
+  color:#999;
+  font-size:0.7em;
+}
+
+/*회원가입*/
+
+.join {
+  position:absolute;
+  top: 40%;
+  font-size: 2vw;;
+}
+.join .line{
+	width:100%;
+}
+td{
+  float: left;
+  width: 100%;
+  margin: 3%;
+  position: relative;
+}
+
+input{
+  border: 0;
+  padding: 4px 0;
+  border-bottom: 1px solid #ccc;
+  background-color: transparent;
+}
+
+input ~ label{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 9px;
+  color: #aaa;
+  transition: 0.3s;
+  z-index: -1;
+  letter-spacing: 0.5px;
+}
+
+input:focus ~ label,
+.has-content ~ label{
+  top: -16px;
+  font-size: 18px;
+  color: #3399FF;
+  transition: 0.3s;
+}
+
+
+input[type=button],[type=submit]{
+    background-color: #836e5b;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.6vw;
+    padding:4px 1%;
+    cursor: pointer;
+    position:relative;
+    left:-60px;
+}
+button:hover{
+    background-color: #bb9540;
+}
+
+footer{
+	position:absolute;
+	bottom:-120%;
+	margin:0 -5% 0 0;
+	font-size:1.2vw;
+}
+.filelabel{
+	color:gray;
+	font-size:1.8vw;
+}
+input[type=file]{
+	color:gray;
+}
+#imgSumnail{
+	position:relative;
+	left:300px;
+}
+#imgsum{
+	width:30%;
+}

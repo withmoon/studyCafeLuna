@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reportDAO">
+	<!-- 리포트 넣을 seq가져오기 -->
+	<select id="getReportMaxSeq" resultType="Integer">
+		<![CDATA[select nvl(max(seq)+1,1) from report]]>
+	</select>
+	<!-- 리포트 올리기  -->
+	<insert id="insertreport" parameterType="report">
+		<![CDATA[insert into report values((select nvl(max(seq)+1,1) from report),#{title},#{content},#{fname},#{id},sysdate,#{fpath})]]>
+	</insert>
+	
+	<!-- 리포트 카운트 가져오기 -->
+	<select id="getReportCount" resultType="Integer">
+		select count(*) from report 
+		<if test="searchOption=='title' and keyword!=''">
+			<![CDATA[ where title like '%'||#{keyword}||'%']]>
+		</if>
+		<if test="searchOption=='content' and keyword!=''">
+			<![CDATA[ where content like '%'||#{keyword}||'%']]>
+		</if>
+	</select>
+	
+	<!-- 리포트 카운트 가져오기 -->
+	<select id="getBranchReportCount" resultType="Integer">
+		<![CDATA[ select count(*) from report where id=#{id} ]]>
+		<if test="searchOption=='title' and keyword!=''">
+			<![CDATA[ and title like '%'||#{keyword}||'%']]>
+		</if>
+		<if test="searchOption=='content' and keyword!=''">
+			<![CDATA[ and content like '%'||#{keyword}||'%']]>
+		</if>
+	</select>
+	
+	<!-- 리포트 리스트 가져오기 -->
+	<select id="getReportlist" parameterType="hashmap" resultType="report">
+	  <include refid="payAndReservDAO.pagingHeader"/>
+		<![CDATA[select rownum as num,rp.*,(select branchname from member where id=rp.id) as branchName,(select name from member where id=rp.id) as name,(select DISTINCT reportseq from reportreply where branchname='본점' and reportseq=rp.seq) as isreply from report rp ]]>
+		<if test="rpd.searchOption=='title' and rpd.keyword!=''">
+			<![CDATA[ where title like '%'||#{rpd.keyword}||'%']]>
+		</if>
+		<if test="rpd.searchOption=='content' and rpd.keyword!=''">
+			<![CDATA[ where content like '%'||#{rpd.keyword}||'%']]>
+		</if>
+		order by seq desc
+		<include refid="payAndReservDAO.pagingFooter"/>
+	</select>
+	
+	<!-- 리포트 리스트 가져오기 -->
+	<select id="getBranchReportlist" parameterType="hashmap" resultType="report">
+	  <include refid="payAndReservDAO.pagingHeader"/>
+		<![CDATA[select rownum as num,rp.*,(select DISTINCT reportseq from reportreply where branchname='본점' and reportseq=rp.seq) as isreply from report rp where rp.id=#{rpd.id}]]>
+		<if test="rpd.searchOption=='title' and rpd.keyword!=''">
+			<![CDATA[ and title like '%'||#{rpd.keyword}||'%']]>
+		</if>
+		<if test="rpd.searchOption=='content' and rpd.keyword!=''">
+			<![CDATA[ and content like '%'||#{rpd.keyword}||'%']]>
+		</if>
+		order by seq desc
+		<include refid="payAndReservDAO.pagingFooter"/>
+	</select>
+	
+	<!-- 리뷰수정 -->
+	<update id="updateReport">
+		<![CDATA[update report set content=#{content},title=#{title}]]>
+		<if test="fname!=null and fname!=''">
+			<![CDATA[,fname=#{fname} ]]>
+		</if>
+		where seq=#{seq}
+	</update>
+	
+	<!-- 리포트 삭제 -->
+	<delete id="deleteReport">
+		<![CDATA[delete report where seq =#{seq}]]>
+	</delete>
+	
+	<!-- 리플 달기 -->
+	<insert id="insertReportReply">
+		<![CDATA[insert into reportreply
+			values((select nvl(max(seq)+1,1) from reportreply),#{reply},#{reportseq},#{branchname},sysdate)]]>		
+	</insert>
+
+	<!-- 리뷰 수정 -->
+	<update id="updateReportReply">
+		<![CDATA[update reportreply set reply=#{reply} where seq=#{seq}]]>
+	</update>
+	
+	<!-- 리뷰 삭제 -->
+	<update id="deleteReportReply">	
+		<![CDATA[delete reportreply where seq=#{seq}]]>
+	</update>
+	
+	<!-- 리뷰 가져오기 -->
+	<select id="getReportReply" resultType="reportReply">
+		<![CDATA[
+			select seq,reply,reportseq,branchname,to_char(regdate,'mm-dd hh24:mi') regdate
+			from reportreply where reportseq=#{reportseq} order by seq desc
+		]]>
+	</select>
+	
+</mapper>

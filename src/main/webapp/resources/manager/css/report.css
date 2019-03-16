@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+#pnum {
+    list-style: none;
+	width: 100%;
+	font-size: 1.5vw;
+	position:relative;
+	left:45%;
+}
+
+#pnum li {float:left; 
+    list-style:none; 
+    margin:1px;
+}
