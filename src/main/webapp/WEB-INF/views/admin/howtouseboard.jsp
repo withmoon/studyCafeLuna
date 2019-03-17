@@ -44,7 +44,7 @@
 
 
    <div hidden="true" id="writeForm" class="container">
-    <form name="form" action="insertHowToUse.do" onsubmit="return setVal()" method="POST" enctype="multipart/form-data">
+    <form name="form" action="insertHowToUse.do" onsubmit="setVal()" method="POST" enctype="multipart/form-data">
     <input type="hidden" id="maxCnum" name="maxCnum" value=""/>
          <table class="table table-bordered">
          <thead>

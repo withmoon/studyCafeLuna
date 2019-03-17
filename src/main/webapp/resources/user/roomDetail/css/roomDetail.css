@@ -3,30 +3,6 @@
    margin:0;
    font-family: 'Gamja Flower', cursive;
 }
-nav{
-	top:40px;
-}
-.memberUl{
-	postion:absolute;
-	top:20px;	
-}
-.topUl{
-	top:-40px;
-}
-.logo{
-	position:absolute;
-	top:-1px;
-}
-/* 타이틀 */
-.top{
-	position:absolute;
-	top:2%;
-	left:15%;
-	width:auto;
-	text-align:center;
-	font-size: 2vw;
-	color: #686868; 
-}
 /* 방 간략 소개 구간 */
 .roomExp{
    position:relative;

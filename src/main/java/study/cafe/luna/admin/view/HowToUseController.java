@@ -22,16 +22,20 @@ public class HowToUseController {
 	public ModelAndView mains(HttpSession session, MemberDTO memcom) {
 		ModelAndView mav=new ModelAndView();
 		memcom = (MemberDTO) session.getAttribute("member");
+		if(session.getAttribute("member")==null) {
+    		mav.setViewName("/admin/cannotAccess");
+    		return mav;
+    	}
 		if (memcom.getPosition().equals("총관리자") | memcom.getPosition().equals("관리자")) {
 			memcom = (MemberDTO) session.getAttribute("member");
 			session.setAttribute("member", memcom);
 			
 			List<HowToUseDTO> htulist=getHowToUseListService.getHowToUseList();
 			mav.addObject("htulist",htulist);
-			mav.setViewName("howtouseboard");
+			mav.setViewName("/admin/howtouseboard");
 			return mav;
 		}
-		mav.setViewName("cannotAccess");
+		mav.setViewName("/admin/cannotAccess");
 		return mav;
 	}
 	

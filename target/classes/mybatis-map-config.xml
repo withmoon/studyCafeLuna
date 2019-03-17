@@ -58,7 +58,12 @@
 		<!-- 이벤트 댓글 관련 -->
 		<typeAlias alias="eReply"
 			type="study.cafe.luna.event.dto.EventReplyDTO" />
-
+		<!-- 룸 찜 꽌련 -->
+		<typeAlias alias="kroom"
+			type="study.cafe.luna.keeproom.dto.KeepRoomDTO" />
+		<!-- 룸 리뷰 관련 -->
+		<typeAlias alias="roomReview"
+			type="study.cafe.luna.room.dto.RoomReviewDTO" />
 
 
 	</typeAliases>
@@ -68,6 +73,8 @@
 		<mapper resource="mapping/member-mapper.xml" />
 		<!-- 룸 관련 -->
 		<mapper resource="mapping/room-mapper.xml" />
+		<!-- 룸 리뷰 관련 -->
+		<mapper resource="mapping/review-mapper.xml" />
 		<!-- 예약/결제 관련 -->
 		<mapper resource="mapping/payment-mapper.xml" />
 		<!-- 예약관련 -->
@@ -96,6 +103,8 @@
 		<mapper resource="mapping/eventBoard-mapper.xml" />
 		<!-- 이벤트 답변 -->
 		<mapper resource="mapping/eventReply-mapper.xml" />
+		<!-- 찜관련 -->
+		<mapper resource="mapping/keeproom-mapper.xml" />
 	</mappers>
 
 

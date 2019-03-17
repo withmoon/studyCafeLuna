@@ -25,7 +25,7 @@ public class InsertHowToUseController {
 	@Autowired
 	InsertHowToUseService insertHowToUseService;
 
-	private String filePath = "C:\\myProject\\myMainProject\\NewLuna\\Luna\\src\\main\\webapp\\resources\\howtouseImg\\";
+	private String filePath = "C:\\myProject\\MainProject\\studyCafeLuna\\src\\main\\webapp\\resources\\howtouseImg\\";
 
 	@RequestMapping(value = "/insertHowToUse.do", method = RequestMethod.POST)
 	public String mainss(HowToUseDTO htu, MultipartHttpServletRequest mpreq, HttpServletRequest req)
@@ -48,7 +48,6 @@ public class InsertHowToUseController {
 				dir.mkdirs();
 			} else {
 				if (!dir.isDirectory()) {
-					System.out.println("디렉토리생성");
 					dir.mkdirs();
 				}
 			}
@@ -65,6 +64,6 @@ public class InsertHowToUseController {
 			insertHowToUseService.insertHowToUse(htu);
 		}
 
-		return "redirect:/howtouseboard.ado";
+		return "redirect:/howtouseboard.do";
 	}
 }

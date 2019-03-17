@@ -19,7 +19,6 @@ function closeReview(){
 }
 $(function(){
 	getKeepList(1);
-	getalamList(1);
 	//최근예약
 	getReservList('pay',1);
 	//지난예약
@@ -31,7 +30,7 @@ $(function(){
 function getKeepList(kcurpage){
 	$.ajax({      
 		type:"GET",  
-		url:"keeproomlist.udo",    
+		url:"keeproomlist.do",    
 		data:{curpage:kcurpage},     
 		success:function(data){
 			var kstrDom='';
@@ -41,7 +40,7 @@ function getKeepList(kcurpage){
 				if(i%2==0){
 					kstrDom+='<tr>';
 				}
-				kstrDom+='<td><a href="roomDetail.udo?roomnum='+data.klist[i].roomNum+'">';
+				kstrDom+='<td><a href="roomDetail.do?roomnum='+data.klist[i].roomNum+'">';
 				kstrDom+='<img src="resources/rooms/'+data.klist[i].fname+'"><br/>'+data.klist[i].roomName+'</a></td>';
 				if(i%2==1){
 					kstrDom+='<tr>';
@@ -62,62 +61,11 @@ function getKeepList(kcurpage){
 	});
 }
 
-//알림리스트 가져옴
-function getalamList(acurpage){
-	$.ajax({      
-		type:"GET",  
-		url:"alamlist.udo",    
-		data:{curpage:acurpage},     
-		success:function(data){
-			var astrDom='';
-			//방있을때
-			$("#notification2").children().remove();
-			for(var i=0; i<data.alist.length; i++){
-				//읽은거
-				astrDom+='<tr>';
-				if(data.alist[i].readst==1){
-					astrDom+='<td style="color:gray">'+data.alist[i].fromwho+'</td>';
-					astrDom+='<td style="color:gray">'+data.alist[i].content+'</td>';
-					astrDom+='<td style="color:gray">'+data.alist[i].almdate+'</td>';
-					if(data.alist[i].numforwhat!=-1){
-						astrDom+='<td> </td>';
-					}
-				}
-				//안읽은거
-				if(data.alist[i].readst==0){
-					$("#alamimg").attr("src","resources/user/mypage/images/bboo.gif");
-					astrDom+='<td class="conf'+data.alist[i].seq+'">'+data.alist[i].fromwho+'</td>';
-					astrDom+='<td class="conf'+data.alist[i].seq+'">'+data.alist[i].content+'</td>';
-					astrDom+='<td class="conf'+data.alist[i].seq+'">'+data.alist[i].almdate+'</td>';
-					//환불요청이면
-					if(data.alist[i].numforwhat!=-1){
-						astrDom+='<td><button id="conf'+data.alist[i].seq+'" onclick="confirmCancle('+data.alist[i].seq+')">확인완료</button></td>';
-					}
-				}
-				//환불외의것들
-				if(data.alist[i].numforwhat==-1){
-					astrDom+='<td><button onclick="openElse('+data.alist[i].seq+',&#039'+data.alist[i].content+'&#039,&#039'+data.alist[i].fromwhat+'&#039)">내용보기</button></td>';
-				} 
-				astrDom+='</tr>';
-			}
-			//없으면
-			if(data.alist.length==0){
-				astrDom+='<tr><td colspan="4">알림이 없습니다.</td></tr>';
-			}
-			$("#notification2").append(astrDom);
-			
-			blockPage("alpaging",acurpage,data.apager.BLOCK_SCALE,data.apager.totPage,"alli","getalamList");
-		}
-	});
-}
-
-
-
 //문의글 가져옴
 function getqnalist(qcurpage){
 	$.ajax({      
 		type:"GET",  
-		url:"qnalist.udo",    
+		url:"qnalist.do",    
 		data:{curpage:qcurpage},     
 		success:function(data){
 			var qstrDom='';
@@ -179,7 +127,7 @@ function showQnContent(seq,reply,readst){
 		if(readst==0&&reply!=undefined||readst==0&&reply!=''){ //읽음 표시 ajax
 			$.ajax({      
 				type:"GET",  
-				url:"upUserQnaReadst.udo",    
+				url:"upUserQnaReadst.do",    
 				data:{seq:seq},     
 				success:function(){
 					
@@ -218,7 +166,7 @@ function updateQnContent(seq){
 	var content=$("#qtx"+seq).val();
 	$.ajax({      
 		type:"GET",  
-		url:"upUserQnaContent.udo",    
+		url:"upUserQnaContent.do",    
 		data:{seq:seq,content:content},     
 		success:function(){
 			alert("문의가 성공적으로 수정되었습니다.");
@@ -234,7 +182,7 @@ function deleteQnContent(seq){
 		console.log("삭제하께");
 		$.ajax({      
 			type:"GET",  
-			url:"deleteUserQna.udo",    
+			url:"deleteUserQna.do",    
 			data:{seq:seq},     
 			success:function(){
 				alert("문의가 성공적으로 삭제되었습니다.");
@@ -254,7 +202,7 @@ function writeReview(){
 	var rvwText=$("#rvwText").val();
 	$.ajax({      
 		type:"GET",  
-		url:"writeReview.udo",    
+		url:"writeReview.do",    
 		data:{starCount:stcount,roomnum:rvwroomNum,content:rvwText},     
 		success:function(){
 			closeReview();
@@ -267,7 +215,7 @@ function writeReview(){
 function getUserReview(state){
 	$.ajax({      
 		type:"GET",  
-		url:"getUserReview.udo",         
+		url:"getUserReview.do",         
 		success:function(data){
 			for(var i=0; i<data.length; i++){
 				hasuserreview[i]=data[i];
@@ -287,7 +235,7 @@ function getUserReview(state){
 function getReservList(listType,lrcurpage){
 	$.ajax({      
 		type:"GET",  
-		url:"getReserveList.udo",    
+		url:"getReserveList.do",    
 		data:{listType:listType,curpage:lrcurpage,startdate:stdate,enddate:endate},     
 		success:function(data){
 			if(listType=='pay'){ //최근내역
@@ -309,7 +257,7 @@ function latelyList(lrcurpage,data){
 		for(var i=0; i<data.rvlist.length; i++){
 			ltDom+='<tr><td>'+data.rvlist[i].reservdate+'</td>';
 			ltDom+='<td>'+data.rvlist[i].branchName+'</td>';
-			ltDom+='<td><a href="roomDetail.udo?roomnum='+data.rvlist[i].roomNum+'">'+data.rvlist[i].roomName+'</a></td>';
+			ltDom+='<td><a href="roomDetail.do?roomnum='+data.rvlist[i].roomNum+'">'+data.rvlist[i].roomName+'</a></td>';
 			ltDom+='<td>'+data.rvlist[i].branchtel+'</td>';
 			ltDom+='<td>'+data.rvlist[i].branchAddr1+'</td>';
 			ltDom+='<td>'+data.rvlist[i].starttime;
@@ -360,7 +308,7 @@ function lastList(lrcurpage,data){
 				ltDom+='~ 익일 '+data.rvlist[i].reservenddatetime+'</td>';
 			}
 			ltDom+='<td>'+data.rvlist[i].branchName+'</td>';
-			ltDom+='<td><a href="roomDetail.udo?roomnum='+data.rvlist[i].roomNum+'">'+data.rvlist[i].roomName+'</a></td>';
+			ltDom+='<td><a href="roomDetail.do?roomnum='+data.rvlist[i].roomNum+'">'+data.rvlist[i].roomName+'</a></td>';
 			if(data.rvlist[i].status==-2){
 				ltDom+='<td colspan="2"><label>환불진행중</label>';
 			}else if(data.rvlist[i].status==-1){

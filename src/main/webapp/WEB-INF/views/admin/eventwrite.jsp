@@ -18,7 +18,7 @@
 <%@include file="../admin/footer.jsp" %><br><br><br>
 
 
-<form id="ajaxform" action="eventinsert.ado" onsubmit="return changeContent()" method="post" enctype="multipart/form-data">
+<form id="ajaxform" action="eventinsert.do" onsubmit="return changeContent()" method="post" enctype="multipart/form-data">
 <div class="container">
 <table class="table table-bordered">
 <caption>글쓰기</caption>
@@ -46,7 +46,7 @@
 </tr>
 <tr class="button"><td colspan="2">
 	<input type="submit" id="btnSave" value="등록"/>&emsp;
-	<input type="button" onclick="window.open('event.ado','_self');" value="글 목록"/>
+	<input type="button" onclick="window.open('event.do','_self');" value="글 목록"/>
 </td></tr>
 </tbody>
 </table>

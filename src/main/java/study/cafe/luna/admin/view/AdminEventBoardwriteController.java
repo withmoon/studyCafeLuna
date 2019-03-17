@@ -27,7 +27,7 @@ import study.cafe.luna.util.BoardPager;
 
 @Controller
 public class AdminEventBoardwriteController {
-	private String efilePath = "C:\\myProject\\myMainProject\\NewLuna\\Luna\\src\\main\\webapp\\resources\\eventimg\\";
+	private String efilePath = "C:\\myProject\\MainProject\\studyCafeLuna\\src\\main\\webapp\\resources\\eventimg\\";
    
    @Autowired
    EventBoardService eboardService;
@@ -90,7 +90,7 @@ public class AdminEventBoardwriteController {
    @RequestMapping(value = "/eventview.do", method = RequestMethod.GET)
    public ModelAndView view(int seq, HttpSession session,MemberDTO memcom,HttpServletRequest request) throws Exception {
 	   ModelAndView mav = new ModelAndView();
-       mav.setViewName("eventview");
+       mav.setViewName("/admin/eventview");
        mav.addObject("ebv", eboardService.read(seq));
        return mav;
    }

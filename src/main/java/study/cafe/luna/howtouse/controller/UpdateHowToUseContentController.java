@@ -27,7 +27,7 @@ public class UpdateHowToUseContentController {
 	@Autowired
 	InsertHowToUseService insertHowToUseService;
 	
-	private String filePath = "C:\\myProject\\myMainProject\\NewLuna\\Luna\\src\\main\\webapp\\resources\\howtouseImg\\";
+	private String filePath = "C:\\myProject\\MainProject\\studyCafeLuna\\src\\main\\webapp\\resources\\howtouseImg\\";
 
 	@RequestMapping(value = "/updateHowToUse.do", method = RequestMethod.POST)
 	public String updateHowToUse(HowToUseDTO htu, MultipartHttpServletRequest mpreq, HttpServletRequest req)
@@ -75,6 +75,6 @@ public class UpdateHowToUseContentController {
 			htu.setFname("");
 		}
 
-		return "redirect:/howtouseboard.ado";
+		return "redirect:/howtouseboard.do";
 	}
 }

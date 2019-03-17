@@ -27,7 +27,7 @@ function noCancle(){
 function gogoCC(imp_uid){
 	$.ajax({      
 		type:"POST",  
-		url:"cancleReserve.udo",    
+		url:"cancleReserve.do",    
 		data:{imp_uid:imp_uid},     
 		success:function(data){
 			$("#"+imp_uid).children().remove();
@@ -42,7 +42,7 @@ function gogoCC(imp_uid){
 function confirmCancle(seq){
 	$.ajax({      
 		type:"POST",  
-		url:"readalam.udo",    
+		url:"readalam.do",    
 		data:{seq:seq},     
 		success:function(){
 			$("#conf"+seq).remove();
@@ -63,7 +63,7 @@ function openElse(seq,content,fromwhat){
 	
 	$.ajax({      
 		type:"POST",  
-		url:"readalam.udo",    
+		url:"readalam.do",    
 		data:{seq:seq},     
 		success:function(){
 			readTd(seq);

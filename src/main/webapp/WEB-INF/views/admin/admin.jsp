@@ -31,7 +31,7 @@
 			id="paid_at_end" type="date" />&emsp;
 		<button onclick="getTermSales()">검색</button>
 		&emsp;&emsp;&emsp;&emsp;기준선 :
-		<form action="setBaseLine.ado" method="post">
+		<form action="setBaseLine.do" method="post">
 			<input type="text" id="baseline" />
 			 <input type="button" onclick="setBaseLine()" value="적용">
 		</form>

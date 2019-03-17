@@ -39,9 +39,9 @@
 		</td>
 	</tr>
 	<tr class="button"><td colspan="2">
-		<input type="button" onclick="window.open('event.ado','_self');" value="글 목록"/>
+		<input type="button" onclick="window.open('event.do','_self');" value="글 목록"/>
 		<input type="button" onclick="upbt()" value="수정"/> 
-		<%-- <input type="button" value="삭제" onclick="javascript:location.href='deleteevent.ado?seq=${ebv.seq}'" /> --%>
+		<%-- <input type="button" value="삭제" onclick="javascript:location.href='deleteevent.do?seq=${ebv.seq}'" /> --%>
 		<input type="button" onclick="btdel(${ebv.seq})" value="삭제"/>
 	</td></tr>
 </tbody>
@@ -60,7 +60,7 @@
     </div>
 </div>
 </div>
-<form id="ajaxform" action="updateevent.ado" onsubmit="changeContent()" method="POST" enctype="multipart/form-data">
+<form id="ajaxform" action="updateevent.do" onsubmit="changeContent()" method="POST" enctype="multipart/form-data">
 <div class="eupdate">
 <table class="table table-bordered">
 <tbody>
@@ -97,7 +97,7 @@
 	<tr class="button"><td colspan="2">
 		<input type="submit" id="btnSave" value="수정"/>&emsp;
 		<input type="button" onclick="deRE(${ebv.seq })" value="삭제"/>&emsp;
-		<input type="button" onclick="window.open('event.ado','_self');" value="취소"/>
+		<input type="button" onclick="window.open('event.do','_self');" value="취소"/>
 	</td></tr>
 </tbody>
 </table>

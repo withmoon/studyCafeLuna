@@ -16,6 +16,6 @@ public class DeleteHowToUseController {
 	@RequestMapping("deleteHowToUse.do")
 	public String deleteHowToUse(@RequestParam("num") int num) {
 		deleteHowToUseService.deleteHowToUse(num);
-		return "redirect:/howtouseboard.ado";
+		return "redirect:/howtouseboard.do";
 	}
 }

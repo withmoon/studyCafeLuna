@@ -55,7 +55,7 @@
               		 <input hidden="true" type="button" id="addForm"  onclick="addWriteForm()" value="글추가"/>
                		<input type="button" value="수정하기" id="upBtn" onclick="updating()"/>
                		 <input hidden="true" id="upcnBtn" type="button" value="수정취소" onclick="cancleUp()"/>
-               		<a href="howtouseboard.ado"  class="btn btn-primary pull-right">목록으로 가기</a>
+               		<a href="howtouseboard.do"  class="btn btn-primary pull-right">목록으로 가기</a>
                		<a href="deleteHowToUse.do?num=${htuctlist.get(0).getNum()}"  class="btn btn-primary pull-right">삭제하기</a>
                </td>
                </tr>

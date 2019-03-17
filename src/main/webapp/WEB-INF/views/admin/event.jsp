@@ -35,7 +35,7 @@
   
 <div class="event-container">
 <span id="eNow" class="title">진행중인 이벤트</span>
-<a href="eventwrite.ado" id="btn" class="btn btn-primary pull-right">글쓰기</a>
+<a href="eventwrite.do" id="btn" class="btn btn-primary pull-right">글쓰기</a>
 <br>
 <div class="row">
 <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
