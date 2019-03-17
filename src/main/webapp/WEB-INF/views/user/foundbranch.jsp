@@ -14,7 +14,7 @@
 <body style="overflow-x:hidden;">
 
 <!-- 상단 로고 -->
-<a href="<c:url value="/home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
+<a href="<c:url value="/home.do"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 <div class="top">근처 지점 찾기</div>
 <!-- 상단 메뉴 -->
 <nav>

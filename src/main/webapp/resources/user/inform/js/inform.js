@@ -47,7 +47,7 @@ $(function() {
 			
 			$.ajax({      
 				 type:"GET",  
-				 url:"getSidoGugun.udo",    
+				 url:"getSidoGugun.do",    
 			     data:sido,      
 			     success:function(data){   
 			    	 for(var i=0; i<data.length; i++){
@@ -73,7 +73,7 @@ $(function() {
 			
 			$.ajax({      
 				 type:"GET",  
-				 url:"branchName.udo",    
+				 url:"branchName.do",    
 			     data:gugun,      
 			     success:function(data){   
 			    	 for(var i=0; i<data.length; i++){
@@ -88,7 +88,7 @@ $(function() {
 function noticeList(npage) {
 	$.ajax({
 		type:"GET",
-		url:"informlist.udo",
+		url:"informlist.do",
 		data:{curPage:npage},
 		success:function(data) {
 			console.log(data.noticeList[0].title + " 블러왔냥 " +data.noticeList.length);
@@ -113,7 +113,7 @@ function noticeList(npage) {
 				newTitle.appendChild(a);
 				(function(num) {
 					a.addEventListener('click', function() {
-						window.open('viewNotice.udo?num='+num,'_self');
+						window.open('viewNotice.do?num='+num,'_self');
 					}, false);
 				})(num);
 				
@@ -134,7 +134,7 @@ function noticeList(npage) {
 function qnaList(qpage) {
 	$.ajax({
 		type:"GET",
-		url:"informChange.udo",
+		url:"informChange.do",
 		data:{curPage:qpage},
 		success:function(data) {
 			/*테이블*/
@@ -156,7 +156,7 @@ function qnaList(qpage) {
 				newSubject.appendChild(a);
 				(function(num) {
 					a.addEventListener('click', function() {
-						window.open('viewQnA.udo?num='+num,'_self');
+						window.open('viewQnA.do?num='+num,'_self');
 					}, false);
 				})(num);
 				
@@ -182,7 +182,7 @@ function userCommand(){
 
 	$.ajax({
 		type:"POST",
-		url:"informUser.udo",
+		url:"informUser.do",
 		data:{branchName:branchName,title:title,content:content},
 		success:function(data) {
 			$('#branch').val("");
@@ -191,7 +191,7 @@ function userCommand(){
 			
 			alert("소중한 의견 너무나 감사합니다~");
 			
-			var url='mypage.udo';
+			var url='mypage.do';
 			window.location=url;
 		}
 	});

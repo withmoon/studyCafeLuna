@@ -30,7 +30,7 @@ function view3(opt) {
 function findRoom(){
 	var sido=$("#sido_select option:selected").val();
 	var gugun=$("#gugun_select option:selected").val();
-	var url='lookover.udo?sido='+sido+'&gugun='+gugun;
+	var url='lookover.do?sido='+sido+'&gugun='+gugun;
 	window.location=url;
 }
 
@@ -59,7 +59,7 @@ $('document').ready(function() {
 		
 		$.ajax({      
 			 type:"GET",  
-			 url:"getSidoGugun.udo",    
+			 url:"getSidoGugun.do",    
 		     data:sido,      
 		     success:function(data){   
 		    	 for(var i=0; i<data.length; i++){
@@ -72,11 +72,11 @@ $('document').ready(function() {
 
 //룸 링크 걸기
 function goToRoomDetail(roomnum){
-	window.location.href="roomDetail.udo?roomnum="+roomnum;
+	window.location.href="roomDetail.do?roomnum="+roomnum;
 }
 
 //최근 브랜치 링크
 function gotoLookOver(sido,gugun){
-	var url='lookover.udo?sido='+sido+'&gugun='+gugun;
+	var url='lookover.do?sido='+sido+'&gugun='+gugun;
 	window.location=url;
 }

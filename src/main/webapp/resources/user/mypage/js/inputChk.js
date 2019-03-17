@@ -64,10 +64,10 @@ function inputCheck() {
 			$("#repw").focus();
 			return false;
 		}
-		$("#update").attr("action","mypage.udo?stat=1").submit();
+		$("#update").attr("action","mypage.do?stat=1").submit();
 		
 	}else{
-		$("#update").attr("action","mypage.udo?stat=2").submit();
+		$("#update").attr("action","mypage.do?stat=2").submit();
 		
 	}
 	

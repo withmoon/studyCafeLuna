@@ -21,7 +21,7 @@ function showSd(num){
 	
 	$.ajax({      
 		type:"GET",  
-		url:"getSchedule.udo",    
+		url:"getSchedule.do",    
 		data:{roomnum:num, seldate:seldate},     
 		success:function(data){
 			var sch=data.reservstate;
@@ -78,7 +78,7 @@ function changeChoiceImg(img){
 	}
 	$.ajax({      
 		type:"GET",  
-		url:"changekeeproom.udo",    
+		url:"changekeeproom.do",    
 		data:{roomnum:ronum,kst:kst},     
 		success:function(data){
 			
@@ -255,7 +255,7 @@ function daumschclick(num){
 	$("#reservenddate").val(daumdate);
 	$.ajax({      
 		type:"GET",  
-		url:"getSchedule.udo",    
+		url:"getSchedule.do",    
 		data:{roomnum:num, seldate:daumdate},     
 		success:function(data){
 			var sch=data.reservstate;
@@ -302,7 +302,7 @@ function daumschReset(){
 function showReview(rvcurpage){
 	$.ajax({      
 		type:"GET",  
-		url:"getRoomAllReview.udo",    
+		url:"getRoomAllReview.do",    
 		data:{curpage:rvcurpage ,roomnum:rnum},     
 		success:function(data){
 			$(".rbox").remove();
@@ -361,7 +361,7 @@ function upReviewContent(roomnum,content){
 	$(".cupbt").hide();
 	$.ajax({      
 		type:"GET",  
-		url:"upReviewContent.udo",    
+		url:"upReviewContent.do",    
 		data:{roomnum:roomnum,reviewContent:rcon},     
 		success:function(){
 			
@@ -380,7 +380,7 @@ function delreview(roomnum,id){
 		console.log("삭제하께");
 		$.ajax({      
 			type:"GET",  
-			url:"delReviewContent.udo",    
+			url:"delReviewContent.do",    
 			data:{roomnum:roomnum,id:id},     
 			success:function(){
 				showReview(1);

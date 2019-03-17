@@ -21,7 +21,7 @@
 </header>
 
 <!-- 상단로고 -->
-<a href="<c:url value="/home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
+<a href="<c:url value="/home.do"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 <div class="top">이용가이드</div>
 <section>
 <div class="border">
@@ -36,7 +36,7 @@
 	<img style="width:700px; height:auto;" src="<c:url value="/resources/howtouseImg/${htuctlist.num}/${htuctlist.cnum-1}/${htuctlist.fname}"/>">
 </div>
 </c:forEach>
-<div class="button"><button onclick="window.open('inform.udo','_self');">목록</button></div>
+<div class="button"><button onclick="window.open('useGuide.do','_self');">목록</button></div>
 </div>
 </section>
 <!-- footer -->

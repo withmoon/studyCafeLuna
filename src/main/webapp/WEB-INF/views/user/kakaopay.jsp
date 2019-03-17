@@ -49,7 +49,7 @@ IMP.request_pay({
         $(opener.document).find("#status").val(1);
  	   	window.close();
  	   	
- 	   $(opener.document).find("#theForm").attr("action","mypage.udo?").submit();
+ 	   $(opener.document).find("#theForm").attr("action","mypage.do?").submit();
   	 	alert("결제가 성공적으로 이루어졌습니다", {
             icon: "success"
         });	

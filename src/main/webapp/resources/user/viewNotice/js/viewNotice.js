@@ -18,7 +18,7 @@ function replyOnOff(num) {
 function nReplyList(nrpage) {
 	$.ajax({
 		type:"GET",
-		url:"nReplyList.udo",
+		url:"nReplyList.do",
 		data: {num:num,curPage:nrpage},
 		success : function(data) {
 			$('.replyList').children().remove();
@@ -56,7 +56,7 @@ function writeCommand(num){
 	
 	$.ajax({
 		type:"POST",
-		url:"nReplyInsert.udo",
+		url:"nReplyInsert.do",
 		data: {bnum:num,content:content},
 		success : function(data) {
 			replyOnOff(num);
@@ -85,7 +85,7 @@ function upRe(num,rno) {
 	
 	$.ajax({
 		type:'POST',
-		url:'nReplyUpdate.udo',
+		url:'nReplyUpdate.do',
 		data:{rno:rno,content:content},
 		success : function(data) {
 			nReplyList(1);
@@ -106,7 +106,7 @@ function caRE(rno,content) {
 function deRE(num,rno) {
 	$.ajax({
 		type:'POST',
-		url:'nReplyDelete.udo',
+		url:'nReplyDelete.do',
 		data:{rno:rno},
 		success : function(data) {
 			nReplyList(1);

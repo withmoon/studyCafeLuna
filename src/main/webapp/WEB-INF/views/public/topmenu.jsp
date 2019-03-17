@@ -35,7 +35,7 @@
 			<li class="topfound" onclick="location.href='<c:url value="/useGuide.do"/>'">이용가이드</li>
 			<li class="topfound" onclick="location.href='<c:url value="/foundbranch.do"/>'">근처 장소 찾기</li>
 			<li class="toplookover" onclick="location.href='<c:url value="/lookover.do"/>'">공간 둘러보기</li>
-			<li class="topevent" onclick="location.href='<c:url value="/event.do"/>'">이벤트</li>
+			<li class="topevent" onclick="location.href='<c:url value="/userevent.do"/>'">이벤트</li>
 			<li class="topfound" onclick="location.href='<c:url value="/inform.do"/>'">고객 센터</li>
 
 		</ul>

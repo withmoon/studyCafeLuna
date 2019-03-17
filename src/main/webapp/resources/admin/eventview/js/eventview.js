@@ -46,11 +46,11 @@ function replyOnOff(seq) {
 function btdel(seq) {
 	$.ajax({
 		type:'POST',
-		url:'deleteevent.ado',
+		url:'deleteevent.do',
 		data:{seq:seq},
 		success : function(data) {
 			alert("삭제되었습니다.");
-			var url='event.ado';
+			var url='event.do';
 			window.location=url;
 		}
 	});
@@ -60,7 +60,7 @@ function btdel(seq) {
 function eReplyList(erpage) {
 	$.ajax({
 		type:"GET",
-		url:"aEReplyList.ado",
+		url:"aEReplyList.do",
 		data: {seq:seq,curPage:erpage},
 		success : function(data) {
 			$('.replyList').children().remove();
@@ -91,7 +91,7 @@ function eReplyList(erpage) {
 function deRE(seq,rno) {
 	$.ajax({
 		type:'POST',
-		url:'aEReplyDelete.ado',
+		url:'aEReplyDelete.do',
 		data:{rno:rno},
 		success : function(data) {
 			eReplyList(1);

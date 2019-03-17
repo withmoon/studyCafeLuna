@@ -42,7 +42,7 @@
          <input type="hidden" id="reserveEndTime" name="reserveEndTime" value="${roomPay.reserveEndTime}"/> 
   </form>
 <!-- 상단로고 -->
-<a href="<c:url value="/home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
+<a href="<c:url value="/home.do"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 <div class="top">공간 상세보기</div>
 
 <!-- 상단 메뉴 -->
@@ -67,7 +67,7 @@
 <label id="bex1">${roomInfo.branchName}</label><br/><br/>
 <label id="bex2">${roomInfo.branchAddr1}</label><br/><br/>
 <label id="bex3">${roomInfo.branchtel}</label><br/><br/>
-<a href="inform.udo">문의하기</a>
+<a href="inform.do">문의하기</a>
 </div>
 </div>
 <input type="hidden" id="rname" value="${roomInfo.roomName}"/>

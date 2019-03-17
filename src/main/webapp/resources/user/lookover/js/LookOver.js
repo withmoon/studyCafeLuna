@@ -5,7 +5,7 @@ function showSd(num){
 	
 	$.ajax({      
 		type:"GET",  
-		url:"getSchedule.udo",    
+		url:"getSchedule.do",    
 		data:{roomnum:num, seldate:seldate},     
 		success:function(data){
 			var sch=data.reservstate;
@@ -56,7 +56,7 @@ $('document').ready(function() {
 
 			$.ajax({      
 				 type:"GET",  
-				 url:"getSidoGugun.udo",    
+				 url:"getSidoGugun.do",    
 				  data:sido,      
 				  success:function(data){  
 			    	 for(var i=0; i<data.length; i++){
@@ -82,7 +82,7 @@ $('document').ready(function() {
 		
 		$.ajax({      
 			 type:"GET",  
-			 url:"getSidoGugun.udo",    
+			 url:"getSidoGugun.do",    
 		     data:sido,      
 		     success:function(data){   
 		    	 for(var i=0; i<data.length; i++){
@@ -98,16 +98,16 @@ $('document').ready(function() {
 		
 		 $.ajax({      
 				type:"GET",  
-				url:"getCanReservRoom.udo",    
+				url:"getCanReservRoom.do",    
 				data:{sido:sido, gugun:gugun,seldate:''},     
 				success:function(data){  
 					$(".showView").remove();
 					var strDom='';
 					for(var i=0; i<data.length; i++){
 						strDom+='<div class="showView">';
-						strDom+='<a href="roomDetail.udo?roomnum='+data[i].roomNum+'">';
+						strDom+='<a href="roomDetail.do?roomnum='+data[i].roomNum+'">';
 						strDom+='<img src="resources/rooms/'+data[i].fname+'"/></a><br/>';
-						strDom+='<a href="roomDetail.udo?roomnum='+data[i].roomNum+'" class="roomname'+data[i].roomNum+'">'+data[i].roomName+'</a><br/>';
+						strDom+='<a href="roomDetail.do?roomnum='+data[i].roomNum+'" class="roomname'+data[i].roomNum+'">'+data[i].roomName+'</a><br/>';
 						strDom+='<label>('+data[i].branchName+')</label><br/>';
 						strDom+='<label>'+data[i].roomEx1+'</label><br/>';
 						strDom+='<label>'+data[i].roomEx2+'</label><br/>';
@@ -147,13 +147,13 @@ function findCanReservRoom(){
 		var strDom="";
 		$.ajax({      
 			type:"GET",  
-			url:"getCanReservRoom.udo",    
+			url:"getCanReservRoom.do",    
 			data:{sido:sido, gugun:gugun, seldate:seldate},     
 			success:function(data){  
 				$(".showView").remove();
 				for(var i=0; i<data.length; i++){
 					strDom+='<div class="showView">';
-					strDom+='<a href="roomDetail.udo?roomnum='+data[i].roomNum+'&seldate='+seldate+'" onmouseenter="showSd('+data[i].roomNum+')" onmouseleave="hideSd()">';
+					strDom+='<a href="roomDetail.do?roomnum='+data[i].roomNum+'&seldate='+seldate+'" onmouseenter="showSd('+data[i].roomNum+')" onmouseleave="hideSd()">';
 					strDom+='<img src="resources/rooms/'+data[i].fname+'"/></a><br/>';
 					strDom+='<a href="#" class="roomname'+data[i].roomNum+'">'+data[i].roomName+'</a><br/>';
 					strDom+='<label>('+data[i].branchName+')</label><br/>';

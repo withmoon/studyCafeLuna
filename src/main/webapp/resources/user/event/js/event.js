@@ -17,7 +17,7 @@ $(function() {
 function eventList(enpage) {
 	$.ajax({      
 		 type:"GET",  
-		 url:"eventOK.udo",    
+		 url:"eventNow.do",    
 	     data:{curPage:enpage},      
 	     success:function(data){
 	    	 var my_tbody = document.getElementById('my-tbody');
@@ -39,7 +39,7 @@ function eventList(enpage) {
 	    	 	newTitle.appendChild(a);
 	    	 	(function(seq) {
 	    	 		a.addEventListener('click',function() {
-	    	 			window.open('viewEvent.udo?seq='+seq,'_blank','width=700,height=720,location=no,status=no,scrollbars=yes');
+	    	 			window.open('viewEvent.do?seq='+seq,'_blank','width=700,height=720,location=no,status=no,scrollbars=yes');
 	    	 		}, false);
 	    	 	})(seq);
 	    	 	
@@ -67,7 +67,7 @@ function eventList(enpage) {
 function eventEndList(eqpage) {
 	$.ajax({      
 		 type:"GET",  
-		 url:"eventChange.udo",    
+		 url:"eventEnd.do",    
 	     data:{curPage:eqpage},      
 	     success:function(data){   
 	    	 var my_tbody = document.getElementById('my-tbody');
@@ -89,7 +89,7 @@ function eventEndList(eqpage) {
 	    	 	newTitle.appendChild(a);
 	    	 	(function(seq) {
 	    	 		a.addEventListener('click',function() {
-	    	 			window.open('viewEvent.udo?seq='+seq,'_blank','width=700,height=720,location=no,status=no,scrollbars=yes');
+	    	 			window.open('viewEvent.do?seq='+seq,'_blank','width=700,height=720,location=no,status=no,scrollbars=yes');
 	    	 		}, false);
 	    	 	})(seq);
 	    	 	

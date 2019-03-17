@@ -11,7 +11,7 @@ import study.cafe.luna.Question.dao.QuestionBoardDAO;
 import study.cafe.luna.Question.dto.QuestionBoardDTO;
 import study.cafe.luna.Question.service.GetQuestionBoardListService;
 
-//@Service
+@Service
 public class GetQuestionBoardListServiceImpl implements GetQuestionBoardListService{
 
 	@Autowired
@@ -19,7 +19,7 @@ public class GetQuestionBoardListServiceImpl implements GetQuestionBoardListServ
 
 //	  @Autowired 
 //	  GetUserQnCountDAOImpl guqcDAOImpl;
-	@Autowired
+//	@Autowired
 //	  GetUserQnAllDAOImpl guqaDAOImpl;
 //	  @Autowired 
 //	  DeleteUserQnaDAOImpl duqDAOImpl;

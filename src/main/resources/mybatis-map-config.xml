@@ -31,6 +31,35 @@
 		<!-- 이용가이드 -->
 		<typeAlias alias="htuse"
 			type="study.cafe.luna.howtouse.dto.HowToUseDTO" />
+		<!-- 매니저홍 -->
+		<typeAlias alias="QBoard"
+			type="study.cafe.luna.Question.dto.QuestionBoardDTO" />
+		<!-- 방 관련 -->
+		<typeAlias alias="Room"
+			type="study.cafe.luna.mRoom.dto.MRoomDTO" />
+		<!-- 매출 관련 -->
+		<typeAlias alias="ReserveTime"
+			type="study.cafe.luna.ReserveTime.dto.ReserveTimeDTO" />
+		<!-- 회원관리 관련 -->
+		<typeAlias alias="Managerment"
+			type="study.cafe.luna.management.dto.ManagementDTO" />
+		<!-- 회원관리 관련 -->
+		<typeAlias alias="Refund"
+			type="study.cafe.luna.Refound.dto.RefundDTO" />
+		<!-- 예약현황관리 관련 -->
+		<typeAlias alias="Reserve"
+			type="study.cafe.luna.Reserve.dto.ReserveDTO" />
+		<!-- 매출/엑셀 관련 -->
+		<typeAlias alias="Statistics"
+			type="study.cafe.luna.statistics.dto.StatisticsDTO" />
+		<!-- 이벤트 관련 -->
+		<typeAlias alias="adminEventBoardVO"
+			type="study.cafe.luna.event.dto.EventBoardDTO" />
+		<!-- 이벤트 댓글 관련 -->
+		<typeAlias alias="eReply"
+			type="study.cafe.luna.event.dto.EventReplyDTO" />
+
+
 
 	</typeAliases>
 
@@ -47,7 +76,26 @@
 		<mapper resource="mapping/rank-mapper.xml" />
 		<!-- 이용가이드 관련 -->
 		<mapper resource="mapping/howtouse-mapper.xml" />
-
+		<!-- 고객의소리 -->
+		<mapper resource="mapping/question-mapper.xml" />
+		<!-- 고객의소리 메일관련 -->
+		<mapper resource="mapping/mail-mapper.xml" />
+		<!-- 방관리 관련 -->
+		<mapper resource="mapping/mRoom-mapper.xml" />
+		<!-- 통계 관련 -->
+		<mapper resource="mapping/reserveTime-mapper.xml" />
+		<!-- 회원관리 관련 -->
+		<mapper resource="mapping/managerment-mapper.xml" />
+		<!-- 환불관리 관련 -->
+		<mapper resource="mapping/refund-mapper.xml" />
+		<!-- 예약관리 관련 -->
+		<mapper resource="mapping/reserve-mapper.xml" />
+		<!-- 매출/엑셀 관련 -->
+		<mapper resource="mapping/mgSalesReserve-mapper.xml" />
+		<!-- 이벤트 -->
+		<mapper resource="mapping/eventBoard-mapper.xml" />
+		<!-- 이벤트 답변 -->
+		<mapper resource="mapping/eventReply-mapper.xml" />
 	</mappers>
 
 

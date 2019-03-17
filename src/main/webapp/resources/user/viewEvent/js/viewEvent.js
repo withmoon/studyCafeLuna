@@ -18,7 +18,7 @@ function replyOnOff(seq) {
 function eReplyList(erpage) {
 	$.ajax({
 		type:"GET",
-		url:"eReplyList.udo",
+		url:"eReplyList.do",
 		data: {seq:seq,curPage:erpage},
 		success : function(data) {
 			$('.replyList').children().remove();
@@ -55,7 +55,7 @@ function writeCommand(seq){
 	
 	$.ajax({
 		type:"POST",
-		url:"eReplyInsert.udo",
+		url:"eReplyInsert.do",
 		data: {bseq:seq,content:content},
 		success : function(data) {
 			replyOnOff(seq);
@@ -83,7 +83,7 @@ function upRe(seq,rno) {
 	
 	$.ajax({
 		type:'POST',
-		url:'eReplyUpdate.udo',
+		url:'eReplyUpdate.do',
 		data:{rno:rno,content:content},
 		success : function(data) {
 			eReplyList(1);
@@ -104,7 +104,7 @@ function caRE(rno,content) {
 function deRE(seq,rno) {
 	$.ajax({
 		type:'POST',
-		url:'eReplyDelete.udo',
+		url:'eReplyDelete.do',
 		data:{rno:rno},
 		success : function(data) {
 			eReplyList(1);

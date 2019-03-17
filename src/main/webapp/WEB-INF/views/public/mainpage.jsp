@@ -33,7 +33,7 @@
 <!-- 이벤트  로그인/회원가입 -->
 <nav> 
 <ul class="topUl">
-<li><a href="<c:url value="/event.do"/>">이벤트</a></li>
+<li><a href="<c:url value="/userevent.do"/>">이벤트</a></li>
 <c:if test="${member.id eq null }">
 <li>&emsp;&nbsp;&nbsp;</li>
 <li><a href="login.do">로그인&nbsp;/&nbsp;회원가입</a></li><!-- login.do -->

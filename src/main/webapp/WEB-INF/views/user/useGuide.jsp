@@ -14,7 +14,7 @@
 <body  style="overflow-x:hidden; overflow-y:auto;">
 <!-- 상단 메뉴 -->
 <!-- 상단로고 -->
-<a href="<c:url value="/home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
+<a href="<c:url value="/home.do"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 <div class="top">이용가이드</div>
 
 <nav>
@@ -30,7 +30,7 @@
 <c:if test="${fn:length(htulist) ne 0}">
 <c:forEach var="htulist" items="${htulist}">
 	<tr>
-		<td><a href="viewUseGuide.udo?num=${htulist.num}">${htulist.title}</a></td>
+		<td><a href="viewUseGuide.do?num=${htulist.num}">${htulist.title}</a></td>
 	</tr>
 </c:forEach>
 </c:if>

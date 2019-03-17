@@ -85,11 +85,7 @@
       where num=#{num}
    </delete>
 
-   <select id="readevent" resultType="adminEventBoardVO">
-
-      select * from adminevent where seq=#{seq}
-
-   </select>
+  
 
 	<!-- 전체/회원/지점장 메일 보내기 -->
 	<select id="AllMail" resultType="String">
