@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 <script type="text/javascript">
 	function list(page) {
-		location.href = "mgReserve.mdo?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
+		location.href = "Reserve.do?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
 	}
 /*
 	function reserve(seq) {
@@ -35,7 +35,7 @@
 	function reserve(seq) {
         $.ajax({
            type : "POST",
-           url : "Refund.mdo",
+           url : "Refund.do",
            data : {
         	   "seq" : seq
            },
@@ -66,7 +66,7 @@
 		<div id="TopMenu1">
 			<!-- 좌측상단 로고 -->
 			<div id="letflogo">
-				<a href="manager.mdo"><img class="logo"
+				<a href="manager.do"><img class="logo"
 					src="<c:url value="/resources/public/logo/mainlogo.png"/>" /></a>
 			</div>
 			<jsp:include page="/WEB-INF/views/manager/form/TopMenu1.jsp"></jsp:include>

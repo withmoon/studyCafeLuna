@@ -24,11 +24,11 @@
  $(document).ready(function () {
 	$("#room").click(function() {
 		alert("버튼클릭");
-		location.href="mgRoom.mdo"
+		location.href="mRoom.do"
 	});
 	$("#delete").click(function() {
 		alert("삭제");
-		location.href="deleteRoom.mdo?roomnum="+${text.roomnum};
+		location.href="mRoomDelete.do?roomnum="+${text.roomnum};
 	});
 });  
  </script>
@@ -65,7 +65,7 @@
 			<div id=header>
 				<header>방 생성</header>
 			</div>
-			<form name="form" id="form" method="post" 	enctype="multipart/form-data" action="updateRoom.mdo?roomnum=${text.roomnum}">
+			<form name="form" id="form" method="post" 	enctype="multipart/form-data" action="mRoomUpdate.mdo?roomnum=${text.roomnum}">
 				<div id="roominsert">
 					<!-- 이미지 / 방소개영역 -->
 					<div id="image">

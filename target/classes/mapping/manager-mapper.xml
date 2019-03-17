@@ -53,12 +53,7 @@
 	</select>
 	
 	<!-- 차트데이터가져오기 --> <!-- 기간 받아서하기로 변경 -->
-	<select id="chart" resultType="Statistics">
-	<![CDATA[
-		 select reservdate ,count(*)as gunsu from roompayment  where reservdate>='19/01/01' and 
-		reservdate<='19/03/28' group by reservdate order by reservdate asc
-	]]>	 
-	</select>
+
 
 </mapper> 
 

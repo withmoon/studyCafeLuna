@@ -27,7 +27,7 @@
 	]]>
 		<include refid="pagingFooter"></include>
 	</select>
-	<sql id="pagingHeader">
+	<sql id="pagingHeader"> 
 		select * from ( select rownum as rn,A.* from(
 	</sql>
 	<sql id="pagingFooter">
@@ -46,7 +46,7 @@
 	]]>
 	</select>
 	
-	<select id="excelList" resultType="Sales">
+	<select id="excelList" resultType="Reserve">
 	<![CDATA[
 		 select reservdate ,count(*)as gunsu,sum(payamount)as total,count(DECODE(status,'-2',1)) as status,
 			count(DECODE(status,'-1',1)) as status2 from roompayment 

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="refundDAO">
+	 <!-- 환불현황 카운트 -->	
+	<select id="RefundCount" resultType="int">
+		select count(*) from roompayment where status=-1 or status=-2
+	</select> 
+	 <!-- 환불현황 전체목록 조회 및 검색조회 -->        
+	<select id="mgRefund" resultType="Refund">
+		<include refid="pagingHeader2"></include>	
+		select rownum,SEQ,id,BRANCHNAME,ROOMNUM,reservdate,STATUS from 
+		(SELECT SEQ,id,BRANCHNAME,ROOMNUM,reservdate,STATUS FROM ROOMPAYMENT
+		<include refid="search3"></include>	 
+		ORDER BY reservdate desc)
+		<include refid="pagingFooter3"></include>
+	</select>  
+	<!-- 검색조건 sql -->
+	  <sql id="search3">  
+	 	<choose>
+	 		<!-- 검색옵션이 전체 검색일 경우 --> 
+	 		<when test="searchOption='all'">
+	 			where (status=-1 or status=-2) and branchName = #{branchName} and (roomnum  like '%'||#{keyword}||'%' or id like '%'||#{keyword}||'%')
+	 		</when> 
+	 		<otherwise>
+	 			where ${searchOption} like '%'||#{keyword}||'%'
+	 		</otherwise>
+	 	</choose>
+	 </sql>
+	 <sql id="pagingHeader3">
+	 	select * from ( select rownum as rn,A.* from(
+	 </sql>
+	 <sql id="pagingFooter3">
+	 		)A
+	 	)where rn  between #{start} and #{end}
+	 </sql>
+	 
+	 
+	 <select id="Refund" resultType="Refund">
+	 <![CDATA[
+	 	select SUBSTR(reservstate,0,INSTR(reservstate,(select SUBSTR(reservetime,0,5) from roompayment where seq=#{seq}))-1)||SUBSTR(reservstate,INSTR(reservstate,(select SUBSTR(reservetime,LENGTH(reservetime)-4,LENGTH(reservetime)) from roompayment where seq=#{seq}))+5,LENGTH(reservstate)) from roomreserv where  
+	 	to_char(startdate,'yy/MM/dd') like TO_CHAR(TO_DATE(REPLACE(#{reservdate}, 'KST ', ''), 'Dy Mon DD HH24:MI:SS YYYY','NLS_DATE_LANGUAGE=AMERICAN'), 'yy/MM/dd') and roomnum=#{roomnum}
+	 	]]>
+	 </select>
+	
+	
+</mapper> 
+

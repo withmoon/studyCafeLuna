@@ -32,7 +32,7 @@ function getTermSales(){
 	paid_at_end=$("#paid_at_end").val();
 		$.ajax({ 
 			type : "GET",
-			url : "mgTime2.mdo",
+			url : "mgTime2.do",
 			data : {paid_at_start:paid_at_start, paid_at_end:paid_at_end}, 
 			success : function(vo) {
 				$("#b1").text("예약횟수 : "+vo.asum);
@@ -67,7 +67,7 @@ function getTermSales(){
 		$.ajax({
 			  
 			 type : "POST", 
-			 url: "mgchart2.mdo", 
+			 url: "mgchart2.do", 
 			 data:{paid_at_start:paid_at_start, paid_at_end:paid_at_end},     
 			success:function(A){
 		        
@@ -131,7 +131,7 @@ function getTermSales(){
 		<div id="TopMenu1">
 			<!-- 좌측상단 로고 -->
 			<div id="letflogo">
-				<a href="manager.mdo"><img class="logo"
+				<a href="manager.do"><img class="logo"
 					src="<c:url value="/resources/public/logo/mainlogo.png"/>" /></a>
 			</div>
 			<jsp:include page="/WEB-INF/views/manager/form/TopMenu1.jsp"></jsp:include>

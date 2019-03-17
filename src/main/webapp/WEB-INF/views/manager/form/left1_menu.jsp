@@ -16,35 +16,35 @@
 		<ul>
 			<li class="menu"><a id="a" href="#">☆ 게시판관리</a>
 				<ul class="hide">
-					<li><a href="mgBoard.mdo">문의 게시판<br/>(고객의 소리, 자주묻는질문)</a></li>
-					<li><a href="mgEvenet.mdo">이벤트 게시판</a></li>
-					<li><a href="mgGong.mdo">공지사항</a></li>
+					<li><a href="QuestionBoardList.do">문의 게시판<br/>(고객의 소리, 자주묻는질문)</a></li>
+					<li><a href="mgEvenet.do">이벤트 게시판</a></li>
+					<li><a href="mgGong.do">공지사항</a></li>
 				</ul>
 			</li>
 
 			<li class="menu"><a id="b" href="#">☆ 매출통계</a>
 				<ul class="hide">
-					<li><a href="mgSalesreserve.mdo">기간 매출</a></li>
+					<li><a href="Salesreserve.do">기간 매출</a></li>
 					<!-- <li><a href="mgSalesmonth.mdo">월 매출</a></li> -->
-					<li><a href="mgreport.mdo">리포트올리기</a></li>
+					<li><a href="report.do">리포트올리기</a></li>
 				</ul>
 			</li>
 			<li class="menu"><a id="a" href="#">☆ 예약시간대통계</a>
-				<ul class="hide">
-					<li><a href="mgTime.mdo">시간별</a></li>
+				<ul class="hide"> 
+					<li><a href="Timechart.do">시간별</a></li>
 					<!-- <li><a href="mgSeason.mdo">분기별</a></li> -->
 				</ul>
 			</li>
 			<li class="menu"><a id="b" href="#">☆ 방 생성/수정/삭제</a>
 				<ul class="hide">
-					<li><a href="mgRoom.mdo">방관리</a></li>
+					<li><a href="mRoom.do">방관리</a></li>
 				</ul>
 			</li>
 				<li class="menu"><a id="a" href="#">☆ 현황보기</a>
 				<ul class="hide">
-					<li><a href="mgSales.mdo">회원관리</a></li>
-					<li><a href="mgReserve.mdo">예약현황</a></li>
-					<li><a href="mgRefund.mdo">환불현황</a></li>
+					<li><a href="management.do">회원관리</a></li>
+					<li><a href="Reserve.do">예약현황</a></li>
+					<li><a href="Refund.do">환불현황</a></li>
 				</ul>
 			</li>
 		</ul>

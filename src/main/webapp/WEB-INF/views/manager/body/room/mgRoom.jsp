@@ -9,7 +9,7 @@
 	src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"></c:url>"></script>
 <script type="text/javascript">
 function list(page) { 
-	location.href = "mgRoom.mdo?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
+	location.href = "mRoom.do?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
 }
 </script>	
 
@@ -53,7 +53,7 @@ function list(page) {
 			</div>
 			<div>
 			
-			<form id="form1" method="post"  action="mgRoom.mdo?">
+			<form id="form1" method="post"  action="mRoom.do?">
 				<div id="ex">
 					<ul>
 						<li>
@@ -65,7 +65,7 @@ function list(page) {
 						</li>
 						<li>검색 : <input type="text" name="keyword">
 						</li>
-						<li id="exb"><input id="submit" type="button" value="방생성" 	onclick="location.href='RoomUpload.mdo'"></li>
+						<li id="exb"><input id="submit" type="button" value="방생성" 	onclick="location.href='mRoomUpload.do'"></li>
 						<li id="exb"><input id="submit" type="submit" value="검색"></li>
 					</ul>
 				</div>
@@ -83,7 +83,7 @@ function list(page) {
 					<c:forEach items="${map.list}" var="list">
 						<tr>
 							<td>${list.roomnum}</td>
-							<td><a href="mgRoomView.mdo?roomnum=${list.roomnum}">${list.branchName}</a></td>
+							<td><a href="mRoomView.do?roomnum=${list.roomnum}">${list.branchName}</a></td>
 							<td>${list.roomName }  </td>
 							<td>${list.roomLocate}</td>
 							<td>${list.roomPrice}</td>

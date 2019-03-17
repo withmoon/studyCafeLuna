@@ -9,7 +9,7 @@
 	src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"></c:url>"></script>
 <script type="text/javascript">
 function list(page) { 
-	location.href = "mgSalesreserve.mdo?curPage="+page+"&date1=${map.date1}"+"&date2=${map.date2}";
+	location.href = "Salesreserve.do?curPage="+page+"&date1=${map.date1}"+"&date2=${map.date2}";
 }
 </script>
 <meta charset="UTF-8">
@@ -25,7 +25,7 @@ function list(page) {
 		<div id="TopMenu1">
 			<!-- 좌측상단 로고 -->
 			<div id="letflogo">
-				<a href="manager.mdo"><img class="logo"
+				<a href="manager.do"><img class="logo"
 					src="<c:url value="/resources/public/logo/mainlogo.png"/>" /></a>
 			</div>
 			<jsp:include page="/WEB-INF/views/manager/form/TopMenu1.jsp"></jsp:include>
@@ -57,7 +57,7 @@ function list(page) {
 							날짜 : <input type="date" name="date1"> ~ <input type="date" name="date2">
 						</li>
 						<li>
-							<a id="excel" href="excelDownload.mdo">엑셀 내려받기</a>
+							<a id="excel" href="ExcelDownload.do">엑셀 내려받기</a>
 						</li>
 						<li id="exb">
 							<input id="submit" type="submit" value="검색">

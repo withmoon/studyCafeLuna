@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import study.cafe.luna.Question.dto.QuestionBoardDTO;
 import study.cafe.luna.manager.dao.ManagerDAO;
+import study.cafe.luna.room.dto.RoomReviewDTO;
 
 
 @Repository 
@@ -76,10 +77,14 @@ public class ManagerDAOImpl implements ManagerDAO{
 	 * @Override public List<StatisticsVO> chart() {
 	 * System.out.println("chart DAO"); return
 	 * SqlSession.selectList("managerDAO.chart"); }
-	 * 
-	 * @Override public List<RoomReviewDTO> review() {
-	 * System.out.println("review DAO"); return
-	 * SqlSession.selectList("managerDAO.review"); }
 	 */
+	  @Override 
+	  public List<RoomReviewDTO> review() {
+		 System.out.println("review DAO"); return
+         SqlSession.selectList("managerDAO.review"); 
+	  }
+	 
+
+	
 
 }

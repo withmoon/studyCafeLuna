@@ -6,10 +6,12 @@ import study.cafe.luna.Question.dto.QuestionBoardDTO;
 
 public interface QuestionBoardDAO {
 
+	
+	
 	public void insertBoard(QuestionBoardDTO vo);
 
 	// 게시글 목록
-	public List<QuestionBoardDTO> listAll(int start, int end, String searchOption, String keyword, String branchName);
+	public List<QuestionBoardDTO> QuestionList(int start, int end, String searchOption, String keyword, String branchName);
 
 	public List<QuestionBoardDTO> inquireList(int start, int end, String searchOption, String keyword); // admin 문의목록
 

@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class MgBoardController {
 	/*
-	 * // 寃뚯떆�뙋愿�由�
 	 * 
 	 * @Autowired private MgService MgService;
 	 * 

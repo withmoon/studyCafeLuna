@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 <script type="text/javascript">
 	function list(page) { 
-		location.href = "mgBoard.mdo?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
+		location.href = "QuestionBoardList.do?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
 	}
 
 	function mail_0(seq,email,content) {
@@ -36,13 +36,10 @@
 		<div id="TopMenu1">
 			<!-- 좌측상단 로고 -->
 			<div id="letflogo">
-				<a href="manager.mdo"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
+				<a href="manager.do"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 			</div>
 			<jsp:include page="../../form/TopMenu1.jsp"></jsp:include> 
 		</div>
-		<%-- <div id="TopMenu2">
-					<jsp:include page="form/TopMenu2.jsp" />
-				</div> --%>
 	</nav>
 
 	<!-- 배경 -->
@@ -62,7 +59,7 @@
 
 
 			<div id="board">
-				<form name="form1" method="post" action="mgBoard.mdo?">
+				<form name="form1" method="post" action="QuestionBoard.do?">
 					<table id="searchtable">
 						<tr>
 							<td id="searchtd"><!-- <a id="write" onclick=" insertboard()" href="#">글쓰기</a> -->

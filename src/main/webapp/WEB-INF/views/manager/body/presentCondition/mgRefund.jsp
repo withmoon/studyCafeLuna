@@ -18,7 +18,7 @@
 <!-- jQuery CDN --->
 <script>
 function list(page) {
-	location.href = "Refund.mdo?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
+	location.href = "Refund.do?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
 }
 
 /* function cancelPay(roomnum,seq,reservdate) {
@@ -36,7 +36,7 @@ function list(page) {
 function cancelPay(roomnum,seq,reservdate) {
     $.ajax({
        type : "POST",
-       url : "Refund.mdo",
+       url : "Refund.do",
        data : {
     	   "seq" : seq,
     	   "roomnum" : roomnum,
@@ -71,7 +71,7 @@ function cle() {
 		<div id="TopMenu1">
 			<!-- 좌측상단 로고 -->
 			<div id="letflogo">
-				<a href="manager.mdo"><img class="logo"
+				<a href="manager.do"><img class="logo"
 					src="<c:url value="/resources/public/logo/mainlogo.png"/>" /></a>
 			</div>
 			<jsp:include page="/WEB-INF/views/manager/form/TopMenu1.jsp"></jsp:include>
@@ -97,7 +97,7 @@ function cle() {
 			</div>
 			<div>
 				<div id="ex">
-					<form name="form1" method="post" action="mgRefund.mdo?">
+					<form name="form1" method="post" action="Refund.do?">
 						<table id="searchtable">
 							<tr>
 								<td id="searchtd">
