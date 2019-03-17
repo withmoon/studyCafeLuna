@@ -19,7 +19,7 @@ public interface GetQuestionBoardListService {
 			HttpSession session);
 
 	// 문의 갯수
-//	public int countInqure(String searchOption, String keyword);
+	public int countInqure(String searchOption, String keyword);
 
 	// 레코드계산
 	public int countArticle(String searchOption, String keyword, String branchName) throws Exception;

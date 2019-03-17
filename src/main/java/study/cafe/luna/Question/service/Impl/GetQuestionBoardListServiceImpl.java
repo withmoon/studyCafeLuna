@@ -49,6 +49,11 @@ public class GetQuestionBoardListServiceImpl implements GetQuestionBoardListServ
 			HttpSession session) {
 		return questionBoardDAO.inquireList(start, end, searchOption, keyword);
 	}
+	@Override
+	public int countInqure(String searchOption, String keyword) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 //	  @Override
 //    public Integer getUserQnCount(String id) {
