@@ -40,7 +40,7 @@
 						<td colspan="2"><input type="submit" id="btnSave" value="등록"
 							class="btn btn-primary pull-right" /> <input type="button"
 							value="글 목록" class="btn btn-primary pull-right"
-							onclick="javascript:location.href='inquireList.ado'" /></td>
+							onclick="javascript:location.href='inquireList.do'" /></td>
 					</tr>
 				</tbody>
 			</table>

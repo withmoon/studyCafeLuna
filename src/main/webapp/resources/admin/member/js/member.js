@@ -21,7 +21,7 @@ function memberList(mpage) {
 	
 	$.ajax({     
 		 type:"GET",  
-		 url:"aMemberList.ado",    
+		 url:"aMemberList.do",    
 	     data:{curPage:mpage},      
 	     success:function(data){
 	    	 $(".table-striped").children().remove();
@@ -101,7 +101,7 @@ function infoList(ipage) {
 	 
 	$.ajax({     
 		 type:"GET",  
-		 url:"infoList.ado",    
+		 url:"infoList.do",    
 	     data:{curPage:ipage},      
 	     success:function(data){
 	    	 $(".table-striped").children().remove();
@@ -122,7 +122,7 @@ function infoList(ipage) {
 	    		 inf += '<td>'+data.infoList[i].email+'</td>';
 	    		 inf += '<td>'+data.infoList[i].branchName+'</td>';
 	    		 inf += '<td>'+data.infoList[i].branchAddr1+'</td>';
-	    		 inf += '<td><a href="approvedelete.ado?id='+data.infoList[i].id+'&type=member">삭제</a></td>';
+	    		 inf += '<td><a href="approvedelete.do?id='+data.infoList[i].id+'&type=member">삭제</a></td>';
 	    		 inf += '</tr>';
 	    	 }
 	    	 
@@ -159,7 +159,7 @@ function expulmember(id,email,title){
 
 	$.ajax({     
 		 type:"GET",  
-		 url:"expulmember.ado",    
+		 url:"expulmember.do",    
 	     data:{id:id,email:email,content:content,title:title},
 	     success:function(){
 	    	 alert(id+"님이 제명되었습니다.");
@@ -172,7 +172,7 @@ function expulmember(id,email,title){
 function cancleExplurUser(id,email){
 	$.ajax({     
 		 type:"GET",  
-		 url:"expulmember.ado",    
+		 url:"expulmember.do",    
 	     data:{id:id,email:email},
 	     success:function(){
 	    	 alert(id+"님의 제명이 취소되었습니다.");
@@ -247,7 +247,7 @@ function sendEmail(){
 	console.log(type);
 	
 	$("#memform").removeAttr("action");//지워구 해도 되는건가요?
-	$("#memform").attr("action","AllMail.ado");//바뀌나..
+	$("#memform").attr("action","AllMail.do");//바뀌나..
 	$("#sendToUser").removeAttr("onclick");
 	$("#sendToUser").attr("type","submit");
 	$('body > *:not(.explur) ').css('filter',filterVal10);

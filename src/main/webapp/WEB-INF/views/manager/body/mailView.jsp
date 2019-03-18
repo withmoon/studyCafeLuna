@@ -36,7 +36,7 @@ window.close(); */
 <body>
 	<div class="container">
 		<h4>메일 보내기</h4>
-		<form id="form1" action="${pageContext.request.contextPath}/mailSending.mdo" method="post">
+		<form id="form1" action="${pageContext.request.contextPath}/mailSending.do" method="post">
 			<div align="center">
 				<!-- 받는 사람 이메일 -->
 				<input type="text" name="tomail" size="120" style="width: 100%"

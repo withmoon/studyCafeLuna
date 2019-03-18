@@ -43,7 +43,7 @@
 						<td colspan="2"><input type="submit" id="btnSave" value="등록"
 							class="pull-right" /> <input type="button" value="글 목록"
 							class="pull-right"
-							onclick="javascript:location.href='reportboard.ado'" /></td>
+							onclick="javascript:location.href='reportboard.do'" /></td>
 					</tr>
 
 				</tbody>

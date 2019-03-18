@@ -6,7 +6,7 @@ $(function() {
 function noticeList(npage) {
 	$.ajax({
 		type:"GET",
-		url:"gongjiboardList.ado",
+		url:"gongjiboardList.do",
 		data:{curPage:npage},
 		success:function(data) {
 			console.log(data.noticeList[0].title + " 블러왔냥 " +data.noticeList.length);
@@ -31,7 +31,7 @@ function noticeList(npage) {
 				newTitle.appendChild(a);
 				(function(num) {
 					a.addEventListener('click', function() {
-						window.open('gongjiview.ado?num='+num,'_self');
+						window.open('gongjiview.do?num='+num,'_self');
 					}, false);
 				})(num);
 				

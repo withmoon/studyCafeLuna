@@ -7,8 +7,8 @@ function inquireList(inpage) {
 	var searchOption=$("#searchSel option:selected").val();
 	var keyword=$("#keyword").val();
 	$.ajax({     
-		 type:"GET",  
-		 url:"inquireList.ado",    
+		 type:"GET",   
+		 url:"inquireList.do",    
 	     data:{curPage:inpage,searchOption:searchOption,keyword:keyword},      
 	     success:function(data){
 	    	 $("#inquire_table").children().remove();
@@ -78,7 +78,7 @@ function replyToUser(seq){
 function inquiredelete(seq){
 	$.ajax({     
 		 type:"GET",  
-		 url:"inquiredelete.ado",    
+		 url:"inquiredelete.do",    
 	     data:{seq:seq},      
 	     success:function(data){
 	    	 inquireList(1);

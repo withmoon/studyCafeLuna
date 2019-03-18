@@ -9,7 +9,7 @@ $(function() {
 function approveList(apage) {
 	$.ajax({     
 		 type:"GET",  
-		 url:"approveList.ado",    
+		 url:"approveList.do",    
 	     data:{curPage:apage},      
 	     success:function(data){
 	    	 $("#approve_table").children().remove();

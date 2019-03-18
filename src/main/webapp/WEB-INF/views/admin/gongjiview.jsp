@@ -36,9 +36,9 @@
 		<td>${num.content }</td>
 	</tr>
 	<tr class="button"><td colspan="2">
-		<input type="button" onclick="window.open('gongji.ado','_self');" value="목록"/>
+		<input type="button" onclick="window.open('gongji.do','_self');" value="목록"/>
 		<input type="button" onclick="upbt()" value="수정"/> 
-		<input type="button" value="삭제" onclick="javascript:location.href='gongjidelete.ado?num=${num.num}'" />
+		<input type="button" value="삭제" onclick="javascript:location.href='gongjidelete.do?num=${num.num}'" />
 	</td></tr>
 </tbody>
 </table>
@@ -51,7 +51,7 @@
 	<ul id="replyPaging"></ul>
 </div>
 </div>
-<form name="form2" action="gongjiupdate.ado" method="POST">
+<form name="form2" action="gongjiupdate.do" method="POST">
 <div class="nupdate">
 <table class="table table-bordered">
 <tbody>
@@ -67,10 +67,10 @@
 	name="content" class="form-control" rows="20">${num.content}</textarea></td>
 </tr>
 <tr class="button"><td colspan="2">
-		<input type="button" onclick="window.open('gongji.ado','_self');" value="목록"/>
+		<input type="button" onclick="window.open('gongji.do','_self');" value="목록"/>
 		<input type="submit" id="update" value="수정"/>
 		<input type="button" value="삭제"
-		onclick="javascript:location.href='gongjidelete.ado?num=${num.num}'" />
+		onclick="javascript:location.href='gongjidelete.do?num=${num.num}'" />
 </td></tr>
 </tbody>
 </table>

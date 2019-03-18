@@ -50,7 +50,7 @@
             <tbody id="inquire_table"></tbody>
          </table>
          <ul id="inquirePaging"></ul>
-        <!--  <a href="gongjiwrite.ado" class="btn btn-primary pull-right">글쓰기</a>--> 
+        <!--  <a href="gongjiwrite.do" class="btn btn-primary pull-right">글쓰기</a>--> 
       </div>
    </div>
 
