@@ -116,6 +116,8 @@
 		<mapper resource="mapping/noticeReply-mapper.xml" />
 		<!-- 지점장 정보 및 승인 등 -->
 		<mapper resource="mapping/admin-mapper.xml" />
+		<!-- 매니저  화면 --> 
+		<mapper resource="mapping/manager-mapper.xml" />
 	</mappers>
 
 
