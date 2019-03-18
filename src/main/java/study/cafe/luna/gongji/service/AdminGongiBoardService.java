@@ -12,3 +12,4 @@ public interface AdminGongiBoardService {
 	public int countNotice(String title); //글 갯수
 	public AdminGongjiBoardDTO read(int num) throws Exception; //공지사항 상세보기
 }
+ 
