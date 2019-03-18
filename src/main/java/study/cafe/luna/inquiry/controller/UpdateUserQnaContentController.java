@@ -14,7 +14,7 @@ public class UpdateUserQnaContentController {
 	@Autowired
 	InquiryService iqser;
 	
-	@RequestMapping(value="/upUserQnaContent.udo",method=RequestMethod.GET) 
+	@RequestMapping(value="/upUserQnaContent.do",method=RequestMethod.GET) 
 	public @ResponseBody void upUserQnaContent(@RequestParam("seq") int seq,@RequestParam("content") String content) {
 		iqser.upUserQnaContent(seq, content);
 	}

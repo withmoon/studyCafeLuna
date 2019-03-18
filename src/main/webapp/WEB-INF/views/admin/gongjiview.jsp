@@ -51,8 +51,9 @@
 	<ul id="replyPaging"></ul>
 </div>
 </div>
-<form name="form2" action="gongjiupdate.do" method="POST">
-<div class="nupdate">
+</div>
+<form name="form2" action="gongjiupdate.do" method="POST" >
+<div  class="nupdate" hidden="true">
 <table class="table table-bordered">
 <tbody>
 <tr>
@@ -76,7 +77,7 @@
 </table>
 </div>
 </form>
-</div>
+
 </div>
 
 	<script

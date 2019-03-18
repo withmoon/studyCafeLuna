@@ -48,7 +48,7 @@ public class InformController {
 		
 		List<String> sido=roomser.getSido();
 		mav.addObject("sido",sido);
-		
+		mav.setViewName("/user/inform");
 		return mav;
 	}
 	

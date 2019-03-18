@@ -12,19 +12,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import study.cafe.luna.gongji.dto.AdminGongjiBoardDTO;
-import study.cafe.luna.gongji.service.AdminGongiBoardService;
+import study.cafe.luna.notice.dto.NoticeBoardDTO;
+import study.cafe.luna.notice.service.NoticeBoardService;
 import study.cafe.luna.util.BoardPager;
 
 @Controller
 public class GetGongiListController {
 	
 	@Autowired
-	AdminGongiBoardService adminNoticeBoardService;
+	NoticeBoardService adminNoticeBoardService;
 	// 공지사항 목록
 	@RequestMapping(value = "gongjiboardList.do", method = RequestMethod.GET)
 	public @ResponseBody JSONObject gongjiboardList(@RequestParam(defaultValue = "1") int curPage,
-		AdminGongjiBoardDTO noticeboardVO, HttpSession session) 
+			NoticeBoardDTO noticeboardVO, HttpSession session) 
 	{
 		
 		// 페이징 처리
@@ -39,7 +39,7 @@ public class GetGongiListController {
 		int end = boardPager.getPageEnd();
 
 		// 목록
-		List<AdminGongjiBoardDTO> noticeList = adminNoticeBoardService.noticeAll(start, end, session);
+		List<NoticeBoardDTO> noticeList = adminNoticeBoardService.noticeAll(start, end, session);
 
 		JSONObject obj = new JSONObject();
 

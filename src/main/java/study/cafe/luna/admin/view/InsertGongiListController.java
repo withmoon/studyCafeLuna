@@ -8,25 +8,27 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import study.cafe.luna.gongji.dto.AdminGongjiBoardDTO;
-import study.cafe.luna.gongji.service.InsertGongiBoardService;
 import study.cafe.luna.member.dto.MemberDTO;
+import study.cafe.luna.notice.dto.NoticeBoardDTO;
+import study.cafe.luna.notice.service.InsertNoticeBoardService;
 
 @Controller
 public class InsertGongiListController {
 	
 	@Autowired
-	InsertGongiBoardService insertNoticeBoardService;
+	InsertNoticeBoardService insertNoticeBoardService;
 	
 	@RequestMapping(value = "/noticeinsert.do", method = RequestMethod.GET)
-	public String insert(@ModelAttribute AdminGongjiBoardDTO vo, HttpSession session, MemberDTO memcom) throws Exception {
+	public String insert(@ModelAttribute NoticeBoardDTO vo, HttpSession session, MemberDTO memcom) throws Exception {
 		memcom = (MemberDTO) session.getAttribute("member");
-
+		if(session.getAttribute("member")==null) {
+    		return "/admin/cannotAccess";
+    	}
 		if (memcom.getPosition().equals("총관리자") | memcom.getPosition().equals("관리자")) {
 			memcom = (MemberDTO) session.getAttribute("member");
 			session.setAttribute("member", memcom);
 			insertNoticeBoardService.noticeinsert(vo);
-			return "redirect:/admin/gongji.do";
+			return "redirect:/gongji.do";
 		}
 		return "/admin/cannotAccess";	
 	}

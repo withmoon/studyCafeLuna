@@ -13,7 +13,7 @@ public class UpdateUserQnaReadstController {
 	@Autowired
 	InquiryService iqser;
 	
-	@RequestMapping(value="/upUserQnaReadst.udo",method=RequestMethod.GET) 
+	@RequestMapping(value="/upUserQnaReadst.do",method=RequestMethod.GET) 
 	public @ResponseBody void upUserQnaReadst(@RequestParam("seq") int seq) {
 		iqser.upUserQnaReadst(seq);
 	}

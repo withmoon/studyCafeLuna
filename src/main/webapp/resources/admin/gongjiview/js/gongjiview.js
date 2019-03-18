@@ -1,12 +1,11 @@
 var num = getParameterByName('num');
 
 $(function(){
-	$(".nupdate").hide();
 	nReplyList(1);
 });
 
 function upbt() {
-	$(".nview").hide();
+    $(".nview").hide();
 	$(".nupdate").show();
 }
 

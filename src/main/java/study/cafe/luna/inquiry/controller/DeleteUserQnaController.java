@@ -14,7 +14,7 @@ public class DeleteUserQnaController {
 	@Autowired
 	InquiryService iqser;
 	
-	@RequestMapping(value="/deleteUserQna.udo",method=RequestMethod.GET) 
+	@RequestMapping(value="/deleteUserQna.do",method=RequestMethod.GET) 
 	public @ResponseBody void deleteUserQna(@RequestParam("seq") int seq) {
 		iqser.deleteUserQna(seq);
 	}

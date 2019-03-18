@@ -21,7 +21,7 @@ public class GetUserQnAllController {
 	@Autowired
 	InquiryService iqser;
 	
-	@RequestMapping(value="/qnalist.udo",method=RequestMethod.GET) 
+	@RequestMapping(value="/qnalist.do",method=RequestMethod.GET) 
 	public @ResponseBody JSONObject getUserQnAll(HttpSession session,MemberDTO memcom,
 																		@RequestParam(value="curpage",defaultValue = "1") int curPage) {
 		memcom=(MemberDTO)session.getAttribute("member");

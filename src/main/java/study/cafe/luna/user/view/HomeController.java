@@ -43,7 +43,7 @@ public class HomeController {
 	@Autowired
 	GetMemberPositionService getMemberPositionService;
 	
-	String filePath = "C:\\myProject\\myMainProject\\NewLuna\\Luna\\src\\main\\webapp\\resources\\branchImg\\";
+	String filePath = "C:\\myProject\\MainProject\\studyCafeLuna\\src\\main\\webapp\\resources\\branchImg\\";
 
 	//카카오로그인
 	@RequestMapping(value="kakao/home.do", method=RequestMethod.GET)

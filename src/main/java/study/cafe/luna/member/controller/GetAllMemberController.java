@@ -29,8 +29,8 @@ public class GetAllMemberController {
 	public @ResponseBody JSONObject getAllMember(ReportDTO rpd,HttpSession session,@RequestParam("curPage") int curPage,
 			@RequestParam(value="searchOption",required=false,defaultValue="") String searchOption,
 			@RequestParam(value="keyword",required=false,defaultValue="") String keyword){
-		//MemberCommand memcom=(MemberCommand)session.getAttribute("member");
-		//session.setAttribute("member", memcom);
+		MemberDTO memcom=(MemberDTO)session.getAttribute("member");
+		session.setAttribute("member", memcom);
 
 		Integer count = getAllMemberCountService.getAllMemberCount(searchOption, keyword);
 		

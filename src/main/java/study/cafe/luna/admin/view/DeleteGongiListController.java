@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import study.cafe.luna.gongji.service.DeleteGongiBoardService;
 import study.cafe.luna.member.dto.MemberDTO;
+import study.cafe.luna.notice.service.DeleteNoticeBoardService;
 
 @Controller
 public class DeleteGongiListController {
 	@Autowired
-	DeleteGongiBoardService deleteNoticeBoardService;
+	DeleteNoticeBoardService deleteNoticeBoardService;
 	
 	//공지사항 삭제
 	@RequestMapping(value = "/gongjidelete.do", method = RequestMethod.GET)
@@ -25,7 +25,7 @@ public class DeleteGongiListController {
 			memcom = (MemberDTO) session.getAttribute("member");
 			session.setAttribute("member", memcom);
 			deleteNoticeBoardService.noticedelete(num);
-			return "redirect:/admin/gongji.do";
+			return "redirect:/gongji.do";
 		}
 		return "/admin/cannotAccess";
 	}
