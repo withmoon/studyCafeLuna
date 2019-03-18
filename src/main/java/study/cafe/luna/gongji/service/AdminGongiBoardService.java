@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import study.cafe.luna.gongji.dto.AdminGongjiBoardDTO;
 
-public interface AdminNoticeBoardService {
+public interface AdminGongiBoardService {
 	/*user_inform*/
 	public List<AdminGongjiBoardDTO> noticeAll(int start, int end, HttpSession session); //공지사항목록
 	public int countNotice(String title); //글 갯수

@@ -6,20 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import study.cafe.luna.gongji.dao.AdminGongjiBoardDAO;
-import study.cafe.luna.gongji.dao.Impl.AdminNoticeBoardDAOImpl;
+import study.cafe.luna.gongji.dao.Impl.AdminGongiBoardDAOImpl;
 import study.cafe.luna.gongji.dto.AdminGongjiBoardDTO;
-import study.cafe.luna.gongji.service.InsertNoticeBoardService;
+import study.cafe.luna.gongji.service.GetGongiBoardService;
 
 @Service
-public class InsertNoticeBoardServiceImpl implements InsertNoticeBoardService {
-	
+public class GetGongjiBoardServiceImpl implements GetGongiBoardService{
 	@Inject
 	AdminGongjiBoardDAO adminNoticeBoardDAO;
 	@Autowired
-	AdminNoticeBoardDAOImpl noticeBoardDAOImpl;
+	AdminGongiBoardDAOImpl noticeBoardDAOImpl;
 	
 	@Override
-	public void noticeinsert(AdminGongjiBoardDTO vo) throws Exception {
-		adminNoticeBoardDAO.noticeinsert(vo);
+	public AdminGongjiBoardDTO noticeread(int num) throws Exception {
+		// TODO Auto-generated method stub
+		return adminNoticeBoardDAO.noticeread(num);
 	}
+
 }

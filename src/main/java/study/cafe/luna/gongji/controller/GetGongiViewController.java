@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import study.cafe.luna.gongji.service.AdminNoticeBoardService;
-import study.cafe.luna.gongji.service.GetNoticeBoardService;
+import study.cafe.luna.gongji.service.AdminGongiBoardService;
+import study.cafe.luna.gongji.service.GetGongiBoardService;
 import study.cafe.luna.member.dto.MemberDTO;
 
 @Controller
 public class GetGongiViewController {
 	
 	@Autowired
-	GetNoticeBoardService getNoticeBoardService;
+	GetGongiBoardService getNoticeBoardService;
 	
 	//공지사항 상세보기
 	@RequestMapping(value = "/gongjiview.do", method = RequestMethod.GET)

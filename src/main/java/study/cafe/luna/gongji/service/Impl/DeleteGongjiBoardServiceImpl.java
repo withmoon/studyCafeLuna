@@ -6,16 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import study.cafe.luna.gongji.dao.AdminGongjiBoardDAO;
-import study.cafe.luna.gongji.dao.Impl.AdminNoticeBoardDAOImpl;
-import study.cafe.luna.gongji.service.DeleteNoticeBoardService;
+import study.cafe.luna.gongji.dao.Impl.AdminGongiBoardDAOImpl;
+import study.cafe.luna.gongji.service.DeleteGongiBoardService;
 
 @Service
-public class DeleteNoticeBoardServiceImpl implements DeleteNoticeBoardService {
+public class DeleteGongjiBoardServiceImpl implements DeleteGongiBoardService {
 	
 	@Inject
 	AdminGongjiBoardDAO adminNoticeBoardDAO;
 	@Autowired 
-	AdminNoticeBoardDAOImpl noticeBoardDAOImpl;
+	AdminGongiBoardDAOImpl noticeBoardDAOImpl;
 	
 	@Override
 	public void noticedelete(int num) throws Exception {

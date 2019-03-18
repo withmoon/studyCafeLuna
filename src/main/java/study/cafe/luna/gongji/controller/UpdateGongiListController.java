@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import study.cafe.luna.gongji.dto.AdminGongjiBoardDTO;
-import study.cafe.luna.gongji.service.UpdateNoticeBoardService;
+import study.cafe.luna.gongji.service.UpdateGongjiBoardService;
 
 @Controller
 public class UpdateGongiListController {
 	
 	@Autowired
-	UpdateNoticeBoardService updateNoticeBoardService;
+	UpdateGongjiBoardService updateNoticeBoardService;
 	
 	// 공지사항 수정
 	@RequestMapping(value = "/gongjiupdate.ado", method = RequestMethod.POST)

@@ -15,7 +15,7 @@ import study.cafe.luna.gongji.dao.AdminGongjiBoardDAO;
 import study.cafe.luna.gongji.dto.AdminGongjiBoardDTO;
 
 @Repository
-public class AdminNoticeBoardDAOImpl implements AdminGongjiBoardDAO {
+public class AdminGongiBoardDAOImpl implements AdminGongjiBoardDAO {
 
 	@Inject
 	SqlSession sqlsession;

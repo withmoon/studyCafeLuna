@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import study.cafe.luna.gongji.service.DeleteNoticeBoardService;
+import study.cafe.luna.gongji.service.DeleteGongiBoardService;
 import study.cafe.luna.member.dto.MemberDTO;
 
 @Controller
 public class DeleteGongiListController {
 	@Autowired
-	DeleteNoticeBoardService deleteNoticeBoardService;
+	DeleteGongiBoardService deleteNoticeBoardService;
 	
 	//공지사항 삭제
 	@RequestMapping(value = "/gongjidelete.do", method = RequestMethod.GET)

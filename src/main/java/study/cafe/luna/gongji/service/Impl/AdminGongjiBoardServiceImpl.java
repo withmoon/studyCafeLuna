@@ -9,17 +9,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import study.cafe.luna.gongji.dao.AdminGongjiBoardDAO;
-import study.cafe.luna.gongji.dao.Impl.AdminNoticeBoardDAOImpl;
+import study.cafe.luna.gongji.dao.Impl.AdminGongiBoardDAOImpl;
 import study.cafe.luna.gongji.dto.AdminGongjiBoardDTO;
-import study.cafe.luna.gongji.service.AdminNoticeBoardService;
+import study.cafe.luna.gongji.service.AdminGongiBoardService;
  
 @Service
-public class AdminNoticeBoardServiceImpl implements AdminNoticeBoardService{
+public class AdminGongjiBoardServiceImpl implements AdminGongiBoardService{
 
 	@Inject
 	AdminGongjiBoardDAO adminNoticeBoardDAO;
 	@Autowired
-	AdminNoticeBoardDAOImpl noticeBoardDAOImpl;
+	AdminGongiBoardDAOImpl noticeBoardDAOImpl;
 	
 	/*user_inform*/
 	//공지사항 이벤트 목록

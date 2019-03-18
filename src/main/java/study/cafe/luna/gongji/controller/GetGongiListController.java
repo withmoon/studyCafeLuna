@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import study.cafe.luna.gongji.dto.AdminGongjiBoardDTO;
-import study.cafe.luna.gongji.service.AdminNoticeBoardService;
+import study.cafe.luna.gongji.service.AdminGongiBoardService;
 import study.cafe.luna.util.BoardPager;
 
 @Controller
 public class GetGongiListController {
 	
 	@Autowired
-	AdminNoticeBoardService adminNoticeBoardService;
+	AdminGongiBoardService adminNoticeBoardService;
 //	@Autowired
 //	NoticeReplyService nReplyService;
 	// 공지사항 목록
