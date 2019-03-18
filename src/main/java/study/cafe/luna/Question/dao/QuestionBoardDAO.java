@@ -26,8 +26,6 @@ public interface QuestionBoardDAO {
 	// 메일체크
 	public int mailstatus(QuestionBoardDTO vo);
 
-	public void create(QuestionBoardDTO vo); // user.고객의 소리 보내기
-
 	// admin
 	public void inquireinsert(QuestionBoardDTO vo) throws Exception;
 

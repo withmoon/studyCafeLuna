@@ -60,13 +60,7 @@ public class QuestionBoardDAOImpl  implements QuestionBoardDAO{
 		System.out.println("메일체크 DAO");
 		return SqlSession.update("QuestionBoard.mailstatus",vo);
 	}
-	
-	//user 고객의 소리 insert
-	@Override
-	public void create(QuestionBoardDTO vo) {
-		SqlSession.insert("QuestionBoard.informUser", vo);
-	}
-	
+
 	//admin 문의 목록
 	@Override
 	public List<QuestionBoardDTO> inquireList(int start, int end,String searchOption, String keyword) {
