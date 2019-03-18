@@ -17,7 +17,7 @@
 		<include refid="pagingFooter3"></include>
 	</select>  
 	<!-- 검색조건 sql -->
-	  <sql id="search3">  
+	  <sql id="search3">       
 	 	<choose>
 	 		<!-- 검색옵션이 전체 검색일 경우 --> 
 	 		<when test="searchOption='all'">
@@ -28,7 +28,7 @@
 	 		</otherwise>
 	 	</choose>
 	 </sql>
-	 <sql id="pagingHeader3">
+	 <sql id="pagingHeader2">
 	 	select * from ( select rownum as rn,A.* from(
 	 </sql>
 	 <sql id="pagingFooter3">

@@ -25,7 +25,7 @@ public class ReserveDAOImpl implements ReserveDAO {
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
 		map.put("branchName", branchName);
-		return sqlSession.selectOne("mgSalesDAO.ReserveCount", map);
+		return sqlSession.selectOne("reserveDAO.ReserveCount", map);
 	}
 
 	// 예약현황
@@ -41,7 +41,7 @@ public class ReserveDAOImpl implements ReserveDAO {
 		map.put("start", start);
 		map.put("end", end);
 
-		return sqlSession.selectList("mgSalesDAO.ReserveList", map);
+		return sqlSession.selectList("reserveDAO.ReserveList", map);
 	}
 
 }
