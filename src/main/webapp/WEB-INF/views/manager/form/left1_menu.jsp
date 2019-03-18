@@ -17,15 +17,14 @@
 			<li class="menu"><a id="a" href="#">☆ 게시판관리</a>
 				<ul class="hide">
 					<li><a href="QuestionBoardList.do">문의 게시판<br/>(고객의 소리, 자주묻는질문)</a></li>
-					<li><a href="mgEvenet.do">이벤트 게시판</a></li>
-					<li><a href="mgGong.do">공지사항</a></li>
+					<li><a href="Event.do">이벤트 게시판</a></li>
+					<li><a href="Gongji.do">공지사항</a></li>
 				</ul>
 			</li>
 
 			<li class="menu"><a id="b" href="#">☆ 매출통계</a>
 				<ul class="hide">
 					<li><a href="Salesreserve.do">기간 매출</a></li>
-					<!-- <li><a href="mgSalesmonth.mdo">월 매출</a></li> -->
 					<li><a href="report.do">리포트올리기</a></li>
 				</ul>
 			</li>

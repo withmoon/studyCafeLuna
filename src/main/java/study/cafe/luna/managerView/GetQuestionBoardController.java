@@ -1,4 +1,4 @@
-package study.cafe.luna.Question.controller;
+package study.cafe.luna.managerView;
 
 import javax.servlet.http.HttpSession;
 

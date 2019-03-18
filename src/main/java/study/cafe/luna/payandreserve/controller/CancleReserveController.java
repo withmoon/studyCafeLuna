@@ -12,7 +12,8 @@ import study.cafe.luna.room.dto.MyPageInfoDTO;
 
 @Controller
 public class CancleReserveController {
-	@Autowired
+	
+	@Autowired 
 	PayAndReserveService parser;
 	
 	@RequestMapping(value="/cancleReserve.do", method=RequestMethod.POST)

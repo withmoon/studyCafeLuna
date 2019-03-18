@@ -25,7 +25,7 @@ public class GetRefundController {
 
 	@Autowired
 	private RefundService refundService;
-	
+
 	//환불리스트
 	@RequestMapping(value = "/Refund.do")
 	public ModelAndView Reserve(@RequestParam(defaultValue = "id") String searchOption,HttpServletRequest request,
@@ -38,7 +38,7 @@ public class GetRefundController {
 			 mv.setViewName("loginX.mdo");
 	         return mv;
 		}
-		
+
 		if(request.getParameter("id")!=null) {
 			keyword = request.getParameter("id");
 		}
@@ -67,7 +67,7 @@ public class GetRefundController {
 	 
 	mv.addObject("map", map);
 	//MgPCService.mgReserve(vo);
-	mv.setViewName("body/presentCondition/mgRefund");
+	mv.setViewName("/manager/body/presentCondition/mgRefund");
 
 	return mv;
 	}

@@ -5,6 +5,7 @@ import java.util.Date;
 public class ReserveDTO { 
 	
 	//예약현황
+	private String id;
 	private int rownum;
 	private int seq; //��ȣ
 	private String imp_uid; //id
@@ -19,10 +20,13 @@ public class ReserveDTO {
 	private int status; //����
 	private int brstatus; //�����ѱ�  뭐에 쓸려고 만든지 아시는분 
 	private Date nowdate;
-	
-	
-	
 
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public int getRownum() {
 		return rownum;
 	}

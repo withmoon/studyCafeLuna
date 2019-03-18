@@ -19,7 +19,7 @@
 	
 	<!-- id에 해당하는 지점명 가져오기 -->
 	<select id="branchname" resultType="String">
-		select branchname from member where id=#{id}
+		select branchName from member where id=#{id}
 	</select>	
 
 	<!-- 회원만 가지고 오기 -->	

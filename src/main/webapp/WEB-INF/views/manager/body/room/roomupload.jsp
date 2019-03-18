@@ -47,7 +47,7 @@
 			<div id=header>
 				<header>방 생성</header>
 			</div>
-			<form name="form" id="form" method="post" enctype="multipart/form-data" action="uploadFile.do">
+			<form name="form" id="form" method="post" enctype="multipart/form-data" action="mRoomInsert.do">
 				<div id="roominsert">
 					<!-- 이미지 / 방소개영역 -->
 					<div id="image">

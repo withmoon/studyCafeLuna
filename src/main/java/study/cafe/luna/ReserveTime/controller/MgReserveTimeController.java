@@ -151,7 +151,7 @@ public class MgReserveTimeController {
 //		return "/manager/body/reserveTime/mgSeason";
 //	}
 	
-	@RequestMapping(value="/mgreport.do",method=RequestMethod.GET)
+	@RequestMapping(value="/report.do",method=RequestMethod.GET)
 	public ModelAndView mgReportView() {
 		ModelAndView mav=new ModelAndView();
 		mav.setViewName("/manager/body/reserveTime/report");

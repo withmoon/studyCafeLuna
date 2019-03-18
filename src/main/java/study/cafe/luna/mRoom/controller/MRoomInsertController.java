@@ -95,6 +95,6 @@ public class MRoomInsertController {
 				}
 			}
 		}
-		return new ModelAndView("redirect:/mRoom.do");
+		return new ModelAndView("redirect:/mRoomView.do");
 	}
 }

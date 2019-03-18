@@ -9,7 +9,7 @@
 	src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"></c:url>"></script>
 <script type="text/javascript">
 function list(page) { 
-	location.href = "Salesreserve.do?curPage="+page+"&date1=${map.date1}"+"&date2=${map.date2}";
+	location.href = "Reserve.do?curPage="+page+"&date1=${map.date1}"+"&date2=${map.date2}";
 }
 </script>
 <meta charset="UTF-8">
@@ -50,7 +50,7 @@ function list(page) {
 				<header>일별 매출</header>
 			</div>
 			<div>
-			<form name="form1" method="post" action="mgSalesreserve.mdo?">
+			<form name="form1" method="post" action="Reserve.do?">
 				<div id="ex">
 					<ul>
 						<li>

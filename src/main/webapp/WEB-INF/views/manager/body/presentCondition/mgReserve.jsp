@@ -92,7 +92,7 @@
 			</div>
 			<div>
 				<div id="ex">
-					<form name="form1" method="post" action="mgReserve.do?">
+					<form name="form1" method="post" action="Reserve.do?">
 						<table id="searchtable">
 							<tr>
 								<td id="searchtd">

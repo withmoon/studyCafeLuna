@@ -10,7 +10,7 @@
       from member
       <if test="btStatus=0 and brStatus=1"></if>
       where position='지점장'
-   </select>
+   </select> 
    
    <update id="approveupdate">
       <![CDATA[update member set brstatus=0 where id=#{id}]]>

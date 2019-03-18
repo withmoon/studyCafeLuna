@@ -60,7 +60,7 @@ public class GetReserveController {
 		map.put("boardPager", boardPager);
 		
 		mv.addObject("map", map);
-		mv.setViewName("body/presentCondition/mgReserve");
+		mv.setViewName("/manager/body/presentCondition/mgReserve");
 
 		return mv;
 	}

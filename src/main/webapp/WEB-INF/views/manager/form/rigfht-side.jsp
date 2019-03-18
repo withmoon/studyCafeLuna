@@ -10,14 +10,14 @@
 
 	<aside id="right">
 			<div id="rtd">
-				<div class="rdiv">置重社縦</div>
+				<%-- <div class="rdiv">置重社縦</div>
 				<ul id="rul">
 					<li>${map.list.get(0).content }</li>
 					<li>${map.list.get(1).content }</li>
 					<li>${map.list.get(2).content }</li>
 					<li>${map.list.get(3).content }</li>
 					<li>${map.list.get(4).content }</li>
-				</ul>
+				</ul> --%>
 			</div>
 
 			<!-- <div id="re">
