@@ -6,7 +6,7 @@ function qnaList(qpage) {
 	
 	$.ajax({
 		type:"GET",
-		url:"boardList.ado",
+		url:"boardList.do",
 		data:{curPage:qpage},
 		success:function(data) {
 			/*테이블*/
@@ -32,7 +32,7 @@ function qnaList(qpage) {
 				(function(num,sb,ct) {
 					a.addEventListener('click', function() {
 						console.log(num+" " +sb+" " +ct);
-						var url='write.ado?num='+num+'&subject='+sb+'&content='+ct; 
+						var url='write.do?num='+num+'&subject='+sb+'&content='+ct; 
 						window.location.href=url;//이걸로 해서 라이트 폼에 데이터 입력시키고 업로드
 					}, false);
 				})(num,sb,ct);

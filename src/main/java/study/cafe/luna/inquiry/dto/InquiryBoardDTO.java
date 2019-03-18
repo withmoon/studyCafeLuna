@@ -1,8 +1,8 @@
-package study.cafe.luna.Question.dto;
+package study.cafe.luna.inquiry.dto;
  
 import java.util.Date;
 
-public class QuestionBoardDTO { 
+public class InquiryBoardDTO { 
 	private int num;
 	private int rownum;
 	private int seq;

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import study.cafe.luna.Question.dto.QuestionBoardDTO;
+import study.cafe.luna.inquiry.dto.InquiryBoardDTO;
 import study.cafe.luna.inquiry.service.InquiryService;
 import study.cafe.luna.member.dto.MemberDTO;
 import study.cafe.luna.util.BoardPager;
@@ -38,7 +38,7 @@ public class GetUserQnAllController {
 		int end = pager.getPageEnd();
 
 		//알림 정보 가져오기
-		List<QuestionBoardDTO> qnalist=iqser.getUserQnAll(start,end,memcom.getId());
+		List<InquiryBoardDTO> qnalist=iqser.getUserQnAll(start,end,memcom.getId());
 		
 		JSONObject obj = new JSONObject();
 		obj.put("alist", qnalist);

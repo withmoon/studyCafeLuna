@@ -15,7 +15,7 @@ import study.cafe.luna.event.service.EventBoardService;
 import study.cafe.luna.member.dto.MemberDTO;
 
 @Controller
-public class EventController {
+public class UserEventController {
 	@Autowired
 	EventBoardService evntBoardService;
 	

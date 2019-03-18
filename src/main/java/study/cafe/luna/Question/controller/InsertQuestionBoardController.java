@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import study.cafe.luna.Question.dto.QuestionBoardDTO;
+import study.cafe.luna.inquiry.dto.InquiryBoardDTO;
 
 public class InsertQuestionBoardController {
 	

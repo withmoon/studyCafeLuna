@@ -22,7 +22,7 @@ import study.cafe.luna.util.BoardPager;
 
 
 @Controller
-public class AdminEventController {
+public class EventController {
 	@Autowired
 	EventBoardService evntBoardService;
     

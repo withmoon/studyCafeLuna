@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
-import study.cafe.luna.Question.dto.QuestionBoardDTO;
+import study.cafe.luna.inquiry.dto.InquiryBoardDTO;
 import study.cafe.luna.manager.dao.ManagerDAO;
 import study.cafe.luna.manager.service.ManagerService;
 
@@ -30,7 +30,7 @@ public class ManagerMainController {
 //	@Autowired MemberService memser;
 
 	@RequestMapping(value = "/manager.do", method = RequestMethod.GET)
-   public ModelAndView mainView(HttpServletRequest request, Map<String, ?> flashMap, HttpSession session,QuestionBoardDTO vo)
+   public ModelAndView mainView(HttpServletRequest request, Map<String, ?> flashMap, HttpSession session,InquiryBoardDTO vo)
          throws Exception {
 		
 		ModelAndView mv = new ModelAndView();

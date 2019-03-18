@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import study.cafe.luna.Question.dto.QuestionBoardDTO;
-import study.cafe.luna.Question.service.GetQuestionBoardListService;
+import study.cafe.luna.inquiry.dto.InquiryBoardDTO;
+import study.cafe.luna.inquiry.service.InquiryService;
 import study.cafe.luna.util.BoardPager;
 
 @Controller
 public class GetQuestionBoardListController {
 	@Autowired
-	private GetQuestionBoardListService  questionBoardListService;
+	private InquiryService  questionBoardListService;
 	
 	/* 고객의소리 게시판  */
 	@RequestMapping(value = "/QuestionBoardList.do")
@@ -49,7 +49,7 @@ public class GetQuestionBoardListController {
 		end = boardPager.getPageEnd();
 
 		//고객의소리 리스트 가져오기
-		List<QuestionBoardDTO> list = questionBoardListService.QuestionList(start, end, searchOption, keyword, branchName);
+		List<InquiryBoardDTO> list = questionBoardListService.QuestionList(start, end, searchOption, keyword, branchName);
 
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list", list);

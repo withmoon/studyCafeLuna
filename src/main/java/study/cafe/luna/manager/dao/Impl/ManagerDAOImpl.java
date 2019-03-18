@@ -10,7 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import study.cafe.luna.Question.dto.QuestionBoardDTO;
+import study.cafe.luna.inquiry.dto.InquiryBoardDTO;
 import study.cafe.luna.manager.dao.ManagerDAO;
 import study.cafe.luna.room.dto.RoomReviewDTO;
 
@@ -69,7 +69,7 @@ public class ManagerDAOImpl implements ManagerDAO{
 	}
 
 	@Override
-	public List<QuestionBoardDTO> board() {
+	public List<InquiryBoardDTO> board() {
 		System.out.println("reroom DAO");
 		return SqlSession.selectList("managerDAO.board");
 	}

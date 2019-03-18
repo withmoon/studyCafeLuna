@@ -33,7 +33,7 @@
 			type="study.cafe.luna.howtouse.dto.HowToUseDTO" />
 		<!-- 매니저홍 -->
 		<typeAlias alias="QBoard"
-			type="study.cafe.luna.Question.dto.QuestionBoardDTO" />
+			type="study.cafe.luna.inquiry.dto.InquiryBoardDTO" />
 		<!-- 방 관련 -->
 		<typeAlias alias="Room"
 			type="study.cafe.luna.mRoom.dto.MRoomDTO" />
@@ -64,6 +64,9 @@
 		<!-- 룸 리뷰 관련 -->
 		<typeAlias alias="roomReview"
 			type="study.cafe.luna.room.dto.RoomReviewDTO" />
+		<!-- 공지관련 -->
+		<typeAlias alias="adminNoticeBoardVO"
+			type="study.cafe.luna.notice.dto.NoticeBoardDTO" />
 
 
 	</typeAliases>
@@ -105,6 +108,10 @@
 		<mapper resource="mapping/eventReply-mapper.xml" />
 		<!-- 찜관련 -->
 		<mapper resource="mapping/keeproom-mapper.xml" />
+		<!-- 공지사항 -->
+		<mapper resource="mapping/noticeBoard-mapper.xml" />
+		<!-- 공지사항 답변 -->
+		<mapper resource="mapping/noticeReply-mapper.xml" />
 	</mappers>
 
 

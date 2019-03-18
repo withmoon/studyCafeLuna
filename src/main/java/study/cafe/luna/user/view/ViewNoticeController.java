@@ -30,7 +30,7 @@ public class ViewNoticeController {
 	NoticeReplyService noticeReplyService;
 	
 	//공지사항_질문사항 상세보기
-	@RequestMapping(value="/viewNotice.udo", method=RequestMethod.GET)
+	@RequestMapping(value="/viewNotice.do", method=RequestMethod.GET)
 	public ModelAndView viewNoticeView(int num, HttpSession session,MemberDTO memcom,HttpServletRequest request) throws Exception {
 		
 		//여서부터
@@ -51,7 +51,7 @@ public class ViewNoticeController {
 	}
 	
 	//댓글 목록
-	@RequestMapping(value="/nReplyList.udo", method=RequestMethod.GET)
+	@RequestMapping(value="/nReplyList.do", method=RequestMethod.GET)
 	public @ResponseBody JSONObject nReplyListView(@RequestParam(value="num") int num, @RequestParam(defaultValue="1") int curPage,
 			MemberDTO memcom, NoticeReplyDTO nReplyVO,  HttpSession session) {
 		
@@ -79,7 +79,7 @@ public class ViewNoticeController {
 	}
 	
 	//댓글 입력
-	@RequestMapping(value="/nReplyInsert.udo", method=RequestMethod.POST)
+	@RequestMapping(value="/nReplyInsert.do", method=RequestMethod.POST)
 	public @ResponseBody void nReplyInsert(@RequestParam(value="content") String content,@RequestParam(value="bnum") int num,NoticeReplyDTO nReplyVO, HttpSession session) {
 		MemberDTO memcom= (MemberDTO) session.getAttribute("member");
 		
@@ -90,7 +90,7 @@ public class ViewNoticeController {
 	}
 	
 	//댓글 수정
-	@RequestMapping(value="/nReplyUpdate.udo", method=RequestMethod.POST)
+	@RequestMapping(value="/nReplyUpdate.do", method=RequestMethod.POST)
 	public @ResponseBody void nReplyUpdate(NoticeReplyDTO nReplyVO,HttpSession session, @RequestParam(value="rno", defaultValue="1") int rno,
 											@RequestParam(value="content") String content) {
 		nReplyVO.setReplytext(content);
@@ -99,7 +99,7 @@ public class ViewNoticeController {
 	}
 	 
 	//댓글 삭제
-	@RequestMapping(value="/nReplyDelete.udo", method=RequestMethod.POST)
+	@RequestMapping(value="/nReplyDelete.do", method=RequestMethod.POST)
 	public @ResponseBody void nReplyDelete(NoticeReplyDTO nReplyVO,HttpSession session, @RequestParam(value="rno", defaultValue="1") int rno) {
 		nReplyVO.setRno(rno);
 		noticeReplyService.nReplyDe(nReplyVO);

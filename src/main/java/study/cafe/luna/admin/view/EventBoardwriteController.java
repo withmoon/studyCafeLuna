@@ -26,7 +26,7 @@ import study.cafe.luna.member.dto.MemberDTO;
 import study.cafe.luna.util.BoardPager;
 
 @Controller
-public class AdminEventBoardwriteController {
+public class EventBoardwriteController {
 	private String efilePath = "C:\\myProject\\MainProject\\studyCafeLuna\\src\\main\\webapp\\resources\\eventimg\\";
    
    @Autowired

@@ -8,7 +8,6 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import study.cafe.luna.notice.dao.NoticeBoardDAO;
@@ -18,9 +17,7 @@ import study.cafe.luna.notice.dto.NoticeBoardDTO;
 public class NoticeBoardDAOImpl implements NoticeBoardDAO {
 
 	@Inject
-	SqlSession sqlsession;
-	@Autowired
-	SqlSessionTemplate SqlSession;
+	SqlSessionTemplate sqlsession;
 
 	@Override
 	public void noticeinsert(NoticeBoardDTO vo) throws Exception {
@@ -52,17 +49,17 @@ public class NoticeBoardDAOImpl implements NoticeBoardDAO {
      	map.put("start", start);
      	map.put("end", end);
     
-		return SqlSession.selectList("noticeBoardDAO.noticeAll", map);
+		return sqlsession.selectList("noticeBoardDAO.noticeAll", map);
 	}
 
 	//글 갯수
 	public int countNotice(String title) {
-		return SqlSession.selectOne("noticeBoardDAO.countNotice", title);
+		return sqlsession.selectOne("noticeBoardDAO.countNotice", title);
 	}
 
 	//공지사항 상세보기
 	public NoticeBoardDTO read(int num) {
 		System.out.println("===> 공지사항 상세보기");
-		return SqlSession.selectOne("noticeBoardDAO.viewNotice", num);
+		return sqlsession.selectOne("noticeBoardDAO.viewNotice", num);
 	}
 }

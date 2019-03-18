@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import study.cafe.luna.Question.dto.QuestionBoardDTO;
+import study.cafe.luna.inquiry.dto.InquiryBoardDTO;
  
 
 public interface ManagerService {

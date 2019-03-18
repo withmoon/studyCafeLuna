@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import study.cafe.luna.Question.dto.QuestionBoardDTO;
+import study.cafe.luna.inquiry.dto.InquiryBoardDTO;
 import study.cafe.luna.room.dto.RoomReviewDTO;
 
 public interface ManagerDAO {
@@ -22,7 +22,7 @@ public interface ManagerDAO {
 	int member(); //회원수 가져오기
 	
 	int reroom(); //환불수 가져오기 
-	List<QuestionBoardDTO> board(); //고객의소리 미리보기 가져오기
+	List<InquiryBoardDTO> board(); //고객의소리 미리보기 가져오기
 	
 	List<RoomReviewDTO> review(); //리뷰가져오기
 	//차트

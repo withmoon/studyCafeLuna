@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import study.cafe.luna.Question.dto.QuestionBoardDTO;
-import study.cafe.luna.Question.service.GetQuestionBoardService;
+import study.cafe.luna.inquiry.dto.InquiryBoardDTO;
+import study.cafe.luna.inquiry.service.InquiryService;
 
 @Controller
 public class GetQuestionBoardController {
 
 	@Autowired
-	private GetQuestionBoardService getQuestionBoardService;
+	private InquiryService getQuestionBoardService;
 
 	@RequestMapping(value = "/mgBoardview.do")
-	public ModelAndView mgboardinsertView(@RequestParam int num, @RequestParam int curPage, QuestionBoardDTO vo,
+	public ModelAndView mgboardinsertView(@RequestParam int num, @RequestParam int curPage, InquiryBoardDTO vo,
 			@RequestParam String searchOption, @RequestParam String keyword, HttpSession session) throws Exception {
 		vo.setBranchName((String) session.getAttribute("branchName"));
 		vo.setSeq(num);
