@@ -36,33 +36,7 @@
       delete from member where id=#{id}
    </delete>
 
-   <insert id="noticeinsert" parameterType="adminNoticeBoardVO">
-      insert into noticeboard
-      (num,writer, title, content, regdate)
-      values ( (select
-      nvl(max(num)+1,1) from noticeboard),'관리자',#{title},  #{content}, sysdate)
-   </insert>
-
-   <select id="noticeread" resultType="adminNoticeBoardVO">
-
-      select * from noticeboard
-      where num=#{num}
-
-   </select>
-
-   <update id="noticeupdate" parameterType="adminNoticeBoardVO">
-
-      update noticeboard set
-      title= #{title}, content= #{content} where
-      num=#{num}
-
-   </update>
-
-   <delete id="noticedelete" parameterType="adminNoticeBoardVO">
-
-      delete from noticeboard
-      where num=#{num}
-   </delete>
+  
 
 
    <insert id="insertQnABoard" parameterType="adminQnABoardVO">

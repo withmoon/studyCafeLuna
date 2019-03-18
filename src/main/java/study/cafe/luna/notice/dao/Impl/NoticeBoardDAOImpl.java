@@ -21,30 +21,28 @@ public class NoticeBoardDAOImpl implements NoticeBoardDAO {
 
 	@Override
 	public void noticeinsert(NoticeBoardDTO vo) throws Exception {
-		sqlsession.insert("luna.admin.board.noticeinsert", vo);
+		sqlsession.insert("noticeBoardDAO.noticeinsert", vo);
 	}
 
 	@Override
 	public void noticeupdate(NoticeBoardDTO vo) throws Exception {
-		sqlsession.update("luna.admin.board.noticeupdate",vo);
+		sqlsession.update("noticeBoardDAO.noticeupdate",vo);
 		
 	}
 
 	@Override
 	public NoticeBoardDTO noticeread(int num) throws Exception {
-		return sqlsession.selectOne("luna.admin.board.noticeread",num);
+		return sqlsession.selectOne("noticeBoardDAO.noticeread",num);
 	}
 
 	@Override
 	public void noticedelete(int num) throws Exception {
-		sqlsession.delete("luna.admin.board.noticedelete",num);
+		sqlsession.delete("noticeBoardDAO.noticedelete",num);
 	}
 
 	/*user_inform*/
 	//공지사항 목록
-	public List<NoticeBoardDTO> noticeAll(int start, int end) {
-		System.out.println("===> 공지사항 목록");
-		
+	public List<NoticeBoardDTO> noticeAll(int start, int end) {	
 		Map<String, Object> map = new HashMap<String, Object>();
      	map.put("start", start);
      	map.put("end", end);
@@ -59,7 +57,6 @@ public class NoticeBoardDAOImpl implements NoticeBoardDAO {
 
 	//공지사항 상세보기
 	public NoticeBoardDTO read(int num) {
-		System.out.println("===> 공지사항 상세보기");
 		return sqlsession.selectOne("noticeBoardDAO.viewNotice", num);
 	}
 }

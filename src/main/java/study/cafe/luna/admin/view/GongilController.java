@@ -13,9 +13,11 @@ import study.cafe.luna.member.dto.MemberDTO;
 public class GongilController {
 
 	@RequestMapping(value = "/gongji.do", method = RequestMethod.GET)
-	public String mainView(HttpSession session, MemberDTO memcom) {
+	public String goinjisView(HttpSession session, MemberDTO memcom) {
 		memcom = (MemberDTO) session.getAttribute("member");
-
+		if(session.getAttribute("member")==null) {
+    		return "/admin/cannotAccess";
+    	}
 		if (memcom.getPosition().equals("총관리자") | memcom.getPosition().equals("관리자")) {
 			memcom = (MemberDTO) session.getAttribute("member");
 			session.setAttribute("member", memcom);

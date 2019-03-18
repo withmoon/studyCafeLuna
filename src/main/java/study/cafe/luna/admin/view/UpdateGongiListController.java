@@ -1,4 +1,4 @@
-package study.cafe.luna.gongji.controller;
+package study.cafe.luna.admin.view;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,9 +16,9 @@ public class UpdateGongiListController {
 	UpdateGongjiBoardService updateNoticeBoardService;
 	
 	// 공지사항 수정
-	@RequestMapping(value = "/gongjiupdate.ado", method = RequestMethod.POST)
+	@RequestMapping(value = "/gongjiupdate.do", method = RequestMethod.POST)
 	public String View(@ModelAttribute AdminGongjiBoardDTO vo) throws Exception {
 		updateNoticeBoardService.noticeupdate(vo);
-		return "redirect:/gongji.ado";
+		return "redirect:/gongji.do";
 	}
 }

@@ -1,4 +1,4 @@
-package study.cafe.luna.gongji.controller;
+package study.cafe.luna.admin.view;
 
 import javax.servlet.http.HttpSession;
 

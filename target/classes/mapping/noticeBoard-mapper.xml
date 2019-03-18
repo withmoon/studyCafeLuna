@@ -8,23 +8,52 @@
 		select * from noticeBoard order by num desc, regdate desc
 		<include refid="pagingFooter"></include>
 	</select>
-	
+
 	<!-- 게시글갯수 -->
 	<select id="countNotice" resultType="int">
-		select count(*) from noticeBoard
+		select count(*) from
+		noticeBoard
 	</select>
-	
+
+	<insert id="noticeinsert" parameterType="adminNoticeBoardVO">
+		insert into noticeboard
+		(num,writer, title, content, regdate)
+		values ( (select
+		nvl(max(num)+1,1) from noticeboard),'관리자',#{title}, #{content}, sysdate)
+	</insert>
+
+	<select id="noticeread" resultType="adminNoticeBoardVO">
+
+		select * from noticeboard
+		where num=#{num}
+
+	</select>
+
+	<update id="noticeupdate" parameterType="adminNoticeBoardVO">
+
+		update noticeboard set
+		title= #{title}, content= #{content} where
+		num=#{num}
+
+	</update>
+
+	<delete id="noticedelete" parameterType="adminNoticeBoardVO">
+
+		delete from noticeboard
+		where num=#{num}
+	</delete>
+
 	<!-- 페이징 sql -->
-	  <sql id="pagingHeader">
-	 	select * from ( select rownum as rn, A.* from(
-	 </sql>
-	 <sql id="pagingFooter">
-	 		)A
-	 	)where rn  between #{start} and #{end}
-	 </sql>
-	 
-	 <!-- 공지사항 상세보기 -->
-	 <select id="viewNotice" resultType="adminNoticeBoardVO">
-	 	select * from noticeBoard where num=#{num}
-	 </select>
+	<sql id="pagingHeader">
+		select * from ( select rownum as rn, A.* from(
+	</sql>
+	<sql id="pagingFooter">
+		)A
+		)where rn between #{start} and #{end}
+	</sql>
+
+	<!-- 공지사항 상세보기 -->
+	<select id="viewNotice" resultType="adminNoticeBoardVO">
+		select * from noticeBoard where num=#{num}
+	</select>
 </mapper>

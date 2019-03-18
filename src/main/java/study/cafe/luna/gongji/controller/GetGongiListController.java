@@ -21,8 +21,6 @@ public class GetGongiListController {
 	
 	@Autowired
 	AdminGongiBoardService adminNoticeBoardService;
-//	@Autowired
-//	NoticeReplyService nReplyService;
 	// 공지사항 목록
 	@RequestMapping(value = "gongjiboardList.do", method = RequestMethod.GET)
 	public @ResponseBody JSONObject gongjiboardList(@RequestParam(defaultValue = "1") int curPage,

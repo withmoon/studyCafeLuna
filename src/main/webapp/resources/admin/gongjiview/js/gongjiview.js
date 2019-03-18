@@ -24,7 +24,7 @@ function replyOnOff(num) {
 function nReplyList(nrpage) {
 	$.ajax({
 		type:"GET",
-		url:"aGReplyList.ado",
+		url:"aGReplyList.do",
 		data: {num:num,curPage:nrpage},
 		success : function(data) {
 			$('.replyList').children().remove();
@@ -55,7 +55,7 @@ function nReplyList(nrpage) {
 function deRE(num,rno) {
 	$.ajax({
 		type:'POST',
-		url:'aGReplyDelete.ado',
+		url:'aGReplyDelete.do',
 		data:{rno:rno},
 		success : function(data) {
 			nReplyList(1);
