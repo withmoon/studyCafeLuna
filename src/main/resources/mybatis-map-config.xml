@@ -67,7 +67,7 @@
 		<!-- 공지관련 -->
 		<typeAlias alias="adminNoticeBoardVO"
 			type="study.cafe.luna.notice.dto.NoticeBoardDTO" />
-		<!-- 공지답변  -->
+		<!-- 공지답변 -->
 		<typeAlias alias="nReply"
 			type="study.cafe.luna.notice.dto.NoticeReplyDTO" />
 
@@ -114,6 +114,8 @@
 		<mapper resource="mapping/noticeBoard-mapper.xml" />
 		<!-- 공지사항 답변 -->
 		<mapper resource="mapping/noticeReply-mapper.xml" />
+		<!-- 지점장 정보 및 승인 등 -->
+		<mapper resource="mapping/admin-mapper.xml" />
 	</mappers>
 
 
