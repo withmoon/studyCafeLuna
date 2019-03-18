@@ -73,7 +73,6 @@ public class MemberDAOImpl implements MemberDAO{
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("start", start);
 		map.put("end", end);
-
 		return sqlSession.selectList("memberDAO.memberList", map);
 	}
 
@@ -89,7 +88,6 @@ public class MemberDAOImpl implements MemberDAO{
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("start", start);
 		map.put("end", end);
-
 		return sqlSession.selectList("memberDAO.infoList", map);
 	}
 

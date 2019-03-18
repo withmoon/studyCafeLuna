@@ -38,19 +38,19 @@ public interface MemberService {
 	// 회원 제명 취소
 	void cancleExpulmember(String id);
 
-	public List<String> branchList(String gugun); // 고객의 소리 지점선택
+	List<String> branchList(String gugun); // 고객의 소리 지점선택
 
-	public List<MemberDTO> memberList(int start, int end, HttpSession session); // 회원정보
+	List<MemberDTO> memberList(int start, int end, HttpSession session); // 회원정보
 
-	public int countMember(String id); // 회원정보 갯수
+	int countMember(String id); // 회원정보 갯수
 
-	public List<MemberDTO> infoList(int start, int end, HttpSession session); // 지점장목록
+	List<MemberDTO> infoList(int start, int end); // 지점장목록
 
-	public int countinfo(String id); // 지점장 갯수
+	int countinfo(String id); // 지점장 갯수
 
-	public List<MemberDTO> approveList(int start, int end, HttpSession session); // 지점장 승인 목록
+	List<MemberDTO> approveList(int start, int end, HttpSession session); // 지점장 승인 목록
 
-	public int countApprove(String id); // 지점장승인갯수
+	int countApprove(String id); // 지점장승인갯수
 	
 	List<MemberDTO> getAdminList();//어드민 리스트
 	

@@ -87,7 +87,7 @@ public class MemberServiceImpl implements MemberService{
 
 	//지점장 목록
 	@Override
-	public List<MemberDTO> infoList(int start, int end, HttpSession session) {
+	public List<MemberDTO> infoList(int start, int end) {
 		return memd.infoList(start, end);
 	}
 

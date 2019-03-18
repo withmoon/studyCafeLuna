@@ -6,11 +6,12 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import study.cafe.luna.mailSending.service.AdminManagerApproveService;
 import study.cafe.luna.member.service.MemberService;
-
+@Controller
 public class AdminMailController {
 	@Autowired
 	private JavaMailSender mailSender;
@@ -19,7 +20,7 @@ public class AdminMailController {
 	@Autowired
 	AdminManagerApproveService adminManagerApproveService;
 	
-	String filePath="C:\\myProject\\MainProject\\studyCafeLuna\\src\\main\\webapp\\resources\\mailFile\\";
+	String filePath="C:\\ProgramData\\Dalbit\\DalBitmailImg\\";
 	
 	@RequestMapping(value = "mailSending.do")
 	public String mailSending(HttpServletRequest request) {

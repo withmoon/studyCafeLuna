@@ -14,21 +14,23 @@ import study.cafe.luna.member.service.MemberService;
 
 @Controller
 public class ApproveController {
-	
+
 	@Inject
 	AdminManagerApproveService adminManagerApproveService;
 	@Autowired
 	MemberService memberService;
-	
-	@RequestMapping(value="/approve.do", method=RequestMethod.GET)
-	   public String mainView(HttpSession session,MemberDTO memcom) {
-		 memcom = (MemberDTO) session.getAttribute("member");
-	    	
-	   		if(memcom.getPosition().equals("총관리자")|memcom.getPosition().equals("관리자")){
-	   			memcom = (MemberDTO) session.getAttribute("member");
-	   			session.setAttribute("member", memcom);
-		        return "/admin/approve";
-	   		}
-	   		return "/admin/cannotAccess";
+
+	@RequestMapping(value = "/approve.do", method = RequestMethod.GET)
+	public String mainView(HttpSession session, MemberDTO memcom) {
+		memcom = (MemberDTO) session.getAttribute("member");
+		if (session.getAttribute("member") == null) {
+			return "/admin/cannotAccess";
+		}
+		if (memcom.getPosition().equals("총관리자") | memcom.getPosition().equals("관리자")) {
+			memcom = (MemberDTO) session.getAttribute("member");
+			session.setAttribute("member", memcom);
+			return "/admin/approve";
+		}
+		return "/admin/cannotAccess";
 	}
 }

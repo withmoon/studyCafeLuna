@@ -18,42 +18,44 @@ import study.cafe.luna.util.BoardPager;
 
 @Controller
 public class AdminMemberController {
-   @Autowired
-   MemberService memberService;
-   
-   @RequestMapping(value="/member.ado", method=RequestMethod.GET)
-    public String mainView(HttpSession session, MemberDTO memcom) {
-	   memcom = (MemberDTO) session.getAttribute("member");
+	@Autowired
+	MemberService memberService;
 
+	@RequestMapping(value = "/member.do", method = RequestMethod.GET)
+	public String mainView(HttpSession session, MemberDTO memcom) {
+		memcom = (MemberDTO) session.getAttribute("member");
+		if (session.getAttribute("member") == null) {
+			return "/admin/cannotAccess";
+		}
 		if (memcom.getPosition().equals("총관리자") | memcom.getPosition().equals("관리자")) {
 			memcom = (MemberDTO) session.getAttribute("member");
 			session.setAttribute("member", memcom);
-			 return "/admin/member";
+			return "/admin/member";
 		}
-		return "cannotAccess";
-   }
-   
-   //1. 회원 목록
-   @RequestMapping(value="/aMemberList.ado", method=RequestMethod.GET)
-    public @ResponseBody JSONObject aMemberList(@RequestParam(defaultValue="1") int curPage,
-    		MemberDTO mc, HttpSession session) {
-	//페이징 처리 
-   	int count = memberService.countMember(mc.getId());
-   			
-   	int page_scale = 10; // 페이지당 게시물 수
-   	int block_sclae = 5; // 화면당 페이지 수
-   	// 페이지 나누기처리 
-   	BoardPager boardPager = new BoardPager(count, curPage,page_scale,block_sclae);
+		return "/admin/cannotAccess";
+	}
 
-   	int start = boardPager.getPageBegin();
-   	int end = boardPager.getPageEnd();
-   	
-    List<MemberDTO> memberList = memberService.memberList(start, end, session);
-    
-    JSONObject obj = new JSONObject();
+	// 1. 회원 목록
+	@RequestMapping(value = "/aMemberList.ao", method = RequestMethod.GET)
+	public @ResponseBody JSONObject aMemberList(@RequestParam(defaultValue = "1") int curPage, MemberDTO mc,
+			HttpSession session) {
+		// 페이징 처리
+		int count = memberService.countMember(mc.getId());
 
-  	obj.put("memberList", memberList);
-  	obj.put("memberPage", boardPager);
-  	return obj;
-   }
+		int page_scale = 10; // 페이지당 게시물 수
+		int block_sclae = 5; // 화면당 페이지 수
+		// 페이지 나누기처리
+		BoardPager boardPager = new BoardPager(count, curPage, page_scale, block_sclae);
+
+		int start = boardPager.getPageBegin();
+		int end = boardPager.getPageEnd();
+
+		List<MemberDTO> memberList = memberService.memberList(start, end, session);
+
+		JSONObject obj = new JSONObject();
+
+		obj.put("memberList", memberList);
+		obj.put("memberPage", boardPager);
+		return obj;
+	}
 }

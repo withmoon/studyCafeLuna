@@ -20,8 +20,7 @@ import study.cafe.luna.util.BoardPager;
 
 @Controller
 public class ApproveListController {
-	@Inject
-	AdminManagerApproveService adminManagerApproveService;
+
 	@Autowired
 	MemberService memberService;
 	

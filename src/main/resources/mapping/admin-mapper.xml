@@ -3,30 +3,15 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="luna.admin.board">
-
-   <!-- QnABoard -->
- <select id="inquireread" resultType="QBoard">
-
-      select * from inquiryboard
-      where seq=#{seq}
-
-   </select>
-
-
-   <update id="inquireinsert">
-      update inquiryboard set reply=#{reply} where seq=#{seq}
-   </update>
-
-   <select id="infoList" resultType="adminManagerApproveVO">
-
+   
+   <select id="infoList" resultType="member">
       select
       id,pw,name,phone,birth,email,branchName,zipcode,branchaddr1,branchaddr2,brStatus,position
       from member
       <if test="btStatus=0 and brStatus=1"></if>
       where position='지점장'
-
    </select>
-
+   
    <update id="approveupdate">
       <![CDATA[update member set brstatus=0 where id=#{id}]]>
    </update>
@@ -34,32 +19,7 @@
    <delete id="approvedelete">
 
       delete from member where id=#{id}
-   </delete>
-
-  
-
-
-   <insert id="insertQnABoard" parameterType="adminQnABoardVO">
-         <![CDATA[
-         insert into adminqnaboard (num, subject, content, regdate)
-         values ( (select nvl(max(num)+1,1) from adminqnaboard), #{subject}, #{content}, sysdate)
-         ]]>
-   </insert>
-
-   <select id="listAll" resultType="adminQnABoardVO">
-
-      select
-      num,subject,content,regdate from adminqnaboard order by num desc
-
-   </select>
-
-   <delete id="delete" parameterType="adminQnABoardVO">
-
-      delete from adminqnaboard
-      where num=#{num}
-   </delete>
-
-  
+   </delete>  
 
 	<!-- 전체/회원/지점장 메일 보내기 -->
 	<select id="AllMail" resultType="String">
@@ -70,5 +30,7 @@
 		<if test="type=='allBranch'">
 			where position ='지점장'
 		</if>
-	</select>   
+	</select>
+	
+	   
 </mapper>
