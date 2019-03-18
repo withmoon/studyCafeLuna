@@ -17,7 +17,7 @@ function cancelPay(id) {
 /* function cancelPay(id){
 $.ajax({
 	   type : "POST",
-	   url : "Refund.mdo?",
+	   url : "Refund.do?",
 	   data : {id:id},
 	   success: function(data){    
 	    alert("저장되었습니다.");
@@ -44,7 +44,7 @@ $.ajax({
 		<div id="TopMenu1">
 			<!-- 좌측상단 로고 -->
 			<div id="letflogo">
-				<a href="manager.mdo"><img class="logo"
+				<a href="manager.do"><img class="logo"
 					src="<c:url value="/resources/public/logo/mainlogo.png"/>" /></a>
 			</div>
 			<jsp:include page="/WEB-INF/views/manager/form/TopMenu1.jsp"></jsp:include>
@@ -156,13 +156,12 @@ $.ajax({
                     <a href="javascript:list('${map.boardPager.totPage}')">[끝]</a>
                 </c:if>
             </td>
-        </tr>
+        </tr>    
 		</table>
-	</div>
-
-			
+	</div> 
 		</section>
-	</div>
+		<jsp:include page="../../form/rigfht-side.jsp"></jsp:include>
+	</div> 
 	<footer>
 		<jsp:include page="/WEB-INF/views/manager/form/footer.jsp"></jsp:include>
 	</footer>

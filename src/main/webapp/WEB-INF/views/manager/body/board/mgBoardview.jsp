@@ -44,26 +44,26 @@ table, th, td {
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#btnList").click(function() {
-			location.href = "mgBoard.mdo"
+			location.href = "mgBoard.do"
 			//curPage=${curPage}&searchOption=${searchOption}&{keyword}=${keyword}
 		});
 	});
 	//URLEncoder. encodeURIComponent
 	
 	function list(page) {
-		location.href = "mgBoard.mdo?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
+		location.href = "mgBoard.do?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
 	}
 
 	function mail_0(seq,email) {
 	   	alert("클릭");
-	   	var url = "mailForm.mdo?seq="+seq+"&email="+email;
-		window.open(url,"mailForm.mdo","width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
+	   	var url = "mailForm.do?seq="+seq+"&email="+email;
+		window.open(url,"mailForm.do","width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
 	} 
 	
 	function mail_1(seq,emailtitle,emailcontent,email) {
 	   	alert("클릭");
-	   	var url = "mailView.mdo?seq="+seq+"&emailtitle="+emailtitle+"&emailcontent="+emailcontent+"&email="+email;
-		window.open(url,"mailForm.mdo","width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
+	   	var url = "mailView.do?seq="+seq+"&emailtitle="+emailtitle+"&emailcontent="+emailcontent+"&email="+email;
+		window.open(url,"mailForm.do","width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
 	}
 </script>
 <title>지점장 관리화면</title>
@@ -76,7 +76,7 @@ table, th, td {
 		<div id="TopMenu1">
 			<!-- 좌측상단 로고 -->
 			<div id="letflogo">
-				<a href="manager.mdo"><img class="logo"
+				<a href="manager.do"><img class="logo"
 					src="<c:url value="/resources/public/logo/mainlogo.png"/>" /></a>
 			</div>
 			<jsp:include page="/WEB-INF/views/manager/form/TopMenu1.jsp"></jsp:include>
@@ -137,6 +137,7 @@ table, th, td {
 				</form>
 			</div>
 		</section>
+		<jsp:include page="../../form/rigfht-side.jsp"></jsp:include>
 	</div>
 	<footer>
 		<jsp:include page="/WEB-INF/views/manager/form/footer.jsp"></jsp:include>

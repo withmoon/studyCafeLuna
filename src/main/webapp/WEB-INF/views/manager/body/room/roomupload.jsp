@@ -23,7 +23,7 @@
 		<div id="TopMenu1">
 			<!-- 좌측상단 로고 -->
 			<div id="letflogo">
-				<a href="manager.mdo"><img class="logo"
+				<a href="manager.do"><img class="logo"
 					src="<c:url value="/resources/public/logo/mainlogo.png"/>" /></a>
 			</div>
 			<jsp:include page="/WEB-INF/views/manager/form/TopMenu1.jsp"></jsp:include>
@@ -47,7 +47,7 @@
 			<div id=header>
 				<header>방 생성</header>
 			</div>
-			<form name="form" id="form" method="post" enctype="multipart/form-data" action="uploadFile.mdo">
+			<form name="form" id="form" method="post" enctype="multipart/form-data" action="uploadFile.do">
 				<div id="roominsert">
 					<!-- 이미지 / 방소개영역 -->
 					<div id="image">
@@ -112,9 +112,8 @@
 					<input type="button" value="등록" class="button" onclick="check()">
 				</div>
 			</form>
-
-
 		</section>
+		<jsp:include page="../../form/rigfht-side.jsp"></jsp:include>
 	</div>
 	<footer>
 		<jsp:include page="/WEB-INF/views/manager/form/footer.jsp"></jsp:include>

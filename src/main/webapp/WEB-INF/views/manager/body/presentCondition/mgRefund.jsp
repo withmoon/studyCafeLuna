@@ -183,6 +183,7 @@ function cle() {
 				</table>
 			</div>
 		</section>
+		<jsp:include page="../../form/rigfht-side.jsp"></jsp:include>
 	</div>
 	<footer>
 		<jsp:include page="/WEB-INF/views/manager/form/footer.jsp"></jsp:include>

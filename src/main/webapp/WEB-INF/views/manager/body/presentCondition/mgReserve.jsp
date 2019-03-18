@@ -19,7 +19,7 @@
 	function reserve(seq) {
 		if (confirm("환불을 승인하겠습니까?") == true){ //확인
 		     document.form.submit(); 
-		   location.href="Reserve.mdo?seq="+seq;
+		   location.href="Reserve.do?seq="+seq;
 		   window.setTimeout("cle()",3000);
 		   window.location.reload()
 		}else{   //취소
@@ -92,7 +92,7 @@
 			</div>
 			<div>
 				<div id="ex">
-					<form name="form1" method="post" action="mgReserve.mdo?">
+					<form name="form1" method="post" action="mgReserve.do?">
 						<table id="searchtable">
 							<tr>
 								<td id="searchtd">
@@ -178,7 +178,7 @@
 			        </tr>
 				</table>
 			</div>
-
+		<jsp:include page="../../form/rigfht-side.jsp"></jsp:include>
 		</section>
 	</div>
 	<footer>

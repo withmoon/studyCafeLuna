@@ -17,19 +17,19 @@
 <script src="<c:url value="/resources/util/js/paging.js"/>"></script>
 <script type="text/javascript"> 
 	function list(page) {
-		location.href = "mgBoard.mdo?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
+		location.href = "mgBoard.do?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
 	}
 
 	function mail_0(num,email) {
 	   	alert("클릭");
-	   	var url = "mailForm.mdo?num="+num+"&email="+email;
-		window.open(url,"mailForm.mdo","width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
+	   	var url = "mailForm.do?num="+num+"&email="+email;
+		window.open(url,"mailForm.do","width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
 	} 
 	
 	function mail_1(num,emailtitle,emailcontent,email) {
 	   	alert("클릭");
-	   	var url = "mailView.mdo?num="+num+"&emailtitle="+emailtitle+"&emailcontent="+emailcontent+"&email="+email;
-		window.open(url,"mailForm.mdo","width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
+	   	var url = "mailView.do?num="+num+"&emailtitle="+emailtitle+"&emailcontent="+emailcontent+"&email="+email;
+		window.open(url,"mailForm.do","width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
 	}
 	
 </script>
@@ -42,7 +42,7 @@
 		<div id="TopMenu1">
 			<!-- 좌측상단 로고 -->
 			<div id="letflogo">
-				<a href="manager.mdo"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
+				<a href="manager.do"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 			</div>
 			<jsp:include page="../../form/TopMenu1.jsp"></jsp:include>
 		</div>
@@ -68,7 +68,7 @@
 
 
 			<div id="board">
-				<form name="form1" method="post" action="mgBoard.mdo?">
+				<form name="form1" method="post" action="mgBoard.do?">
 					<table id="searchtable">
 						<tr>
 							<td id="searchtd"><!-- <a id="write" onclick=" insertboard()" href="#">글쓰기</a> -->
@@ -146,8 +146,8 @@
 		</div>
 		
 		</section>
+		<jsp:include page="../../form/rigfht-side.jsp"></jsp:include>
 		</div>
-
 	<footer>
 		<jsp:include page="../../form/footer.jsp"></jsp:include>
 	</footer>

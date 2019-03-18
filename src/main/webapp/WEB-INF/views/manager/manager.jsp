@@ -33,7 +33,7 @@ function getTermSales(){
 	$.ajax({
 		  
 		 type : "POST", 
-		 url: "mgchart2.mdo", 
+		 url: "mgchart2.do", 
 		 data:{paid_at_start:paid_at_start, paid_at_end:paid_at_end},     
 		success:function(A){
 	        
@@ -177,30 +177,7 @@ function getTermSales(){
 			</div>
 			<!-- <div id="chart_div"></div> -->
 		</section>
-		<aside id="right">
-			<div id="rtd">
-				<div class="rdiv">최신소식</div>
-				<ul id="rul">
-					<li>${map.list.get(0).content }</li>
-					<li>${map.list.get(1).content }</li>
-					<li>${map.list.get(2).content }</li>
-					<li>${map.list.get(3).content }</li>
-					<li>${map.list.get(4).content }</li>
-				</ul>
-			</div>
-
-			<!-- <div id="re">
-				<div class="rdiv">최신댓글</div>
-				<ul id="rul">
-					<li>asasdasd</li>
-					<li>asdasda</li>
-					<li>asfsaf</li>
-					<li>asdsadas</li>
-					<li>asdasdasd</li>
-				</ul>
-			</div> -->
-
-		</aside>
+		<jsp:include page="form/rigfht-side.jsp"></jsp:include>
 	</div>
 	<footer>
 		<jsp:include page="form/footer.jsp"></jsp:include>

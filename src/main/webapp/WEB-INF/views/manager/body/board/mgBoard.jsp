@@ -17,15 +17,15 @@
 	}
 
 	function mail_0(seq,email,content) {
-	   	var url = "mailForm.mdo?seq="+seq+"&email="+email+"&content="+content;
-		window.open(url,"mailForm.mdo","width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
+	   	var url = "mailForm.do?seq="+seq+"&email="+email+"&content="+content;
+		window.open(url,"mailForm.do","width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
 	} 
 	
 	function mail_1(seq,emailtitle,emailcontent,email) {
-	   	var url = "mailView.mdo?seq="+seq+"&emailtitle="+encodeURI(emailtitle)+"&emailcontent="+encodeURI(emailcontent)+"&email="+encodeURI(email);
-		window.open(url,"mailForm.mdo","width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
+	   	var url = "mailView.do?seq="+seq+"&emailtitle="+encodeURI(emailtitle)+"&emailcontent="+encodeURI(emailcontent)+"&email="+encodeURI(email);
+		window.open(url,"mailForm.do","width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
 	}
-	
+	 
 </script>
 <title>지점장 관리화면</title>
 </head>
@@ -143,6 +143,7 @@
 				</table>
 			</div>
 		</section>
+		<jsp:include page="../../form/rigfht-side.jsp"></jsp:include>
 	</div>
 	<footer>
 		<jsp:include page="../../form/footer.jsp"></jsp:include>

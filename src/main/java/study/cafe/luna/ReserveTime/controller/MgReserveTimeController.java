@@ -19,14 +19,16 @@ import org.springframework.web.servlet.ModelAndView;
 import study.cafe.luna.ReserveTime.dto.ReserveTimeDTO;
 import study.cafe.luna.ReserveTime.service.mgReserveTimeService;
 import study.cafe.luna.payandreserve.service.PayAndReserveService;
+import study.cafe.luna.payment.dto.RoomPaymentDTO;
+import study.cafe.luna.report.dto.ReportDTO;
 
 @Controller
 public class MgReserveTimeController {
 	
 	@Autowired
 	mgReserveTimeService mgReserveTimeService; 
-//	@Autowired
-//	ReportService rpser;
+	@Autowired
+	ReportDTO rpser;
 	@Autowired
 	PayAndReserveService prser;
 	 
@@ -94,7 +96,7 @@ public class MgReserveTimeController {
 		
 		//李⑦듃 �뜲�씠�꽣
 		String branchName = (String) session.getAttribute("branchName");
-		/*List<RoomPaymentDTO> termSaleslist=prser.getTermSales(paid_at_start,paid_at_end);*/
+		List<RoomPaymentDTO> termSaleslist=prser.getTermSales(paid_at_start,paid_at_end);
 		List<ReserveTimeDTO> list = mgReserveTimeService.getreservcount(paid_at_start,paid_at_end,branchName);
 		return list;
 		
@@ -124,7 +126,7 @@ public class MgReserveTimeController {
 	
 	
 	
-	@RequestMapping(value="/mgTime2.mdo",method=RequestMethod.POST)
+	@RequestMapping(value="/mgTime2.do",method=RequestMethod.POST)
 	public  @ResponseBody ReserveTimeDTO gettime(@RequestParam(value="paid_at_start",defaultValue = "") String paid_at_start
 			,@RequestParam(value="paid_at_end",defaultValue = "") String paid_at_end,ReserveTimeDTO vo,HttpSession session){
 		
@@ -146,16 +148,16 @@ public class MgReserveTimeController {
 	}
 	
 	
+//	
+//	@RequestMapping(value="/mgSeason.do",method=RequestMethod.GET)
+//	public String mgSeasonView() {
+//		return "/manager/body/reserveTime/mgSeason";
+//	}
 	
-	@RequestMapping(value="/mgSeason.mdo",method=RequestMethod.GET)
-	public String mgSeasonView() {
-		return "body/reserveTime/mgSeason";
-	}
-	
-	@RequestMapping(value="/mgreport.mdo",method=RequestMethod.GET)
+	@RequestMapping(value="/mgreport.do",method=RequestMethod.GET)
 	public ModelAndView mgReportView() {
 		ModelAndView mav=new ModelAndView();
-		mav.setViewName("body/reserveTime/report");
+		mav.setViewName("/manager/body/reserveTime/report");
 		return mav;
 	}
 	

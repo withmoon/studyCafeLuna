@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 <script type="text/javascript">
 	function list(page) { 
-		location.href = "mgGong.mdo?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
+		location.href = "mgGong.do?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
 	}
 	
 	function Gog(num) {
@@ -29,7 +29,7 @@
 		<div id="TopMenu1">
 			<!-- 좌측상단 로고 -->
 			<div id="letflogo">							
-				<a href="manager.mdo"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
+				<a href="manager.do"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 			</div>
 			<jsp:include page="../../form/TopMenu1.jsp"></jsp:include>
 		</div>
@@ -129,6 +129,7 @@
 				</table>
 			</div>
 		</section>
+		<jsp:include page="../../form/rigfht-side.jsp"></jsp:include>
 	</div>
 	<footer>
 		<jsp:include page="../../form/footer.jsp"></jsp:include>
