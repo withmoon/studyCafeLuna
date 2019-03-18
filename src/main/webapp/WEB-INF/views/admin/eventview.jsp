@@ -75,7 +75,6 @@
 	<tr>
 		<th>내용:</th>
 		<td><textarea cols="10" rows="16" id="ctt" placeholder="content " name="content">${ebv.content}</textarea>
-			<input type="hidden" id="content" name="content" value=""/></td>
 	</tr>
 	<tr>
 	<th>이벤트시작일:</th>

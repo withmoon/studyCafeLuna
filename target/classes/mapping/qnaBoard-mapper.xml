@@ -8,43 +8,41 @@
 		select * from ADMINQNABOARD order by num desc, regdate desc
 		<include refid="pagingFooter"></include>
 	</select>
-	
+
 	<!-- 질문갯수 -->
 	<select id="countQnA" resultType="int">
-		select count(*) from ADMINQNABOARD
+		select count(*) from
+		ADMINQNABOARD
 	</select>
-	
-	   <insert id="insertQnABoard" parameterType="adminQnABoardVO">
+
+	<insert id="insertQnABoard" parameterType="adminQnABoardVO">
          <![CDATA[
          insert into adminqnaboard (num, subject, content, regdate)
          values ( (select nvl(max(num)+1,1) from adminqnaboard), #{subject}, #{content}, sysdate)
          ]]>
-   </insert>
+	</insert>
 
-   <select id="listAll" resultType="adminQnABoardVO">
+	<select id="listAll" resultType="adminQnABoardVO">
+		select
+		num,subject,content,regdate from adminqnaboard order by num desc
+	</select>
 
-      select
-      num,subject,content,regdate from adminqnaboard order by num desc
-
-   </select>
-
-   <delete id="delete" parameterType="adminQnABoardVO">
-
-      delete from adminqnaboard
-      where num=#{num}
-   </delete>
+	<delete id="delete" parameterType="adminQnABoardVO">
+		delete from adminqnaboard
+		where num=#{num}
+	</delete>
 	
+	<!-- 질문 상세보기 -->
+	<select id="viewQnA" resultType="adminQnABoardVO">
+		select * from ADMINQNABOARD where num=#{num}
+	</select>
+
 	<!-- 페이징 sql -->
-	  <sql id="pagingHeader">
-	 	select * from ( select rownum as rn, A.* from(
-	 </sql>
-	 <sql id="pagingFooter">
-	 		)A
-	 	)where rn  between #{start} and #{end}
-	 </sql>
-	 
-	 <!-- 질문 상세보기 -->
-	 <select id="viewQnA" resultType="adminQnABoardVO">
-	 	select * from ADMINQNABOARD where num=#{num}
-	 </select>
+	<sql id="pagingHeader">
+		select * from ( select rownum as rn, A.* from(
+	</sql>
+	<sql id="pagingFooter">
+		)A
+		)where rn between #{start} and #{end}
+	</sql>
 </mapper>

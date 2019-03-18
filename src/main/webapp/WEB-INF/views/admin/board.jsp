@@ -26,7 +26,7 @@
    <br></br>
    <div class="container">
       <div class="row">
-      <form action="board.ado" method="post">
+      <form action="board.do" method="post">
          <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
             <thead>
                <tr>
@@ -38,7 +38,7 @@
             <tbody  id="inform_table"></tbody>
          </table>
          <ul id="informPaging"></ul>
-         <a href="write.ado" class="btn btn-primary pull-right">글쓰기</a>
+         <a href="write.do" class="btn btn-primary pull-right">글쓰기</a>
          </form>
       </div>
    </div>

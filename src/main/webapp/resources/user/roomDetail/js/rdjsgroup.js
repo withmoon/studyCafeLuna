@@ -68,20 +68,26 @@ var kst=0;
 function changeChoiceImg(img){
 	var image=$("#keep").attr('src');
 	var ronum=$("#roomNum").val();
-
 	if(image.match("notChoiceList.png")){
 		kst=1;
-		$("#keep").attr('src','resources/user/roomDetail/images/choice.png');
 	}else{
 		kst=0;
-		$("#keep").attr('src','resources/user/roomDetail/images/notChoiceList.png');
 	}
+	
 	$.ajax({      
 		type:"GET",  
 		url:"changekeeproom.do",    
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8",  
 		data:{roomnum:ronum,kst:kst},     
 		success:function(data){
-			
+			if(data.result!='로그인 후 이용 가능합니다.'){
+				if(image.match("notChoiceList.png")){
+					$("#keep").attr('src','resources/user/roomDetail/images/choice.png');
+				}else{
+					$("#keep").attr('src','resources/user/roomDetail/images/notChoiceList.png');
+				}
+			}
+			alert(data.result);
 		}
 	});
 }
@@ -331,9 +337,10 @@ function showReview(rvcurpage){
 						strDom+='<label id="revct">'+data.rvlist[i].reviewContent+'</label> <button onclick="delreview('+data.rvlist[i].roomNum+',&#039'+data.rvlist[i].id+'&#039)">삭제</button><br/>';
 					}
 					if(data.member.id==data.rvlist[i].id){
-						strDom+='<label id="revct">'+data.rvlist[i].reviewContent+'</label> &emsp;<button class="upbt" onclick="upreview('+data.rvlist[i].roomNum+',&#039'+data.rvlist[i].reviewContent+'&#039)">수정하기</button> <button hidden="true" class="cupbt" onclick="cancleUpReview(&#039'+data.rvlist[i].reviewContent+'&#039)">수정 취소</button> <button onclick="delreview('+data.rvlist[i].roomNum+')">삭제</button><br/>';
+						strDom+='<label id="revct">'+data.rvlist[i].reviewContent+'</label> &emsp;<button class="upbt" onclick="upreview('+data.rvlist[i].roomNum+',&#039'+data.rvlist[i].reviewContent+'&#039)">수정하기</button> <button hidden="true" class="cupbt" onclick="cancleUpReview('+data.rvlist[i].roomNum+',&#039'+data.rvlist[i].reviewContent+'&#039)">수정 취소</button> <button onclick="delreview('+data.rvlist[i].roomNum+')">삭제</button><br/>';
+						continue;
 					}
-					if(data.member.position!='총관리자'&&data.member.position!='관리자'){
+					if(data.member.id==''|| data.member.id==null){
 						strDom+=data.rvlist[i].reviewContent+'<br/>';
 					}
 					
@@ -359,20 +366,26 @@ function upReviewContent(roomnum,content){
 	rcon=$("#revct").text();
 	$("#revct").children().remove();
 	$(".cupbt").hide();
+	$(".upbt").html("수정하기");
+	$(".upbt").removeAttr("onclick");
+	$(".upbt").attr("onclick","upreview("+roomnum+",'"+rcon+"')");
 	$.ajax({      
 		type:"GET",  
 		url:"upReviewContent.do",    
 		data:{roomnum:roomnum,reviewContent:rcon},     
 		success:function(){
-			
 			alert("수정이 완료되었습니다.");
+		
 		}
 	});
 
 }
-function cancleUpReview(content){
+function cancleUpReview(roomnum,content){
 	$("#revct").text(content);
 	$(".cupbt").hide();
+	$(".upbt").html("수정하기");
+	$(".upbt").removeAttr("onclick");
+	$(".upbt").attr("onclick","upreview("+roomnum+",'"+content+"')");
 }
 function delreview(roomnum,id){
 	var ans=confirm("정말로 삭제하시겠습니끼?");

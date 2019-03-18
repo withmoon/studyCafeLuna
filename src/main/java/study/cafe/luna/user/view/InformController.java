@@ -21,6 +21,8 @@ import study.cafe.luna.inquiry.service.InquiryService;
 import study.cafe.luna.member.dto.MemberDTO;
 import study.cafe.luna.notice.dto.NoticeBoardDTO;
 import study.cafe.luna.notice.service.NoticeBoardService;
+import study.cafe.luna.qna.dto.QnABoardDTO;
+import study.cafe.luna.qna.service.QnABoardService;
 import study.cafe.luna.room.service.RoomService;
 import study.cafe.luna.util.BoardPager;
 
@@ -28,8 +30,8 @@ import study.cafe.luna.util.BoardPager;
 public class InformController {
 	@Autowired
 	NoticeBoardService noticeBoardService;
-//	@Autowired
-//	AdminQnABoardService qnaBoardService;
+	@Autowired
+	QnABoardService qnaBoardService;
 	@Autowired
 	InquiryService qboardService;
 	@Autowired
@@ -78,10 +80,10 @@ public class InformController {
 		return obj;
 	}
 	
-/*	//자주묻는 질문 목록
+	//자주묻는 질문 목록
 	@RequestMapping(value="/informChange.do", method=RequestMethod.GET)
 	public @ResponseBody JSONObject informQnNAView(@RequestParam(defaultValue="1") int curPage,
-													AdminQnABoardVO qnaBoardVO, HttpSession session) {
+			QnABoardDTO qnaBoardVO, HttpSession session) {
 		//페이징 처리
 		int count = qnaBoardService.countQnA(qnaBoardVO.getSubject());
 		//int count = qnaBoardService.countQnA(mav);
@@ -95,7 +97,7 @@ public class InformController {
 		int end = boardPager.getPageEnd();
 		
 		//목록
-		List<AdminQnABoardVO> qnaList = qnaBoardService.qnaAll(start, end, session);
+		List<QnABoardDTO> qnaList = qnaBoardService.qnaAll(start, end, session);
 		
 		JSONObject obj = new JSONObject();
 
@@ -103,7 +105,7 @@ public class InformController {
 		obj.put("qnaPage", boardPager);
 		return obj;
 	}
-	*/
+	
 	//고객의 소리 insert
 	@RequestMapping(value="/informUser.do", method=RequestMethod.POST)
 	public @ResponseBody void informUser(@RequestParam(value="branchName") String branchName,

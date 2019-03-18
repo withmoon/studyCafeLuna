@@ -40,7 +40,6 @@ public class UserKeepListController {
 		int end = keepPager.getPageEnd();
 
 		List<RoomInfoDTO> list = rkser.getKeeplist(start, end, memcom.getId());
-		
 		JSONObject obj = new JSONObject();
 		obj.put("klist", list);
 		obj.put("kpager", keepPager);

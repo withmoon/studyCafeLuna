@@ -113,13 +113,11 @@ public class EventBoardwriteController {
 		   }
 	   } else {
     	  if(!file.isDirectory()) {
-    		  System.out.println("디렉토리 생성");
     		  file.mkdirs();
     	  }
 	   }
       
       MultipartFile mf = mpreq.getFile("mfname");
-      System.out.println("파일 추출 " + mf.getOriginalFilename());
       //저장되는 파일 이름
       String eventName = mf.getOriginalFilename();
       
@@ -130,6 +128,7 @@ public class EventBoardwriteController {
 	   eboardVO.setTitle(title);
 	   eboardVO.setContent(content);
 	   eboardVO.setSeq(seq);
+	   
 	   eboardService.update(eboardVO);
 	   
 	return "redirect:/event.do";

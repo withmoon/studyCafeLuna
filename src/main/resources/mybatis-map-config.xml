@@ -70,7 +70,14 @@
 		<!-- 공지답변 -->
 		<typeAlias alias="nReply"
 			type="study.cafe.luna.notice.dto.NoticeReplyDTO" />
-
+		<!-- 자주묻는 질문 -->
+		<typeAlias alias="adminQnABoardVO"
+			type="study.cafe.luna.qna.dto.QnABoardDTO" />
+		<!-- Manager,Admin -->
+		<typeAlias alias="report"
+			type="study.cafe.luna.report.dto.ReportDTO" />
+		<typeAlias alias="reportReply"
+			type="study.cafe.luna.report.dto.ReportReplyDTO" />
 	</typeAliases>
 
 	<mappers>
@@ -116,8 +123,12 @@
 		<mapper resource="mapping/noticeReply-mapper.xml" />
 		<!-- 지점장 정보 및 승인 등 -->
 		<mapper resource="mapping/admin-mapper.xml" />
-		<!-- 매니저  화면 --> 
+		<!-- 매니저 화면 -->
 		<mapper resource="mapping/manager-mapper.xml" />
+		<!-- 자주묻는질문 -->
+		<mapper resource="mapping/qnaBoard-mapper.xml" />
+		<!-- 리포트 관련 --><!-- 지점장, 관리자 -->
+		<mapper resource="mapping/report-mapper.xml" />
 	</mappers>
 
 

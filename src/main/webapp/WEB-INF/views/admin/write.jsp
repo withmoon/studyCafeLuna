@@ -35,7 +35,7 @@ function check() {
    <br>
 
    <div class="container">
-   <form id="form1" name="form1" onsubmit="return check()" action="insert.ado" method="post">
+   <form id="form1" name="form1" onsubmit="return check()" action="insert.do" method="post">
       <table class="table table-bordered">
          <h4>글쓰기</h4> 
          <tbody>
@@ -54,7 +54,7 @@ function check() {
                <tr>
                   <td colspan="2"><input type="submit" id="btnSave" value="등록" class="pull-right" /> 
                   <input type="button" value="글 목록"
-                     class="pull-right" onclick="javascript:location.href='board.ado'" />
+                     class="pull-right" onclick="javascript:location.href='board.do'" />
                   </td>
                </tr>
             

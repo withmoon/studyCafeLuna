@@ -52,6 +52,8 @@ public class UserGetRoomAllReviewController {
 		obj.put("rvlist", allreviewlist);
 		if(memcom!=null) {
 			obj.put("member", memcom);
+		}else {
+			obj.put("member", "");
 		}
 		obj.put("rvpager", reviewPager);
 		obj.put("rvscore", reviewscore);

@@ -18,7 +18,7 @@
    <br>
    <div class="container">
    <h4>글상세</h4>
-      <form name="form2" action="qnaupdate.ado" method="POST">
+      <form name="form2" action="qnaupdate.do" method="POST">
          <table class="table table-bordered">
             <tbody>
                <tr>
@@ -39,7 +39,7 @@
                <tr>
                <td colspan="2"><input type="submit" id="update" value="수정" class="btn btn-primary pull-right" /> 
                 <input type="button" value="삭제"
-                     class="btn btn-primary pull-right" onclick="javascript:location.href='qnadelete.ado?num=${num.num}'" /></td>
+                     class="btn btn-primary pull-right" onclick="javascript:location.href='qnadelete.do?num=${num.num}'" /></td>
                </tr>
             </tbody>
          </table>

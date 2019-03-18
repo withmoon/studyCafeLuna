@@ -2,6 +2,7 @@ package study.cafe.luna.keeproom.controller;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,18 +19,25 @@ public class UserKeepRoomController {
 	RoomKeepService rkser;
 	
 	@RequestMapping("/changekeeproom.do")
-	public @ResponseBody void changekeeproom(HttpSession session,MemberDTO memcom, KeepRoomDTO krd,
+	public @ResponseBody JSONObject changekeeproom(HttpSession session,MemberDTO memcom, KeepRoomDTO krd,
 			@RequestParam("roomnum")int roomnum, @RequestParam("kst") int kst) {
 		memcom=(MemberDTO)session.getAttribute("member");
-		session.setAttribute("member", memcom);
-		
-		krd.setId(memcom.getId());
-		krd.setRoomnum(roomnum);
-		if(kst==0) {
-			rkser.deletekroom(krd);
+		JSONObject obj = new JSONObject();
+	
+		if(session.getAttribute("member")!=null) {
+			krd.setId(memcom.getId());
+			krd.setRoomnum(roomnum);
+			if(kst==0) {
+				rkser.deletekroom(krd);
+				obj.put("result", "찜하기가 취소되었습니다.");
+			}else {
+				rkser.keeproom(krd);
+				obj.put("result", "찜이 완료되었습니다.");
+			}
 		}else {
-			rkser.keeproom(krd);
+			obj.put("result", "로그인 후 이용 가능합니다.");
 		}
+		return obj;
 	}
 	
 }
