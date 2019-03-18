@@ -6,14 +6,17 @@ import java.net.URISyntaxException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import study.cafe.luna.manager.service.ManagerService;
+
 @Controller
 public class LoginController {
-//	@Autowired
-//	private managerService managerService;
+	@Autowired
+	private ManagerService managerService;
 
 	
 	@RequestMapping(value="/login.do", method=RequestMethod.GET)
@@ -30,7 +33,7 @@ public class LoginController {
 		System.out.println("안냥 유알엘"+redirectUrl);
 		
 		session.setAttribute("rdUrl", redirectUrl);
-//		managerService.logincount();
+		managerService.logincount();
 		return "/public/login";
 	}
 	
@@ -48,7 +51,7 @@ public class LoginController {
 		System.out.println("안냥 유알엘"+redirectUrl);
 		
 		session.setAttribute("rdUrl", redirectUrl);
-//		managerService.logincount();
+		managerService.logincount();
 		return "/public/login";
 	}
 }

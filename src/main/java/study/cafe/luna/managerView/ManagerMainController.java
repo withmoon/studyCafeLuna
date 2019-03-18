@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import study.cafe.luna.inquiry.dto.InquiryBoardDTO;
 import study.cafe.luna.manager.dao.ManagerDAO;
 import study.cafe.luna.manager.service.ManagerService;
+import study.cafe.luna.member.dto.MemberDTO;
 import study.cafe.luna.room.dto.RoomReviewDTO;
 
 @Controller
@@ -29,13 +30,15 @@ public class ManagerMainController {
 	private ManagerDAO managerDAO;
 
 	@RequestMapping(value = "/manager.do", method = RequestMethod.GET)
-   public ModelAndView mainView(HttpServletRequest request, Map<String, ?> flashMap, HttpSession session,InquiryBoardDTO vo)
+   public ModelAndView mainView(HttpServletRequest request, Map<String, ?> flashMap, HttpSession session,InquiryBoardDTO vo,MemberDTO memberDTO)
          throws Exception {
 		ModelAndView mv = new ModelAndView();
 		 String bn = ""; //지점 검색
 //		 session.setAttribute("branchName", bn);
 	 	 System.out.println("로그인 아이디  받아오기");
-	   	 System.out.println("test 세션 :"+session.getAttribute("id"));
+	   	 System.out.println("test 세션아이디 :"+session.getAttribute("id"));
+	   	 System.out.println("test 세션지점명 :"+session.getAttribute("branchName"));
+	   	 System.out.println("test 맵 :"+flashMap.get("id"));
 	   	 
 	   	 
       if ((flashMap.get("id") == null || flashMap.get("id").equals("")) && session.getAttribute("id") == null) {
@@ -56,10 +59,12 @@ public class ManagerMainController {
          System.out.println("branchName :" +bn.toString());
          session.setAttribute("branchName",bn);
          System.out.println("세션:" +session.getAttribute("branchName"));
-      }else {
+      }else { 
          flashMap = RequestContextUtils.getInputFlashMap(request);
          System.out.println("카카오 로그인 ==>" + flashMap.get("id"));
          session.setAttribute("id", flashMap.get("id"));
+         session.setAttribute("branchaddr1", memberDTO.getBranchAddr1());
+         session.setAttribute("branchaddr2", memberDTO.getBranchAddr2());
          String id=(String) session.getAttribute("id");
 
          bn = managerService.branchname(id); //지점 검색

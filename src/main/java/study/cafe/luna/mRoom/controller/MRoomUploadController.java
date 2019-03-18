@@ -26,6 +26,7 @@ public class MRoomUploadController {
 		// ,방번호 , 주소
 		int roomcount = MRoomDAO.roomcount();
 		String roomLocate = MRoomDAO.roomLocate(session);
+		//String 
 
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("branchName", session.getAttribute("branchName"));
