@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import study.cafe.luna.gongji.dto.AdminNoticeBoardDTO;
+import study.cafe.luna.gongji.dto.AdminGongjiBoardDTO;
 import study.cafe.luna.gongji.service.UpdateNoticeBoardService;
 
 @Controller
@@ -17,7 +17,7 @@ public class UpdateGongiListController {
 	
 	// 공지사항 수정
 	@RequestMapping(value = "/gongjiupdate.ado", method = RequestMethod.POST)
-	public String View(@ModelAttribute AdminNoticeBoardDTO vo) throws Exception {
+	public String View(@ModelAttribute AdminGongjiBoardDTO vo) throws Exception {
 		updateNoticeBoardService.noticeupdate(vo);
 		return "redirect:/gongji.ado";
 	}

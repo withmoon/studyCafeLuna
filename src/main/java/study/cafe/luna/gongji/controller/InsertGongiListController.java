@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import study.cafe.luna.gongji.dto.AdminNoticeBoardDTO;
+import study.cafe.luna.gongji.dto.AdminGongjiBoardDTO;
 import study.cafe.luna.gongji.service.InsertNoticeBoardService;
 import study.cafe.luna.member.dto.MemberDTO;
 
@@ -19,7 +19,7 @@ public class InsertGongiListController {
 	InsertNoticeBoardService insertNoticeBoardService;
 	
 	@RequestMapping(value = "/noticeinsert.do", method = RequestMethod.GET)
-	public String insert(@ModelAttribute AdminNoticeBoardDTO vo, HttpSession session, MemberDTO memcom) throws Exception {
+	public String insert(@ModelAttribute AdminGongjiBoardDTO vo, HttpSession session, MemberDTO memcom) throws Exception {
 		memcom = (MemberDTO) session.getAttribute("member");
 
 		if (memcom.getPosition().equals("총관리자") | memcom.getPosition().equals("관리자")) {
