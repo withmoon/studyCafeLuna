@@ -67,7 +67,9 @@
 		<!-- 공지관련 -->
 		<typeAlias alias="adminNoticeBoardVO"
 			type="study.cafe.luna.notice.dto.NoticeBoardDTO" />
-
+		<!-- 공지답변  -->
+		<typeAlias alias="nReply"
+			type="study.cafe.luna.notice.dto.NoticeReplyDTO" />
 
 	</typeAliases>
 
