@@ -33,7 +33,7 @@ public class GetReserveController {
 		ModelAndView mv = new ModelAndView();
 		if(session.getAttribute("branchName")==null){
 			 System.out.println("移댁뭅�삤 濡쒓렇�씤 �떎�뙣");
-			 mv.setViewName("loginX.mdo");
+			 mv.setViewName("loginX.do");
 	         return mv;
 		}
 		

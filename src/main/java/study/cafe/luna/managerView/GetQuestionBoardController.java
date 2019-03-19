@@ -20,11 +20,17 @@ public class GetQuestionBoardController {
 	@RequestMapping(value = "/mgBoardview.do")
 	public ModelAndView mgboardinsertView(@RequestParam int num, @RequestParam int curPage, InquiryBoardDTO vo,
 			@RequestParam String searchOption, @RequestParam String keyword, HttpSession session) throws Exception {
+		
+		//지점장 아닐때 접근 불가
+		ModelAndView mv = new ModelAndView();
+		if (session.getAttribute("branchName") == null) {
+			mv.setViewName("/manager/body/loginX");
+			return mv;
+		}
 		vo.setBranchName((String) session.getAttribute("branchName"));
 		vo.setSeq(num);
 		System.out.println("세션 id" + vo.getBranchName());
 
-		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/manager/body/board/mgBoardview");
 		mv.addObject("view", getQuestionBoardService.QbaordRead(vo));
 		return mv;

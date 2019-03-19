@@ -50,6 +50,8 @@ public class MRoomUpdateController {
 			vo.setRoomEx4(req.getParameter("text9"));
 			vo.setRoomExplain(req.getParameter("area1"));
 			vo.setRoomWarn(req.getParameter("area2"));
+			vo.setComeRoute(req.getParameter("comeRoute"));
+
 			
 			// textarea 줄내림 db인식 처리
 			if (vo.getRoomExplain() == null) {

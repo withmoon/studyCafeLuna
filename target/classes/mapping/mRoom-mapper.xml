@@ -4,23 +4,6 @@
 
 <mapper namespace="mRoomDAO">
 
-	<!--  <resultMap id="roommap" type="Room" >
- 			<result property="roomnum" column="ROOMNUM" />
- 			<result property="branchName" column="branchName" />
- 			<result property="roomName" column="roomName" />
- 			<result property="roomEx1" column="roomEx1" />
- 			<result property="roomEx2" column="roomEx2" />
- 			<result property="roomEx3" column="roomEx3" />
- 			<result property="roomEx4" column="roomEx4" />
- 			<result property="inown" column="inown" /> 
- 			<result property="joosu" column="joosu" />
- 			<result property="day1" column="day1" />
- 			<result property="roomExplain" column="roomExplain" />
- 			<result property="roomWarn" column="roomWarn" />
- 			<result property="comeRoute" column="comeRoute" />
- 			<result property="roomLocate" column="roomLocate" />
- 			<result property="id" column="id" />
- 	</resultMap>   -->
 	<select id="countArticle" resultType="int"> 
 		select count(*) from room where branchName = #{branchName}
 	</select>
@@ -63,8 +46,8 @@
 	<!-- 방생성 파일 -->
 	<insert id="RoomText" parameterType="Room">
 		 <![CDATA[
-		  INSERT INTO ROOM (ROOMNUM,BRANCHNAME ,ROOMNAME, ROOMEX1,ROOMEX2,ROOMEX3,ROOMEX4, ROOMEXPLAIN,ROOMWARN ,ROOMLOCATE,ROOMPRICE) 
-		  						VALUES (#{roomnum},#{branchName} , #{roomName},#{roomEx1}, #{roomEx2},#{roomEx3},#{roomEx4},#{roomExplain},#{roomWarn},#{roomLocate},#{roomPrice})
+		  INSERT INTO ROOM (ROOMNUM,BRANCHNAME ,ROOMNAME, ROOMEX1,ROOMEX2,ROOMEX3,ROOMEX4, ROOMEXPLAIN,ROOMWARN ,ROOMLOCATE,ROOMPRICE,comeRoute) 
+		  						VALUES (#{roomnum},#{branchName} , #{roomName},#{roomEx1}, #{roomEx2},#{roomEx3},#{roomEx4},#{roomExplain},#{roomWarn},#{roomLocate},#{roomPrice},#{comeRoute})
   		 ]]> 
 	</insert>
 	<insert id="RoomFile" parameterType="hashmap">
@@ -92,7 +75,7 @@
 	 <![CDATA[
 	 UPDATE ROOM SET ROOMNAME=#{roomName},BRANCHNAME=#{branchName},ROOMEX1=#{roomEx1},
 	 ROOMEX2=#{roomEx2},ROOMEX3=#{roomEx3},ROOMEX4=#{roomEx4},ROOMEXPLAIN=#{roomExplain},
-	 ROOMWARN=#{roomWarn},ROOMPRICE=#{roomPrice},ROOMLOCATE=#{roomLocate} WHERE ROOMNUM=#{roomnum}
+	 ROOMWARN=#{roomWarn},ROOMPRICE=#{roomPrice},ROOMLOCATE=#{roomLocate},comeRoute=#{comeRoute} WHERE ROOMNUM=#{roomnum}
 	  ]]>
 	</update>
 	<!-- 방업데이트file -->

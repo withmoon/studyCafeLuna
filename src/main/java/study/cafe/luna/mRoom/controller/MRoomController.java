@@ -29,6 +29,14 @@ public class MRoomController {
 	@RequestMapping(value="mRoomView.do")
 	public ModelAndView roomupdateView(@RequestParam int roomnum ,HttpSession session,@ModelAttribute(value="vo") MRoomDTO vo,@ModelAttribute(value="file") MRoomDTO file) throws Exception {
 	    vo=	(MRoomDTO) mRoomService.RoomRead(roomnum); //�󼼺��� �� �� ����Ȯ��
+	    
+	  //지점장 아닐때 접근 불가
+	  ModelAndView mv = new ModelAndView();
+	  if (session.getAttribute("branchName") == null) {
+	  		mv.setViewName("/manager/body/loginX");
+	  		return mv;
+	 }
+	    
 	  //줄내림 처리
 	    System.out.println(vo.getRoomExplain());
 	    System.out.println(vo.getRoomWarn());
@@ -48,7 +56,6 @@ public class MRoomController {
 		list= mRoomService.RoomFile(roomnum); 
 
 		//화면이동 - text + file 
-		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/manager/body/room/roomupdate");
 		mv.addObject("text",vo); 
 		mv.addObject("file", list);

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import study.cafe.luna.inquiry.dto.InquiryBoardDTO;
 import study.cafe.luna.manager.dao.ManagerDAO;
+import study.cafe.luna.member.dto.MemberDTO;
 import study.cafe.luna.room.dto.RoomReviewDTO;
 
 
@@ -35,7 +36,7 @@ public class ManagerDAOImpl implements ManagerDAO{
 	}
     //지점명 가져오기
 	@Override
-	public String branchname(String id) {
+	public MemberDTO branchname(String id) {
 		System.out.println("branchname DAO");
 		return SqlSession.selectOne("managerDAO.branchname",id);
 	}

@@ -110,6 +110,7 @@
 					<input type="button" value="취소" class="button">
 					<input type="reset"	value="초기화" class="button"> 
 					<input type="button" value="등록" class="button" onclick="check()">
+					<input type="hidden" value="${comeRoute}" name="comeRoute">
 				</div>
 			</form>
 		</section>

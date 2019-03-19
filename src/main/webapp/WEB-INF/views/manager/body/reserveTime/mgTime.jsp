@@ -18,7 +18,7 @@
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/board.css"/>"></link>
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/mgTime.css"/>"></link>
 <!-- Chart code -->
-<script>
+<script> 
 var paid_at_start="";
 var paid_at_end="";
 $(function(){
@@ -30,7 +30,7 @@ function getTermSales(){
 	
 	paid_at_start=$("#paid_at_start").val();
 	paid_at_end=$("#paid_at_end").val();
-		$.ajax({ 
+		$.ajax({  
 			type : "GET",
 			url : "mgTime2.do",
 			data : {paid_at_start:paid_at_start, paid_at_end:paid_at_end}, 
@@ -38,7 +38,7 @@ function getTermSales(){
 				$("#b1").text("예약횟수 : "+vo.asum);
 				$("#b2").text(paid_at_start+" ~ "+  paid_at_end);
 				$("#a1").text(vo.a08 + vo.a09);	
-				$("#a11").text((vo.bac/(vo.asum/(vo.a08+vo.a09))).toFixed(2));	
+				$("#a11").text(vo.bac/((vo.asum/(vo.a08+vo.a09))).toFixed(2));	 
 				$("#a2").text(vo.a10 + vo.a11);	
 				$("#a22").text((vo.bac/(vo.asum/(vo.a10+vo.a11))).toFixed(2));
 				$("#a3").text(vo.a12 + vo.a13);	
@@ -60,7 +60,7 @@ function getTermSales(){
 				$("#a11").text(vo.a04 + vo.a05);	
 				$("#a1111").text((vo.bac/(vo.asum/(vo.a04+vo.a05))).toFixed(2));	
 				$("#a12").text(vo.a06 + vo.a07);	
-				$("#a1212").text((vo.bac/(vo.asum/(vo.a06+vo.a07))).toFixed(2));		
+				$("#a1212").text(((vo.asum/(vo.a06+vo.a07))/100).toFixed(2));		
 			}
 		});
 		
@@ -80,7 +80,7 @@ function getTermSales(){
 				//데이터 배열
 				//데이터값?
 				//데이터 삽입 시작
-				var data = [];
+				var data = []; 
 				var value = 0;
 			
 				for(var i = 0; i <A.length; i++){

@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import study.cafe.luna.inquiry.dto.InquiryBoardDTO;
+import study.cafe.luna.member.dto.MemberDTO;
  
 
 public interface ManagerService {
 	//로그인수 +1 
 	public void logincount();
 	//branchname 구하기...
-	String branchname(String id);
+	MemberDTO branchname(String id);
 	//로그인 수 가져오기
 	int login();
 	//예약수 가져오기 

@@ -36,7 +36,7 @@ public class MgReserveTimeController {
 	
 		ModelAndView mv = new ModelAndView();
 		if(session.getAttribute("branchName")==null){
-			 mv.setViewName("/body/loginX");
+			 mv.setViewName("/manager/body/loginX");
 	         return mv;
 		}
 		if(paid_at_start==null || paid_at_start.equals("") ) {
@@ -99,15 +99,23 @@ public class MgReserveTimeController {
 		
 	}
 	@RequestMapping(value="/mgchart2.do",method=RequestMethod.POST)
-	public  @ResponseBody List<ReserveTimeDTO> getTermSales2(@RequestParam(value="paid_at_start",defaultValue = "19/02/15") String paid_at_start
-			,@RequestParam(value="paid_at_end",defaultValue = "19/03/11") String paid_at_end,ReserveTimeDTO vo,HttpSession session){
+	public  @ResponseBody List<ReserveTimeDTO> getTermSales2(@RequestParam(value="paid_at_start",defaultValue = "") String paid_at_start
+			,@RequestParam(value="paid_at_end",defaultValue = "") String paid_at_end,ReserveTimeDTO vo,HttpSession session){
 		Calendar mon = Calendar.getInstance();
 		mon.add(Calendar.MONTH , -1);
+		/*
 		String beforeMonth = new java.text.SimpleDateFormat("yyyy/MM/dd").format(mon.getTime());
 		
 		
 		if(paid_at_start==null || paid_at_start.equals("") ) {
 			paid_at_start = new SimpleDateFormat("yy/MM/dd").format(beforeMonth);
+		}
+		if(paid_at_end==null || paid_at_end.equals("") ) {
+			paid_at_end = new SimpleDateFormat("yy/MM/dd").format(new Date());
+		}*/
+		
+		if(paid_at_start==null || paid_at_start.equals("") ) {
+			paid_at_start = new SimpleDateFormat("yy/MM/dd").format(new Date());
 		}
 		if(paid_at_end==null || paid_at_end.equals("") ) {
 			paid_at_end = new SimpleDateFormat("yy/MM/dd").format(new Date());

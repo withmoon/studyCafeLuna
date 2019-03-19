@@ -24,12 +24,20 @@ public class StatisticsController {
 
 		@Autowired
 		public StatisticsService statisticsService;
- 
+     
 		//일별 예약
 		@RequestMapping(value = "/Salesreserve.do")
 		public ModelAndView mgSalesReserveView(@RequestParam(defaultValue ="") String date1,@RequestParam(defaultValue ="") String date2,
 				@RequestParam(defaultValue = "1") int curPage,HttpSession session)
 				throws Exception {
+			ModelAndView mv = new ModelAndView();
+			if(session.getAttribute("branchName")==null){
+				 System.out.println("移댁뭅�삤 濡쒓렇�씤 �떎�뙣");
+				 mv.setViewName("/manager/body/loginX");
+		         return mv;
+			}
+			
+			
 			if(date1==null || date1.equals("") ) {
 				date1 = new SimpleDateFormat("yy/MM/dd").format(new Date());
 			}
@@ -60,7 +68,6 @@ public class StatisticsController {
 			map.put("date2", date2);
 			map.put("boardPager", boardPager);
 
-			ModelAndView mv = new ModelAndView();
 			mv.addObject("map", map);
 			mv.setViewName("/manager/body/sales/mgSalesreserve");
 			System.out.println(map);

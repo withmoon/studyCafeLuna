@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import study.cafe.luna.inquiry.service.InquiryService;
 import study.cafe.luna.member.dto.MemberDTO;
 
-@Controller
+@Controller 
 public class InquireWriteController {
 	@Autowired
 	InquiryService service;

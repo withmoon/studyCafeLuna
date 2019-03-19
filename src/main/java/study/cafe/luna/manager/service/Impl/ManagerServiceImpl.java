@@ -1,5 +1,7 @@
 package study.cafe.luna.manager.service.Impl;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,11 +9,12 @@ import org.springframework.stereotype.Service;
 
 import study.cafe.luna.manager.dao.ManagerDAO;
 import study.cafe.luna.manager.service.ManagerService;
+import study.cafe.luna.member.dto.MemberDTO;
   
 @Service
 public class ManagerServiceImpl implements ManagerService{
 	
-
+ 
 	@Autowired 
 	private ManagerDAO managerDAO;
 
@@ -30,8 +33,8 @@ public class ManagerServiceImpl implements ManagerService{
 	}
 
 	@Override
-	public String branchname(String id) {
-		System.out.println("branchname 가져오기");
+	public MemberDTO branchname(String id) {
+		System.out.println("branchname 가져오기"+id+" 가져왔냥!!!!!");
 		return managerDAO.branchname(id);
 		
 	}

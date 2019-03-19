@@ -128,6 +128,7 @@
 					<input type="button" value="목록" class="button" id="room">
 					<input type="button" value="삭제" class="button" id="delete">
 					<input type="submit" value="수정" class="button">
+					<input type="hidden" value="${text.comeRoute}" name="comeRoute">
 				</div>
 			</form>
 		</section>

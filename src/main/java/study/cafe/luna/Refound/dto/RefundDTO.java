@@ -28,9 +28,17 @@ public class RefundDTO {
 	private Date reservdate;
 	private int status; //����
 	private int brstatus; //�����ѱ�  뭐에 쓸려고 만든지 아시는분 
+	private int Gunsu;
 	
 	
 	
+	
+	public int getGunsu() {
+		return Gunsu;
+	}
+	public void setGunsu(int gunsu) {
+		Gunsu = gunsu;
+	}
 	public String getBRANCHNAME() {
 		return BRANCHNAME;
 	}

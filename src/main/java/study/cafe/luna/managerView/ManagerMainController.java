@@ -34,7 +34,6 @@ public class ManagerMainController {
          throws Exception {
 		ModelAndView mv = new ModelAndView();
 		 String bn = ""; //지점 검색
-//		 session.setAttribute("branchName", bn);
 	 	 System.out.println("로그인 아이디  받아오기");
 	   	 System.out.println("test 세션아이디 :"+session.getAttribute("id"));
 	   	 System.out.println("test 세션지점명 :"+session.getAttribute("branchName"));
@@ -55,22 +54,26 @@ public class ManagerMainController {
          System.out.println("세션에서 매니저ID 확인");
 
          String id=(String) session.getAttribute("id");
-         bn = managerService.branchname(id); //지점 검색
-         System.out.println("branchName :" +bn.toString());
+         MemberDTO member= managerService.branchname(id); //지점 검색
+         bn=member.getBranchName();
+         
          session.setAttribute("branchName",bn);
          System.out.println("세션:" +session.getAttribute("branchName"));
       }else { 
          flashMap = RequestContextUtils.getInputFlashMap(request);
          System.out.println("카카오 로그인 ==>" + flashMap.get("id"));
          session.setAttribute("id", flashMap.get("id"));
-         session.setAttribute("branchaddr1", memberDTO.getBranchAddr1());
-         session.setAttribute("branchaddr2", memberDTO.getBranchAddr2());
+          
          String id=(String) session.getAttribute("id");
 
-         bn = managerService.branchname(id); //지점 검색
-         System.out.println("branchName :" +bn);
-         session.setAttribute("branchName",bn);
+         MemberDTO member= managerService.branchname(id); //지점 검색
+         
+         session.setAttribute("branchaddr1", member.getBranchAddr1());
+         session.setAttribute("branchaddr2", member.getBranchAddr2());
+         session.setAttribute("branchName",member.getBranchName());
+         
       }
+      
       Calendar calendar = Calendar.getInstance();    
       //이번달 구하기
       int year = calendar.get( Calendar.YEAR );

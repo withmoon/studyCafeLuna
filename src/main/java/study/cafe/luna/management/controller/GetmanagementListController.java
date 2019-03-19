@@ -31,7 +31,7 @@ public class GetmanagementListController {
 		//지점장 아닐때
 		ModelAndView mv = new ModelAndView();
 		if(session.getAttribute("branchName")==null){
-			 mv.setViewName("loginX.mdo");
+			 mv.setViewName("loginX.do");
 	         return mv;
 		}
 		

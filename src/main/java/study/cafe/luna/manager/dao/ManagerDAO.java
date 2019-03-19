@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import study.cafe.luna.inquiry.dto.InquiryBoardDTO;
+import study.cafe.luna.member.dto.MemberDTO;
 import study.cafe.luna.room.dto.RoomReviewDTO;
 
 public interface ManagerDAO {
@@ -13,7 +14,7 @@ public interface ManagerDAO {
 	
 	void logincount(); //로그인수+1;
 	
-	String branchname(String id); //branchname 가져오기..
+	MemberDTO branchname(String id); //branchname 가져오기..
 	
 	int roomcount(HttpSession session, String days); //예약수 가져오기
 

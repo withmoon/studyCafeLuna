@@ -33,19 +33,28 @@ public class MRoomInsertController {
 	// 방생성 insert
 	@RequestMapping(value = "/mRoomInsert.do", method = RequestMethod.POST)
 	public ModelAndView mginsertRoom(HttpServletRequest req, MultipartHttpServletRequest mrequest,
-			@ModelAttribute("room") MRoomDTO vo) throws Exception, IllegalStateException {
+			@ModelAttribute("room") MRoomDTO vo,HttpSession session) throws Exception, IllegalStateException {
+		
+		//지점장 아닐때 접근 불가
+		ModelAndView mv = new ModelAndView();
+		if (session.getAttribute("branchName") == null) {
+			mv.setViewName("/manager/body/loginX");
+			return mv;
+		}
+
 		System.out.println("룸 업로드 컨트롤러 시작");
 		System.out.println("파일업로드 테스트");
 		vo.setRoomnum(Integer.parseInt(req.getParameter("roomnum")));
 		vo.setBranchName(req.getParameter("branchName"));
 		vo.setRoomLocate(req.getParameter("roomLocate"));
+		vo.setComeRoute(req.getParameter("comeRoute"));
 
 		// textarea 줄내림 db 인식 처리
 		if (vo.getRoomExplain() == null) {
 			System.out.println("상세내용 없음");
 		} else {
 			String roomExplain = vo.getRoomExplain().replace("\r\n", "<br>");
-			vo.setRoomExplain(roomExplain);
+			vo.setRoomExplain(roomExplain); 
 		}
 		if (vo.getRoomWarn() == null) {
 			System.out.println("주의사항내용 없음");
@@ -56,7 +65,7 @@ public class MRoomInsertController {
 		vo.setRoomPrice(Integer.parseInt(vo.getPrice()));
 		insertService.mgRoomUpload(vo);
 
-		HttpSession session = req.getSession();
+		session = req.getSession();
 		vo.setId((String) session.getAttribute("id"));
 
 		File dir = new File(filePath);
@@ -95,6 +104,6 @@ public class MRoomInsertController {
 				}
 			}
 		}
-		return new ModelAndView("redirect:/mRoomView.do");
+		return new ModelAndView("redirect:/mRoom.do");
 	}
 }
