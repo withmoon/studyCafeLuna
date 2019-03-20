@@ -142,7 +142,7 @@ function cle() {
 									<td>환불완료</td>
 								</c:if>
 								<td>
-									<c:if test="${ }==-2">사유 : ${}</c:if>
+									<%-- <c:if test="${ }==-2">사유 : ${}</c:if> --%>
 								</td>
 								
 							</c:if>
