@@ -25,7 +25,7 @@ public class RefundDTO {
 	private String branchName;
 	private String branchname;
 	private int roomnum;
-	private Date reservdate;
+	private String reservdate;
 	private int status; //����
 	private int brstatus; //�����ѱ�  뭐에 쓸려고 만든지 아시는분 
 	private int Gunsu;
@@ -75,10 +75,10 @@ public class RefundDTO {
 	public void setRoomnum(int roomnum) {
 		this.roomnum = roomnum;
 	}
-	public Date getReservdate() {
+	public String getReservdate() {
 		return reservdate;
 	}
-	public void setReservdate(Date reservdate) {
+	public void setReservdate(String reservdate) {
 		this.reservdate = reservdate;
 	}
 	public int getStatus() {

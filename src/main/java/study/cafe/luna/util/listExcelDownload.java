@@ -11,12 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.web.servlet.view.document.AbstractXlsxView;
 
-import study.cafe.luna.Refound.dto.RefundDTO;
+import study.cafe.luna.Reserve.dto.ReserveDTO;
 
 public class listExcelDownload extends AbstractXlsxView {
 
@@ -32,8 +34,14 @@ public class listExcelDownload extends AbstractXlsxView {
 		Row row = null;
 		CellStyle style = workbook.createCellStyle(); /// 셀 스타일을 위한 변수
 		// style.setAlignment(CellStyle.ALIGN_CENTER); // 글 위치를 중앙으로 설정
-
-		List<RefundDTO> listExcel = (List<RefundDTO>) modelMap.get("list");
+		
+		CellStyle style1 = workbook.createCellStyle(); /// 셀 스타일을 위한 변수
+		style1.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.index);  
+		style1.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+		
+		
+		
+		List<ReserveDTO> listExcel = (List<ReserveDTO>) modelMap.get("list");
 		String name = (String) modelMap.get("branchName");
 		// 새로운 sheet를 생성한다.
 		worksheet = workbook.createSheet("엑셀 목록");
@@ -62,7 +70,9 @@ public class listExcelDownload extends AbstractXlsxView {
 			}
 			columnIndex++;
 		}
-
+		//Cell cell = row.createCell(0);
+		//cell.setCellStyle(style1);
+		
 		// 헤더 설정
 		row = worksheet.createRow(0);
 		row.createCell(0).setCellValue("날짜");
@@ -72,8 +82,12 @@ public class listExcelDownload extends AbstractXlsxView {
 		int rowIndex = 1;
 		int total = 0; 
 		// 각 해당하는 셀에 값과 스타일을 넣음
+		for(int i=0; i<4; i++) {
+			row.getCell(i).setCellStyle(style1);
+		}
 		
-		for (RefundDTO board : listExcel) {
+		
+		for (ReserveDTO board : listExcel) {
 			row = worksheet.createRow(rowIndex);
 			row.createCell(0).setCellValue(board.getReservdate());
 			row.createCell(1).setCellValue(board.getGunsu());
@@ -88,10 +102,17 @@ public class listExcelDownload extends AbstractXlsxView {
 //		worksheet.addMergedRegion(new CellRangeAddress(listExcel.size() + 1, listExcel.size() + 1, 0, 6));
 
 		// 병합 테스트를 위한 설정
-//		row = worksheet.createRow(listExcel.size() + 1);
-		row.createCell(0).setCellValue("지점명 : "+ name  +"총합 :                           " + total);
-		row.getCell(0).setCellStyle(style); // 지정한 스타일을 입혀준다.
-
+		row = worksheet.createRow(listExcel.size() + 1);
+		row.createCell(0).setCellValue("총합 :");
+		row.createCell(1).setCellValue(total);
+		row.createCell(2).setCellValue("");
+		row.createCell(3).setCellValue("");
+		for(int i=0; i<4; i++) {
+			row.getCell(i).setCellStyle(style1);
+		}
+		
+		//row.getCell(0).setCellStyle(style1); // 지정한 스타일을 입혀준다.
+		//cell.setCellStyle(style1);
 		try {
 			response.setHeader("Content-Disposition", "attachement; filename=\""
 					+ java.net.URLEncoder.encode(excelName, "UTF-8") + "\";charset=\"UTF-8\"");
