@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MailViewController {
-	@RequestMapping(value = "/mailView.mdo")
+	@RequestMapping(value = "/mailView.do")
 	public String mailView(HttpSession session) {
 
 		//지점장 아닐때 접근 불가

@@ -620,7 +620,7 @@ header{
 #rtd{
 	width: 15%;
 	position:fixed;
-	top:-70%;
+	top:-70%; 
 	right: 10px;
 }
 .rdiv{
@@ -636,8 +636,8 @@ header{
 }
 
 #re{
-	margin-top: 87%;
-	position:relative;
+	top:-70%; 
+	position:fixed;
 	right: 20px;	
 }
 

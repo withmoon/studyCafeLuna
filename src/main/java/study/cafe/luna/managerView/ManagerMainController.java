@@ -19,6 +19,7 @@ import study.cafe.luna.inquiry.dto.InquiryBoardDTO;
 import study.cafe.luna.manager.dao.ManagerDAO;
 import study.cafe.luna.manager.service.ManagerService;
 import study.cafe.luna.member.dto.MemberDTO;
+import study.cafe.luna.room.dao.RoomReviewDAO;
 import study.cafe.luna.room.dto.RoomReviewDTO;
 
 @Controller
@@ -28,6 +29,8 @@ public class ManagerMainController {
 	private ManagerService managerService;
 	@Autowired
 	private ManagerDAO managerDAO;
+	@Autowired
+	RoomReviewDAO roomReviewDAO;
 
 	@RequestMapping(value = "/manager.do", method = RequestMethod.GET)
    public ModelAndView mainView(HttpServletRequest request, Map<String, ?> flashMap, HttpSession session,InquiryBoardDTO vo,MemberDTO memberDTO)
@@ -82,9 +85,9 @@ public class ManagerMainController {
       System.out.println(days);
  
       //고객의소리 최신 5개 가져오기
-      List<InquiryBoardDTO> list = managerDAO.board();
+      List<InquiryBoardDTO> qlist = managerDAO.board();
+      List<RoomReviewDTO> roomreview = roomReviewDAO.getReview(session); //리뷰가져오기
      
-      List<RoomReviewDTO> review = managerDAO.review(); //최신댓글 가져오기 //리뷰
       int member = managerService.member(); //회원수 가져오기 
       int reroom = managerDAO.reroom();//환불수 가져오기
       int login= managerService.login(); //방문자 수 가져오기 (로그인만 - 로그인컨트롤러에서 처리할것들)
@@ -97,8 +100,8 @@ public class ManagerMainController {
       map.put("joincount", joincount);
       map.put("member", member);
       map.put("reroom", reroom);
-      map.put("review",review); //화면작업해야함
-      map.put("list", list);
+      map.put("qlist", qlist);
+      map.put("roomreview",roomreview);
 
       mv.addObject("map", map);
       mv.setViewName("/manager/manager");

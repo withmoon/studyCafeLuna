@@ -28,7 +28,7 @@ function cancelPay(roomnum,seq,reservdate) {
 	if(confirm("환불을 승인하겠습니까?")==true){
 		 $.ajax({
 		       type : "POST",
-		       url : "Refund.do",
+		       url : "fund.do",
 		       data : {
 		    	   "seq" : seq,
 		    	   "roomnum" : roomnum,
@@ -38,7 +38,7 @@ function cancelPay(roomnum,seq,reservdate) {
 		          if (data == "success") {
 		        	  alert("환불 완료했습니다.");
 		        	  /* $("#result").load("sendMailForm.do?id=" + id);
-		        	  window.location.reload(); */
+		        	  window.location.reload();
 		             return;
 		          }
 		       },
@@ -131,9 +131,7 @@ function cle() {
 								<td>${list.branchName }</td>
 								<td>${list.roomnum}</td>
 								<!--  reservdate-->
-
-								<td><fmt:formatDate value="${list.reservdate }"
-										pattern="yyyy.MM.dd" /></td>
+								<td>${list.reservdate }</td>
 								<c:if test="${list.status==-2}">
 									<td><button
 											onclick="cancelPay('${list.roomnum}','${list.seq }','${list.reservdate }')">환불하기</button></td>

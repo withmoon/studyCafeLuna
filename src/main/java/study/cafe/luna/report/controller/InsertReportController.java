@@ -60,7 +60,7 @@ public class InsertReportController {
 		rpd.setContent(content);
 		rpser.insertReport(rpd);
 
-		return "redirect:/mgreport.mdo";
+		return "redirect:/mgreport.do";
 	}
 
 }

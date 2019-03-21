@@ -218,5 +218,5 @@ function uncheck(seq){
 }
 function insertboard() {
 
-	$("#board").load("boardinsert.mdo");
+	$("#board").load("boardinsert.do");
 }

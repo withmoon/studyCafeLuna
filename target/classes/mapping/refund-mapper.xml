@@ -10,7 +10,7 @@
 	 <!-- 환불현황 전체목록 조회 및 검색조회 -->        
 	<select id="mgRefund" resultType="Refund">
 		<include refid="pagingHeader2"></include>	
-		select rownum,SEQ,id,BRANCHNAME,ROOMNUM,reservdate,STATUS from 
+		select rownum,SEQ,id,BRANCHNAME,ROOMNUM,to_char(reservdate,'yy/MM/dd')as reservdate,STATUS from 
 		(SELECT SEQ,id,BRANCHNAME,ROOMNUM,reservdate,STATUS FROM ROOMPAYMENT
 		<include refid="search3"></include>	 
 		ORDER BY reservdate desc)
@@ -40,7 +40,7 @@
 	 <select id="Refund" resultType="Refund">
 	 <![CDATA[
 	 	select SUBSTR(reservstate,0,INSTR(reservstate,(select SUBSTR(reservetime,0,5) from roompayment where seq=#{seq}))-1)||SUBSTR(reservstate,INSTR(reservstate,(select SUBSTR(reservetime,LENGTH(reservetime)-4,LENGTH(reservetime)) from roompayment where seq=#{seq}))+5,LENGTH(reservstate)) from roomreserv where  
-	 	to_char(startdate,'yy/MM/dd') like TO_CHAR(TO_DATE(REPLACE(#{reservdate}, 'KST ', ''), 'Dy Mon DD HH24:MI:SS YYYY','NLS_DATE_LANGUAGE=AMERICAN'), 'yy/MM/dd') and roomnum=#{roomnum}
+	 	to_char(startdate,'yy/MM/dd') like #{reservdate} and roomnum=#{roomnum}
 	 	]]>
 	 </select>
 	

@@ -8,25 +8,23 @@ $(document).ready(
 					$("#test").click(function() {
 						$("#msec").load("testform.jsp")
 					});
-
 					
-					
-					paid_at_start=$("#paid_at_start").val();
+				/*	paid_at_start=$("#paid_at_start").val();
 					paid_at_end=$("#paid_at_end").val();
 						$.ajax({
 							type : "POST",
-							url : "mgTime2.mdo",
+							url : "mgchart2.do",
 							data : {paid_at_start:paid_at_start, paid_at_end:paid_at_end},
 							success : function(vo) {
 							}
 							
 							
-						});
+						});*/
 						
 					$.ajax({
 						  
 						 type : "POST",         
-						 url: "mgchart2.mdo", 
+						 url: "mgchart2.do", 
 						 data:{},     
 						success:function(A){
 							 

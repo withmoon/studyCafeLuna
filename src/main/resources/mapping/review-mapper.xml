@@ -59,4 +59,11 @@
 		delete roomreview where roomnum=#{roomNum} and id=#{id}
 	</delete>
 	
+	<!-- 매니저 지점별 5개 리뷰 -->
+	<select id="getBranchReview" resultType="roomReview">
+	<![CDATA[
+		select * from roomreview where rownum<=5 order by writedate desc
+		]]>
+	</select>
+	
 </mapper>

@@ -12,43 +12,55 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import study.cafe.luna.inquiry.dto.InquiryBoardDTO;
 import study.cafe.luna.management.dto.ManagementDTO;
 import study.cafe.luna.management.service.GetManagermentService;
+import study.cafe.luna.manager.dao.ManagerDAO;
+import study.cafe.luna.room.dao.RoomReviewDAO;
+import study.cafe.luna.room.dto.RoomReviewDTO;
 import study.cafe.luna.util.BoardPager;
 
 @Controller
 public class GetmanagementListController {
 	@Autowired
-	private GetManagermentService getManagermentService ; 
+	private GetManagermentService getManagermentService;
+	@Autowired
+	ManagerDAO managerDAO;
+	@Autowired
+	RoomReviewDAO roomReviewDAO;
 
-	//회원관리
+	// 회원관리
 	@RequestMapping(value = "/management.do")
 	public ModelAndView mgSalesView(@RequestParam(defaultValue = "name") String searchOption,
 			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage,
-			HttpSession session)
-			throws Exception {
+			HttpSession session) throws Exception {
 
-		//지점장 아닐때
+		// 지점장 아닐때
 		ModelAndView mv = new ModelAndView();
-		if(session.getAttribute("branchName")==null){
-			 mv.setViewName("loginX.do");
-	         return mv;
+		if (session.getAttribute("branchName") == null) {
+			mv.setViewName("loginX.do");
+			return mv;
 		}
-		
-		//회원카운트
+
+		// 회원카운트
 		int count = getManagermentService.countArticle(keyword);
-		
+		// 고객의소리 최신 5개 가져오기
+		List<InquiryBoardDTO> qlist = managerDAO.board();
+		List<RoomReviewDTO> roomreview = roomReviewDAO.getReview(session); // 리뷰가져오기
+
 		int page_scale = 20;
 		int block_sclae = 3;
-		//페이징 처리
-		BoardPager boardPager = new BoardPager(count, curPage,page_scale,block_sclae);
+		// 페이징 처리
+		BoardPager boardPager = new BoardPager(count, curPage, page_scale, block_sclae);
 		int start = boardPager.getPageBegin();
 		int end = boardPager.getPageEnd();
 
-		//회원리스트
-		List<ManagementDTO> list = getManagermentService.managermentList(start, end, keyword,searchOption);
-		
+		// 회원리스트
+		List<ManagementDTO> list = getManagermentService.managermentList(start, end, keyword, searchOption);
+
 		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("qlist", qlist);
+		map.put("roomreview", roomreview);
 		map.put("list", list);
 		map.put("count", count);
 		map.put("keyword", keyword);
@@ -56,8 +68,8 @@ public class GetmanagementListController {
 
 		mv.setViewName("/manager/body/presentCondition/mgSales");
 		mv.addObject("map", map);
-		
+
 		return mv;
 	}
-	
+
 }

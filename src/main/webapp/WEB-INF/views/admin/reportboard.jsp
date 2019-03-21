@@ -31,7 +31,7 @@
 
 			<div id="board">
 			
-				<form name="form1" method="post" action="mgBoard.mdo?">
+				<form name="form1" method="post" action="mgBoard.do?">
 					<table id="searchtable">
 						<tr>
 							<td id="searchtd"><!-- <a id="write" onclick=" insertboard()" href="#">글쓰기</a> -->

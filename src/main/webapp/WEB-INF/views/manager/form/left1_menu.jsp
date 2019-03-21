@@ -31,7 +31,6 @@
 			<li class="menu"><a id="a" href="#">☆ 예약시간대통계</a>
 				<ul class="hide"> 
 					<li><a href="Timechart.do">시간별</a></li>
-					<!-- <li><a href="mgSeason.mdo">분기별</a></li> -->
 				</ul>
 			</li>
 			<li class="menu"><a id="b" href="#">☆ 방 생성/수정/삭제</a>

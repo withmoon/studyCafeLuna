@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -52,5 +54,10 @@ public class RoomReviewDAOImpl implements RoomReviewDAO{
 	@Override
 	public void upReviewContent(RoomReviewDTO rrd) {
 		sqlSession.update("reviewDAO.upReviewContent",rrd);
+	}
+	@Override
+	public List<RoomReviewDTO> getReview(HttpSession session) {
+		String branch = (String) session.getAttribute("id");
+		return sqlSession.selectList("reviewDAO.getBranchReview",branch);
 	}
 }

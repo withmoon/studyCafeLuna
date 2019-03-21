@@ -47,13 +47,5 @@
 	]]>
 	</select>
 	
-	<!-- 리뷰 가져오기 --><!-- 화면조정되면 값 불러서 조정할것 -->
-	<select id="review" resultType="roomReview">
-		SELECT * FROM ROOMREVIEW 
-	</select>
-	
-	<!-- 차트데이터가져오기 --> <!-- 기간 받아서하기로 변경 -->
-
-
 </mapper> 
 

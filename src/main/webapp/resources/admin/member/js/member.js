@@ -98,7 +98,7 @@ function AllmemberList(mpage) {
 
 //지점장정보
 function infoList(ipage) {
-	 
+ 
 	$.ajax({     
 		 type:"GET",  
 		 url:"infoList.do",    

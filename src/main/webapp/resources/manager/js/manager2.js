@@ -1,7 +1,7 @@
 
 function manager() {
 	var f = document.getElementById("logo");
-	f.action = "/manager.mdo";
+	f.action = "/manager.do";
 	f.method ="post";
 	f.submit();
 }

@@ -24,8 +24,6 @@ public interface ManagerDAO {
 	
 	int reroom(); //환불수 가져오기 
 	List<InquiryBoardDTO> board(); //고객의소리 미리보기 가져오기
-	
-	List<RoomReviewDTO> review(); //리뷰가져오기
 	//차트
 //	List<StatisticsVO> chart();
 	

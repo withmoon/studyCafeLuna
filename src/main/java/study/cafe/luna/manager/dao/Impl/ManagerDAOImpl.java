@@ -79,11 +79,7 @@ public class ManagerDAOImpl implements ManagerDAO{
 	 * System.out.println("chart DAO"); return
 	 * SqlSession.selectList("managerDAO.chart"); }
 	 */
-	  @Override 
-	  public List<RoomReviewDTO> review() {
-		 System.out.println("review DAO"); return
-         SqlSession.selectList("managerDAO.review"); 
-	  }
+	
 	 
 
 	

@@ -1,7 +1,7 @@
 /*$(document).ready(function() {
 	$("#write").click(function() {
 		$ajax({
-			url : "boardinsert.mdo",
+			url : "boardinsert.do",
 			dataType : "html",
 			type : "get",
 			success : function(result) {
@@ -23,11 +23,11 @@
 	var	title = $("#title");
 	$.ajax({
 		type : 'get',
-		url : 'boardview.mdo',
+		url : 'boardview.do',
 		data : title,
 		dataType: 'Json',
 		success : function(data) {
-			$("#board").load("boardview.mdo",data);
+			$("#board").load("boardview.do",data);
 			$("#board").html(data);
 			alert("성공"+$("#title"));
 		},
@@ -278,5 +278,5 @@ function uncheck(seq){
 }
 function insertboard() {
 
-	$("#board").load("boardinsert.mdo");
+	$("#board").load("boardinsert.do");
 }

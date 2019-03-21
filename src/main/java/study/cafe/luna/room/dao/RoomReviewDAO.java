@@ -2,6 +2,8 @@ package study.cafe.luna.room.dao;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import study.cafe.luna.room.dto.RoomReviewDTO;
 
 public interface RoomReviewDAO {
@@ -28,4 +30,7 @@ public interface RoomReviewDAO {
 
 	// 리뷰 삭제
 	void delReviewContent(RoomReviewDTO rrd);
+
+	//매니저 리뷰 5개
+	List<RoomReviewDTO> getReview(HttpSession session);
 }

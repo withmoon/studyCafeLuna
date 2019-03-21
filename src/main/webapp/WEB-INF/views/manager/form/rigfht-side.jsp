@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,26 +11,24 @@
 
 	<aside id="right">
 			<div id="rtd">
-				<%-- <div class="rdiv">최신소식</div>
+				<div class="rdiv">최신소식</div>
 				<ul id="rul">
-					<li>${map.list.get(0).content }</li>
-					<li>${map.list.get(1).content }</li>
-					<li>${map.list.get(2).content }</li>
-					<li>${map.list.get(3).content }</li>
-					<li>${map.list.get(4).content }</li>
-				</ul> --%>
+					<li>${map.qlist.get(0).content }</li>
+					<li>${map.qlist.get(1).content }</li>
+					<li>${map.qlist.get(2).content }</li>
+					<li>${map.qlist.get(3).content }</li>
+					<li>${map.qlist.get(4).content }</li>
+				</ul> 
 			</div>
 
-			<!-- <div id="re">
+			 <div id="re">
 				<div class="rdiv">최신댓글</div>
+				<c:forEach items="${map.roomreview }" var="roomreview" >
 				<ul id="rul">
-					<li>asasdasd</li>
-					<li>asdasda</li>
-					<li>asfsaf</li>
-					<li>asdsadas</li>
-					<li>asdasdasd</li>
+					<li>${roomreview.roomNum }번 ${roomreview.reviewContent }</li>
 				</ul>
-			</div> -->
+				</c:forEach>
+			</div> 
 
 		</aside>
 

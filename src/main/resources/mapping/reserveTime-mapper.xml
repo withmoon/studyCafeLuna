@@ -10,8 +10,8 @@
 	</select>
 	
 	<select id="getreservcount" resultType="ReserveTime">
-	   select startdate as reservdate,count(*)as su from roomreserv where startdate BETWEEN #{date1} and #{date2}
-	   group by startdate order by startdate asc 
+	     select reservdate ,count(*)as su from roompayment where reservdate BETWEEN #{date1} and #{date2}
+	    group by reservdate order by reservdate asc 
 	</select>
 	 
 </mapper> 
