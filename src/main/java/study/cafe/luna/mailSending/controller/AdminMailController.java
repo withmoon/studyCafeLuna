@@ -40,6 +40,7 @@ public class AdminMailController {
 			messageHelper.setText(content); // 메일 내용
 
 			mailSender.send(message);
+			
 		} catch (Exception e) {
 			System.out.println(e);
 		}

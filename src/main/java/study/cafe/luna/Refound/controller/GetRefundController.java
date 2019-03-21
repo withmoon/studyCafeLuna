@@ -34,7 +34,6 @@ public class GetRefundController {
 			throws Exception {
 		ModelAndView mv = new ModelAndView();
 		if(session.getAttribute("branchName")==null){
-			 System.out.println("移댁뭅�삤 濡쒓렇�씤 �떎�뙣");
 			 mv.setViewName("loginX.do");
 	         return mv;
 		}
@@ -72,11 +71,11 @@ public class GetRefundController {
 	return mv;
 	}
 	
+	
 	@RequestMapping(value="fund.do")   
 	@ResponseBody
 	public String Refund(int seq,int roomnum,String reservdate) throws InterruptedException {
 		
-		//�솚遺덉“移�
 		refundService.Refund(seq,roomnum,reservdate);
 	
 		return "success";

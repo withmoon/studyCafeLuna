@@ -47,10 +47,10 @@
 	</select>
 	
 	<select id="excelList" resultType="Reserve">
-	<![CDATA[
-		 select reservdate ,count(*)as gunsu,sum(payamount)as total,count(DECODE(status,'-2',1)) as status,
+	<![CDATA[ 
+		 select to_char(reservdate, 'yy/MM/dd')as reservdate ,count(*)as gunsu,sum(payamount)as total,count(DECODE(status,'-2',1)) as status,
 			count(DECODE(status,'-1',1)) as status2 from roompayment 
-			where (reservdate >= to_date(sysdate,'yy/MM/dd') and reservdate <= to_date(sysdate+5,'yy/MM/dd') )
+			where reservdate >= to_date(#{date1},'yy/MM/dd') and reservdate <= to_date(#{date2},'yy/MM/dd')
 		   group by reservdate order by reservdate asc
 	]]>
 	</select>
