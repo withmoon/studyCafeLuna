@@ -3,3 +3,7 @@
 .navbar-nav {
     font-size: 1vw;
 }
+
+#bs-example-navbar-collapse-1 {
+    background: tan;
+}

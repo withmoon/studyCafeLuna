@@ -14,9 +14,7 @@
 <script src="<c:url value="/resources/util/js/paging.js"/>"></script>
 <title>승인페이지</title>
 </head>
-
-
-
+<body style="overflow-x:hidden; overflow-y:auto;">
 	<%@include file="../admin/footer.jsp" %>
 	<div align="center">
       <h3>지점장 승인</h3>

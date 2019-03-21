@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
+<%-- <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>"> --%>
 </head>
 <body>
 

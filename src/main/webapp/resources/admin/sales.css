@@ -1,7 +1,9 @@
-@charset "EUC-KR";
+@charset "UTF-8";
 
-
-
+.searchArea {
+    position:relative;
+    left: 150px;
+}
 
 #bold {
    height: 30px;
@@ -47,16 +49,16 @@ article table#board {
 
 article table#board th {
    text-align: center;
-   height: 20px; /* ÀüÃ¼ ³ôÀÌ¸¦ ÁöÁ¤ */
-   text-transform: capitalize; /* ¿µ¹® Ã¹±ÛÀÚ¸¦ ´ë¹®ÀÚ·Î */
-   font-size: 14px; /* ±Û²Ã »çÀÌÁî ÁöÁ¤ */
-   font-family: sans-serif, "¸¼Àº °íµñ", "µ¸¿ò"; /* ±Û²Ã ¸ğ¾ç ÁöÁ¤ */
-   font-weight: bold; /* ±Û²Ã µÎ²² ÁöÁ¤ */
-   padding: 5px; /* ±Û²Ã°ú ÀüÃ¼ ¼¿°úÀÇ °£°İ ¹Ì¼¼ Á¶Á¤ */
+   height: 20px; /* ì „ì²´ ë†’ì´ë¥¼ ì§€ì • */
+   text-transform: capitalize; /* ì˜ë¬¸ ì²«ê¸€ìë¥¼ ëŒ€ë¬¸ìë¡œ */
+   font-size: 14px; /* ê¸€ê¼´ ì‚¬ì´ì¦ˆ ì§€ì • */
+   font-family: sans-serif, "ë§‘ì€ ê³ ë”•", "ë‹ì›€"; /* ê¸€ê¼´ ëª¨ì–‘ ì§€ì • */
+   font-weight: bold; /* ê¸€ê¼´ ë‘ê»˜ ì§€ì • */
+   padding: 5px; /* ê¸€ê¼´ê³¼ ì „ì²´ ì…€ê³¼ì˜ ê°„ê²© ë¯¸ì„¸ ì¡°ì • */
    background-repeat: repeat-x;
    background-position: center center;
-   background-image: url(4.jpg); /* ¹è°æ ÁöÁ¤ */
-   color: white; /* ±Û²Ã »ö ÁöÁ¤ */
+   background-image: url(4.jpg); /* ë°°ê²½ ì§€ì • */
+   color: white; /* ê¸€ê¼´ ìƒ‰ ì§€ì • */
 }
 
 article table#board td {
@@ -151,7 +153,7 @@ background-color
 
 #table_search .btn {
    padding: 2px;
-   margin: 0 30px 0 5px; /* °Ë»ö ÀÔ·ÂÃ¢°úÀÇ °£°İÀ» ¹ú¾îÁö°Ô ÇÑ´Ù */
+   margin: 0 30px 0 5px; /* ê²€ìƒ‰ ì…ë ¥ì°½ê³¼ì˜ ê°„ê²©ì„ ë²Œì–´ì§€ê²Œ í•œë‹¤ */
    width: 70px;
    height: 23px;
    border-radius: 10px;
@@ -259,15 +261,39 @@ h3{
     position:relative;
     left:45%;
 }
+
+/*ê²€ìƒ‰*/
 .searchArea{
     position:relative;
-    left:34%;
+    left:120px;
     padding:1%;
 }
+
+.baseline {
+    position:absolute;
+    top: 10px;
+    left: 540px;
+}
+
+#btn {
+   background-color: white;
+    border: 0.1vw solid gray;
+    color: gray;
+    text-align: center;
+    text-decoration: none;
+    outline:none
+}
+#btn:hover{
+    background-color: #bbbb;
+    color: white
+}
+
+/*ì°¨íŠ¸*/
+
 #chartdiv{
     top:10px;
     background-color:seashell;
-     width:1010px;
+    width:1000px;
     height:480px;
     left:10px;
     border:1px solid gray;
