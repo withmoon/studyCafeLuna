@@ -27,7 +27,7 @@
 		num,subject,content,regdate from adminqnaboard order by num desc
 	</select>
 
-	<delete id="delete" parameterType="adminQnABoardVO">
+	<delete id="qdelete" parameterType="adminQnABoardVO">
 		delete from adminqnaboard
 		where num=#{num}
 	</delete>
@@ -45,4 +45,9 @@
 		)A
 		)where rn between #{start} and #{end}
 	</sql>
+	
+	<!-- 질문 수정하기 -->
+	<update id="qupdate">
+     update ADMINQNABOARD set content=#{content},subject=#{subject} where num=#{num}
+	</update>
 </mapper>

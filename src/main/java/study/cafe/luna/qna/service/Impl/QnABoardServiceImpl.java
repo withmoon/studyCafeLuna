@@ -28,30 +28,26 @@ public class QnABoardServiceImpl implements QnABoardService {
 	   return qnaBoardDAO.countQnA(subject);
    }
    
-   @Override
-   public void insert(QnABoardDTO adminQnABoardVO) throws Exception {
-	   qnaBoardDAO.insert(adminQnABoardVO);
-   }
-
-   @Override
-   public QnABoardDTO read(int num) throws Exception {
-      return qnaBoardDAO.read(num);
-   }
-
-   @Override
-   public void update(QnABoardDTO vo) throws Exception {
-	   qnaBoardDAO.update(vo);
-   }
-
-   @Override
-   public void delete(int num) throws Exception {
-	   qnaBoardDAO.delete(num);
-   }
-
-   /*user_inform*/
    //질문상세보기
    @Override
    public QnABoardDTO qnaRead(int num) throws Exception {
 	   return qnaBoardDAO.qnaRead(num);
-}
+   }
+   
+   //질문수정
+   @Override
+   public void qupdate(QnABoardDTO vo) {
+	   qnaBoardDAO.qupdate(vo);
+   }
+
+   //질문삭제
+   @Override
+   public void qdelete(QnABoardDTO vo){
+	   qnaBoardDAO.qdelete(vo);
+   }
+   
+   @Override
+   public void insert(QnABoardDTO adminQnABoardVO) throws Exception {
+	   qnaBoardDAO.insert(adminQnABoardVO);
+   }
 }

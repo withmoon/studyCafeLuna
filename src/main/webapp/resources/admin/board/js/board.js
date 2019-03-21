@@ -26,16 +26,12 @@ function qnaList(qpage) {
 				var newText1 = document.createTextNode(data.qnaList[i].subject);
 				a.appendChild(newText1);
 				newSubject.appendChild(a);
-				var sb=data.qnaList[i].subject;
-				var ct=data.qnaList[i].content;
 				
-				(function(num,sb,ct) {
+				(function(num) {
 					a.addEventListener('click', function() {
-						console.log(num+" " +sb+" " +ct);
-						var url='write.do?num='+num+'&subject='+sb+'&content='+ct; 
-						window.location.href=url;//이걸로 해서 라이트 폼에 데이터 입력시키고 업로드
+						window.open('qnaview.do?num='+num,'_self');
 					}, false);
-				})(num,sb,ct);
+				})(num);
 				
 				var newDate = newRow.insertCell(2);
 				var regdate = new Date(data.qnaList[i].regdate);

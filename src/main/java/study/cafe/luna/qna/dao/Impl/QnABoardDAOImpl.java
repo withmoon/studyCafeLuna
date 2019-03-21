@@ -30,6 +30,24 @@ public class QnABoardDAOImpl implements QnABoardDAO {
 	   return sqlsession.selectOne("qnaBoardDAO.countQnA", subject);
    }
    
+   //질문 상세보기
+   @Override
+   public QnABoardDTO qnaRead(int num) throws Exception {
+	   return sqlsession.selectOne("qnaBoardDAO.viewQnA", num);
+   }
+   
+   //질문수정하기
+   @Override
+   public void qupdate(QnABoardDTO vo) {
+      sqlsession.update("qnaBoardDAO.qupdate",vo);
+   }
+   
+   //질문삭제하기
+   @Override
+   public void qdelete(QnABoardDTO vo) {
+      sqlsession.delete("qnaBoardDAO.qdelete",vo);
+   }
+   
    @Override
    public void insert(QnABoardDTO adminQnABoardVO) throws Exception {
       // TODO Auto-generated method stub
@@ -37,28 +55,7 @@ public class QnABoardDAOImpl implements QnABoardDAO {
 
    }
 
-   @Override
-   public QnABoardDTO read(int num) throws Exception {
-      return  sqlsession.selectOne("luna.admin.board.read",num);
+   
 
-   }
-
-   @Override
-   public void update(QnABoardDTO vo) throws Exception {
-      sqlsession.update("luna.admin.board.update",vo);
-      
-   }
-
-   @Override
-   public void delete(int num) throws Exception {
-      sqlsession.delete("qnaBoardDAO.delete",num);
-      
-   }
-
-   /*user_inform*/
-   //질문 상세보기
-   @Override
-   public QnABoardDTO qnaRead(int num) throws Exception {
-	   return sqlsession.selectOne("qnaBoardDAO.viewQnA", num);
-   }
+   
 }
