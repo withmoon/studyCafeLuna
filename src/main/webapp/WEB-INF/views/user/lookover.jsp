@@ -67,6 +67,12 @@
 
 </div>
 
+
+
+<footer>
+<%@ include file="../public/footer.jsp" %>
+</footer>
+
 <!-- 스케줄 구간 -->
 <div class="showSchedule">
 <p style="color:white">방을 예약하시려면 이미지를 클릭해주세요^^</p>
@@ -128,10 +134,6 @@
 </tr>
 </table>
 </div>
-
-<footer>
-<%@ include file="../public/footer.jsp" %>
-</footer>
 
 </body>
 </html>

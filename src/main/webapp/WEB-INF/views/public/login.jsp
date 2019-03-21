@@ -16,7 +16,7 @@
 <ul class="topUl">
 <li><a href="main.do" >메인으로 돌아가기</a></li>
 <li>&emsp;&nbsp;&nbsp;</li>
-<li><a href="../inform/inform.jsp">고객 센터</a></li>
+<li><a href="useGuide.do">이용가이드</a></li>
 </ul>
 </nav>
 

@@ -36,7 +36,7 @@ public class JoinController {
 		
 		if(result==1) {
 			rdab.addFlashAttribute("id", memcom.getId());
-			mav.setViewName("redirect:kakao/home.udo");
+			mav.setViewName("redirect:kakao/home.do");
 			return mav;
 		}else{
 			mav.addObject("kid", "k#"+kid);

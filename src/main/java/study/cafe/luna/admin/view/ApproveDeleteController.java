@@ -28,7 +28,7 @@ public class ApproveDeleteController {
 	   			memcom = (MemberDTO) session.getAttribute("member");
 	   			session.setAttribute("member", memcom);
 	   			deleteApproveservice.approvedelete(id);
-	   			return "redirect:/admin/"+type+".do";
+	   			return "redirect:/"+type+".do";
 	   		}
 	   			return "/admin/cannotAccess";
 	}

@@ -5,7 +5,7 @@
 }
 nav{
 	position:relative;
-	top:150px;
+	top:180px;
 }
 
 .memberUl{
@@ -31,17 +31,13 @@ a .logo{
 }
 /*본문*/
 .border {
-   border-radius: 2em;
-   border-top-left-radius: 2em;
-   border-top-right-radius: 2em;
-   border-bottom-left-radius: 2em;
-   border-bottom-right-radius: 2em;
+   border-radius: 0.5em;
    border: 2px solid tan;
     padding:1%;
     position:relative;
-    top : 150px;
-    width: 80%;
-    left: 9%;
+    top : 110px;
+    width: 83%;
+    left: 6%;
     font-size: 2vw;
 }
 /*제목*/
