@@ -17,7 +17,7 @@
 	}
 	
 	function Gog(num) {
-		    window.open("gongjiview.do?num="+num, "공지사항", "width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
+		    window.open("viewNotice.do?num="+num, "공지사항", "width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
 	}
 </script>
 <title>지점장 관리화면</title>

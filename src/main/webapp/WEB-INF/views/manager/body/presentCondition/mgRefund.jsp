@@ -7,8 +7,6 @@
 <head>
 <script type="text/javascript"
 	src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"></c:url>"></script>
-<script integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-	crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 <link type="text/css" rel="stylesheet"
 	href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
@@ -20,45 +18,50 @@
 
 <!-- jQuery CDN --->
 <script>
-function list(page) {
-	location.href = "Refund.do?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
-}
 
-function cancelPay(roomnum,seq,reservdate) {
-	if(confirm("환불을 승인하겠습니까?")==true){
-		 $.ajax({
-		       type : "POST",
-		       url : "fund.do",
-		       data : {
-		    	   "seq" : seq,
-		    	   "roomnum" : roomnum,
-		    	   "reservdate" : reservdate,
-		       },
-		       success : function(data) {
-		          if (data == "success") {
-		        	  alert("환불 완료했습니다.");
-		        	  /* $("#result").load("sendMailForm.do?id=" + id);
-		        	  window.location.reload();
-		             return;
-		          }
-		       },
-		       error : function(request, status, error) {
-		          alert("잘못된 접근입니다.");
-		       }
-		    });
-	}else{
-			alert("환불 취소했습니다.");
-            return;
+	function list(page) {
+		location.href = "Refund.do?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
 	}
-	
-   
-}
+	function canclePayTest(text){
+		alert(text);
+	}
+
+	function cancelPay(roomnum,seq,reservdate) {
+		
+		if(confirm("환불을 승인하겠습니까?")==true){
+			 $.ajax({
+			       type : "POST",
+			       url : "fund.do",
+			       data : { 
+			    	   "seq" : seq,
+			    	   "roomnum" : roomnum,
+			    	   "reservdate" : reservdate,
+			       },
+			       success : function(data) {
+			          if (data == "success") {
+			        	  alert("환불 완료했습니다.");
+			        	  $("#result").load("sendMailForm.do?id=" + data.id);
+			        	  window.location.reload();
+			             return;
+			          }
+			       },
+			       error : function(request, status, error) {
+			          alert("잘못된 접근입니다.");
+			       }
+			    });
+		}else{
+				alert("환불 취소했습니다.");
+	            return;
+		}
+		
+	   
+	}
+
+	function cle() {
+		alert("환불 완료했습니다.");
+	}
 
 
-
-function cle() {
-	alert("환불 완료했습니다.");
-}
 </script>
 <title>지점장 관리화면</title>
 </head>
@@ -133,8 +136,9 @@ function cle() {
 								<!--  reservdate-->
 								<td>${list.reservdate }</td>
 								<c:if test="${list.status==-2}">
-									<td><button
-											onclick="cancelPay('${list.roomnum}','${list.seq }','${list.reservdate }')">환불하기</button></td>
+									<td>									<!-- roomnum,seq,reservdate -->
+									<input type="button" onclick="cancelPay(${list.roomnum},${list.seq},${list.reservdate})" value="테스트" />
+									</td>
 								</c:if>
 								<c:if test="${list.status==-1}">
 									<td>환불완료</td>

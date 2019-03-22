@@ -290,13 +290,17 @@ header{
 
 #re{
 	margin-top: 87%;
-	position:relative;
+	position:fixed;
+	top:-50%;
+	width:145px;
 	right: 20px;	
 }
 
 
 /* 하단 푸터 영역 */
 footer {
+	position:relative;
+	top:50px;
 	margin-bottom: 0%;
 	width: 100%;
 	height: auto;
@@ -620,7 +624,7 @@ header{
 #rtd{
 	width: 15%;
 	position:fixed;
-	top:-70%; 
+	top:-60%;
 	right: 10px;
 }
 .rdiv{
@@ -636,7 +640,7 @@ header{
 }
 
 #re{
-	top:-70%; 
+	top:-45%; 
 	position:fixed;
 	right: 20px;	
 }

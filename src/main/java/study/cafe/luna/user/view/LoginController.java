@@ -24,7 +24,7 @@ public class LoginController {
 		String param=req.getHeader("REFERER");
 		String redirectUrl="";
 		if(param==null) {
-			redirectUrl="/home.udo";
+			redirectUrl="/home.do";
 		}else {
 			String url=new URI(req.getHeader("referer")).getPath().substring(5);
 			int paramStr=param.lastIndexOf("?")+1;
@@ -42,7 +42,7 @@ public class LoginController {
 		String param=req.getHeader("REFERER");
 		String redirectUrl="";
 		if(param==null) {
-			redirectUrl="/home.udo";
+			redirectUrl="/home.do";
 		}else {
 			String url=new URI(req.getHeader("referer")).getPath().substring(5);
 			int paramStr=param.lastIndexOf("?")+1;

@@ -37,12 +37,12 @@
 	 </sql>
 	 
 	 
-	 <select id="Refund" resultType="Refund">
+	 <update id="Refund">
 	 <![CDATA[
 	 	select SUBSTR(reservstate,0,INSTR(reservstate,(select SUBSTR(reservetime,0,5) from roompayment where seq=#{seq}))-1)||SUBSTR(reservstate,INSTR(reservstate,(select SUBSTR(reservetime,LENGTH(reservetime)-4,LENGTH(reservetime)) from roompayment where seq=#{seq}))+5,LENGTH(reservstate)) from roomreserv where  
 	 	to_char(startdate,'yy/MM/dd') like #{reservdate} and roomnum=#{roomnum}
 	 	]]>
-	 </select>
+	 </update>
 	
 	
 </mapper> 

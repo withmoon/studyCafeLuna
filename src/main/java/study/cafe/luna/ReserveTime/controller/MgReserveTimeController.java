@@ -66,7 +66,7 @@ public class MgReserveTimeController {
 		// 통계계산
 		mgReserveTimeService.mgsu(list, vo);
 
-		mv.addObject("map",map);
+		mv.addObject("map", map);
 		mv.addObject("vo", vo);
 		mv.setViewName("/manager/body/reserveTime/mgTime");
 
@@ -101,9 +101,11 @@ public class MgReserveTimeController {
 			HttpSession session) {
 		Calendar mon = Calendar.getInstance();
 		mon.add(Calendar.MONTH, -1);
+		// 한달전
+		String beforeMonth = new java.text.SimpleDateFormat("yy/MM/dd").format(mon.getTime());
 
 		if (paid_at_start == null || paid_at_start.equals("")) {
-			paid_at_start = new SimpleDateFormat("yy/MM/dd").format(new Date());
+			paid_at_start = beforeMonth;
 		}
 		if (paid_at_end == null || paid_at_end.equals("")) {
 			paid_at_end = new SimpleDateFormat("yy/MM/dd").format(new Date());
@@ -111,24 +113,24 @@ public class MgReserveTimeController {
 
 		// 李⑦듃 �뜲�씠�꽣
 		String branchName = (String) session.getAttribute("branchName");
-		//List<RoomPaymentDTO> termSaleslist = prser.getTermSales(paid_at_start, paid_at_end);
+		// List<RoomPaymentDTO> termSaleslist = prser.getTermSales(paid_at_start,
+		// paid_at_end);
 		List<ReserveTimeDTO> list2 = mgReserveTimeService.getreservcount(paid_at_start, paid_at_end, branchName);
-	//	List<ReserveTimeDTO> list = mgReserveTimeService.getchart(paid_at_start, paid_at_end);
+		// List<ReserveTimeDTO> list = mgReserveTimeService.getchart(paid_at_start,
+		// paid_at_end);
 		return list2;
 
 	}
-	
-	@RequestMapping(value = "/mgchart.do", method = RequestMethod.POST)
-	public @ResponseBody List<ReserveTimeDTO> getTermSales(
-			@RequestParam(value = "paid_at_start") String paid_at_start,
-			@RequestParam(value = "paid_at_end") String paid_at_end, ReserveTimeDTO vo,
-			HttpSession session) {
 
-		//한달전
+	@RequestMapping(value = "/mgchart.do", method = RequestMethod.POST)
+	public @ResponseBody List<ReserveTimeDTO> getTermSales(@RequestParam(value = "paid_at_start") String paid_at_start,
+			@RequestParam(value = "paid_at_end") String paid_at_end, ReserveTimeDTO vo, HttpSession session) {
+
+		// 한달전
 		Calendar mon = Calendar.getInstance();
-		mon.add(Calendar.MONTH , -1);
+		mon.add(Calendar.MONTH, -1);
 		String beforeMonth = new java.text.SimpleDateFormat("yy/MM/dd").format(mon.getTime());
-		
+
 		if (paid_at_start == null || paid_at_start.equals("")) {
 			paid_at_start = beforeMonth;
 		}
@@ -140,7 +142,7 @@ public class MgReserveTimeController {
 		List<RoomPaymentDTO> termSaleslist = prser.getTermSales(paid_at_start, paid_at_end);
 		List<ReserveTimeDTO> list = mgReserveTimeService.getreservcount(paid_at_start, paid_at_end, branchName);
 		return list;
- 
+
 	}
 
 	@RequestMapping(value = "/report.do", method = RequestMethod.GET)

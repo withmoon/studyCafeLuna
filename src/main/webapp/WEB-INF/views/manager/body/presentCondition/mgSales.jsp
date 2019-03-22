@@ -66,7 +66,7 @@ $.ajax({
 		<!-- 중앙세션 -->
 		<section id="msec">
 			<div id=header>
-				<header>회원 관리</header>
+				<header>회원 정보</header>
 			</div>
 			
 			<div>

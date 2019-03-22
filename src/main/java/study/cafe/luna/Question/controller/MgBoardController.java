@@ -1,8 +1,15 @@
 package study.cafe.luna.Question.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MgBoardController {
@@ -32,11 +39,11 @@ public class MgBoardController {
 //	  public ModelAndView mailSending(HttpServletRequest request, QuestionBoardDTO
 //	  vo, HttpSession session) throws Exception {
 //	  
-//	  // String setfrom = "gur792816@gmail.com"; //蹂대궡�뒗�씠? String setfrom =
-//	  "manager@gmail.com"; String tomail = request.getParameter("tomail"); // 諛쏅뒗
-//	  �궗�엺 �씠硫붿씪 String title = "["+(String)
+//	  // String setfrom = "gur792816@gmail.com"; //蹂대궡�뒗�씠?
+//	  String setfrom ="manager@gmail.com"; String tomail = request.getParameter("tomail"); // 諛쏅뒗
+//	  String title = "["+(String)
 //	  session.getAttribute("branchName")+"]"+" 臾몄쓽�븯�떎 湲��뿉 �떟蹂��씠 �떖�졇�뒿�땲�떎" ;//
-//	  �젣紐� String content =
+//	  String content =
 //	  request.getParameter("content1")+"\r\n\r\n"+request.getParameter("content2");
 //	  // �궡�슜 MimeMessage message = mailSender.createMimeMessage(); try {
 //	  
@@ -64,7 +71,7 @@ public class MgBoardController {
 //	  mv.setViewName("/body/mailForm"); return mv;
 //	  
 //	  }
-//	  
+	  
 //	  @RequestMapping(value = "/mgGong.mdo") public ModelAndView
 //	  informView(@RequestParam(defaultValue = "title") String
 //	  searchOption,@RequestParam(defaultValue = "") String keyword,

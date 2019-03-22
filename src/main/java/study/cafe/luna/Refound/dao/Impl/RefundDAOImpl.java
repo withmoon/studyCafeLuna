@@ -35,9 +35,7 @@ public class RefundDAOImpl implements RefundDAO {
 		System.out.println(roomnum);
 		System.out.println(reservdate);
 		
-		String reservtime= sqlSession.selectOne("refundDAO.Refund",map);
-		System.out.println(reservtime);
-		
+		sqlSession.update("refundDAO.Refund",map);
 	}
 	//환불 현황
 		@Override
