@@ -43,7 +43,10 @@ input, textarea {
 .rbox input {
     width: 75%;
 }
-
+.rbox button{
+    position:relative;
+    left:10px;
+}
 /*댓글 올리기*/
 .replytextForm {
     border-top: 0.2vw solid #777;

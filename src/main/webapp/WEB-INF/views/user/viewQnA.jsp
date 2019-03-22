@@ -12,16 +12,13 @@
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 </head>
 <body style="overflow-x:hidden; overflow-y:auto;">
-<header>
+<!-- 상단로고 -->
+<a href="<c:url value="/home.do"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
+<div class="top">자주묻는질문</div>
 <!-- 상단 메뉴 -->
 <nav>
 <%@ include file="../public/topmenu.jsp" %>
 </nav>
-</header>
-
-<!-- 상단로고 -->
-<a href="<c:url value="/home.do"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
-<div class="top">자주묻는질문</div>
 
 <section>
 <div class="border">

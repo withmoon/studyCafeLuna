@@ -49,7 +49,20 @@ function idCheck(){
 		alert("아이디를 입력해 주세요.");
 		$("#id").focus();
 		return;
-	}else{
+	}
+	if(id.substring(0,2)=="k#"){
+		alert("사용할수 없는 아이디입니다.");
+		$("#id").focus();
+		return;
+	}
+	if(id!=''){
+		 var idReg =  /^[a-z]+[a-z0-9]{0,19}$/g;
+	        if(!idReg.test(id)) {
+	            alert("아이디는 영문자와 숫자함께 입력 해주셔야합니다.");
+	            return;
+	        }
+	}
+		alert("왜 안오냐");
 		var popupX = (window.screen.width / 2) - (200 / 2);
 		var popupY= (window.screen.height /2) - (300 / 2);
 		
@@ -71,7 +84,7 @@ function idCheck(){
 		form.submit();
 		
 		document.body.removeChild(form);
-	}
+
 }
 
 function inputCheck() {	
@@ -85,9 +98,9 @@ function inputCheck() {
 	}
 	
 	if(sub!=''){
-		 var idReg = /^[a-z]+[a-z0-9]{5,19}$/g;
+		 var idReg = /^[a-z]+[a-z0-9]$/g;
 	        if(!idReg.test(sub)) {
-	            alert("아이디는 영문자로 시작하는 6~20자 영문자 또는 숫자이어야 합니다.");
+	            alert("아이디는 영문자와 숫자만 입력 가능합니다.");
 	            return false;
 	        }
 	}

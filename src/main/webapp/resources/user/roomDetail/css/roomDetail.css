@@ -3,11 +3,25 @@
    margin:0;
    font-family: 'Gamja Flower', cursive;
 }
+nav{
+	position:relative;
+	top:30px;
+}
+.top{
+	position:relative;
+	top:-76px;
+	left:-27%;
+	width:auto;
+	text-align:center;
+	font-size: 4vw;
+	color: tan; 
+	text-shadow: 1px 2px gray;
+}
 /* 방 간략 소개 구간 */
 .roomExp{
    position:relative;
-   top:20px;
-   left:2%;
+   top:-50px;
+   left:60px;
    width:77%;
    height:260px;
    background-color:#b5a495;
@@ -25,21 +39,21 @@
 .roomExp #roomExplain{
    position:relative;
    left:48%;
-   top:18%;
+   top:14%;
 }
 /* 구역 나눔 */
 .rsec{
    position:relative;
-   left:74%;
-   top:-56%;
+   left:72%;
+   top:-61%;
    height:80%;
    border-left:1px solid #efefef;
 }
 /* 간략지점 소개 */
 .roomExp #branchExplain{
    position:relative;
-   left:78%;
-   top:-128%;
+   left:76%;
+   top:-140%;
    
 }
 /* 카카오 링크 이미지 */
@@ -75,8 +89,8 @@
 /* 스케줄 */
 #showSchedule{
    position:relative;
-   top:45px;
-   left:2%;
+   top:-30px;
+   left:60px;
    width:74.5%;
    height:15%;
    border: 2px solid #b5a495;
@@ -149,8 +163,7 @@ input[type=date]{
 /* 내용 삽입 구간 */
 .content{
    position:relative;
-   top:70px;
-   left:2%;
+   left:60px;
    width:70.8%;
    height:auto;
    border: 2px solid #c0c0c0;
@@ -174,8 +187,8 @@ input[type=date]{
 /* 리뷰 */
 .review{
    position:relative;
-   top:100px;
-   left:2%;
+	top:20px;
+   left:60px;
    width:70.8%;
    height:auto;
    border: 2px solid #fee181;
@@ -203,7 +216,7 @@ input[type=date]{
 footer{
    position:relative;
    bottom:-200px;
-   left:2%;
+    left:60px;
    font-size:1.23vw;
 }
 .sec{

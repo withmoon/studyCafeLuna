@@ -1,11 +1,14 @@
 package study.cafe.luna.user.view;
 
+import java.io.PrintWriter;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +58,7 @@ public class MypageController {
 	}
 	@Transactional
 	@RequestMapping(value="/mypage.do", method=RequestMethod.POST)
-	public ModelAndView mainView(@RequestParam(value="stat", required=false,defaultValue="")String stat,RoomReserveDTO romre,HttpServletRequest req,RedirectAttributes rdab,HttpSession session,MemberDTO memcom,RoomInfoDTO romin, RoomPaymentDTO rompay) throws Exception{
+	public ModelAndView mainView(@RequestParam(value="stat", required=false,defaultValue="")String stat,RoomReserveDTO romre,HttpServletResponse respone,HttpServletRequest req,RedirectAttributes rdab,HttpSession session,MemberDTO memcom,RoomInfoDTO romin, RoomPaymentDTO rompay) throws Exception{
 		ModelAndView mav=new ModelAndView();
 		
 		MemberDTO memcomID=(MemberDTO)session.getAttribute("member");
@@ -73,6 +76,21 @@ public class MypageController {
 			//예약 테이블 확인
 			romre.setRoomNum(romin.getRoomNum());
 			
+//			//디비에 결제가 들어가있는지 먼저 확인
+//			romre.setStartdate(rompay.getReservdate());
+//			StringTokenizer st=new StringTokenizer(rompay.getReserveTime(), ",");
+//			while(st.hasMoreTokens()) {
+//				romre.setReservstate(st.nextToken());
+//				Integer result=parser.checkIsPayed(romre);
+//				if(result!=null) {
+//					respone.setContentType("text/html; charset=UTF-8");
+//					PrintWriter out = respone.getWriter();
+//					respone.setCharacterEncoding("utf-8");
+//					out.println("<script>alert('죄송합니다. 방금전 고객님께서 예약하신 시간대가 마감되었습니다.'); history.go(-1);</script>");
+//					out.flush();
+//					return;
+//				}
+//			}	 --테스터 파라미터중 결제 직전 콜백 메서드가 없어 결제가 되버리므로 처리 못함
 			if(rompay.getReserveEndTime()==""||rompay.getReserveEndTime()==null) {
 				romre.setStartdate(rompay.getReservdate());
 				romre.setReservstate(rompay.getReserveTime());

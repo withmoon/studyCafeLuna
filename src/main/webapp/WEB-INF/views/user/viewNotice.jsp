@@ -15,16 +15,14 @@
 <script src="<c:url value="/resources/util/js/paging.js"/>"></script>
 </head>
 <body style="overflow-x:hidden; overflow-y:auto;">
-<header>
+<!-- 상단로고 -->
+<a href="<c:url value="/home.do"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
+<div class="top">공지사항</div>
+
 <!-- 상단 메뉴 -->
 <nav>
 <%@ include file="../public/topmenu.jsp" %>
 </nav>
-</header>
-
-<!-- 상단로고 -->
-<a href="<c:url value="/home.do"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
-<div class="top">공지사항</div>
 
 <section>
 <div class="border">

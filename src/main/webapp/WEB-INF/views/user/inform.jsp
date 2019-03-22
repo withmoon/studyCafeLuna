@@ -16,26 +16,14 @@
 <body style="overflow-x:hidden; overflow-y:auto;">
 
 
+
+<!-- 상단로고 -->
+<a href="<c:url value="/home.do"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a><div class="top">고객센터</div>
+
 <!-- 상단 메뉴 -->
 <nav>
 <%@ include file="../public/topmenu.jsp" %>
 </nav>
-
-<!-- 상단로고 -->
-<a href="<c:url value="/home.do"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
-<div class="top">고객센터</div>
-<!-- 고/공/자 이미지 -->
-<section class="menu">
-<a class="informNotice">
-	<img onmouseenter="this.src='<c:url value="/resources/user/inform/images/announcein.png"/>'" onmouseleave="this.src='<c:url value="/resources/user/inform/images/announce.png"/>'"  src="<c:url value='/resources/user/inform/images/announce.png'/>"/>
-</a> <!-- 공지사항 -->
-<a class="informQnA">
-	<img onmouseenter="this.src='<c:url value="/resources/user/inform/images/questionin.png"/>'" onmouseleave="this.src='<c:url value="/resources/user/inform/images/question.png"/>'" src="<c:url value='/resources/user/inform/images/question.png'/>"/>
-</a> <!-- 자주묻는질문 -->
-<a class="informUser">
-	<img onmouseenter="this.src='<c:url value="/resources/user/inform/images/userin.png"/>'" onmouseleave="this.src='<c:url value="/resources/user/inform/images/user.png"/>'" src="<c:url value='/resources/user/inform/images/user.png'/>"/>
-</a> <!-- 고객의 소리 -->
-</section>
 
 <!-- 공지 +자주묻는 질문 -->
 <section class="list_tab">
@@ -88,6 +76,19 @@
 	</div>
 </c:if>
 </div> 
+</section>
+
+<!-- 고/공/자 이미지 -->
+<section class="menu">
+<a class="informNotice">
+	<img onmouseenter="this.src='<c:url value="/resources/user/inform/images/announcein.png"/>'" onmouseleave="this.src='<c:url value="/resources/user/inform/images/announce.png"/>'"  src="<c:url value='/resources/user/inform/images/announce.png'/>"/>
+</a> <!-- 공지사항 -->
+<a class="informQnA">
+	<img onmouseenter="this.src='<c:url value="/resources/user/inform/images/questionin.png"/>'" onmouseleave="this.src='<c:url value="/resources/user/inform/images/question.png"/>'" src="<c:url value='/resources/user/inform/images/question.png'/>"/>
+</a> <!-- 자주묻는질문 -->
+<a class="informUser">
+	<img onmouseenter="this.src='<c:url value="/resources/user/inform/images/userin.png"/>'" onmouseleave="this.src='<c:url value="/resources/user/inform/images/user.png"/>'" src="<c:url value='/resources/user/inform/images/user.png'/>"/>
+</a> <!-- 고객의 소리 -->
 </section>
 
 <!-- footer -->

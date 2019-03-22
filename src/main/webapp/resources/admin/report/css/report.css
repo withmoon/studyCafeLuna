@@ -1,9 +1,3 @@
-/*#msec{
-	align: center;
-	
-}*/
-
-
 
 header {
 	border-bottom: 1px solid black;
@@ -55,11 +49,6 @@ header {
 	background-color: #EBEBEB;
 	color: black;
 }
-
-#showListBtn {
-	margin:15%; padding:10px; float:right;
-}
-
 .board{
 	margin-left: 15%;
 	margin-top: 5%;
@@ -70,7 +59,7 @@ header {
 #showlistBtn {
 	position:relative;
 	top: 20px;
-	left: 78%;
+	left: 69%;
 }
 
 .board{

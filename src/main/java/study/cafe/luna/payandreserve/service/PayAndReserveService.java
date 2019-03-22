@@ -34,4 +34,6 @@ public interface PayAndReserveService {
 	List<RoomPaymentDTO> getTermSales(String paid_at_start, String paid_at_end);
 	//baseLine 설정
 	 void setBaseLine(RoomPaymentDTO dto);
+	 //결제 전 확인
+	 Integer checkIsPayed(RoomReserveDTO romre);
 }

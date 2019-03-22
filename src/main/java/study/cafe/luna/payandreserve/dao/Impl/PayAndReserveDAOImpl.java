@@ -90,4 +90,8 @@ public class PayAndReserveDAOImpl implements PayAndReserveDAO {
 	public void upReserveRoom(RoomReserveDTO romre) {
 		sqlSession.update("payAndReservDAO.upReserveRoom",romre);
 	}
+	@Override
+	public Integer checkIsPayed(RoomReserveDTO romre) {
+		return sqlSession.selectOne("payAndReservDAO.checkIsPayed",romre);
+	}
 }

@@ -10,16 +10,6 @@ function hideUpdateForm(){
 var stat=0;
 function inputCheck() {	
 	
-	var sub=$("#id").val();
-	
-	if(sub.substring(0,2)=="k#"){
-		alert("사용할수 없는 아이디입니다.");
-		$("#id").focus();
-		return false;
-	}
-	
-	
-	
 	var regExphone = /^\d{3}-\d{3,4}-\d{4}$/;
 	var tel=$("#phone").val();
 	

@@ -37,4 +37,6 @@ public interface PayAndReserveDAO {
 	 void setBaseLine(RoomPaymentDTO dto);
 	 //이미 끝난 내역
 	 List<MyPageInfoDTO> getUserReservedInfo(MemberDTO memcom);
+	 //결제 전 확인
+	 Integer checkIsPayed(RoomReserveDTO romre);
 }

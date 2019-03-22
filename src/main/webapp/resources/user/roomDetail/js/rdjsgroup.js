@@ -335,12 +335,10 @@ function showReview(rvcurpage){
 					strDom+='작성자 : '+data.rvlist[i].name+'<br/><br/>';
 					if(data.member.position=='총관리자'||data.member.position=='관리자'){
 						strDom+='<label id="revct">'+data.rvlist[i].reviewContent+'</label> <button onclick="delreview('+data.rvlist[i].roomNum+',&#039'+data.rvlist[i].id+'&#039)">삭제</button><br/>';
-					}
-					if(data.member.id==data.rvlist[i].id){
+					}else if(data.member.id==data.rvlist[i].id){
 						strDom+='<label id="revct">'+data.rvlist[i].reviewContent+'</label> &emsp;<button class="upbt" onclick="upreview('+data.rvlist[i].roomNum+',&#039'+data.rvlist[i].reviewContent+'&#039)">수정하기</button> <button hidden="true" class="cupbt" onclick="cancleUpReview('+data.rvlist[i].roomNum+',&#039'+data.rvlist[i].reviewContent+'&#039)">수정 취소</button> <button onclick="delreview('+data.rvlist[i].roomNum+')">삭제</button><br/>';
 						continue;
-					}
-					if(data.member.id==''|| data.member.id==null){
+					}else{
 						strDom+=data.rvlist[i].reviewContent+'<br/>';
 					}
 					

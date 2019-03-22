@@ -37,6 +37,7 @@ IMP.request_pay({
     buyer_name : name, //id
     buyer_tel : phone, //번호
     company : '달빛 스터디카페'+branchName //지점명
+    
 }, function(rsp) {
     if ( rsp.success ) {
     	//alert(rsp.receipt_url);

@@ -6,45 +6,37 @@
 }
 nav{
 	position:relative;
-	top:150px;
+	top:25px;
 }
 
-.memberUl{
-	postion:absolute;
-	top:20px;	
-}
-.topUl{
-	top:-40px;
-}
-a .logo{
-	position:absolute;
-}
-
-/* 타이틀 */
 .top{
-	position:absolute;
-	top:2%;
-	left:15%;
+	position:relative;
+	top:-76px;
+	left:-31%;
 	width:auto;
 	text-align:center;
-	font-size: 2vw;
-	color: #686868; 
+	font-size: 4vw;
+	color: tan; 
+	text-shadow: 1px 2px gray;
 }
+
 /* 상단 이미지 메뉴 */
 .menu{
-	position:relative;
-	top:130px;
-	left:25%;
+	position:absolute;
+	top:180px;
+	left:250px;
+	width:500px;
 	
 }
 .menu img{
-	width:15%;
+	width:150px;
 	margin:1%;
 }
 .list_tab{
-	position:relative;
-	top:30px;
-	left:20%;
+	position:absolute;
+	top:220px;
+	left:105px;
+	width:860px;
 }
 
 /*공지사항_자주묻는질문*/
@@ -60,7 +52,7 @@ table{
 table th{
 	border-top:2px solid tan; 
 	border-bottom:2px solid tan; 
-	width:230px;
+	width:270px;
 	font-size: 2vw;
 	background:tan;
 }
@@ -89,13 +81,15 @@ a:hover {
 /* 고객의 소리 */
 .inform_user {
 	border:2px solid tan;
-	width: 70%;
+	width:800px;
 	position:relative;
 	top: 130px;
-	left:15%;
+	left:70px;
 
 }
-
+select{
+	padding:5px;
+}
 .list_tab2 div {
 	padding: 2%;
 }
@@ -179,6 +173,12 @@ p{
 /*footer*/
 footer{
 	padding: 15% 0 0 0;
-	position:relative;
-	bottom: -200px;
+	position:absolute;
+	bottom:-220px;
+	width:890px;
+	font-size:14px;
+	left:56px;
+}
+#informPaging{
+	left:350px;
 }

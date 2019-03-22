@@ -4,6 +4,14 @@
 	position:relative;
 	left: 65%;
 }
+.searchArea{
+	position:relative;
+	top:30px;
+	left:100px;
+}
+#searchOption{
+	padding:4px;
+}
 
 /*회원정보 버튼*/
 .info-container {

@@ -37,7 +37,7 @@ public class SendFindthingController {
 		String title ="";
 		String content ="";
 		if(memcom.getId().equals("")) {
-			if(memDAO.findId(memcom).equals("")||memDAO.findId(memcom).equals(null)) {
+			if(memDAO.findId(memcom)==null||memDAO.findId(memcom).equals("")) {
 				obj.put("fail", "true");
 				return obj;
 			}else{
@@ -45,7 +45,7 @@ public class SendFindthingController {
 				content ="고객님의 아이디는 [ "+ memDAO.findId(memcom)+" ] 입니다.";
 			}
 		}else {
-			if(memDAO.findpw(memcom).equals("")||memDAO.findpw(memcom).equals(null)) {
+			if(memDAO.findpw(memcom)==null||memDAO.findpw(memcom).equals("")) {
 				obj.put("fail", "true");
 				return obj;
 			}else{

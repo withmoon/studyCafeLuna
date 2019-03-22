@@ -21,7 +21,7 @@
 
 <%@include file="../admin/footer.jsp" %>
  <div align="center"><h3>회원관리게시판</h3></div>
-    <table>
+    <table class="searchArea">
       <tr>
          <td><select id="searchOption" name="searchOption">
                <option value="all">전체</option>

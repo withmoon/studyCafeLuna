@@ -5,44 +5,29 @@
    font-family: 'Gamja Flower', cursive;
 }
 nav{
-   position:relative;
-   top:150px;
+	position:relative;
+	top:25px;
 }
 
-.memberUl{
-   postion:absolute;
-   top:20px;   
-}
-.topUl{
-   top:-40px;
-}
-a .logo{
-   position:absolute;
-}
-
-/* 타이틀 */
 .top{
-   position:absolute;
-   top:2%;
-   left:15%;
-   width:auto;
-   text-align:center;
-   font-size: 2vw;
-   color: #686868; 
+	position:relative;
+	top:-75px;
+	left:-29%;
+	width:auto;
+	text-align:center;
+	font-size: 38px;
+	color: tan; 
+	text-shadow: 1px 2px gray;
 }
 /*본문*/
 .border {
-   border-radius: 2em;
-   border-top-left-radius: 2em;
-   border-top-right-radius: 2em;
-   border-bottom-left-radius: 2em;
-   border-bottom-right-radius: 2em;
+   border-radius: 10px;
    border: 2px solid tan;
     padding:1%;
     position:relative;
-    top : 150px;
-    width: 80%;
-    left: 9%;
+	top:-60px;
+    width: 833px;
+    left: 60px;
     font-size: 2vw;
 }
 /*제목*/
@@ -54,17 +39,17 @@ a .logo{
 .title b { 
     font-size : 3vw; color : #003366;
     position:relative;
-    left: 5%;
+    left:10px;
 }
 
 .writer {
     position:relative;
-    left: 60%;
+    left:310px;
 }
 
 .date {
     position:relative;
-    left: 65%
+    left: 340px;
 }
 /*내용*/
 .content {

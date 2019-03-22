@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainController {
 
 	
-	@RequestMapping("moveUserMode.ado")
+	@RequestMapping("moveUserMode.do")
 	public String moveUserMode(){
 		return "/public/mainpage";
 	}
-	@RequestMapping("moveAdminMode.ado")
+	@RequestMapping("moveAdminMode.do")
 	public String moveAdminMode() {
 		return "/admin/admin";
 	}

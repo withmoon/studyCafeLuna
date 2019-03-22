@@ -1,11 +1,25 @@
 @charset "UTF-8";
 
 * { font-family: 'Gamja Flower', cursive; margin:0;}
+nav{
+	position:relative;
+	top:30px;
+}
+.top{
+	position:relative;
+	top:-76px;
+	left:-31%;
+	width:auto;
+	text-align:center;
+	font-size: 4vw;
+	color: tan; 
+	text-shadow: 1px 2px gray;
+}
 /*정보*/
 .myinformation{
 	position: relative;
-	top: 50px;
-	left: 5%;
+	top:-60px;
+	left:60px;
 	font-size: x-large;
 	color: #686868; 
 }
@@ -14,28 +28,18 @@
 	width:9%;
 	position:relative;
 	float:right;
-	left:-17%;
-	top:35px;
+	left:-260px;
+	top:33px;
 	border:1px solid tan;
 	background-color:seashell;
 }
-.deer2{
-	width:8.7%;
-	padding:4px;
-	position:relative;
-	float:right;
-	left:-21%;
-	top:4px;
-	border:1px solid gray;
-	background-color: lightgray;
-}
 .infoline1{ 
-	width:90%;
+	width:860px;
 	positon:relative;
 	left:10px;
 }
 .infoline2{ 
-	width:90%;
+	width:860px;
 	positon:relative;
 	left:10px;
 }
@@ -84,19 +88,18 @@ b{
 /*즐겨찾기*/
 .favorites1{
 	position:relative;
-	font-size: 2.6vw;
+	top:-30px;
+	font-size: 28px;
 	color: teal;
-	top: 70px;
-	left: 6%;
+	left: 60px;
 }
 .favorlist{
 	position:relative;
 	top:14px;
 	border:15px groove BurlyWood ;
 	background-color:DarkSlateGray ;
-	width:80%;
+	width:830px;
 	height:550px;;
-	left:3%;
 }
 .favorlist img{
 	width:250px;
@@ -132,7 +135,7 @@ b{
 /*예약현황타이틀*/
 .reservation{
 	position: relative;
-	top:120px;
+	top:50px;
 	left:5%;
 }
 .reservation img{
@@ -140,7 +143,7 @@ b{
 	height:120px;
 }
 .reservlabel{
-	font-size: 2.6vw;
+	font-size: 26px;
 }
 #display2{
 	position:relative;
@@ -156,7 +159,7 @@ b{
 	top:10px;
 	text-align:center;
 	border:20px groove lightgray;
-	width:760px;
+	width:720px;
 	height:530px;
 	padding:5%;
 }
@@ -337,6 +340,11 @@ footer{
 	width:102%;
 	margin:0 -5% 0 0;
 }
+.sec{
+	position:relative;
+	left:10px;
+	top:4px;
+}
 #fvPaging{
 	margin:1%;
 	position:relative;
@@ -382,7 +390,7 @@ a:hover{
 	left:6%;
 	font-size:1.7vw;
 	color:black;
-	width:87%;
+	width:850px;
 	
 }
 .ntlnon table{

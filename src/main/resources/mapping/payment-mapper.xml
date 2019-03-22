@@ -7,6 +7,11 @@
 	<select id="checkReservStartdate" resultType="Integer">
 		<![CDATA[select reservNumber from roomreserv where roomnum=#{roomNum} and to_char(startdate,'yyyy-mm-dd') like #{startdate}]]>
 	</select>
+	
+	<!-- 결제 전 같은 시간대 같은 일정의 결제가 있는지 2차 확인 -->
+	<select id="checkIsPayed"  resultType="Integer">
+		select seq from roompayment where roomnum=#{roomNum} and reservdate=#{startdate} and reservetime like '%'||#{reservstate}||'%'
+	</select>
 
 	<!-- 예약 집어넣기 -->
 	<insert id="inReserveRoom">

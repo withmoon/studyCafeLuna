@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import study.cafe.luna.event.dao.Impl.EventBoardDAOImpl;
+import study.cafe.luna.event.dao.EventBoardDAO;
 import study.cafe.luna.event.dto.EventBoardDTO;
 import study.cafe.luna.event.service.EventBoardService;
 
@@ -15,7 +15,7 @@ import study.cafe.luna.event.service.EventBoardService;
 public class EventBoardServiceImpl implements EventBoardService{
    
    @Autowired
-   EventBoardDAOImpl eventBoardImpl;
+   EventBoardDAO eventBoardImpl;
    
    //진행이벤트목록
    @Override

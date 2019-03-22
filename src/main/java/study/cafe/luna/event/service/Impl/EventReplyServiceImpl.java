@@ -7,14 +7,14 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import study.cafe.luna.event.dao.Impl.EventReplyDAOImpl;
+import study.cafe.luna.event.dao.EventReplyDAO;
 import study.cafe.luna.event.dto.EventReplyDTO;
 import study.cafe.luna.event.service.EventReplyService;
 
 @Service
 public class EventReplyServiceImpl implements EventReplyService {
 	@Autowired
-	EventReplyDAOImpl eventReplyDAOImpl;
+	EventReplyDAO eventReplyDAOImpl;
 
 	//댓글 목록
 	@Override

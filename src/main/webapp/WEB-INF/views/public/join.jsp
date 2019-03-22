@@ -69,7 +69,7 @@
 				<tr><td>
 					<input type="text" name="id" id="id" size="43" value="${member.id}" required="required">
 					<label>ID</label>
-					<button onclick="idCheck()">중복확인</button>
+					<input type="button" onclick="idCheck()" value="중복확인">
 				</td></tr>
 				<tr><td>
 					<input type="password" name="pw" id="pw" size="53" value="${member.pw}" required="required" >

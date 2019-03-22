@@ -68,4 +68,8 @@ public class PayAndReserveServiceImpl implements PayAndReserveService{
 	public void setBaseLine(RoomPaymentDTO dto) {
 		pard.setBaseLine(dto);
 	}
+	@Override
+	public Integer checkIsPayed(RoomReserveDTO romre) {
+		return pard.checkIsPayed(romre);
+	}
 }
