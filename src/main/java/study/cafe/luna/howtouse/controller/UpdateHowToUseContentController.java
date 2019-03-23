@@ -27,7 +27,7 @@ public class UpdateHowToUseContentController {
 	@Autowired
 	InsertHowToUseService insertHowToUseService;
 	
-	private String filePath = "C:\\myProject\\MainProject\\studyCafeLuna\\src\\main\\webapp\\resources\\howtouseImg\\";
+	private String filePath = "C:\\Users\\진혁\\git\\studyCafeLuna\\src\\main\\webapp\\resources\\rooms\\";
 
 	@RequestMapping(value = "/updateHowToUse.do", method = RequestMethod.POST)
 	public String updateHowToUse(HowToUseDTO htu, MultipartHttpServletRequest mpreq, HttpServletRequest req)

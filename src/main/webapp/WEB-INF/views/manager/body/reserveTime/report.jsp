@@ -17,7 +17,7 @@
 <script src="<c:url value="/resources/util/js/paging.js"/>"></script>
 <script type="text/javascript"> 
 	function list(page) {
-		location.href = "mgBoard.do?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
+		location.href = "QuestionBoardList.do?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
 	}
 
 	function mail_0(num,email) {
@@ -68,7 +68,7 @@
 
 
 			<div id="board">
-				<form name="form1" method="post" action="mgBoard.do?">
+				<form name="form1" method="post" action="QuestionBoardList.do?">
 					<table id="searchtable">
 						<tr>
 							<td id="searchtd"><!-- <a id="write" onclick=" insertboard()" href="#">글쓰기</a> -->

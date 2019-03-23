@@ -19,7 +19,7 @@ import study.cafe.luna.report.service.ReportService;
 @Controller
 public class UpdateReportController {
 
-	private String filePath = "C:\\myProject\\MainProject\\NewLuna\\Luna\\src\\main\\webapp\\resources\\report\\";
+	private String filePath = "C:\\Users\\진혁\\git\\studyCafeLuna\\src\\main\\webapp\\resources\\rooms\\";
 	@Autowired
 	ReportService rpser;
 

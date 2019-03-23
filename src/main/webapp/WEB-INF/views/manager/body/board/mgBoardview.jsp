@@ -44,14 +44,14 @@ table, th, td {
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#btnList").click(function() {
-			location.href = "mgBoard.do"
+			location.href = "QuestionBoardList.do"
 			//curPage=${curPage}&searchOption=${searchOption}&{keyword}=${keyword}
 		});
 	});
 	//URLEncoder. encodeURIComponent
 	
 	function list(page) {
-		location.href = "mgBoard.do?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
+		location.href = "QuestionBoardList.do?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
 	}
 
 	function mail_0(seq,email) {

@@ -20,14 +20,14 @@ function mail() {
 }
 function cle() {
 	alert("전송완료했습니다.");
-	opener.parent.location="/luna/mgBoard.do";
+	opener.parent.location="/luna/QuestionBoardList.do";
 	window.close();
 }
 
 /* sangdan
 $('#form1').submit();
 
-opener.parent.location="/luna/mgBoard.do";
+opener.parent.location="/luna/QuestionBoardList.do";
 window.close(); */
 </script>
 <!-- document.getElementById('form1').submit(); -->

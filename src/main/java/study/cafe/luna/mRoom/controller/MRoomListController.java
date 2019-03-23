@@ -35,7 +35,7 @@ public class MRoomListController {
 	RoomReviewDAO roomReviewDAO;
 
 	// 저장할 파일폴더
-	String filePath = "C:\\myProject\\myMainProject\\NewLuna\\Luna\\src\\main\\webapp\\resources\\rooms\\";
+	String filePath = "C:\\Users\\진혁\\git\\studyCafeLuna\\src\\main\\webapp\\resources\\rooms\\";
 
 	// 방관리화면
 	@RequestMapping(value = "/mRoom.do")

@@ -25,7 +25,7 @@ public class InsertHowToUseController {
 	@Autowired
 	InsertHowToUseService insertHowToUseService;
 
-	private String filePath = "C:\\myProject\\MainProject\\studyCafeLuna\\src\\main\\webapp\\resources\\howtouseImg\\";
+	private String filePath = "C:\\Users\\진혁\\git\\studyCafeLuna\\src\\main\\webapp\\resources\\rooms\\";
 
 	@RequestMapping(value = "/insertHowToUse.do", method = RequestMethod.POST)
 	public String mainss(HowToUseDTO htu, MultipartHttpServletRequest mpreq, HttpServletRequest req)

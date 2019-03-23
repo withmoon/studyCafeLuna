@@ -28,7 +28,7 @@ public class MRoomInsertController {
 	public MRoomInsertService insertService;
 	
 	//저장할 파일폴더
-	String filePath = "C:\\myProject\\myMainProject\\NewLuna\\Luna\\src\\main\\webapp\\resources\\rooms\\";
+	String filePath = "C:\\Users\\진혁\\git\\studyCafeLuna\\src\\main\\webapp\\resources\\rooms\\";
 
 	// 방생성 insert
 	@RequestMapping(value = "/mRoomInsert.do", method = RequestMethod.POST)

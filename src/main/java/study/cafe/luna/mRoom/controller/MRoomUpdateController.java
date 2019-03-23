@@ -30,7 +30,7 @@ public class MRoomUpdateController {
 	
 	
 	//저장할 파일폴더
-	String filePath = "C:\\Users\\JudeKim\\git\\studyCafeLuna\\src\\main\\webapp\\resources\\rooms\\";
+	String filePath = "C:\\Users\\진혁\\git\\studyCafeLuna\\src\\main\\webapp\\resources\\rooms\\";
 
 	
 	// 수정하기
