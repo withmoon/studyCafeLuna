@@ -27,7 +27,7 @@ public class AdminMailController {
 	@Autowired
 	AdminManagerApproveService adminManagerApproveService;
 	
-	String filePath="C:\\Users\\진혁\\git\\studyCafeLuna\\src\\main\\webapp\\resources\\rooms\\";
+	String filePath="C:\\myProject\\MainProject\\studyCafeLuna\\src\\main\\webapp\\resources\\mailFile\\";
 	
 	  @RequestMapping(value = "/mailSending.do", method = RequestMethod.POST)
 	  public ModelAndView mailSending(HttpServletRequest request, InquiryBoardDTO

@@ -27,7 +27,7 @@ import study.cafe.luna.util.BoardPager;
 
 @Controller
 public class EventBoardwriteController {
-	private String efilePath = "C:\\Users\\진혁\\git\\studyCafeLuna\\src\\main\\webapp\\resources\\rooms\\";
+	private String efilePath = "C:\\myProject\\myMainProject\\NewLuna\\Luna\\src\\main\\webapp\\resources\\eventimg\\";
    
    @Autowired
    EventBoardService eboardService;

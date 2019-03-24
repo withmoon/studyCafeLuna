@@ -29,7 +29,7 @@ public class AllMailController {
 	@Autowired
 	AdminManagerApproveService adminManagerApproveService;
 
-	String filePath = "C:\\Users\\진혁\\git\\studyCafeLuna\\src\\main\\webapp\\resources\\rooms\\";
+	String filePath = "C:\\myProject\\MainProject\\studyCafeLuna\\src\\main\\webapp\\resources\\mailFile\\";
 
 	@RequestMapping(value = "AllMail.do", method = RequestMethod.POST)
 	public String allmail(MultipartHttpServletRequest mpreq, @RequestParam("email") String email,

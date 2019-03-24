@@ -29,7 +29,7 @@ public class SendMailController {
 	@Autowired
 	UpdateApproveservice updateApproveservice;
 
-	String filePath = "C:\\Users\\진혁\\git\\studyCafeLuna\\src\\main\\webapp\\resources\\rooms\\";
+	String filePath = "C:\\myProject\\MainProject\\studyCafeLuna\\src\\main\\webapp\\resources\\mailFile\\";
 
 	@RequestMapping(value = "sendemail.do", method = RequestMethod.POST)
 	public String sendemail(MultipartHttpServletRequest mpreq,
